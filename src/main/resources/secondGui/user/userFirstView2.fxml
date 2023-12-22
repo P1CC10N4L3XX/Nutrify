@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane blendMode="SCREEN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121; -fx-border-radius: 90;" styleClass="borde" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane layoutX="77.0" layoutY="250.0" prefHeight="4.0" prefWidth="121.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+        <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" style="-fx-background-radius: 90; -fx-background-color: #76ff03;" text="Back" />
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+
+        </ImageView>
+        <AnchorPane layoutX="234.0" layoutY="86.0" prefHeight="237.0" prefWidth="3.0" style="-fx-background-color: #000000; -fx-background-radius: 90;" />
+      <Text fill="WHITE" layoutX="84.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+      <Text fill="WHITE" layoutX="82.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname:" />
+      <Button layoutX="76.0" layoutY="266.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="75.0" style="-fx-background-radius: 90; -fx-background-color: #76ff03;" text="Select" />
+      <MenuBar blendMode="ADD" layoutX="14.0" layoutY="14.0" style="-fx-background-color: black;">
+        <menus>
+            <Menu mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Home" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="82.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/icons8-star-50%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="107.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/icons8-star-50%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="111.0" layoutX="96.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="158.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/icons8-star-50%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="133.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Downloads/icons8-star-50%20(1).png" />
+         </image>
+      </ImageView>
+
+    </children>
+</Pane>

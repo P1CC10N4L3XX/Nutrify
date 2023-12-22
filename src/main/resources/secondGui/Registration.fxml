@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="WHITE" layoutX="148.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" textAlignment="CENTER" wrappingWidth="323.2909851074219">
+         <font>
+            <Font name="Tahoma Bold" size="36.0" />
+         </font></Text>
+      <TextField blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="167.0" layoutY="121.0" mouseTransparent="true" prefHeight="27.0" prefWidth="142.0" promptText="Nome" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+         <font>
+            <Font name="Tahoma" size="14.0" />
+         </font>
+      </TextField>
+      <AnchorPane layoutX="201.0" layoutY="81.0" prefHeight="4.0" prefWidth="217.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+      <Button layoutX="170.0" layoutY="257.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="283.0" style="-fx-background-radius: 90; -fx-background-color: #76ff03;" text="Submit" />
+      <AnchorPane layoutX="172.0" layoutY="146.0" prefHeight="4.0" prefWidth="132.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+      <TextField blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="164.0" layoutY="186.0" mouseTransparent="true" prefHeight="27.0" prefWidth="149.0" promptText="Paasword" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+         <font>
+            <Font name="Tahoma" size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="177.0" layoutY="320.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-radius: 90; -fx-background-color: #76ff03;" text="Back" />
+      <Button layoutX="330.0" layoutY="320.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-radius: 90; -fx-background-color: #76ff03;" text="Login" />
+      <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+        
+      </ImageView>
+      <AnchorPane layoutX="173.0" layoutY="211.0" prefHeight="4.0" prefWidth="132.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+      <TextField blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="315.0" layoutY="121.0" mouseTransparent="true" prefHeight="27.0" prefWidth="142.0" promptText="Cognome" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+         <font>
+            <Font name="Tahoma" size="14.0" />
+         </font>
+      </TextField>
+      <TextField blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="315.0" layoutY="186.0" mouseTransparent="true" prefHeight="27.0" prefWidth="142.0" promptText="Email" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+         <font>
+            <Font name="Tahoma" size="14.0" />
+         </font>
+      </TextField>
+      <AnchorPane layoutX="320.0" layoutY="144.0" prefHeight="4.0" prefWidth="132.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+      <AnchorPane layoutX="320.0" layoutY="211.0" prefHeight="4.0" prefWidth="132.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+
+   </children>
+</Pane>

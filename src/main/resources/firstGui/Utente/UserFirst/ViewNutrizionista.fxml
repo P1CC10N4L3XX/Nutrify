@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.utente.UserFirstController">
+    <Pane layoutX="265.0" prefHeight="137.0" prefWidth="910.0" style="-fx-background-color: rgb(50,50,50);">
+        <Pane layoutX="23.0" prefHeight="137.0" prefWidth="138.0" style="-fx-border-color: white; -fx-border-radius: 100; -fx-background-radius: 100; -fx-border-width: 5; -fx-background-image: url('../../Image/Google.png');" />
+      <Text fill="WHITE" layoutX="196.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Nome nutrizionista" wrappingWidth="287.0" />
+    </Pane>
+    <Pane layoutY="-2.0" prefHeight="730.0" prefWidth="265.0" styleClass="dashboardMenu" stylesheets="@../../CSS/Style.css">
+        <ImageView fitHeight="228.0" fitWidth="344.0" layoutX="-38.0" layoutY="-69.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../Image/logo.png" />
+        </ImageView>
+        <Separator layoutY="79.0" prefHeight="27.0" prefWidth="265.0" />
+      <Button layoutX="13.0" layoutY="122.0" mnemonicParsing="false" onAction="#switchHome" prefHeight="69.0" prefWidth="241.0" styleClass="dashboardButton" text="Torna alla home">
+         <graphic>
+             <ImageView fitHeight="41.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                 <Image url="@../../Image/Icons/home.png" />
+             </ImageView>
+         </graphic>
+      </Button>
+    </Pane>
+    <TabPane layoutX="265.0" layoutY="137.0" prefHeight="587.0" prefWidth="910.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab closable="false" style="-fx-padding: 5;" text="Descrizione">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+        <Tab style="-fx-padding: 5;" text="Recensioni">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+    </TabPane>
+
+</Pane>

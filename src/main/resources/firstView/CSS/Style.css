@@ -1,0 +1,19 @@
+.firstView{
+    -fx-background-color: rgba(254,192,32,255);
+}
+Button.firstView{
+    -fx-padding: 10;
+    -fx-background-color: #4287f5;
+    -fx-background-radius: 100;
+}
+.secondView{
+    -fx-background-color: #9fe012;
+}
+Button.secondView{
+    -fx-background-color:white;
+    -fx-background-radius: 100;
+    -fx-padding:10;
+}
+Button:hover{
+    -fx-cursor:hand;
+}

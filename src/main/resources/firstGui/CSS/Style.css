@@ -1,0 +1,29 @@
+.normalButton:hover{
+    -fx-cursor: hand;
+}
+.switchButton{
+    -fx-background-radius: 20;
+    -fx-background-color:  rgba(254,192,32,255);
+    -fx-text-fill:white;
+}
+
+.switchButton:hover{
+    -fx-background-color: #4287f5;
+    -fx-cursor: hand;
+}
+.dashboardMenu{
+    -fx-background-color: rgba(254,192,32,255);
+}
+.dashboardButton{
+    -fx-background-color: rgba(254,192,32,255);
+    -fx-background-radius: 50;
+    -fx-text-fill:white;
+}
+.dashboardButton:hover{
+    -fx-cursor: hand;
+}
+
+#selected.dashboardButton{
+    -fx-background-color: rgb(50,50,50);
+}
+
