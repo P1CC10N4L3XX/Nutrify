@@ -15,7 +15,7 @@ public class NutritionalPlanDashboard {
     public void createNutritionalPlan(ActionEvent event) throws Exception {
 
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Nutritionist/NutritionalListUser.fxml"));
+        root = FXMLLoader.load(getClass().getResource("nutritionist/NutritionalListUser.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);

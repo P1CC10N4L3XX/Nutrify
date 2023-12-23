@@ -44,6 +44,19 @@ public class UserFirstController{
 
     }
 
+    public void nutritionalPlanDashboard(ActionEvent event) throws Exception {
+
+
+        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDashboard.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+
     public void switchPlan(ActionEvent event) throws Exception {
 
 

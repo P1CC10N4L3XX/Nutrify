@@ -39,11 +39,7 @@ public class CreateNutritionalPlanController {
 
 
     //per prende il giorno che e stato selezionato
-    public CreateNutritionalPlanController(String paramentro){
 
-        this.parametro=paramentro;
-
-    }
 
     public void createNutritionalPlan(ActionEvent event){
 
