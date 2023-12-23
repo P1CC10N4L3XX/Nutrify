@@ -15,14 +15,13 @@ public class NutritionalPlanDashboard {
     public void createNutritionalPlan(ActionEvent event) throws Exception {
 
 
-        root = FXMLLoader.load(getClass().getResource("nutritionist/NutritionalListUser.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalListUser.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
-        // NutritionalPlanWeek day = new NutritionalPlanWeek();
 
 
     }

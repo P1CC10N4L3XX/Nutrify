@@ -27,10 +27,10 @@ public class NutritionalPlanWeek {
     }
 
 
-/*
+
     public void day(ActionEvent event) throws Exception{
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Nutritionist/CreateNutritionalPlan.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -40,12 +40,12 @@ public class NutritionalPlanWeek {
 
     }
 
-*/
+
 
 
     public void back(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Nutritionist/NutritionalListUser.fxml"));
+        root = FXMLLoader.load(getClass().getResource("firstGui/nutritionist/NutritionalListUser.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
