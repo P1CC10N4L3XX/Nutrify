@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.NutritionalPlanDashboard">
    <children>
       <Text layoutX="228.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritional plan Dashboard" />
@@ -12,6 +11,6 @@
       <Button fx:id="CreateNutritionalPlan" layoutX="77.0" layoutY="139.0" mnemonicParsing="false" onAction="#createNutritionalPlan" text="CreateNutritionalPlan" />
       <Button fx:id="modifyNutritionalPlan" layoutX="239.0" layoutY="139.0" mnemonicParsing="false" onAction="#modifyNutritionalPlan" text="ModifyNutritionalPlan" />
       <Button fx:id="deleteNutritionalPlan" layoutX="417.0" layoutY="139.0" mnemonicParsing="false" onAction="#deleteNutritionalPlan" text="DeleteNutrtionalPlan" />
+      <Button fx:id="RecipeDashBoard" layoutX="463.0" layoutY="36.0" mnemonicParsing="false" onAction="#recipeDashBoard" text="RecipeDashBoard" />
    </children>
 </AnchorPane>
-

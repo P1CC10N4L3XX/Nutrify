@@ -7,14 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class NutritionalPlanDashboard {
+public class RecipeViewControllerGui {
+
     private Stage stage;
     private Scene scene;
 
     private Parent root;
-    public void createNutritionalPlan(ActionEvent event) throws Exception {
+    public void addRecipe(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalListUser.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/CreateRecipe.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -23,7 +24,7 @@ public class NutritionalPlanDashboard {
 
     }
 
-    public void deleteNutritionalPlan(ActionEvent event) throws Exception {
+    public void deleteRecipe(ActionEvent event) throws Exception {
 
         root = FXMLLoader.load(getClass().getResource(""));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -34,7 +35,7 @@ public class NutritionalPlanDashboard {
 
     }
 
-    public void modifyNutritionalPlan(ActionEvent event) throws Exception {
+    public void modifyRecipe(ActionEvent event) throws Exception {
 
         root = FXMLLoader.load(getClass().getResource(""));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -45,9 +46,9 @@ public class NutritionalPlanDashboard {
 
     }
 
-    public void recipeDashBoard(ActionEvent event) throws Exception {
+    public void back(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/RecipeView.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDashBoard.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
