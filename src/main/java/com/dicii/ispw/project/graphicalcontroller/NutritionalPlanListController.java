@@ -22,7 +22,7 @@ public class NutritionalPlanListController {
 
         String wk = week1.getId();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/firstGui/Nutritionist/NutritionalPlanWeek.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/firstGui/nutritionist/NutritionalPlanWeek.fxml"));
 
         root = loader.load();
 

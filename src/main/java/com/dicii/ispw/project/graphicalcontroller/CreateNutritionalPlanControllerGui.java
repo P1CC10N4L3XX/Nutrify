@@ -9,7 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CreateNutritionalPlanController {
+public class CreateNutritionalPlanControllerGui {
 
     private Stage stage;
     private Scene scene;
@@ -64,7 +64,7 @@ public class CreateNutritionalPlanController {
 
     public void back(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Nutritionist/NutritionalPlanDashboard.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDashboard.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
