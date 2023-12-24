@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.CreateRecipeControllerGui">
     <children>
         <Text layoutX="201.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CreateRecipe Form" textAlignment="CENTER" wrappingWidth="196.251953125" />
         <TextArea layoutX="165.0" layoutY="151.0" prefHeight="79.0" prefWidth="270.0" />
@@ -17,6 +17,7 @@
       <Text layoutX="172.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
       <TextField layoutX="169.0" layoutY="93.0" />
       <Text layoutX="167.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo di Pasto" />
-      <Button layoutX="162.0" layoutY="322.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="162.0" layoutY="322.0" mnemonicParsing="false" onAction="#createRecipeB" text="CreateRecipe" />
+      <Button fx:id="back" layoutX="28.0" layoutY="348.0" mnemonicParsing="false" onAction="#back" text="Back" />
     </children>
 </AnchorPane>
