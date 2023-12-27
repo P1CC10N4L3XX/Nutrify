@@ -7,6 +7,9 @@ public class Nutritionist extends User {
     private String iban;
     private String partitaIva;
 
+    //aggregazione tra nutrizionista e pianoNutrizionale
+    private NutritionalPlan nutritionalPlan;
+
     public Nutritionist(String username, PersonalInfo personalInfo, Credentials credentials){
         super(username,personalInfo,credentials);
     }

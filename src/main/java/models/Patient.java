@@ -6,6 +6,8 @@ import models.record.PersonalInfo;
 
 public class Patient extends User {
 
+
+    //aggregazione tra paziente e pianoNutrizionale
     private NutritionalPlan plan;
     private Nutritionist nutritionist;
 
