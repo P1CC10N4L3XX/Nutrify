@@ -1,4 +1,4 @@
-package models;
+package com.dicii.ispw.project.models;
 
 public class User {
     private String email;
