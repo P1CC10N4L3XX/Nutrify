@@ -1,5 +1,6 @@
-package models;
+package com.dicii.ispw.project.models;
 
+import com.dicii.ispw.project.models.NutritionalPlanDay;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,6 +2,7 @@ module com.example.progetto {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires java.sql;
 
 
     opens com.dicii.ispw.project to javafx.fxml;

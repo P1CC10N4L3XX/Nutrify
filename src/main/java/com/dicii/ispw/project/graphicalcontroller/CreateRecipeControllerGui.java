@@ -34,14 +34,12 @@ public class CreateRecipeControllerGui {
             title = titleField.getText();
             descrizione = descrizioneArea.getText();
 
-            //myLabel.setText("campi non validi");
-           // System.out.println(grammiColazione);
         }
 
         catch(Exception e){
 
 
-            System.out.println(e);
+            System.out.println(event);
         }
 
     }

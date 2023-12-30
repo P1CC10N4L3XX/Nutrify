@@ -1,18 +1,18 @@
-package models;
+package com.dicii.ispw.project.models;
 
-public class Recipe {
+public class Ilnesses {
+
     private int id;
     private final String name;
 
     private final String description;
 
-    private final String category;
 
-    public Recipe(int id, String name, String description, String category){
+    public Ilnesses(int id, String name, String description){
         this.id = id;
         this.name = name;
         this.description = description;
-        this.category = category;
+
     }
     public int getId() {
         return id;
@@ -29,8 +29,5 @@ public class Recipe {
     public String getDescription() {
         return description;
     }
-
-
-
 
 }

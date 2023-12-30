@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Tooltip?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0"
       prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.dicii.ispw.project.utente.UserFirstController">
@@ -43,6 +44,47 @@
                 </ImageView>
             </graphic>
         </Button>
+        <Separator layoutX="2.0" layoutY="621.0" prefHeight="27.0" prefWidth="265.0" />
+        <Pane layoutX="-5.0" layoutY="636.0" prefHeight="94.0" prefWidth="272.0" style="-fx-background-color: rgb(50,50,50);" styleClass="userInfo">
+            <children>
+                <Button id="button" layoutX="185.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
+                    <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Image/Icons/logout.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <tooltip>
+                        <Tooltip text="Logout" />
+                    </tooltip>
+                </Button>
+                <Button id="button" layoutX="112.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
+                    <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Image/Icons/avatar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <tooltip>
+                        <Tooltip text="profile info" />
+                    </tooltip>
+                </Button>
+                <Button id="button" layoutX="42.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
+                    <tooltip>
+                        <Tooltip text="notification" />
+                    </tooltip>
+                    <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Image/Icons/notification.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </Pane>
     </Pane>
     <ScrollPane hbarPolicy="NEVER" layoutX="265.0" prefHeight="724.0" prefWidth="909.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="730.0" prefWidth="889.0"/>

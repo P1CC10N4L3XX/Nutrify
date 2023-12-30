@@ -1,26 +1,88 @@
 package com.dicii.ispw.project.applicationcontroller;
 
-public class CreateNutritionalController {
+import com.dicii.ispw.project.beans.*;
+import com.dicii.ispw.project.models.*;
+import com.dicii.ispw.project.beans.RecipeBean;
 
-    //Creazioni di tipi di dati con le vari classi entity e altri controller
+import java.util.ArrayList;
+import java.util.List;
 
 
 
-    //public createNutritionalPlanController(){}
+public class CreateNutritionalController{
 
-    //public searchNutritionalPlan(){}
 
-    //public addRecipeToNutritionalPlan(){}
 
-    //public removeRecipeFromNutritionalPlan(){}
+    private  NutritionalPlanBase nutritionalPlanBase;
 
-    //public modifyNutritionalPlan(){}
+    private NutritionalPlanDay nutritionalPlanDay;
 
-    //public deleteNutritionalPlan(){}
+    private  Recipe recipe;
 
-    //public sendNutritionalPlan(){}
+    private  Patient patient;
 
-    //public sendNotification(){}
+    private  Nutritionist nutritionist;
+
+
+    //bisogna inserire colazione pranzo e cena
+    public void addRecipeToNutritionalPlanDay(RecipeBean bean, NutritionalPlanDayBean bean2){
+
+        if(nutritionalPlanDay == null ) {
+            nutritionalPlanDay =new NutritionalPlanDay( bean2.getDay());
+
+
+        }
+
+        recipe =new Recipe( bean.getId(),bean.getName(), bean.getDescription(), bean.getType());
+
+        nutritionalPlanDay.addRecipe(recipe);
+
+
+    }
+
+    public void removeRecipeToNutritionalPlanDay(RecipeBean bean, NutritionalPlanDayBean bean2){
+
+        if(nutritionalPlanDay == null ) {
+            nutritionalPlanDay =new NutritionalPlanDay( bean2.getDay());
+
+
+        }
+
+        recipe =new Recipe( bean.getId(),bean.getName(), bean.getDescription(), bean.getType());
+
+        nutritionalPlanDay.removeRecipe(recipe.getName(),recipe.getDescription());
+
+
+    }
+
+    /*
+    public List<RecipeBean> searchRecipe(SearchBean searchBean) {
+        List<RecipeBean> exerciseList = new ArrayList<>();
+        for(Recipe recipe: exerciseCatalogue.getExerciseList()) {
+            if((exercise.getName().toLowerCase()).contains(searchBean.getName().toLowerCase())) {
+                exerciseList.add(exercise);
+            }
+        }
+        return getExerciseBeanList(exerciseList);
+    }
+
+     */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

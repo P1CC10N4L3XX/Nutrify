@@ -8,8 +8,8 @@ public class NutritionalPlanBean {
 
     private int id;
 
-    private int quantita;
-    private String description;
+    private final int quantita;
+    private final String description;
 
     //aggregazione
     List<RecipeBean> recipeBeanList;

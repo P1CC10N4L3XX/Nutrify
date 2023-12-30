@@ -27,3 +27,16 @@
     -fx-background-color: rgb(50,50,50);
 }
 
+.nutritionistSearchBar{
+    -fx-background-color: rgb(50,50,50);
+}
+
+.userInfo{
+    -fx-text-fill:white;
+    -fx-font-size: 15px;
+    -fx-alignment: center;
+}
+
+.userInfo #button:hover{
+    -fx-cursor: hand;
+}
