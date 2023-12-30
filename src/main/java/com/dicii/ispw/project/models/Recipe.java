@@ -1,4 +1,4 @@
-package models;
+package com.dicii.ispw.project.models;
 
 public class Recipe {
     private int id;

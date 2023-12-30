@@ -1,4 +1,4 @@
-package models.record;
+package com.dicii.ispw.project.models.record;
 
 import java.time.YearMonth;
 

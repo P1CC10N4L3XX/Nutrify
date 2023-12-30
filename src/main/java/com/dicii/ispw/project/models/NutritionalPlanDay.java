@@ -1,5 +1,5 @@
-package models;
-
+package com.dicii.ispw.project.models;
+import com.dicii.ispw.project.models.Recipe;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
