@@ -20,9 +20,9 @@ public class NutritionistDao {
 
     public void saveNutritionist(Nutritionist nutritionist) throws SQLException {
         try(PreparedStatement preparedStatement = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                NutritionistQueries.INSERT_TRAINER_QUERY_1);
+                NutritionistQueries.INSERT_NUTRITIONIST_QUERY_1 );
             PreparedStatement preparedStatement1 = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                    NutritionistQueries.INSERT_TRAINER_QUERY_2)) {
+                    NutritionistQueries.INSERT_NUTRITIONIST_QUERY_2)) {
             NutritionistQueries.insertNutritionist(preparedStatement, preparedStatement1, nutritionist);
         } catch (SQLException e) {
             System.out.println("error");

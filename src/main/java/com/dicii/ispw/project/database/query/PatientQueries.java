@@ -10,9 +10,9 @@ import java.sql.SQLException;
 
 public class PatientQueries {
 
-    public static final String INSERT_ATHLETE_QUERY_1 = "INSERT INTO mydb.User (Email,Password, Nome, Cognome, Data di nascita, Peso, Altezza, Descrizione, Nutrizionista, Malattia) " +
+    public static final String INSERT_PATIENT_QUERY_1 = "INSERT INTO mydb.User (Email,Password, Nome, Cognome, Data di nascita, Peso, Altezza, Descrizione, Nutrizionista, Malattia) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?. ?, ?,?)";
-    public static final String INSERT_ATHLETE_QUERY_2 = "INSERT INTO mydb.paziente (User) VALUES (?)";
+    public static final String INSERT_PATIENT_QUERY_2 = "INSERT INTO mydb.paziente (User) VALUES (?)";
     public static void insertPatient(PreparedStatement preparedStatement, PreparedStatement preparedStatement1, Patient patient, Ilnesses ilnesses) throws SQLException {
         preparedStatement.setString(1, patient.getEmail());
         preparedStatement.setString(2, patient.getPassword());

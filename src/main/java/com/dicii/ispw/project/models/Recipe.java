@@ -2,9 +2,9 @@ package com.dicii.ispw.project.models;
 
 public class Recipe {
     private int id;
-    private final String name;
+    private String name;
 
-    private final String description;
+    private  String description;
 
     private final String category;
 
@@ -26,6 +26,9 @@ public class Recipe {
         return name;
     }
 
+    public void setDescription(String description) {
+        this.description=description;
+    }
     public String getDescription() {
         return description;
     }

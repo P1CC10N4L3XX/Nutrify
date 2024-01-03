@@ -8,6 +8,8 @@ public class NutritionalPlanDay {
 
     protected Integer id;
     protected String day;
+
+    private
     protected transient List<Recipe> recipeList;
 
     public NutritionalPlanDay(int id, String day, List<Recipe> recipeList){

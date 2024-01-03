@@ -14,9 +14,9 @@ public class PatientDao {
 
     public void savePatient(Patient patient, Ilnesses ilnesses) throws SQLException{
         try(PreparedStatement preparedStatement = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                PatientQueries.INSERT_ATHLETE_QUERY_1);
+                PatientQueries.INSERT_PATIENT_QUERY_1);
             PreparedStatement preparedStatement1 = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                    PatientQueries.INSERT_ATHLETE_QUERY_2)) {
+                    PatientQueries.INSERT_PATIENT_QUERY_2)) {
             PatientQueries.insertPatient(preparedStatement, preparedStatement1, patient, ilnesses);
         } catch (SQLException e) {
           System.out.println("error");
