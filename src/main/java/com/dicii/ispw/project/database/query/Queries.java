@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.database.query;
 
-public abstract class Queries {
+public class Queries {
 
     protected static final String SELECT_ALL = "SELECT * ";
     protected static final String WHERE_USER = "WHERE User = ?";

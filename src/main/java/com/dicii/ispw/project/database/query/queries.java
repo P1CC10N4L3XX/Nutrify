@@ -1,4 +1,0 @@
-package com.dicii.ispw.project.database.query;
-
-public abstract class queries {
-}
