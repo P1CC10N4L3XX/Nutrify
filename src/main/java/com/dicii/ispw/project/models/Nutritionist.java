@@ -1,13 +1,20 @@
 package com.dicii.ispw.project.models;
 
+import com.dicii.ispw.project.models.record.Credentials;
+import com.dicii.ispw.project.models.record.PersonalInfo;
+
+import java.util.List;
+
 public class Nutritionist extends User{
     private String iva;
     private String iban;
     private String costo;
 
+    protected transient List<NutritionalPlanBase> NutritionalPlanBaseList;
 
-    public Nutritionist(String email,String dateOfBirth, String description, String iva, String iban, String costo){
-        super(email,dateOfBirth,description);
+
+    public Nutritionist(String email, PersonalInfo personalInfo, Credentials credentials, String iva, String iban, String costo){
+        super(email,personalInfo,credentials);
         this.iva=iva;
         this.iban=iban;
         this.costo=costo;

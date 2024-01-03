@@ -13,7 +13,7 @@ public class NutritionistQueries extends Queries{
 
     public static final String INSERT_TRAINER_QUERY_1 = "INSERT INTO mydb.User (Email,Password, Nome, Cognome, Data di nascita, Iban, P. Iva, Costo mensile, Descrizione) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    public static final String INSERT_TRAINER_QUERY_2 = "INSERT INTO mydb.Nutrify2 (User) VALUES (?)";
+    public static final String INSERT_TRAINER_QUERY_2 = "INSERT INTO mydb.nutrizionista (User) VALUES (?)";
     public static void insertNutritionist(PreparedStatement preparedStatement, PreparedStatement preparedStatement1, Nutritionist nutritionist) throws SQLException {
         preparedStatement.setString(1, nutritionist.getEmail());
         preparedStatement.setString(2, nutritionist.getPassword());

@@ -12,10 +12,10 @@ public class User {
 
     private Credentials credentials;
 
-    public User(String email, String dateOfBirth, String description){
-        this.email=email;
-        this.dateOfBirth=dateOfBirth;
-        this.description=description;
+    protected User(String email, PersonalInfo personalInfo, Credentials credentials){
+        this.personalInfo = personalInfo;
+        this.email = email;
+        this.credentials = credentials;
     }
 
     public String getName(){ return personalInfo.name();}
