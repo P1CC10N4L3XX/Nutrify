@@ -2,20 +2,21 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionistPlanQueries;
-import com.dicii.ispw.project.database.query.RecipeQueries;
+import com.dicii.ispw.project.database.query.PatientQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.*;
+import com.dicii.ispw.project.database.query.IlnessesQueries;
 
 import java.sql.*;
 
-public class NutritionalPlanDao {
+public class IlnessesDao {
 
 
 
-    public void SaveNutritionalPlan(NutritionalPlanBase nutritionalPlan, Patient patient, Nutritionist nutritionist) throws DuplicatedUserException {
+    public void saveIlnesses(Ilnesses ilnesses) throws DuplicatedUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
-            NutritionistPlanQueries.insertNutritionalPlan(statement, nutritionist  , patient, nutritionalPlan );
+            IlnessesQueries.saveIntoIlnesses(statement,ilnesses );
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
