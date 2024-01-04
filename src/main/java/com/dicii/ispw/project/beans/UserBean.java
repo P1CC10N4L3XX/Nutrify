@@ -1,47 +1,30 @@
 package com.dicii.ispw.project.beans;
 
 public class UserBean {
-    private String username;
-   // private final PersonalInformationBean personalInfo;
-    private String type;
-
-/*
-    private boolean isValidLength(String str) {
-        return str.length() <= 20;
-    }
-
-    public String getName() {
-        return personalInfo.getName();
-    }
-
-    public String getSurname() {
-        return personalInfo.getSurname();
-    }
-
-    public String getFiscalCode() {
-        return personalInfo.getFc();
-    }
-
-    public LocalDate getBirth() {
-        return personalInfo.getDateOfBirth();
-    }
-
-    public char getGender() {
-        return personalInfo.getGender();
-    }
+    private String email;
+    private String password;
+    private Boolean type;
 
     public String getEmail() {
-        return credentials.getEmail();
+        return email;
     }
 
     public String getPassword() {
-        return credentials.getPassword();
+        return password;
+    }
+    public Boolean getType(){
+        return type;
     }
 
-    public CredentialsBean getCredentials() {
-        return credentials;
+    public void setEmail(String email) {
+        this.email = email;
     }
-    */
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public void setType(Boolean type) {
+        this.type = type;
+    }
 }

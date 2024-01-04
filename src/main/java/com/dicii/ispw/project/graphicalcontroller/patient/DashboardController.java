@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.utente;
+package com.dicii.ispw.project.graphicalcontroller.patient;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class UserFirstController{
+public class DashboardController {
 
 
 
@@ -23,7 +23,7 @@ public class UserFirstController{
     public void switchHome(ActionEvent event) throws Exception {
 
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Utente/UserFirst/UserFirstHome.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/dashboard/DashboardHome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -35,7 +35,7 @@ public class UserFirstController{
     public void switchRecipes(ActionEvent event) throws Exception {
 
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Utente/UserFirst/UserFirstRecipes.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/dashboard/DashboardRecipes.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -60,7 +60,7 @@ public class UserFirstController{
     public void switchPlan(ActionEvent event) throws Exception {
 
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Utente/UserFirst/UserFirstPlan.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/dashboard/DashboardPlan.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);
@@ -70,7 +70,7 @@ public class UserFirstController{
     }
 
     public void viewDetails(ActionEvent event) throws Exception{
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Utente/ViewNutrizionista.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/ViewNutrizionista.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);

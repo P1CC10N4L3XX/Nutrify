@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.utente;
+package com.dicii.ispw.project.graphicalcontroller.patient;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +23,7 @@ public class PagamentoController{
     protected void back(ActionEvent event) throws Exception {
 
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Utente/UserFirst/UserFirstHome.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/dashboard/DashboardHome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -2,10 +2,10 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionistQueries;
-import com.dicii.ispw.project.models.Nutritionist;
+import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.models.User;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class NutritionistDao {
 
@@ -18,14 +18,14 @@ public class NutritionistDao {
     private static final String EMAIL = "Email";
     private static final String PASSWORD = "Password";
 
-    public void saveNutritionist(Nutritionist nutritionist) throws SQLException {
-        try(PreparedStatement preparedStatement = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                NutritionistQueries.INSERT_TRAINER_QUERY_1);
-            PreparedStatement preparedStatement1 = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                    NutritionistQueries.INSERT_TRAINER_QUERY_2)) {
-            NutritionistQueries.insertNutritionist(preparedStatement, preparedStatement1, nutritionist);
-        } catch (SQLException e) {
-            System.out.println("error");
+    public void saveNutritionist(User nutritionist) throws DuplicatedUserException {
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+        try(Statement statement = connection.createStatement()){
+            NutritionistQueries.insertIntoNutritionist(statement, nutritionist);
+        }catch(SQLIntegrityConstraintViolationException e){
+            throw new DuplicatedUserException(e.getMessage());
+        }catch(SQLException e){
+            System.out.println("SQL Error");
         }
     }
 

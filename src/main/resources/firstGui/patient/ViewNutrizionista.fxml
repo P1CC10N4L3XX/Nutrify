@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.Tooltip?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.utente.UserFirstController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.patient.DashboardController">
     <Pane layoutX="265.0" prefHeight="137.0" prefWidth="910.0" style="-fx-background-color: rgb(50,50,50);">
         <Pane layoutX="23.0" prefHeight="137.0" prefWidth="138.0" style="-fx-border-color: white; -fx-border-radius: 100; -fx-background-radius: 100; -fx-border-width: 5; -fx-background-image: url('../Image/Google.png');" />
       <Text fill="WHITE" layoutX="196.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Nome nutrizionista" wrappingWidth="287.0" />

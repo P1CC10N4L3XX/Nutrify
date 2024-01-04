@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-public class FirstViewController {
+public class DashboardController {
     private Stage stage;
     private Scene scene;
 

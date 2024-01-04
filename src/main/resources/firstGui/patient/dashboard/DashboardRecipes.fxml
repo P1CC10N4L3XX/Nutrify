@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Tooltip?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0"
       prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.dicii.ispw.project.utente.UserFirstController">
+      fx:controller="com.dicii.ispw.project.graphicalcontroller.patient.DashboardController">
     <Pane layoutY="-2.0" prefHeight="730.0" prefWidth="265.0" styleClass="dashboardMenu"
           stylesheets="@../../CSS/Style.css">
         <ImageView fitHeight="228.0" fitWidth="344.0" layoutX="-38.0" layoutY="-69.0" pickOnBounds="true"
@@ -20,7 +20,7 @@
             <Image url="@../../Image/logo.png"/>
         </ImageView>
         <Separator layoutY="79.0" prefHeight="27.0" prefWidth="265.0"/>
-        <Button layoutX="15.0" layoutY="181.0" mnemonicParsing="false" onAction="#switchRecipes" prefHeight="55.0"
+        <Button id="selected" layoutX="15.0" layoutY="181.0" mnemonicParsing="false" prefHeight="55.0"
                 prefWidth="238.0" styleClass="dashboardButton" text="Ricetta">
             <graphic>
                 <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
@@ -28,7 +28,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button id="selected" layoutX="15.0" layoutY="251.0" mnemonicParsing="false" prefHeight="55.0"
+        <Button layoutX="15.0" layoutY="251.0" mnemonicParsing="false" onAction="#switchPlan" prefHeight="55.0"
                 prefWidth="238.0" styleClass="dashboardButton" text="Piano">
             <graphic>
                 <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">

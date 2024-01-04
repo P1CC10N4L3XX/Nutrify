@@ -6,11 +6,8 @@ public class Nutritionist extends User{
     private String costo;
 
 
-    public Nutritionist(String email,String dateOfBirth, String description, String iva, String iban, String costo){
-        super(email,dateOfBirth,description);
-        this.iva=iva;
-        this.iban=iban;
-        this.costo=costo;
+    public Nutritionist(String email,String password){
+        super(email,password);
     }
     public String getIva() {
         return this.iva;
