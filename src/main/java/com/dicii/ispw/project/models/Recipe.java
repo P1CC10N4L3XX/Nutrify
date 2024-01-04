@@ -6,6 +6,8 @@ public class Recipe {
 
     private  String description;
 
+    private String ingredients;
+
     private final String category;
 
     public Recipe(int id, String name, String description, String category){
@@ -34,6 +36,10 @@ public class Recipe {
     }
 
 
-
-
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+    public String getIngredients() {
+        return ingredients;
+    }
 }
