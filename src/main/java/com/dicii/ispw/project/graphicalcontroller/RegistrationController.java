@@ -2,6 +2,7 @@ package com.dicii.ispw.project.graphicalcontroller;
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class RegistrationController{
 
 
@@ -21,6 +24,8 @@ public class RegistrationController{
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    private UserBean userBean;
 
     @FXML
     private TextField emailField;
@@ -53,15 +58,36 @@ public class RegistrationController{
     }
 
     @FXML
-    protected void verifyFields(){
+    protected void registerButton(ActionEvent event) throws IOException {
         if(!registerApplicationController.verifyEmailField(emailField.getText())){
             notificationLabel.setText("The email is invalid");
         }else if(!registerApplicationController.verifyPasswordField(passwordField.getText(),confirmPasswordField.getText())){
             notificationLabel.setText("The passwords don't match");
         }else{
-            UserBean userBeanInfo;
-            if()
+            if(nutritionistRadioButton.isSelected()){
+                userBean = new UserBean(emailField.getText(),passwordField.getText(),true);
+                try {
+                    registerApplicationController.registerUser(userBean);
+                }catch(DuplicatedUserException e){
+                    notificationLabel.setText("That email is used");
+                }
+                root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionistPersonalInfo.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setResizable(false);
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }else if(patientRadioButton.isSelected()){
+                userBean = new UserBean(emailField.getText(),passwordField.getText(),false);
+                try{
+                    registerApplicationController.registerUser(userBean);
+                }catch(DuplicatedUserException e){
+                    notificationLabel.setText("that email is used");
+                }
+
+            }
         }
+
 
     }
 

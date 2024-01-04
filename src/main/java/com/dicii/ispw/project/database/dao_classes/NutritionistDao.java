@@ -25,7 +25,7 @@ public class NutritionistDao {
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println("SQL Error");
+            System.out.println(e.getMessage());
         }
     }
 

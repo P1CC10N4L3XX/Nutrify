@@ -15,7 +15,7 @@ public class DatabaseConnectionSingleton {
 
 
     private DatabaseConnectionSingleton()  {
-        try(FileInputStream fileInputStream = new FileInputStream("src/main/java/com.dicii.ispw.project/database/db.properties")) {
+        try(FileInputStream fileInputStream = new FileInputStream("src/main/java/com/dicii/ispw/project/database/db.properties")) {
 
             Properties prop = new Properties();
             prop.load(fileInputStream);
@@ -24,18 +24,15 @@ public class DatabaseConnectionSingleton {
             String password = prop.getProperty("dbPassword");
             String url = prop.getProperty("dbUrl");
 
-            conn = DriverManager.getConnection(
-                    url,
-                    username,
-                    password);
+            conn = DriverManager.getConnection(url,username,password);
+
         } catch ( IOException | SQLException e) {
             this.conn = null;
-
+            System.out.println(e.getMessage());
         }
     }
 
     public Connection getConn()  {
-
         return conn;
     }
 

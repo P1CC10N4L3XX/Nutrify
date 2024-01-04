@@ -28,7 +28,7 @@
       </ImageView>
       <PasswordField id="password" fx:id="passwordField" alignment="CENTER" layoutX="140.0" layoutY="192.0" prefHeight="26.0" prefWidth="220.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <PasswordField id="passwordConfirmation" fx:id="confirmPasswordField" alignment="CENTER" layoutX="141.0" layoutY="230.0" prefHeight="26.0" prefWidth="220.0" promptText="Confirm password" style="-fx-background-color: white; -fx-background-radius: 15;" />
-      <Button layoutX="179.0" layoutY="275.0" mnemonicParsing="false" onAction="#verifyFields" prefHeight="39.0" prefWidth="140.0" style="-fx-background-color: #4287f5; -fx-background-radius: 15;" text="Register" />
+      <Button layoutX="179.0" layoutY="275.0" mnemonicParsing="false" onAction="#registerButton" prefHeight="39.0" prefWidth="140.0" style="-fx-background-color: #4287f5; -fx-background-radius: 15;" text="Register" />
       <RadioButton fx:id="nutritionistRadioButton" layoutX="136.0" layoutY="123.0" mnemonicParsing="false" text="Nutritionist">
          <toggleGroup>
             <ToggleGroup fx:id="UserCategory" />

@@ -25,7 +25,7 @@ public class RegisterApplicationController {
     public boolean verifyPasswordField(String password, String confirmPassword){
         return password.equals(confirmPassword);
     }
-    public void registerUser(UserBean userBean) throws SQLException, DuplicatedUserException {
+    public void registerUser(UserBean userBean) throws DuplicatedUserException {
         if(userBean.getType()) {
             User nutritionist = factory.createNutritionist(userBean.getEmail(), userBean.getPassword());
             NutritionistDao nutritionistDAO = new NutritionistDao();
