@@ -7,8 +7,6 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.User;
 import com.dicii.ispw.project.patterns.factory.UserFactory;
 
-import java.sql.SQLException;
-
 public class RegisterApplicationController {
     UserFactory factory;
     public RegisterApplicationController(){
