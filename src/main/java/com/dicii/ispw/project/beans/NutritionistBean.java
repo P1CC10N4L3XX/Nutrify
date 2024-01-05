@@ -5,9 +5,9 @@ public class NutritionistBean extends UserBean{
     private String dateOfBirth;
     private String IVA;
     private String IBAN;
-    private Float cost;
+    private String cost;
 
-    public NutritionistBean(String email,String password,String description, String dateOfBirth, String IVA, String IBAN, Float cost){
+    public NutritionistBean(String email,String password,String description, String dateOfBirth, String IVA, String IBAN, String cost){
         super(email,password,true);
         this.description=description;
         this.dateOfBirth=dateOfBirth;
@@ -32,7 +32,7 @@ public class NutritionistBean extends UserBean{
         return IBAN;
     }
 
-    public Float getCost() {
+    public String getCost() {
         return cost;
     }
 
@@ -52,7 +52,7 @@ public class NutritionistBean extends UserBean{
         this.IBAN = IBAN;
     }
 
-    public void setCost(Float cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 }
