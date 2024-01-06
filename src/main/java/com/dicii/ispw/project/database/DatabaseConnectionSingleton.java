@@ -37,7 +37,7 @@ public class DatabaseConnectionSingleton {
     }
 
 
-    //singleton per assicurasi una singola connessione
+
     public static synchronized DatabaseConnectionSingleton getInstance(){
         if(dbConn == null){
             dbConn = new DatabaseConnectionSingleton();

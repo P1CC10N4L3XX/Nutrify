@@ -46,14 +46,7 @@ public abstract class NutritionalPlanBase implements NutritionalPlan{
         return nutritionalPlanDayList;
     }
 
-    public void addAllWorkoutDays(List<NutritionalPlanDay> nutritionalPlanDayList) {
-        this.nutritionalPlanDayList = new ArrayList<>();
-        for (NutritionalPlanDay nutritionalPlanDay : nutritionalPlanDayList) {
-            NutritionalPlanDay newNutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDay.getDay());
-            newNutritionalPlanDay.addAllRecipe(nutritionalPlanDay.getRecipeList());
-            addNutritionalPlanDay(newNutritionalPlanDay);
-        }
-    }
+
 
     public void addNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay) {
         nutritionalPlanDayList.add(nutritionalPlanDay);

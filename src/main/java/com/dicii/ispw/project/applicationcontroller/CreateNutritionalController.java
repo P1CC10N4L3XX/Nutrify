@@ -1,6 +1,11 @@
 package com.dicii.ispw.project.applicationcontroller;
 
 import com.dicii.ispw.project.beans.*;
+import com.dicii.ispw.project.database.dao_classes.NutritionalPlanDao;
+import com.dicii.ispw.project.database.dao_classes.NutritionalPlanDayDao;
+import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
+import com.dicii.ispw.project.database.dao_classes.PatientDao;
+import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
 
@@ -24,56 +29,17 @@ public class CreateNutritionalController{
     private  Nutritionist nutritionist;
 
 
-    //bisogna inserire colazione pranzo e cena
-    public void addRecipeToNutritionalPlanDay(RecipeBean bean, NutritionalPlanDayBean bean2){
 
-        if(nutritionalPlanDay == null ) {
-            nutritionalPlanDay =new NutritionalPlanDay( bean2.getDay());
+    public void CreateNutrutionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, PatientBean patientBean,NutritionistBean nutritionistBean, RecipeBean recipeBean) throws DuplicatedUserException {
 
-
+        if (nutritionalPlanDay == null) {
+            nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),nutritionalPlanDayBean.getColazione(),
+                    nutritionalPlanDayBean.getPranzo(),nutritionalPlanDayBean.getCena(),nutritionalPlanDayBean.getQuantitaColazione(),
+                    nutritionalPlanDayBean.getQuantitaPranzo(), nutritionalPlanDayBean.getQuantitaPranzo());
+            NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
+            nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay, patient, recipe, nutritionist);
         }
-
-        recipe =new Recipe( bean.getId(),bean.getName(), bean.getDescription(), bean.getType());
-
-        nutritionalPlanDay.addRecipe(recipe);
-
-
     }
-
-    public void removeRecipeToNutritionalPlanDay(RecipeBean bean, NutritionalPlanDayBean bean2){
-
-        if(nutritionalPlanDay == null ) {
-            nutritionalPlanDay =new NutritionalPlanDay( bean2.getDay());
-
-
-        }
-
-        recipe =new Recipe( bean.getId(),bean.getName(), bean.getDescription(), bean.getType());
-
-        nutritionalPlanDay.removeRecipe(recipe.getName(),recipe.getDescription());
-
-
-    }
-
-    /*
-    public List<RecipeBean> searchRecipe(SearchBean searchBean) {
-        List<RecipeBean> exerciseList = new ArrayList<>();
-        for(Recipe recipe: exerciseCatalogue.getExerciseList()) {
-            if((exercise.getName().toLowerCase()).contains(searchBean.getName().toLowerCase())) {
-                exerciseList.add(exercise);
-            }
-        }
-        return getExerciseBeanList(exerciseList);
-    }
-
-     */
-
-
-
-
-
-
-
 
 
 
@@ -86,3 +52,27 @@ public class CreateNutritionalController{
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

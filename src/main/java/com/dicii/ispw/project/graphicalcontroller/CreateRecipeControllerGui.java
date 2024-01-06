@@ -1,6 +1,11 @@
 package com.dicii.ispw.project.graphicalcontroller;
 
+import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
+import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
+import com.dicii.ispw.project.beans.RecipeBean;
+import com.dicii.ispw.project.models.Recipe;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,26 +25,42 @@ public class CreateRecipeControllerGui {
     private String title;
 
     private String descrizione;
+    private String ingredienti;
 
-    public TextField titleField;
+    private RecipeBean recipeBean;
 
-    public TextArea descrizioneArea;
+    @FXML
+    private TextField ingredientiField;
+
+    @FXML
+    private TextField titleField;
+    @FXML
+    private TextArea descrizioneArea;
+
+    private CreateNewRecipeController createNewRecipeController;
 
 
+
+    public CreateRecipeControllerGui(){
+        createNewRecipeController = new CreateNewRecipeController();;
+    }
 
 
     public void createRecipeB(ActionEvent event){
 
         try {
+            recipeBean = new RecipeBean(titleField.getText(),descrizioneArea.getText(),ingredientiField.getText());
             title = titleField.getText();
             descrizione = descrizioneArea.getText();
+            ingredienti=ingredientiField.getText();
+            createNewRecipeController.CreateNewRecipe(recipeBean);
+
 
         }
 
         catch(Exception e){
 
-
-            System.out.println(event);
+            System.out.println(e);
         }
 
     }

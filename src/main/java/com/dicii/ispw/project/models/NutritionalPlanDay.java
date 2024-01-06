@@ -21,21 +21,23 @@ public class NutritionalPlanDay {
 
     private float quantitaCena;
 
-
-
-
     protected transient List<Recipe> recipeList;
 
-    public NutritionalPlanDay(int id, String day, List<Recipe> recipeList){
-        this(day);
-        this.id = id;
-        addAllRecipe(recipeList);
+
+
+    public NutritionalPlanDay( String day,String colazione, String pranzo, String cena, float quantitaColazioe,float quantitaPranzo,float quantitaCena){
+
+
+        this.day = day;
+        this.colazione = colazione;
+        this.pranzo=pranzo;
+        this.cena=cena;
+        this.quantitaColazione=quantitaColazioe;
+        this.quantitaPranzo=quantitaPranzo;
+        this.quantitaCena=quantitaCena;
+
     }
 
-    public NutritionalPlanDay(String day) {
-        this();
-        this.day = day;
-    }
 
     private NutritionalPlanDay () {
         recipeList = new ArrayList<>();

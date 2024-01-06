@@ -13,6 +13,20 @@ import java.sql.*;
 public class RecipeDao {
 
 
+    public void saveRecipe(Recipe recipe) throws DuplicatedUserException {
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+        try(Statement statement = connection.createStatement()){
+            RecipeQueries.saveIntoRecipe(statement,recipe );
+        }catch(SQLIntegrityConstraintViolationException e){
+            throw new DuplicatedUserException(e.getMessage());
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    /*
+
     public void saveRecipe(Recipe recipe, Nutritionist nutritionist) throws DuplicatedUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
@@ -23,4 +37,6 @@ public class RecipeDao {
             System.out.println("SQL Error");
         }
     }
+
+     */
 }

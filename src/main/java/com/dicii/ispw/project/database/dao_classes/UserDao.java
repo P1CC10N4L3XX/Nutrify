@@ -17,14 +17,6 @@ public class UserDao {
 
 
 
-    public void deleteUser(User user)  {
-        try(PreparedStatement preparedStatement = DatabaseConnectionSingleton.getInstance().getConn().prepareStatement(
-                UserQueries.DELETE_USER_QUERY)) {
-            UserQueries.deleteUser(preparedStatement, user.getEmail());
-        } catch (SQLException e) {
-           System.out.println("error query");
-        }
-    }
 
 
 

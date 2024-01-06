@@ -2,27 +2,21 @@ package com.dicii.ispw.project.beans;
 
 public class RecipeBean {
 
-    private int id;
+
     private String name;
     private String description;
+    private String ingredients;
 
     private String type;
 
-    public RecipeBean(int id, String name, String description, String type) {
-        this.id = id;
+    public RecipeBean( String name, String description, String ingredients) {
+
         this.name = name;
         this.description = description;
-        this.type=type;
+        this.ingredients=ingredients;
+
     }
 
-    public RecipeBean(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -31,7 +25,6 @@ public class RecipeBean {
     public String getDescription() {
         return description;
     }
-    public String getType() {
-        return type;
-    }
+
+    public String getIngredients(){ return ingredients;}
 }

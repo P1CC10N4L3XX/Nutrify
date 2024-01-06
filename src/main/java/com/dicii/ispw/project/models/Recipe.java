@@ -8,13 +8,13 @@ public class Recipe {
 
     private String ingredients;
 
-    private final String category;
 
-    public Recipe(int id, String name, String description, String category){
-        this.id = id;
+
+    public Recipe( String name, String description, String ingredients){
+
         this.name = name;
         this.description = description;
-        this.category = category;
+        this.ingredients=ingredients;
     }
     public int getId() {
         return id;
