@@ -1,13 +1,9 @@
 package com.dicii.ispw.project.applicationcontroller;
 
 
-import com.dicii.ispw.project.beans.NutritionistBean;
-import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.beans.RecipeBean;
-import com.dicii.ispw.project.database.dao_classes.NutritionalPlanDayDao;
 import com.dicii.ispw.project.database.dao_classes.RecipeDao;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.models.NutritionalPlanDay;
 import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.Recipe;
 

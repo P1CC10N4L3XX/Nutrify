@@ -3,8 +3,11 @@ package com.dicii.ispw.project.database.dao_classes;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionistQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.User;
+import com.dicii.ispw.project.models.UserCredentials;
 
+import java.io.PrintStream;
 import java.sql.*;
 
 public class NutritionistDao {
@@ -18,7 +21,7 @@ public class NutritionistDao {
     private static final String EMAIL = "Email";
     private static final String PASSWORD = "Password";
 
-    public void saveNutritionist(User nutritionist) throws DuplicatedUserException {
+    public void saveNutritionist(UserCredentials nutritionist) throws DuplicatedUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NutritionistQueries.insertIntoNutritionist(statement, nutritionist);
@@ -28,7 +31,14 @@ public class NutritionistDao {
             System.out.println(e.getMessage());
         }
     }
-
+    public void saveNutritionistAll(Nutritionist nutritionist) {
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+        try(Statement statement = connection.createStatement()){
+            NutritionistQueries.updateNutritionistAll(statement,nutritionist);
+        }catch (SQLException e ){
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 }

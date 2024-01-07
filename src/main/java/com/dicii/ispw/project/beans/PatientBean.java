@@ -1,17 +1,34 @@
 package com.dicii.ispw.project.beans;
 
-public class PatientBean extends UserBean{
+public class PatientBean {
+    private String email;
+    private String name;
+    private String surname;
     private String description;
     private String dateOfBirth;
     private String weight;
     private String height;
 
-    public PatientBean(String email,String password,String description, String dateOfBirth, String weight, String height){
-        super(email,password,true);
+    public PatientBean(String email,String name,String surname, String description, String dateOfBirth, String weight, String height){
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
         this.description=description;
         this.dateOfBirth=dateOfBirth;
         this.weight=weight;
         this.height=height;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 
     public String getDescription() {
@@ -28,6 +45,18 @@ public class PatientBean extends UserBean{
 
     public String getWeight() {
         return weight;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public void setDescription(String description) {

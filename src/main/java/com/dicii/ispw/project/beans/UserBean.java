@@ -5,7 +5,7 @@ public class UserBean {
     private String password;
     private Boolean type;
 
-    public UserBean(String email,String password,Boolean type){
+    public UserBean(String email, String password, Boolean type){
         this.email=email;
         this.password=password;
         this.type=type;

@@ -6,7 +6,6 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,7 +26,7 @@ public class CreateNutritionalController{
 
 
 
-    public void CreateNutrutionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, PatientBean patientBean,NutritionistBean nutritionistBean, RecipeBean recipeBean) throws DuplicatedUserException {
+    public void CreateNutrutionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, PatientBean patientBean, NutritionistBean nutritionistBean, RecipeBean recipeBean) throws DuplicatedUserException {
 
         if (nutritionalPlanDay == null) {
             nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),nutritionalPlanDayBean.getColazione(),

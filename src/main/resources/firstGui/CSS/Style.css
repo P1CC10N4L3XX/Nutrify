@@ -40,3 +40,6 @@
 .userInfo #button:hover{
     -fx-cursor: hand;
 }
+.userInfoScrollPane .viewport{
+    -fx-background-color: transparent;
+}

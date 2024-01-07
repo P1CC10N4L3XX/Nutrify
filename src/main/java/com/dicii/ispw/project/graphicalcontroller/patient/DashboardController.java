@@ -70,7 +70,7 @@ public class DashboardController {
     }
 
     public void viewDetails(ActionEvent event) throws Exception{
-        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/ViewNutrizionista.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/nutritionistdetails/ViewNutrizionista.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);

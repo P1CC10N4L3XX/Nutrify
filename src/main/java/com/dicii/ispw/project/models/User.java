@@ -5,15 +5,17 @@ import com.dicii.ispw.project.models.record.PersonalInfo;
 
 public class User {
     private String email;
-    private String password;
     private String name;
     private String surname;
     private String dateOfBirth;
     private String description;
 
-    public User(String email,String password){
+    public User(String email,String name,String surname,String dateOfBirth,String description){
         this.email = email;
-        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+        this.description = description;
     }
 
     public void setName(String name) {
@@ -27,9 +29,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String password) {
-        this.password = password;
-    }
     public void setDescription(String description) {
         this.description = description;
     }
@@ -38,9 +37,6 @@ public class User {
     }
     public String getEmail() {
         return email;
-    }
-    public String getPassword() {
-        return password;
     }
 
     public String getName() {

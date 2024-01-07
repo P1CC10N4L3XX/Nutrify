@@ -14,18 +14,18 @@
 <?import javafx.scene.control.Tooltip?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.patient.DashboardController">
     <Pane layoutX="265.0" prefHeight="137.0" prefWidth="910.0" style="-fx-background-color: rgb(50,50,50);">
-        <Pane layoutX="23.0" prefHeight="137.0" prefWidth="138.0" style="-fx-border-color: white; -fx-border-radius: 100; -fx-background-radius: 100; -fx-border-width: 5; -fx-background-image: url('../Image/Google.png');" />
+        <Pane layoutX="23.0" prefHeight="137.0" prefWidth="138.0" style="-fx-border-color: white; -fx-border-radius: 100; -fx-background-radius: 100; -fx-border-width: 5; -fx-background-image: url('../../Image/Google.png');" />
       <Text fill="WHITE" layoutX="196.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Nome nutrizionista" wrappingWidth="287.0" />
     </Pane>
-    <Pane layoutY="-2.0" prefHeight="730.0" prefWidth="265.0" styleClass="dashboardMenu" stylesheets="@../CSS/Style.css">
+    <Pane layoutY="-2.0" prefHeight="730.0" prefWidth="265.0" styleClass="dashboardMenu" stylesheets="@../../CSS/Style.css">
         <ImageView fitHeight="228.0" fitWidth="344.0" layoutX="-38.0" layoutY="-69.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../Image/logo.png" />
+            <Image url="@../../Image/logo.png" />
         </ImageView>
         <Separator layoutY="79.0" prefHeight="27.0" prefWidth="265.0" />
       <Button layoutX="13.0" layoutY="122.0" mnemonicParsing="false" onAction="#switchHome" prefHeight="69.0" prefWidth="241.0" styleClass="dashboardButton" text="Torna alla home">
          <graphic>
              <ImageView fitHeight="41.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                 <Image url="@../Image/Icons/home.png" />
+                 <Image url="@../../Image/Icons/home.png" />
              </ImageView>
          </graphic>
       </Button>
@@ -36,7 +36,7 @@
                     <graphic>
                         <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/Icons/logout.png" />
+                                <Image url="@../../Image/Icons/logout.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -48,7 +48,7 @@
                     <graphic>
                         <ImageView fitHeight="45.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/Icons/avatar.png" />
+                                <Image url="@../../Image/Icons/avatar.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -63,7 +63,7 @@
                     <graphic>
                         <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/Icons/notification.png" />
+                                <Image url="@../../Image/Icons/notification.png" />
                             </image>
                         </ImageView>
                     </graphic>

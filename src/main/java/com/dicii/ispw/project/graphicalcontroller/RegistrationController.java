@@ -3,37 +3,26 @@ package com.dicii.ispw.project.graphicalcontroller;
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
+import com.dicii.ispw.project.graphicalcontroller.utils.GUI;
+import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class RegistrationController{
-
-
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    private UserBean userBean;
-
     @FXML
     private TextField emailField;
     @FXML
     private PasswordField passwordField;
     @FXML
     private PasswordField confirmPasswordField;
-    private RegisterApplicationController registerApplicationController;
+    private final RegisterApplicationController registerApplicationController;
     @FXML
     private Label notificationLabel;
     @FXML
@@ -41,64 +30,60 @@ public class RegistrationController{
     @FXML
     private RadioButton patientRadioButton;
 
+    private String NUTRITIONIST_PATH = "/firstGui/nutritionist/NutritionistPersonalInfoRegistration.fxml";
+    private String PATIENT_PATH = "/firstGui/patient/PatientPersonalInfoRegistration.fxml";
+
     public RegistrationController(){
         registerApplicationController= new RegisterApplicationController();
     }
 
     @FXML
     protected void switchLogin(ActionEvent event) throws Exception {
-
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Login.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        GUI.switchPage(event,"/firstGui/Login.fxml");
     }
 
     @FXML
     protected void registerButton(ActionEvent event) throws IOException {
-        if(!registerApplicationController.verifyEmailField(emailField.getText())){
-            notificationLabel.setText("The email is invalid");
-        }else if(!registerApplicationController.verifyPasswordField(passwordField.getText(),confirmPasswordField.getText())){
-            notificationLabel.setText("The passwords don't match");
-        }else{
-            if(nutritionistRadioButton.isSelected()){
-                userBean = new UserBean(emailField.getText(),passwordField.getText(),true);
-                try {
-                    registerApplicationController.registerUser(userBean);
-                }catch(DuplicatedUserException e){
-                    notificationLabel.setText("That email is used");
-                }
-                root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionistPersonalInfo.fxml"));
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setResizable(false);
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            }else if(patientRadioButton.isSelected()){
-                userBean = new UserBean(emailField.getText(),passwordField.getText(),false);
-                try{
-                    registerApplicationController.registerUser(userBean);
-                }catch(DuplicatedUserException e){
-                    notificationLabel.setText("that email is used");
-                }
+            try{
+                UserBean userBean = userCredentials();
+                registerApplicationController.registerUser(userBean);
+                Session.getSessionInstance().setLoggedUser(userBean);
+                GUI.switchPage(event,(nutritionistRadioButton.isSelected()) ? (NUTRITIONIST_PATH) : (PATIENT_PATH));
+            }catch(InvalidUserExceptionInfo e){
+                notificationLabel.setText(e.getMessage());
+            }catch(DuplicatedUserException e){
+                notificationLabel.setText("That email is used");
+            }
+        }
+        private UserBean userCredentials() throws InvalidUserExceptionInfo{
+            String email = emailField.getText();
+            String password = passwordField.getText();
+            String confirmPassword = confirmPasswordField.getText();
+            boolean selectedNutritionist = nutritionistRadioButton.isSelected();
+            boolean selectedPatient = patientRadioButton.isSelected();
+            if(email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || (!selectedPatient && !selectedNutritionist)){
+                throw new InvalidUserExceptionInfo("Compile all fields");
+            }else if(!email.contains("@")){
+                throw new InvalidUserExceptionInfo("Invalid email format");
+            }else if(!password.equals(confirmPassword)){
+                throw new InvalidUserExceptionInfo("Passwords don't match");
+            }
+            return new UserBean(email,password,selectedNutritionist);
 
+        }
+
+        private void verifyEmailField(String email) throws InvalidUserExceptionInfo {
+            for(int i=0;i<email.length();i++){
+                if(email.charAt(i)=='@'){
+                    throw new InvalidUserExceptionInfo("invalid email format");
+                }
             }
         }
 
-
-    }
-
-
-
-
-
-
-
-
-
-
+        private void verifyPasswordField(String password, String confirmPassword) throws InvalidUserExceptionInfo{
+            if(!password.equals(confirmPassword)){
+                throw new InvalidUserExceptionInfo("Passwords don't match");
+            }
+        }
 
 }

@@ -1,40 +1,35 @@
 package com.dicii.ispw.project.applicationcontroller;
 
+import com.dicii.ispw.project.beans.NutritionistBean;
+import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
 import com.dicii.ispw.project.database.dao_classes.PatientDao;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.models.User;
-import com.dicii.ispw.project.patterns.factory.UserFactory;
+import com.dicii.ispw.project.models.Nutritionist;
+import com.dicii.ispw.project.models.Patient;
+import com.dicii.ispw.project.models.UserCredentials;
 
 public class RegisterApplicationController {
-    UserFactory factory;
-    public RegisterApplicationController(){
-        factory = new UserFactory();
-    }
-    public boolean verifyEmailField(String email){
-        for(int i=0;i<email.length();i++){
-            if(email.charAt(i)=='@'){
-                return true;
-            }
-        }
-        return false;
-    }
-    public boolean verifyPasswordField(String password, String confirmPassword){
-        return password.equals(confirmPassword);
-    }
     public void registerUser(UserBean userBean) throws DuplicatedUserException {
+        UserCredentials userCredentials = new UserCredentials(userBean.getEmail(), userBean.getPassword());
         if(userBean.getType()) {
-            User nutritionist = factory.createNutritionist(userBean.getEmail(), userBean.getPassword());
             NutritionistDao nutritionistDAO = new NutritionistDao();
-            nutritionistDAO.saveNutritionist(nutritionist);
+            nutritionistDAO.saveNutritionist(userCredentials);
         }else{
-            User patient = factory.createPatient(userBean.getEmail(),userBean.getPassword());
             PatientDao patientDAO = new PatientDao();
-            patientDAO.savePatient(patient);
+            patientDAO.savePatient(userCredentials);
         }
-
-
+    }
+    public void completeRegistrationNutritionist(NutritionistBean nutritionistBean) {
+        Nutritionist nutritionist = new Nutritionist (nutritionistBean.getEmail(),nutritionistBean.getName(),nutritionistBean.getSurname(),nutritionistBean.getDateOfBirth(),nutritionistBean.getDescription(),nutritionistBean.getIVA(),nutritionistBean.getIBAN(),nutritionistBean.getCost());
+        NutritionistDao nutritionistDAO = new NutritionistDao();
+        nutritionistDAO.saveNutritionistAll(nutritionist);
+    }
+    public void completeRegistrationPatient(PatientBean patientBean){
+        Patient patient = new Patient (patientBean.getEmail(),patientBean.getName(), patientBean.getSurname(),patientBean.getDateOfBirth(),patientBean.getDescription(),patientBean.getWeight(),patientBean.getHeight());
+        PatientDao patientDAO = new PatientDao();
+        patientDAO.savePatientAll(patient);
     }
 }
 
