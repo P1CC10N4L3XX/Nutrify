@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.NutritionalPlanWeek">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.NutritionalPlanDay">
    <children>
-      <Text layoutX="222.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NutritionalPlan For Week:" />
+      <Text layoutX="222.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NutritionalPlan For Client::" />
       <Text layoutX="79.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monday:" />
       <Text layoutX="79.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tuesday" />
       <Text layoutX="78.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wednesday" />
@@ -21,8 +22,8 @@
       <Button fx:id="sunday" layoutX="132.0" layoutY="353.0" mnemonicParsing="false" text="Button" />
       <Text layoutX="77.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saturday" />
       <Text layoutX="81.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sunday" />
-      <Button fx:id="back" layoutX="421.0" layoutY="220.0" mnemonicParsing="false" onAction="#back" text="back" />
+      <Button fx:id="back" layoutX="421.0" layoutY="220.0" mnemonicParsing="false" text="back" />
       <Label layoutX="368.0" layoutY="44.0" />
-      <Label fx:id="numberWeek" layoutX="376.0" layoutY="44.0" />
+      <Label fx:id="client" layoutX="376.0" layoutY="44.0" />
    </children>
 </AnchorPane>

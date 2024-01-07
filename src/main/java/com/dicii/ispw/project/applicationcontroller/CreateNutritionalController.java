@@ -1,10 +1,7 @@
 package com.dicii.ispw.project.applicationcontroller;
 
 import com.dicii.ispw.project.beans.*;
-import com.dicii.ispw.project.database.dao_classes.NutritionalPlanDao;
-import com.dicii.ispw.project.database.dao_classes.NutritionalPlanDayDao;
-import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
-import com.dicii.ispw.project.database.dao_classes.PatientDao;
+import com.dicii.ispw.project.database.dao_classes.*;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
@@ -40,6 +37,19 @@ public class CreateNutritionalController{
             nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay, patient, recipe, nutritionist);
         }
     }
+
+
+
+
+    //mi deve ritornare un vettore di ricette
+    public List<Recipe> displayRecipe() throws DuplicatedUserException {
+        RecipeDao recipeDao = new RecipeDao();
+        List<Recipe> recipes= recipeDao.displayRecipe();
+        return recipes;
+    }
+
+
+
 
 
 

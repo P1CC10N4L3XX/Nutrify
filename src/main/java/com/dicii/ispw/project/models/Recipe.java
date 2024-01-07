@@ -1,6 +1,9 @@
 package com.dicii.ispw.project.models;
 
-public class Recipe {
+import java.io.Serializable;
+import java.util.List;
+
+public class Recipe implements Serializable {
     private int id;
     private String name;
 
@@ -10,12 +13,20 @@ public class Recipe {
 
 
 
+
+
+
+
+
+
     public Recipe( String name, String description, String ingredients){
 
         this.name = name;
         this.description = description;
         this.ingredients=ingredients;
     }
+
+
     public int getId() {
         return id;
     }
@@ -42,4 +53,6 @@ public class Recipe {
     public String getIngredients() {
         return ingredients;
     }
+
+
 }
