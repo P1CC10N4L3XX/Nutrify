@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class NutritionalPlanWeek {
+public class NutritionalPlanDay {
     private Stage stage;
     private Scene scene;
 
@@ -16,12 +16,12 @@ public class NutritionalPlanWeek {
 
     private String week;
 
-    public Label numberWeek;
+    public Label client;
 
 
     public void showInformation(String week){
 
-        numberWeek.setText(week);
+        client.setText(week);
 
 
     }
