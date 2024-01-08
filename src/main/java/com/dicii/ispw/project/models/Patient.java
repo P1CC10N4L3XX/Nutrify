@@ -4,6 +4,8 @@ public class Patient extends User {
     private String weight;
     private String height;
 
+    private NutritionalPlanBase nutritionalPlanBase;
+
     public Patient(String email,String name,String surname,String dateOfBirth,String description,String weight, String height){
         super(email,name,surname,dateOfBirth,description);
         this.weight = weight;

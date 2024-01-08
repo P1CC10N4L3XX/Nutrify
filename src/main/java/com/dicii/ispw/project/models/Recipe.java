@@ -12,13 +12,6 @@ public class Recipe implements Serializable {
     private String ingredients;
 
 
-
-
-
-
-
-
-
     public Recipe( String name, String description, String ingredients){
 
         this.name = name;

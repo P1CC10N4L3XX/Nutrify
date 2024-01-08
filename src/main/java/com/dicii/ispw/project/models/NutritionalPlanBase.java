@@ -4,31 +4,40 @@ import com.dicii.ispw.project.models.NutritionalPlanDay;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class NutritionalPlanBase implements NutritionalPlan{
+public class NutritionalPlanBase implements NutritionalPlan{
 
-    private int id;
 
     private String data;
 
+
     private String description;
+
+
     private List<NutritionalPlanDay> nutritionalPlanDayList;
 
-    public NutritionalPlanBase(int id){
-        this();
-        this.id = id;
+
+
+
+    public NutritionalPlanBase(String description, String data){
+
+        this.description=description;
+        this.data=data;
+
     }
+
 
     public NutritionalPlanBase(){
         this.nutritionalPlanDayList = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
-    }
+
+
+
 
     public String getDescription() {
         return description;
     }
+
 
     public void setDescription(String description) {
         this.description=description;
@@ -48,11 +57,6 @@ public abstract class NutritionalPlanBase implements NutritionalPlan{
 
 
 
-    public void addNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay) {
-        nutritionalPlanDayList.add(nutritionalPlanDay);
-    }
 
-    public void removeNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay) {
-        nutritionalPlanDayList.remove(nutritionalPlanDay);
-    }
+
 }

@@ -5,6 +5,7 @@ import com.dicii.ispw.project.database.dao_classes.*;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
+import com.dicii.ispw.project.patterns.singleton.Session;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class CreateNutritionalController{
 
 
 
-    public void CreateNutrutionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, PatientBean patientBean, NutritionistBean nutritionistBean, RecipeBean recipeBean) throws DuplicatedUserException {
+    public void createNutrutionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, UserBean userBean,PatientBean patientBean, NutritionistBean nutritionistBean, RecipeBean recipeBean) throws DuplicatedUserException {
 
         if (nutritionalPlanDay == null) {
             nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),nutritionalPlanDayBean.getColazione(),
@@ -38,6 +39,24 @@ public class CreateNutritionalController{
     }
 
 
+    public void createNutrutionalPlan(NutritionalPlanBean nutritionalPlanBean) throws DuplicatedUserException {
+
+        if(nutritionalPlanBase==null){
+
+            nutritionalPlanBase = new NutritionalPlanBase(nutritionalPlanBean.getDescription(),nutritionalPlanBean.getDate());
+
+
+            //mi sto richiamando l'email del nutrizionista loggato
+            //manca l'email del paziente
+            NutritionalPlanDao nutritionalPlanDao = new NutritionalPlanDao();
+            nutritionalPlanDao.SaveNutritionalPlan(nutritionalPlanBase, Session.getSessionInstance().getLoggedUser().getEmail(),"paziente@gmail.com" );
+
+        }
+
+
+    }
+
+
 
 
     //mi deve ritornare un vettore di ricette
@@ -46,6 +65,9 @@ public class CreateNutritionalController{
         List<Recipe> recipes= recipeDao.displayRecipe();
         return recipes;
     }
+
+
+
 
 
 

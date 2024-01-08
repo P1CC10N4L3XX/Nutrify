@@ -1,5 +1,10 @@
 package com.dicii.ispw.project.graphicalcontroller;
 
+import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
+import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.beans.NutritionalPlanBean;
+import com.dicii.ispw.project.beans.RecipeBean;
+import com.dicii.ispw.project.models.NutritionalPlanBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,6 +17,14 @@ public class NutritionalPlanDashboard {
     private Scene scene;
 
     private Parent root;
+
+    private NutritionalPlanBean nutritionalPlanBean;
+
+    private CreateNutritionalController createNutritionalController;
+
+    public NutritionalPlanDashboard(){
+        createNutritionalController = new CreateNutritionalController();
+    }
     public void createNutritionalPlan(ActionEvent event) throws Exception {
 
         root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDay.fxml"));
@@ -20,6 +33,20 @@ public class NutritionalPlanDashboard {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+
+        try {
+            nutritionalPlanBean = new NutritionalPlanBean("Piano","12/34/67");
+
+            createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
+
+
+        }
+
+        catch(Exception e){
+
+            System.out.println(e.getMessage());
+        }
 
     }
 

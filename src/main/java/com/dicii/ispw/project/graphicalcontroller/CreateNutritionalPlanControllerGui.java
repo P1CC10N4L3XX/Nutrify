@@ -60,9 +60,10 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     private CreateNutritionalController createNutritionalController;
 
-    private String[] recipe={"pizza","sushi","pasta"};
 
     private List<Recipe> list;
+
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -86,12 +87,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     }
 
 
-   public void getFood(ActionEvent event){
-       String myFood= myChoiceBox1.getValue();
-       System.out.println(myFood);
-   }
-
-
 
     public CreateNutritionalPlanControllerGui(){
         createNutritionalController = new CreateNutritionalController();
@@ -102,25 +97,12 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
         list = createNutritionalController.displayRecipe();
 
-
     }
 
-    /*
-    public void display() throws DuplicatedUserException {
-
-        List<Recipe> list = createNutritionalController.displayRecipe();
-
-
-        int i=0;
-        for (Recipe recipe : list) {
-            i++;
-
-            System.out.println("Result "+ i + ": " +recipe.getName());
-        }
-
+    public void getFood(ActionEvent event){
+        String myFood= myChoiceBox1.getValue();
+        System.out.println(myFood);
     }
-
-     */
 
 
 

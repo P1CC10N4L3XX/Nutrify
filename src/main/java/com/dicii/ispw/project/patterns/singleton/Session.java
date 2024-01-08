@@ -16,6 +16,7 @@ public class Session {
         }
         return sessionInstance;
     }
+
     public UserBean getLoggedUser(){
         return loggedUser;
     }

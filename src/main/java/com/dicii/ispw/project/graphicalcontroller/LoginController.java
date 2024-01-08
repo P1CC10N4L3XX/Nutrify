@@ -1,50 +1,60 @@
 package com.dicii.ispw.project.graphicalcontroller;
 
+import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
+import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
+import com.dicii.ispw.project.exceptions.NotExistentUserException;
+import com.dicii.ispw.project.graphicalcontroller.utils.GUI;
+import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
-
+import java.io.IOException;
 
 
 public class LoginController{
 
+    @FXML
+    private RadioButton nutritionistRadioButton;
+    @FXML
+    private RadioButton patientRadioButton;
+    @FXML
+    private TextField emailField;
+    @FXML
+    private TextField passwordField;
+    @FXML
+    private Label notificationLabel;
+    private final LoginApplicationController loginApplicationController;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    public LoginController(){
+        loginApplicationController = new LoginApplicationController();
+    }
 
 
     @FXML
     protected void switchRegistration(ActionEvent event) throws Exception {
-
-
-        root = FXMLLoader.load(getClass().getResource("/firstGui/Registration.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        GUI.switchPage(event,"/firstGui/Registration.fxml");
     }
 
 
-    public void userFirst(ActionEvent event) throws Exception {
-
-
-        root = FXMLLoader.load(getClass().getResource("/firstGui/patient/dashboard/DashboardHome.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+    public void loginButton(ActionEvent event) throws IOException {
+        try{
+            UserBean loginUserBean = loginInfo();
+            Session.getSessionInstance().setLoggedUser(loginApplicationController.loginUser(loginUserBean));
+            if(patientRadioButton.isSelected()){
+                GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
+            }
+        }catch(InvalidUserExceptionInfo | NotExistentUserException e){
+            notificationLabel.setText(e.getMessage());
+        }
     }
 
     public void googleButton() throws Exception {
@@ -57,6 +67,15 @@ public class LoginController{
         popUpStage.initModality(Modality.WINDOW_MODAL);
         popUpStage.show();
 
+    }
+    private UserBean loginInfo() throws InvalidUserExceptionInfo{
+        String email=emailField.getText();
+        String password=passwordField.getText();
+        boolean nutritionist = nutritionistRadioButton.isSelected();
+        boolean patient = patientRadioButton.isSelected();
+        if(email.isEmpty() || password.isEmpty() || (!patient && !nutritionist)) throw new InvalidUserExceptionInfo("Compile all fields");
+        if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
+        return new UserBean(email,password,nutritionist);
     }
 
 

@@ -1,52 +1,44 @@
 package com.dicii.ispw.project.beans;
 
+import com.dicii.ispw.project.models.Nutritionist;
+import com.dicii.ispw.project.models.Patient;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NutritionalPlanBean {
 
+    private String data;
 
-    private int id;
-
-    private final int quantita;
-    private final String description;
-
-    //aggregazione
-    List<RecipeBean> recipeBeanList;
-
-    public NutritionalPlanBean(int id,int quantita, String description) {
+    private  String description;
 
 
-        this.id=id;
+    List<NutritionalPlanDayBean> nutritionalPlanDayBeanList;
+
+    public NutritionalPlanBean(String description, String data){
 
         this.description=description;
-
-        this.quantita=quantita;
-
-        this.recipeBeanList= new ArrayList<>();
+        this.data=data;
 
     }
 
-    public int getNutritionalPlanNumber(){
-        return id;
+
+    public NutritionalPlanBean(){
+        this.nutritionalPlanDayBeanList = new ArrayList<>();
     }
+
+
+
+
     public String getDescription() {
         return description;
     }
 
-    public List<RecipeBean> getRecipeBeanList(){
-        return recipeBeanList;
+    public String getDate() {
+        return this.data;
     }
 
-    public int getQuantita(){return quantita;}
 
-    public void setRecipeBeanList(List<RecipeBean> recipeBeanList) {
-        this.recipeBeanList = recipeBeanList;
-    }
-
-    public void addRecipeBean(RecipeBean recipeBean) {
-        recipeBeanList.add(recipeBean);
-    }
 
 
 

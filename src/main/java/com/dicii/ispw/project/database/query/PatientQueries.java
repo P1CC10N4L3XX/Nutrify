@@ -4,6 +4,7 @@ import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.UserCredentials;
 
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -18,7 +19,10 @@ public class PatientQueries extends Queries{
         statement.executeUpdate(sql);
     }
 
-
+    public static ResultSet selectPatientByCredentials(Statement statement, UserCredentials patient) throws SQLException{
+        String query = String.format("SELECT * FROM paziente WHERE Email='%s' AND Password='%s'",patient.getEmail(),patient.getPassword());
+        return statement.executeQuery(query);
+    }
 
 
 }

@@ -13,10 +13,10 @@ public class NutritionalPlanDao {
 
 
 
-    public void SaveNutritionalPlan(NutritionalPlanBase nutritionalPlan, Patient patient, Nutritionist nutritionist) throws DuplicatedUserException {
+    public void SaveNutritionalPlan(NutritionalPlanBase nutritionalPlan, String emailNutritionist, String emailPatient) throws DuplicatedUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
-            NutritionalPlanQueries.insertNutritionalPlan(statement, nutritionist  , patient, nutritionalPlan );
+            NutritionalPlanQueries.insertNutritionalPlan(statement, nutritionalPlan, emailNutritionist,emailPatient );
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
