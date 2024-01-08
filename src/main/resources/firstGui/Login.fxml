@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -12,17 +15,24 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.LoginController">
     <Button layoutX="430.0" layoutY="543.0" mnemonicParsing="false" onAction="#switchRegistration" prefHeight="39.0" prefWidth="116.0" style="-fx-text-alignment: right;" styleClass="switchButton" stylesheets="@CSS/Style.css" text="Registrati" textFill="WHITE" />
     <Pane prefHeight="589.0" prefWidth="454.0" style="-fx-background-color: rgba(254,192,32,255);" stylesheets="@CSS/Style.css">
-        <Text fill="WHITE" layoutX="157.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Login" wrappingWidth="185.85287475585938">
+        <Text fill="WHITE" layoutX="156.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Login" wrappingWidth="185.85287475585938">
             <font>
                 <Font size="30.0" />
             </font>
         </Text>
-        <TextField id="emailField" layoutX="141.0" layoutY="207.0" prefHeight="26.0" prefWidth="220.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 15; -fx-alignment: center;" />
-        <Button fx:id="googleButton" alignment="CENTER" layoutX="126.0" layoutY="374.0" onAction="#googleButton" prefHeight="55.0" prefWidth="247.0" style="-fx-background-color: white; -fx-background-radius: 15;" styleClass="normalButton" text="Login con google" />
+        <TextField id="emailField" fx:id="emailField" layoutX="140.0" layoutY="216.0" prefHeight="26.0" prefWidth="220.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 15; -fx-alignment: center;" />
+        <Button fx:id="googleButton" alignment="CENTER" layoutX="128.0" layoutY="366.0" onAction="#googleButton" prefHeight="55.0" prefWidth="247.0" style="-fx-background-color: white; -fx-background-radius: 15;" styleClass="normalButton" text="Login con google" />
         <ImageView fitHeight="39.0" fitWidth="44.0" layoutX="323.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@Image/Google.png" />
         </ImageView>
-        <PasswordField id="password" alignment="CENTER" layoutX="141.0" layoutY="261.0" prefHeight="26.0" prefWidth="220.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 15;" />
-        <Button layoutX="180.0" layoutY="314.0" mnemonicParsing="false" onAction="#userFirst" prefHeight="39.0" prefWidth="140.0" style="-fx-background-color: #4287f5; -fx-background-radius: 15;" styleClass="normalButton" text="Login" />
+        <PasswordField id="password" fx:id="passwordField" alignment="CENTER" layoutX="140.0" layoutY="256.0" prefHeight="26.0" prefWidth="220.0" promptText="Password" style="-fx-background-color: white; -fx-background-radius: 15;" />
+        <Button layoutX="179.0" layoutY="301.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="39.0" prefWidth="140.0" style="-fx-background-color: #4287f5; -fx-background-radius: 15;" styleClass="normalButton" text="Login" />
+      <Label fx:id="notificationLabel" layoutX="180.0" layoutY="439.0" prefHeight="17.0" prefWidth="140.0" style="-fx-alignment: center; -fx-text-fill: red;" />
+      <RadioButton fx:id="nutritionistRadioButton" layoutX="145.0" layoutY="185.0" mnemonicParsing="false" text="Nutritionist">
+         <toggleGroup>
+            <ToggleGroup fx:id="userTypeGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="patientRadioButton" layoutX="293.0" layoutY="185.0" mnemonicParsing="false" text="Patient" toggleGroup="$userTypeGroup" />
     </Pane>
 </Pane>

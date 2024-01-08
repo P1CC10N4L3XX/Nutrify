@@ -72,18 +72,4 @@ public class RegistrationController{
 
         }
 
-        private void verifyEmailField(String email) throws InvalidUserExceptionInfo {
-            for(int i=0;i<email.length();i++){
-                if(email.charAt(i)=='@'){
-                    throw new InvalidUserExceptionInfo("invalid email format");
-                }
-            }
-        }
-
-        private void verifyPasswordField(String password, String confirmPassword) throws InvalidUserExceptionInfo{
-            if(!password.equals(confirmPassword)){
-                throw new InvalidUserExceptionInfo("Passwords don't match");
-            }
-        }
-
 }
