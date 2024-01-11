@@ -2,6 +2,7 @@ package com.dicii.ispw.project.graphicalcontroller;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.Recipe;
 import javafx.event.ActionEvent;
@@ -61,7 +62,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     private CreateNutritionalController createNutritionalController;
 
 
-    private List<Recipe> list;
+    private List<RecipeBean> list;
 
 
 
@@ -73,7 +74,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
             throw new RuntimeException(e);
         }
         int i=0;
-        for (Recipe recipe : list) {
+        for (RecipeBean recipe : list) {
             i++;
 
 

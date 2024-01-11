@@ -1,5 +1,8 @@
 package com.dicii.ispw.project.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecipeBean {
 
 
@@ -9,6 +12,8 @@ public class RecipeBean {
 
     private String type;
 
+    private List<RecipeBean> recipeBeanList;
+
     public RecipeBean( String name, String description, String ingredients) {
 
         this.name = name;
@@ -17,9 +22,21 @@ public class RecipeBean {
 
     }
 
+    public RecipeBean(){
+        this.recipeBeanList = new ArrayList<>();
+    }
+
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getDescription() {

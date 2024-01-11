@@ -7,6 +7,9 @@ import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.patterns.singleton.Session;
 
+import java.io.IOError;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -43,13 +46,21 @@ public class CreateNutritionalController{
 
         if(nutritionalPlanBase==null){
 
-            nutritionalPlanBase = new NutritionalPlanBase(nutritionalPlanBean.getDescription(),nutritionalPlanBean.getDate());
+            try{
+                nutritionalPlanBase = new NutritionalPlanBase(nutritionalPlanBean.getDescription(),nutritionalPlanBean.getDate());
 
 
-            //mi sto richiamando l'email del nutrizionista loggato
-            //manca l'email del paziente
-            NutritionalPlanDao nutritionalPlanDao = new NutritionalPlanDao();
-            nutritionalPlanDao.SaveNutritionalPlan(nutritionalPlanBase, Session.getSessionInstance().getLoggedUser().getEmail(),"paziente@gmail.com" );
+                //mi sto richiamando l'email del nutrizionista loggato
+                //manca l'email del paziente
+                NutritionalPlanDao nutritionalPlanDao = new NutritionalPlanDao();
+                nutritionalPlanDao.SaveNutritionalPlan(nutritionalPlanBase, Session.getSessionInstance().getLoggedUser().getEmail(),"paziente@gmail.com" );
+
+
+
+            }catch (IOError e){
+                System.out.println(e.getMessage());
+
+            }
 
         }
 
@@ -59,15 +70,36 @@ public class CreateNutritionalController{
 
 
 
-    //mi deve ritornare un vettore di ricette
-    public List<Recipe> displayRecipe() throws DuplicatedUserException {
-        RecipeDao recipeDao = new RecipeDao();
-        List<Recipe> recipes= recipeDao.displayRecipe();
-        return recipes;
+
+
+
+
+    public List<RecipeBean> convertList(List<Recipe> recipes) {
+        //converto il vettore di Recipe in RecipeBean
+        List<RecipeBean> recipeBeanList = new ArrayList<>();
+
+        for (Recipe recipe : recipes) {
+            RecipeBean recipeBean = new RecipeBean();
+
+            recipeBean.setName(recipe.getName());
+            recipeBean.setIngredients(recipe.getIngredients());
+
+
+            recipeBeanList.add(recipeBean);
+        }
+
+        return recipeBeanList;
     }
 
 
 
+    public List<RecipeBean> displayRecipe() throws DuplicatedUserException {
+        RecipeDao recipeDao = new RecipeDao();
+        List<Recipe> recipes= RecipeDao.displayRecipe();
+        List<RecipeBean> recipesBean;
+        recipesBean=convertList(recipes);
+        return recipesBean;
+    }
 
 
 

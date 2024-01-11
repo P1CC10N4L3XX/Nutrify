@@ -20,7 +20,11 @@ public class NutritionalPlanDao {
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println("SQL Error");
+            System.out.println(e.getMessage());
+            System.err.println("Errore SQL: " + e.getMessage());
+            System.err.println("Codice di stato SQL: " + e.getSQLState());
+            System.err.println("Codice di errore SQL: " + e.getErrorCode());
+            e.printStackTrace();
         }
     }
 
