@@ -19,6 +19,12 @@ public class Recipe implements Serializable {
         this.ingredients=ingredients;
     }
 
+    public Recipe( String name){
+
+        this.name = name;
+
+    }
+
 
     public int getId() {
         return id;

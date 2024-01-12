@@ -1,10 +1,7 @@
 package com.dicii.ispw.project.database.query;
 
-import com.dicii.ispw.project.models.Ilnesses;
-import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.Recipe;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +19,12 @@ public class RecipeQueries {
         String query = String.format("SELECT * FROM ricetta ");
         return statement.executeQuery(query);
     }
+
+    public static void deleteRecipe(Statement statement, String recipe) throws SQLException {
+        String delete = String.format("DELETE FROM ricetta where Nome = '%s' ;",recipe);
+        statement.execute(delete);
+    }
+
 
 
 

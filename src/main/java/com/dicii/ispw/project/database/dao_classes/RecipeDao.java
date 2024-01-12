@@ -72,6 +72,18 @@ public class RecipeDao {
 
     }
 
+    public void deleteRecipe(Recipe recipe) throws DuplicatedUserException {
+
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+        try(Statement statement = connection.createStatement()){
+            RecipeQueries.deleteRecipe(statement, recipe.getName());
+        }catch(SQLIntegrityConstraintViolationException e){
+            throw new DuplicatedUserException(e.getMessage());
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 
 
