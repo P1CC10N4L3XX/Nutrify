@@ -2,6 +2,7 @@ package com.dicii.ispw.project.graphicalcontroller;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.Recipe;
@@ -34,11 +35,11 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     private String cena;
 
-    private String grammiColazione;
+    private float grammiColazione;
 
-    private String grammiPranzo;
+    private float grammiPranzo;
 
-    private String grammiCena;
+    private float grammiCena;
 
     private String descrizione;
 
@@ -61,9 +62,15 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     private CreateNutritionalController createNutritionalController;
 
+    private NutritionalPlanDayBean nutritionalPlanDayBean;
+
 
     private List<RecipeBean> list;
 
+
+    public CreateNutritionalPlanControllerGui(){
+        createNutritionalController = new CreateNutritionalController();
+    }
 
 
     @Override
@@ -89,9 +96,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
 
 
-    public CreateNutritionalPlanControllerGui(){
-        createNutritionalController = new CreateNutritionalController();
-    }
 
 
     public void display() throws DuplicatedUserException {
@@ -101,8 +105,10 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     }
 
     public void getFood(ActionEvent event){
-        String myFood= myChoiceBox1.getValue();
-        System.out.println(myFood);
+        colazione= myChoiceBox1.getValue();
+        pranzo= myChoiceBox1.getValue();
+        cena= myChoiceBox1.getValue();
+        System.out.println(colazione);
     }
 
 
@@ -111,12 +117,14 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     public void createNutritionalPlan(ActionEvent event){
 
         try {
-            grammiColazione = grammiColazioneField.getText();
-            grammiPranzo = grammiColazioneField.getText();
-            grammiCena = grammiColazioneField.getText();
-            descrizione = descrizioneArea.getText();
 
-            //myLabel.setText("campi non validi");
+            nutritionalPlanDayBean= new NutritionalPlanDayBean("ciao",colazione,pranzo,cena,Float.parseFloat(grammiColazioneField.getText()),Float.parseFloat(grammiPranzoField.getText()),Float.parseFloat(grammiCenaField.getText()));
+
+            createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
+
+
+
+
             System.out.println(grammiColazione);
 
             display();
@@ -130,6 +138,26 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         }
 
     }
+
+
+
+    public void sendNutritionalPlanDay(ActionEvent event){
+
+        try {
+            nutritionalPlanDayBean= new NutritionalPlanDayBean("ciao",colazione,pranzo,cena,Float.parseFloat(grammiColazioneField.getText()),Float.parseFloat(grammiPranzoField.getText()),Float.parseFloat(grammiCenaField.getText()));
+
+            createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
+
+
+        }
+
+        catch(Exception e){
+
+            System.out.println(e);
+        }
+
+    }
+
 
 
     public void back(ActionEvent event) throws Exception {

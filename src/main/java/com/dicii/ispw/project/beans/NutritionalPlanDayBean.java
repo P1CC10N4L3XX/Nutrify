@@ -20,6 +20,8 @@ public class NutritionalPlanDayBean {
     private float quantitaCena;
 
     private final String day;
+
+
     List<RecipeBean> recipeBeanList;
 
     public NutritionalPlanDayBean(String day,String colazione, String pranzo, String cena, float quantitaColazioe,float quantitaPranzo,float quantitaCena) {

@@ -22,6 +22,13 @@ public class RecipeBean {
 
     }
 
+    public RecipeBean( String name) {
+
+        this.name = name;
+
+
+    }
+
     public RecipeBean(){
         this.recipeBeanList = new ArrayList<>();
     }

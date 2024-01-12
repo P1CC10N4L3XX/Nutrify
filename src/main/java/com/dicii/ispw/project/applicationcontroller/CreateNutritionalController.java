@@ -30,15 +30,18 @@ public class CreateNutritionalController{
 
 
 
-    public void createNutrutionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, UserBean userBean,PatientBean patientBean, NutritionistBean nutritionistBean, RecipeBean recipeBean) throws DuplicatedUserException {
 
-        if (nutritionalPlanDay == null) {
-            nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),nutritionalPlanDayBean.getColazione(),
-                    nutritionalPlanDayBean.getPranzo(),nutritionalPlanDayBean.getCena(),nutritionalPlanDayBean.getQuantitaColazione(),
-                    nutritionalPlanDayBean.getQuantitaPranzo(), nutritionalPlanDayBean.getQuantitaPranzo());
+    public void sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean){
+
+        try {
+            nutritionalPlanDay = new NutritionalPlanDay("day",nutritionalPlanDayBean.getColazione(), nutritionalPlanDayBean.getPranzo(), nutritionalPlanDayBean.getCena(),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
-            nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay, patient, recipe, nutritionist);
+            nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay, "patient", recipe, Session.getSessionInstance().getLoggedUser().getEmail());
+        }catch (Exception e){
+            System.out.println(e);
         }
+
+
     }
 
 
@@ -63,6 +66,9 @@ public class CreateNutritionalController{
             }
 
         }
+
+
+
 
 
     }
