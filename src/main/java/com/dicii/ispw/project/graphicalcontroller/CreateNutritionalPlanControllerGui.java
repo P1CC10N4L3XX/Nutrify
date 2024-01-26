@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -49,7 +50,8 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public TextArea descrizioneArea;
 
-    private String parametro;
+    @FXML
+    Label data;
 
     @FXML
     private ChoiceBox<String> myChoiceBox1;
@@ -84,7 +86,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         for (RecipeBean recipe : list) {
             i++;
 
-
             myChoiceBox1.getItems().addAll(String.valueOf(recipe.getName()));
             myChoiceBox2.getItems().addAll(String.valueOf(recipe.getName()));
             myChoiceBox3.getItems().addAll(String.valueOf(recipe.getName()));
@@ -92,9 +93,19 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
 
         myChoiceBox1.setOnAction(this::getFood);
+        myChoiceBox2.setOnAction(this::getFood);
+        myChoiceBox3.setOnAction(this::getFood);
     }
 
 
+    public void displayData(String dataValue){
+        System.out.println(dataValue);
+        if(dataValue!=null){
+            data.setText(dataValue);
+        }
+
+
+    }
 
 
 
@@ -106,9 +117,12 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public void getFood(ActionEvent event){
         colazione= myChoiceBox1.getValue();
-        pranzo= myChoiceBox1.getValue();
-        cena= myChoiceBox1.getValue();
+        pranzo= myChoiceBox2.getValue();
+        cena= myChoiceBox3.getValue();
         System.out.println(colazione);
+        System.out.println(pranzo);
+        System.out.println(cena);
+
     }
 
 
@@ -118,7 +132,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
         try {
 
-            nutritionalPlanDayBean= new NutritionalPlanDayBean("ciao",colazione,pranzo,cena,Float.parseFloat(grammiColazioneField.getText()),Float.parseFloat(grammiPranzoField.getText()),Float.parseFloat(grammiCenaField.getText()));
+            nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),colazione,pranzo,cena,grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
 
             createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
 
@@ -141,22 +155,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
 
 
-    public void sendNutritionalPlanDay(ActionEvent event){
-
-        try {
-            nutritionalPlanDayBean= new NutritionalPlanDayBean("ciao",colazione,pranzo,cena,Float.parseFloat(grammiColazioneField.getText()),Float.parseFloat(grammiPranzoField.getText()),Float.parseFloat(grammiCenaField.getText()));
-
-            createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
-
-
-        }
-
-        catch(Exception e){
-
-            System.out.println(e);
-        }
-
-    }
 
 
 

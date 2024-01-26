@@ -1,10 +1,11 @@
 package com.dicii.ispw.project.models;
 
-import com.dicii.ispw.project.models.NutritionalPlanDay;
+import com.dicii.ispw.project.patterns.singleton.Decorator.NutritionalPlan;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class NutritionalPlanBase implements NutritionalPlan{
+public class NutritionalPlanBase  {
 
 
     private String data;
@@ -54,6 +55,8 @@ public class NutritionalPlanBase implements NutritionalPlan{
     public List<NutritionalPlanDay> getNutritionalPlanBaseDayList() {
         return nutritionalPlanDayList;
     }
+
+
 
 
 

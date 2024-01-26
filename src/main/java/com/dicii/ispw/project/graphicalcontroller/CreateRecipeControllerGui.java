@@ -38,18 +38,12 @@ public class CreateRecipeControllerGui {
     @FXML
     private TextArea descrizioneArea;
 
-
-
-
-
-
-
     private CreateNewRecipeController createNewRecipeController;
 
 
 
     public CreateRecipeControllerGui(){
-        createNewRecipeController = new CreateNewRecipeController();;
+        createNewRecipeController = new CreateNewRecipeController();
     }
 
 

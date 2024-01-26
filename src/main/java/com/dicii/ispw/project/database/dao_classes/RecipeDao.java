@@ -58,7 +58,6 @@ public class RecipeDao {
 
 
 
-   //crea un oggetto di tipo Recipe
     public static Recipe createRecipe(ResultSet resultSet) throws SQLException {
 
 

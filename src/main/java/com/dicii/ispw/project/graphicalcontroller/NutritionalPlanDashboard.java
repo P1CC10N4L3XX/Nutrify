@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class NutritionalPlanDashboard {
     private Stage stage;
     private Scene scene;
@@ -49,6 +51,7 @@ public class NutritionalPlanDashboard {
         }
 
     }
+
 
     public void deleteNutritionalPlan(ActionEvent event) throws Exception {
 

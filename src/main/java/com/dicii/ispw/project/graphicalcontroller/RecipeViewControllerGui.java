@@ -50,7 +50,7 @@ public class RecipeViewControllerGui implements Initializable {
         createNutritionalController = new CreateNutritionalController();
     }
 
-    //String[] food = {"ciao","caio2"};
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -78,9 +78,6 @@ public class RecipeViewControllerGui implements Initializable {
 
             }
         });
-
-
-
 
     }
     public void addRecipe(ActionEvent event) throws Exception {

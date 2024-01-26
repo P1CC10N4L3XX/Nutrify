@@ -1,11 +1,12 @@
 package com.dicii.ispw.project.beans;
 
+import com.dicii.ispw.project.graphicalcontroller.NutritionalPlanDay;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NutritionalPlanDayBean {
 
-    private int id;
 
     private String colazione;
 
@@ -13,20 +14,20 @@ public class NutritionalPlanDayBean {
 
     private String pranzo;
 
-    private float quantitaColazione;
+    private String quantitaColazione;
 
-    private float quantitaPranzo;
+    private String quantitaPranzo;
 
-    private float quantitaCena;
+    private String quantitaCena;
 
-    private final String day;
+    private String day;
 
 
     List<RecipeBean> recipeBeanList;
 
-    public NutritionalPlanDayBean(String day,String colazione, String pranzo, String cena, float quantitaColazioe,float quantitaPranzo,float quantitaCena) {
+    public NutritionalPlanDayBean(String day,String colazione, String pranzo, String cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena) {
         this.day = day;
-        this.colazione = colazione;
+        this.colazione=colazione;
         this.pranzo=pranzo;
         this.cena=cena;
         this.quantitaColazione=quantitaColazioe;
@@ -35,10 +36,13 @@ public class NutritionalPlanDayBean {
 
     }
 
+    public NutritionalPlanDayBean(){}
+
 
 
 
     public String getColazione() {
+
         return colazione;
     }
 
@@ -52,42 +56,42 @@ public class NutritionalPlanDayBean {
 
 
 
-    public float getQuantitaColazione() {
+    public String getQuantitaColazione() {
         return quantitaColazione;
     }
 
-    public float getQuantitaPranzo() {
+    public String getQuantitaPranzo() {
         return quantitaPranzo;
     }
 
-    public float getQuantitaCena() {
+    public String getQuantitaCena() {
         return quantitaCena;
     }
 
 
 
-    public void setColazione(float quantitaColazione) {
+    public void setColazione(String colazione) {
         this.colazione = colazione;
     }
 
-    public void setPranzo(float quantitaPranzo) {
+    public void setPranzo(String pranzo) {
         this.pranzo = pranzo;
     }
 
-    public void setCena(float quantitaCena) {
+    public void setCena(String cena) {
         this.cena = cena;
     }
 
 
-    public void setQuantitaColazione(float quantitaColazione) {
+    public void setQuantitaColazione(String quantitaColazione) {
         this.quantitaColazione = quantitaColazione;
     }
 
-    public void setQuantitaPranzo(float quantitaPranzo) {
+    public void setQuantitaPranzo(String quantitaPranzo) {
         this.quantitaPranzo = quantitaPranzo;
     }
 
-    public void setQuantitaCena(float quantitaCena) {
+    public void setQuantitaCena(String quantitaCena) {
         this.quantitaCena = quantitaCena;
     }
 
@@ -103,7 +107,13 @@ public class NutritionalPlanDayBean {
     }
 
     public String getDay() {
-        return day;
+
+    return day;
+    }
+
+    public void setDay(String day) {
+
+        this.day = day;
     }
 
     public void addRecipeBean(RecipeBean exerciseBean) {

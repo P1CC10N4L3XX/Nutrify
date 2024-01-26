@@ -1,10 +1,12 @@
 package com.dicii.ispw.project.models;
 import com.dicii.ispw.project.models.Recipe;
+import com.dicii.ispw.project.patterns.singleton.Decorator.NutritionalPlan;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class NutritionalPlanDay {
+public class NutritionalPlanDay implements NutritionalPlan {
 
     protected Integer id;
     protected String day;
@@ -15,21 +17,22 @@ public class NutritionalPlanDay {
 
     private String pranzo;
 
-    private float quantitaColazione;
+    private String quantitaColazione;
 
-    private float quantitaPranzo;
+    private String quantitaPranzo;
 
-    private float quantitaCena;
+    private String quantitaCena;
 
     protected transient List<Recipe> recipeList;
 
 
 
-    public NutritionalPlanDay( String day,String colazione, String pranzo, String cena, float quantitaColazioe,float quantitaPranzo,float quantitaCena){
 
 
-        this.day = day;
-        this.colazione = colazione;
+    public NutritionalPlanDay( String day,String colazione, String pranzo, String cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena){
+
+        this.day =day;
+        this.colazione=colazione;
         this.pranzo=pranzo;
         this.cena=cena;
         this.quantitaColazione=quantitaColazioe;
@@ -39,7 +42,9 @@ public class NutritionalPlanDay {
     }
 
 
-    private NutritionalPlanDay () {
+
+
+    public NutritionalPlanDay() {
         recipeList = new ArrayList<>();
     }
 
@@ -65,6 +70,7 @@ public class NutritionalPlanDay {
         return day;
     }
 
+
     public String getColazione() {
         return colazione;
     }
@@ -79,15 +85,17 @@ public class NutritionalPlanDay {
 
 
 
-    public float getQuantitaColazione() {
+
+    @Override
+    public String getQuantitaColazione() {
         return quantitaColazione;
     }
-
-    public float getQuantitaPranzo() {
+    @Override
+    public String getQuantitaPranzo() {
         return quantitaPranzo;
     }
-
-    public float getQuantitaCena() {
+    @Override
+    public String getQuantitaCena() {
         return quantitaCena;
     }
 
@@ -106,15 +114,15 @@ public class NutritionalPlanDay {
     }
 
 
-    public void setQuantitaColazione(float quantitaColazione) {
+    public void setQuantitaColazione(String quantitaColazione) {
         this.quantitaColazione = quantitaColazione;
     }
 
-    public void setQuantitaPranzo(float quantitaPranzo) {
+    public void setQuantitaPranzo(String quantitaPranzo) {
         this.quantitaPranzo = quantitaPranzo;
     }
 
-    public void setQuantitaCena(float quantitaCena) {
+    public void setQuantitaCena(String quantitaCena) {
         this.quantitaCena = quantitaCena;
     }
 
