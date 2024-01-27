@@ -49,10 +49,30 @@ public class CreateNutritionalController{
         }
 
 
+    }
+
+    public PatientBean displayUserInfo() throws DuplicatedUserException {
+
+        Ilnesses ilnesses= new Ilnesses();
+        PatientDao patientDao = new PatientDao();
+        patient = patientDao.selectInfoPatient("luc@gmail.com");
+
+        PatientBean patientBean = new PatientBean();
+
+        patientBean.setName(patient.getName());
+        patientBean.setSurname(patient.getSurname());
+        patientBean.setDateOfBirth(patient.getDateOfBirth());
+        patientBean.setWeight(patient.getWeight());
+        patientBean.setHeight(patient.getHeight());
+        patientBean.setIlnesses(patient.getIlnesses().getName());
+        return patientBean;
+
 
 
 
     }
+
+
 
 
     public void createNutrutionalPlan(NutritionalPlanBean nutritionalPlanBean) throws DuplicatedUserException {
@@ -82,31 +102,50 @@ public class CreateNutritionalController{
     }
 
 
-    public NutritionalPlanDayBean displayNutritionalPlanDay(String day) throws DuplicatedUserException,NutritionalPlanNotFoundException{
-
-
-            NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
-            NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("patient", Session.getSessionInstance().getLoggedUser().getEmail(),day);
-
-
-            if(nutritionalPlanDay==null){
-                throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondentebisogna prima crearlo, ");
-            }
+    public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses) throws DuplicatedUserException,NutritionalPlanNotFoundException{
 
 
 
-                NutritionalPlanDayBean nutritionalPlanDayBean = new NutritionalPlanDayBean();
-
-                nutritionalPlanDayBean.setColazione(nutritionalPlanDay.getColazione());
-                nutritionalPlanDayBean.setPranzo(nutritionalPlanDay.getPranzo());
-                nutritionalPlanDayBean.setCena(nutritionalPlanDay.getCena());
-                nutritionalPlanDayBean.setQuantitaColazione(nutritionalPlanDay.getQuantitaColazione());
-                nutritionalPlanDayBean.setQuantitaPranzo(nutritionalPlanDay.getQuantitaPranzo());
-                nutritionalPlanDayBean.setQuantitaCena(nutritionalPlanDay.getQuantitaCena());
-                nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
+        NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
+        NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luc@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
 
-                return nutritionalPlanDayBean;
+
+        if(ilnesses.equals("Diabete")){
+
+
+            DiabeticDecorator diabeticDecorator = new DiabeticDecorator(nutritionalPlanDay);
+            NutritionalPlanDayBean nutritionalPlanDayBean = new NutritionalPlanDayBean();
+
+            nutritionalPlanDayBean.setColazione(nutritionalPlanDay.getColazione());
+            nutritionalPlanDayBean.setPranzo(nutritionalPlanDay.getPranzo());
+            nutritionalPlanDayBean.setCena(nutritionalPlanDay.getCena());
+            nutritionalPlanDayBean.setQuantitaColazione(diabeticDecorator.getQuantitaColazione());
+            nutritionalPlanDayBean.setQuantitaPranzo(diabeticDecorator.getQuantitaPranzo());
+            nutritionalPlanDayBean.setQuantitaCena(diabeticDecorator.getQuantitaCena());
+            nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
+
+
+        }
+
+        if(nutritionalPlanDay==null){
+            throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondente bisogna prima crealo, ");
+        }
+
+
+
+        NutritionalPlanDayBean nutritionalPlanDayBean = new NutritionalPlanDayBean();
+
+        nutritionalPlanDayBean.setColazione(nutritionalPlanDay.getColazione());
+        nutritionalPlanDayBean.setPranzo(nutritionalPlanDay.getPranzo());
+        nutritionalPlanDayBean.setCena(nutritionalPlanDay.getCena());
+        nutritionalPlanDayBean.setQuantitaColazione(nutritionalPlanDay.getQuantitaColazione());
+        nutritionalPlanDayBean.setQuantitaPranzo(nutritionalPlanDay.getQuantitaPranzo());
+        nutritionalPlanDayBean.setQuantitaCena(nutritionalPlanDay.getQuantitaCena());
+        nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
+
+
+        return nutritionalPlanDayBean;
 
 
 

@@ -1,9 +1,9 @@
 package com.dicii.ispw.project.patterns.singleton.Decorator;
 
 public interface  NutritionalPlan {
-        String getQuantitaColazione();
+        public String getQuantitaColazione();
 
-        String getQuantitaPranzo();
+        public String getQuantitaPranzo();
 
-        String getQuantitaCena();
+        public String getQuantitaCena();
 }

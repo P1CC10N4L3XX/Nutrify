@@ -24,5 +24,12 @@ public class PatientQueries extends Queries{
         return statement.executeQuery(query);
     }
 
+    public static ResultSet selectInfoPatient(Statement statement, String email) throws SQLException{
+        String query = String.format("SELECT * FROM paziente WHERE Email='%s'",email);
+        return statement.executeQuery(query);
+    }
+
+
+
 
 }

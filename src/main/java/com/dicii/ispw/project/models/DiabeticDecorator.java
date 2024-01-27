@@ -37,6 +37,20 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
     return preliminaryResults + valoreGlicemicoColazione;
   }
 
+  public String getQuantitaPranzo() {
+    String preliminaryResults = super.getQuantitaColazione();
+    valoreGlicemicoPranzo = this.computeValue(Float.parseFloat(preliminaryResults));
+
+    return preliminaryResults + valoreGlicemicoColazione;
+  }
+
+  public String getCena() {
+    String preliminaryResults = super.getQuantitaColazione();
+    valoreGlicemicoCena = this.computeValue(Float.parseFloat(preliminaryResults));
+
+    return preliminaryResults + valoreGlicemicoColazione;
+  }
+
 
 
 }

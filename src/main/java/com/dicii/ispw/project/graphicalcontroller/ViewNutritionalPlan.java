@@ -39,6 +39,8 @@ public class ViewNutritionalPlan  {
     Label day;
     String giorno;
 
+    String ilnesses;
+
 
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
@@ -52,14 +54,15 @@ public class ViewNutritionalPlan  {
 
 
 
-    public void takeParameter(String dataSelected) throws NutritionalPlanNotFoundException, DuplicatedUserException {
-        if (giorno == null) {
-            day.setText(dataSelected);
-            giorno = dataSelected;
+    public void takeParameter(String dataSelected,String ilnesses) throws NutritionalPlanNotFoundException, DuplicatedUserException {
 
-            getDataForDisplaying();
+        day.setText(dataSelected);
+        giorno = dataSelected;
+        this.ilnesses=ilnesses;
 
-        }
+        getDataForDisplaying();
+
+
     }
 
 
@@ -68,8 +71,13 @@ public class ViewNutritionalPlan  {
 
     public void getDataForDisplaying() throws NutritionalPlanNotFoundException, DuplicatedUserException {
 
-            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno);
-            displayNutritionalPlan(nutritionalPlanDayBean);
+        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
+        this.colazione.setText(nutritionalPlanDayBean.getColazione());
+        this.pranzo.setText(nutritionalPlanDayBean.getPranzo());
+        this.cena.setText(nutritionalPlanDayBean.getCena());
+        this.quantitaColazione.setText(nutritionalPlanDayBean.getQuantitaColazione());
+        this.quantitaPranzo.setText(nutritionalPlanDayBean.getQuantitaPranzo());
+        this.quantitaCena.setText(nutritionalPlanDayBean.getQuantitaCena());
 
     }
 
@@ -78,21 +86,12 @@ public class ViewNutritionalPlan  {
 
 
 
-    public void displayNutritionalPlan(NutritionalPlanDayBean nutritionalPlanDayBean){
 
-
-                this.colazione.setText(nutritionalPlanDayBean.getColazione());
-                this.pranzo.setText(nutritionalPlanDayBean.getPranzo());
-                this.cena.setText(nutritionalPlanDayBean.getCena());
-                this.quantitaColazione.setText(nutritionalPlanDayBean.getQuantitaColazione());
-                this.quantitaPranzo.setText(nutritionalPlanDayBean.getQuantitaPranzo());
-                this.quantitaCena.setText(nutritionalPlanDayBean.getQuantitaCena());
-
-
-    }
 
 
 }
+
+
 
 
 

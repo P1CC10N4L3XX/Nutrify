@@ -13,14 +13,5 @@ public class IlnessesDao {
 
 
 
-    public void saveIlnesses(Ilnesses ilnesses) throws DuplicatedUserException {
-        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
-        try(Statement statement = connection.createStatement()){
-            IlnessesQueries.saveIntoIlnesses(statement,ilnesses );
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println("SQL Error");
-        }
-    }
+
 }

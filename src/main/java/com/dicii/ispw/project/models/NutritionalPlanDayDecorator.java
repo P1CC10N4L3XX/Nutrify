@@ -6,7 +6,7 @@ public class NutritionalPlanDayDecorator implements NutritionalPlan {
 
     private NutritionalPlan component;
 
-    public NutritionalPlanDayDecorator(NutritionalPlan nutritionalPlan){
+    public NutritionalPlanDayDecorator(NutritionalPlan component){
         this.component=component;
     }
 

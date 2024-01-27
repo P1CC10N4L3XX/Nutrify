@@ -9,6 +9,8 @@ public class PatientBean {
     private String weight;
     private String height;
 
+    private String ilnesses;
+
     public PatientBean(String email,String name,String surname, String description, String dateOfBirth, String weight, String height){
         this.email = email;
         this.name = name;
@@ -18,6 +20,8 @@ public class PatientBean {
         this.weight=weight;
         this.height=height;
     }
+
+    public PatientBean(){}
 
     public String getEmail() {
         return email;
@@ -47,6 +51,10 @@ public class PatientBean {
         return weight;
     }
 
+    public String getIlnessesBean() {
+        return ilnesses;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -74,4 +82,8 @@ public class PatientBean {
     public void setHeight(String height) {
         this.height = height;
     }
+    public void setIlnesses(String ilnesses) {
+        this.ilnesses=ilnesses;
+    }
+
 }

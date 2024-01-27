@@ -2,6 +2,8 @@ package com.dicii.ispw.project.graphicalcontroller;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 
+import com.dicii.ispw.project.beans.PatientBean;
+import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import javafx.event.ActionEvent;
@@ -29,11 +31,29 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class NutritionalPlanDay {
+public class NutritionalPlanDay implements Initializable {
     private Stage stage;
     private Scene scene;
 
     private Parent root;
+
+    @FXML
+    private Label nome;
+    @FXML
+    private Label surname;
+
+    @FXML
+    private Label birthday;
+
+    @FXML
+    private Label weight;
+
+    @FXML
+    private Label height;
+
+    @FXML
+    private Label ilneeses;
+
 
 
 
@@ -43,21 +63,30 @@ public class NutritionalPlanDay {
     @FXML
     private Label selectionDate;
 
+    @FXML
+    private Label warning;
+
     String dataSelected;
 
 
-    @FXML
-    public Label client;
 
-    @FXML
-    public Label warning;
+    private PatientBean patientBean;
 
 
 
     private CreateNutritionalController createNutritionalController;
 
     public NutritionalPlanDay(){
-         createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new CreateNutritionalController();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            viewPatientInfo();
+        } catch (DuplicatedUserException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -72,23 +101,45 @@ public class NutritionalPlanDay {
 
     }
 
+    public void viewPatientInfo() throws DuplicatedUserException {
+
+        try {
+
+            patientBean=createNutritionalController.displayUserInfo();
+
+            this.nome.setText(patientBean.getName());
+            this.surname.setText(patientBean.getSurname());
+            this.birthday.setText(patientBean.getDateOfBirth());
+            this.weight.setText(patientBean.getWeight());
+            this.height.setText(patientBean.getHeight());
+            this.ilneeses.setText(patientBean.getIlnessesBean());
 
 
 
-    public void day(ActionEvent event ) throws Exception {
+        }catch (NullPointerException e){
+            System.out.println(e.getMessage());
+        }
 
 
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
-            root = loader.load();
+    }
 
-            CreateNutritionalPlanControllerGui createNutritionalPlanControllerGui = loader.getController();
-            createNutritionalPlanControllerGui.displayData(dataSelected);
 
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setResizable(false);
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+
+
+    public void day(ActionEvent event) throws Exception {
+
+
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
+        root = loader.load();
+
+        CreateNutritionalPlanControllerGui createNutritionalPlanControllerGui = loader.getController();
+        createNutritionalPlanControllerGui.displayData(dataSelected);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
 
 
@@ -104,11 +155,12 @@ public class NutritionalPlanDay {
 
 
         try{
+
             FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/ViewNutritionalPlan.fxml"));
             root = loader.load();
 
             ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-            viewNutritionalPlan.takeParameter(dataSelected);
+            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean());
 
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -127,12 +179,6 @@ public class NutritionalPlanDay {
 
 
     }
-
-
-
-
-
-
 
 
 
