@@ -52,6 +52,9 @@ public class LoginController{
             if(patientRadioButton.isSelected()){
                 GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
             }
+            if(nutritionistRadioButton.isSelected()){
+                GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDashboard.fxml");
+            }
         }catch(InvalidUserExceptionInfo | NotExistentUserException e){
             notificationLabel.setText(e.getMessage());
         }
@@ -76,6 +79,10 @@ public class LoginController{
         if(email.isEmpty() || password.isEmpty() || (!patient && !nutritionist)) throw new InvalidUserExceptionInfo("Compile all fields");
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
         return new UserBean(email,password,nutritionist);
+
+
+
+
     }
 
 
