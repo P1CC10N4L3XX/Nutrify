@@ -1,7 +1,5 @@
 package com.dicii.ispw.project.models;
 
-import com.dicii.ispw.project.patterns.singleton.Decorator.NutritionalPlan;
-
 import java.util.ArrayList;
 import java.util.List;
 

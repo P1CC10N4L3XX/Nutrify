@@ -16,6 +16,7 @@ module com.example.progetto {
     opens com.dicii.ispw.project.applicationcontroller to javafx.fxml;
     exports com.dicii.ispw.project.graphicalcontroller.nutritionist;
     opens com.dicii.ispw.project.graphicalcontroller.nutritionist to javafx.fxml;
-
+    exports com.dicii.ispw.project.graphicalcontroller.patient.dashboard;
+    opens com.dicii.ispw.project.graphicalcontroller.patient.dashboard to javafx.fxml;
 
 }

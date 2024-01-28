@@ -5,6 +5,7 @@ import com.dicii.ispw.project.models.User;
 import com.dicii.ispw.project.models.UserCredentials;
 
 import java.sql.*;
+import java.util.List;
 
 public class NutritionistQueries extends Queries{
         public static boolean insertIntoNutritionist(Statement statement, UserCredentials nutritionist) throws SQLException {
@@ -17,6 +18,11 @@ public class NutritionistQueries extends Queries{
         }
         public static ResultSet selectNutritionistByCredentials(Statement statement,UserCredentials nutritionist) throws SQLException{
             String query = String.format("SELECT * FROM nutrizionista WHERE Email='%s' AND Password='%s'",nutritionist.getEmail(),nutritionist.getPassword());
+            return statement.executeQuery(query);
+        }
+
+        public static ResultSet selectListOfNutritionist(Statement statement,int limitNumber,int offset) throws SQLException{
+            String query = String.format("SELECT * FROM Nutrizionista LIMIT %s OFFSET %s",limitNumber,offset);
             return statement.executeQuery(query);
         }
 

@@ -1,10 +1,8 @@
 package com.dicii.ispw.project.models;
-import com.dicii.ispw.project.models.Recipe;
-import com.dicii.ispw.project.patterns.singleton.Decorator.NutritionalPlan;
+import com.dicii.ispw.project.patterns.Decorator.NutritionalPlan;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class NutritionalPlanDay implements NutritionalPlan {
 
