@@ -92,7 +92,6 @@
             <Text layoutX="148.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-size: 20;" text="Valutazione:" />
             <Text layoutX="147.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-size: 20;" text="Prezzo:" />
          </Pane>
-         <Button layoutX="31.0" layoutY="159.0" mnemonicParsing="false" onAction="#nutritionalPlanDashboard" text="Dashboard" />
       </AnchorPane>
    </ScrollPane>
    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />

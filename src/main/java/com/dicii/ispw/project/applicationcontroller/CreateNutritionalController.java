@@ -105,11 +105,22 @@ public class CreateNutritionalController{
 
     public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses) throws DuplicatedUserException,NutritionalPlanNotFoundException, InvocationTargetException {
 
-
-
-
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
-        NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
+        if(Session.getSessionInstance().getLoggedUser().getType()){
+            //se sono il paziente
+
+            NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"marco@gmail.com",day);
+
+        }else{
+
+            //se sono il nutrizionista vabene
+            NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
+
+        }
+
+
+        //se sono il nutrizionista vabene
+      //  NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
         if(nutritionalPlanDay==null){
             throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondente bisogna prima crealo ");
@@ -164,9 +175,6 @@ public class CreateNutritionalController{
 
 
 
-
-
-
     public List<RecipeBean> convertList(List<Recipe> recipes) {
         //converto il vettore di Recipe in RecipeBean
         List<RecipeBean> recipeBeanList = new ArrayList<>();
@@ -192,6 +200,18 @@ public class CreateNutritionalController{
         List<RecipeBean> recipesBean;
         recipesBean=convertList(recipes);
         return recipesBean;
+    }
+
+
+
+    public RecipeBean readRecipeFromFile(){
+        Recipe recipe;
+        RecipeBean recipeBean = null;
+        RecipeFileSaver recipeFileSaver = new RecipeFileSaver();
+        recipe=recipeFileSaver.loadRecipeFromFile();
+        recipeBean.setName(recipe.getName());
+
+        return recipeBean;
     }
 
 
