@@ -6,7 +6,7 @@ import java.util.List;
 
 public class NutritionalPlanDay implements NutritionalPlan {
 
-    protected Integer id;
+
     protected String day;
 
     private String colazione;
@@ -21,10 +21,7 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
     private String quantitaCena;
 
-    protected transient List<Recipe> recipeList;
-
-
-
+    protected List<Recipe> recipeList;
 
 
     public NutritionalPlanDay( String day,String colazione, String pranzo, String cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena){
@@ -57,12 +54,6 @@ public class NutritionalPlanDay implements NutritionalPlan {
     public void addAllRecipe(List<Recipe> recipeList){
         this.recipeList = recipeList;
     }
-
-    public int getId() {
-        return id;
-    }
-
-
 
     public String getDay() {
         return day;
@@ -99,30 +90,6 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
 
 
-    public void setColazione(float quantitaColazione) {
-        this.colazione = colazione;
-    }
-
-    public void setPranzo(float quantitaPranzo) {
-        this.pranzo = pranzo;
-    }
-
-    public void setCena(float quantitaCena) {
-        this.cena = cena;
-    }
-
-
-    public void setQuantitaColazione(String quantitaColazione) {
-        this.quantitaColazione = quantitaColazione;
-    }
-
-    public void setQuantitaPranzo(String quantitaPranzo) {
-        this.quantitaPranzo = quantitaPranzo;
-    }
-
-    public void setQuantitaCena(String quantitaCena) {
-        this.quantitaCena = quantitaCena;
-    }
 
 
 

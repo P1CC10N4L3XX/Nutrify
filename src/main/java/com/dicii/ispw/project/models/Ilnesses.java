@@ -10,7 +10,6 @@ public class Ilnesses {
         this.name = name;
     }
 
-    public Ilnesses(){}
 
     public String getName() {
         return name;

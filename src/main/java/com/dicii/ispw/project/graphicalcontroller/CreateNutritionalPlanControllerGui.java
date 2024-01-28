@@ -36,13 +36,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     private String cena;
 
-    private float grammiColazione;
-
-    private float grammiPranzo;
-
-    private float grammiCena;
-
-    private String descrizione;
 
     public TextField grammiColazioneField;
     public TextField grammiPranzoField;
@@ -136,10 +129,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
             createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
 
-
-
-
-            System.out.println(grammiColazione);
 
             display();
 

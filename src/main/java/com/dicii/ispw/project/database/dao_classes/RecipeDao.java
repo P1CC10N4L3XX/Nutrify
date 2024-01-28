@@ -28,7 +28,7 @@ public class RecipeDao {
 
 
 
-    //ritorna un vettore di ricette
+
     public static List<Recipe> displayRecipe() throws DuplicatedUserException {
         ArrayList<Recipe> recipes = new ArrayList<>() ;
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
@@ -39,7 +39,6 @@ public class RecipeDao {
             while (resultSet.next()) {
 
                 Recipe recipe = createRecipe(resultSet);
-
                 recipes.add(recipe);
 
             }
@@ -62,7 +61,6 @@ public class RecipeDao {
 
 
         String name = resultSet.getString("Nome");
-
         String descriptions = resultSet.getString("Ingredienti");
         String ingredients = resultSet.getString("Descrizione");
 

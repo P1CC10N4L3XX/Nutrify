@@ -107,14 +107,17 @@ public class CreateNutritionalController{
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
         if(Session.getSessionInstance().getLoggedUser().getType()){
-            //se sono il paziente
+            //se sono il nutrizionista
+            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
-            NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"marco@gmail.com",day);
+
 
         }else{
 
-            //se sono il nutrizionista vabene
-            NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
+            //se sono il paziente
+
+             nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"marco@gmail.com",day);
+
 
         }
 
@@ -197,7 +200,10 @@ public class CreateNutritionalController{
     public List<RecipeBean> displayRecipe() throws DuplicatedUserException {
         RecipeDao recipeDao = new RecipeDao();
         List<Recipe> recipes= recipeDao.displayRecipe();
+        NutritionalPlanDay nutritionalPlanDay = new NutritionalPlanDay();
+        nutritionalPlanDay.addAllRecipe(recipes);
         List<RecipeBean> recipesBean;
+
         recipesBean=convertList(recipes);
         return recipesBean;
     }

@@ -4,6 +4,11 @@ module com.example.progetto {
     requires javafx.web;
     requires java.sql;
     requires controlsfx;
+    requires junit;
+    requires org.junit.jupiter.api;
+
+
+    exports test;
 
 
     opens com.dicii.ispw.project to javafx.fxml;
