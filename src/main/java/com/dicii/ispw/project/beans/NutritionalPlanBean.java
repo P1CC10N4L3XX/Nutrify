@@ -10,14 +10,13 @@ public class NutritionalPlanBean {
 
     private String data;
 
-    private  String description;
 
 
     List<NutritionalPlanDayBean> nutritionalPlanDayBeanList;
 
-    public NutritionalPlanBean(String description, String data){
+    public NutritionalPlanBean(String data){
 
-        this.description=description;
+
         this.data=data;
 
     }
@@ -27,12 +26,6 @@ public class NutritionalPlanBean {
         this.nutritionalPlanDayBeanList = new ArrayList<>();
     }
 
-
-
-
-    public String getDescription() {
-        return description;
-    }
 
     public String getDate() {
         return this.data;
