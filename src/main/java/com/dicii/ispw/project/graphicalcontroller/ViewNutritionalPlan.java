@@ -3,17 +3,14 @@ package com.dicii.ispw.project.graphicalcontroller;
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
+import com.dicii.ispw.project.graphicalcontroller.utils.GUI;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 
-import java.io.Serializable;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ViewNutritionalPlan  {
 
@@ -52,6 +49,9 @@ public class ViewNutritionalPlan  {
         createNutritionalController = new CreateNutritionalController();
     }
 
+    public void back(ActionEvent event) throws IOException {
+        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
+    }
 
 
     public void takeParameter(String dataSelected,String ilnesses) throws NutritionalPlanNotFoundException, DuplicatedUserException {
@@ -60,18 +60,11 @@ public class ViewNutritionalPlan  {
         giorno = dataSelected;
         this.ilnesses=ilnesses;
 
-        getDataForDisplaying();
-
-
-    }
-
-
-
-
-
-    public void getDataForDisplaying() throws NutritionalPlanNotFoundException, DuplicatedUserException {
-
-        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
+        try {
+            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
         this.colazione.setText(nutritionalPlanDayBean.getColazione());
         this.pranzo.setText(nutritionalPlanDayBean.getPranzo());
         this.cena.setText(nutritionalPlanDayBean.getCena());
@@ -79,7 +72,13 @@ public class ViewNutritionalPlan  {
         this.quantitaPranzo.setText(nutritionalPlanDayBean.getQuantitaPranzo());
         this.quantitaCena.setText(nutritionalPlanDayBean.getQuantitaCena());
 
+
     }
+
+
+
+
+
 
 
 

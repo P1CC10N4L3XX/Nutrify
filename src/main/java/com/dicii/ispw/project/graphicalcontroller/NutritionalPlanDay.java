@@ -4,6 +4,7 @@ import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import javafx.event.ActionEvent;
@@ -54,9 +55,6 @@ public class NutritionalPlanDay implements Initializable {
     @FXML
     private Label ilneeses;
 
-
-
-
     @FXML
     private DatePicker dataPicker;
 
@@ -68,13 +66,13 @@ public class NutritionalPlanDay implements Initializable {
 
     String dataSelected;
 
-
-
     private PatientBean patientBean;
 
-
-
     private CreateNutritionalController createNutritionalController;
+
+
+
+
 
     public NutritionalPlanDay(){
         createNutritionalController = new CreateNutritionalController();
@@ -126,21 +124,35 @@ public class NutritionalPlanDay implements Initializable {
 
 
 
-    public void day(ActionEvent event) throws Exception {
+    public void createNutritionalPlanDay(ActionEvent event) throws Exception {
+
+        try{
+            LocalDate localDate=dataPicker.getValue();
+            if(localDate==null){
+                warning.setText("Seleziona la data");
+            }else{
+                createNutritionalController.checkNutritionalPlanDay(dataSelected);
+                FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
+                root = loader.load();
+
+                CreateNutritionalPlanControllerGui createNutritionalPlanControllerGui = loader.getController();
+                createNutritionalPlanControllerGui.displayData(dataSelected);
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setResizable(false);
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+            }
 
 
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
-        root = loader.load();
 
-        CreateNutritionalPlanControllerGui createNutritionalPlanControllerGui = loader.getController();
-        createNutritionalPlanControllerGui.displayData(dataSelected);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        }
+        catch(NutritionalPlanFounded e){
+                  warning.setText(e.getMessage());
+        }
 
 
 

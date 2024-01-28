@@ -19,7 +19,7 @@ public class NutritionalPlanDayQueries {
     }
 
     public static ResultSet displayNutritionalPlanDay(Statement statement, String emailPaziente,String emailNutrizionista,String data) throws SQLException {
-        String query = String.format("SELECT * FROM partecipazione Where Nutrizionista= '%s' && Paziente= '%s' AND DataConsumazione='%s' ", emailPaziente,emailNutrizionista, data);
+        String query = String.format("SELECT * FROM partecipazione Where Nutrizionista= '%s' && Paziente= '%s' AND DataConsumazione='%s' ",emailNutrizionista, emailPaziente, data);
         return statement.executeQuery(query);
     }
 

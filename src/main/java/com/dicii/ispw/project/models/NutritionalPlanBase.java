@@ -11,17 +11,15 @@ public class NutritionalPlanBase  {
     private String data;
 
 
-    private String description;
-
 
     private List<NutritionalPlanDay> nutritionalPlanDayList;
 
 
 
 
-    public NutritionalPlanBase(String description, String data){
+    public NutritionalPlanBase(String data){
 
-        this.description=description;
+
         this.data=data;
 
     }
@@ -33,16 +31,6 @@ public class NutritionalPlanBase  {
 
 
 
-
-
-    public String getDescription() {
-        return description;
-    }
-
-
-    public void setDescription(String description) {
-        this.description=description;
-    }
 
     public String getDate() {
         return this.data;
