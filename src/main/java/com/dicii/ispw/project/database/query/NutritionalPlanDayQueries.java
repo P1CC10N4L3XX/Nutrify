@@ -9,11 +9,11 @@ import java.sql.Statement;
 public class NutritionalPlanDayQueries {
 
 
-    public static boolean insertNutritionalPlanDay(Statement statement, NutritionalPlanDay nutritionalPlanDay ,String emailNutritionist, String emailPatient, Recipe recipe) throws SQLException {
+    public static boolean insertNutritionalPlanDay(Statement statement, NutritionalPlanDay nutritionalPlanDay ,String emailNutritionist, String emailPatient) throws SQLException {
         String query = String.format("INSERT INTO partecipazione (Nutrizionista,Paziente, RicettaColazione, RicettaPranzo, RicettaCena, QuantitaColazione" +
                         " ,QuantitaPranzo,QuantitaCena,DataConsumazione) values('%s','%s','%s','%s','%s','%s','%s','%s','%s')",
-                emailNutritionist,emailPatient,nutritionalPlanDay.getColazione(),nutritionalPlanDay.getPranzo(),
-                nutritionalPlanDay.getCena(),nutritionalPlanDay.getQuantitaColazione(),nutritionalPlanDay.getQuantitaPranzo(),
+                emailNutritionist,emailPatient,nutritionalPlanDay.getColazione().getName(),nutritionalPlanDay.getPranzo().getName(),
+                nutritionalPlanDay.getCena().getName(),nutritionalPlanDay.getQuantitaColazione(),nutritionalPlanDay.getQuantitaPranzo(),
                 nutritionalPlanDay.getQuantitaCena(),nutritionalPlanDay.getDay());
         return statement.execute(query);
     }

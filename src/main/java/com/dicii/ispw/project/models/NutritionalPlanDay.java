@@ -1,4 +1,5 @@
 package com.dicii.ispw.project.models;
+import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.patterns.Decorator.NutritionalPlan;
 
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
     protected String day;
 
-    private String colazione;
+    private Recipe colazione;
 
-    private String cena;
+    private Recipe cena;
 
-    private String pranzo;
+    private Recipe pranzo;
 
     private String quantitaColazione;
 
@@ -21,10 +22,10 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
     private String quantitaCena;
 
-    protected List<Recipe> recipeList;
 
 
-    public NutritionalPlanDay( String day,String colazione, String pranzo, String cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena){
+
+    public NutritionalPlanDay( String day,Recipe colazione, Recipe pranzo, Recipe cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena){
 
         this.day =day;
         this.colazione=colazione;
@@ -37,43 +38,22 @@ public class NutritionalPlanDay implements NutritionalPlan {
     }
 
 
-
-
-    public NutritionalPlanDay() {
-        recipeList = new ArrayList<>();
-    }
-
-    public List<Recipe> getRecipeList(){
-        return recipeList;
-    }
-
-    public void addRecipe(Recipe recipe){
-        recipeList.add(recipe);
-    }
-
-    public void addAllRecipe(List<Recipe> recipeList){
-        this.recipeList = recipeList;
-    }
-
     public String getDay() {
         return day;
     }
 
 
-    public String getColazione() {
+    public Recipe getColazione() {
         return colazione;
     }
 
-    public String getPranzo() {
+    public Recipe getPranzo() {
         return pranzo;
     }
 
-    public String getCena() {
+    public Recipe getCena() {
         return cena;
     }
-
-
-
 
     @Override
     public String getQuantitaColazione() {

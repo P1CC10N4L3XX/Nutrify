@@ -10,8 +10,8 @@ public class RecipeQueries {
 
 
 
-    public static boolean  saveIntoRecipe(Statement statement, Recipe recipe) throws SQLException {
-        String query = String.format("INSERT INTO ricetta (Nome,Ingredienti,Descrizione) values('%s','%s','%s')",recipe.getName(),recipe.getIngredients(),recipe.getDescription());
+    public static boolean  saveIntoRecipe(Statement statement, Recipe recipe, String emailNutritionist) throws SQLException {
+        String query = String.format("INSERT INTO ricetta (Nome,Ingredienti,Descrizione,Nutrizionista) values('%s','%s','%s','%s')",recipe.getName(),recipe.getIngredients(),recipe.getDescription(), emailNutritionist);
         return statement.execute(query);
     }
 

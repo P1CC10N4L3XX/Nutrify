@@ -65,9 +65,9 @@ public class ViewNutritionalPlan  {
         } catch (InvocationTargetException e) {
             throw new RuntimeException(e);
         }
-        this.colazione.setText(nutritionalPlanDayBean.getColazione());
-        this.pranzo.setText(nutritionalPlanDayBean.getPranzo());
-        this.cena.setText(nutritionalPlanDayBean.getCena());
+        this.colazione.setText(nutritionalPlanDayBean.getColazione().getName());
+        this.pranzo.setText(nutritionalPlanDayBean.getPranzo().getName());
+        this.cena.setText(nutritionalPlanDayBean.getCena().getName());
         this.quantitaColazione.setText(nutritionalPlanDayBean.getQuantitaColazione());
         this.quantitaPranzo.setText(nutritionalPlanDayBean.getQuantitaPranzo());
         this.quantitaCena.setText(nutritionalPlanDayBean.getQuantitaCena());

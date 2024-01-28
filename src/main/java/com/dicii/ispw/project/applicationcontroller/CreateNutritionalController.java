@@ -39,10 +39,12 @@ public class CreateNutritionalController{
 
 
         try {
-            nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),nutritionalPlanDayBean.getColazione(), nutritionalPlanDayBean.getPranzo(), nutritionalPlanDayBean.getCena(),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());
+            NutritionalPlanBase nutritionalPlanBase = new NutritionalPlanBase();
+            nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),convertRecipeBeanToModel(nutritionalPlanDayBean.getColazione()),convertRecipeBeanToModel(nutritionalPlanDayBean.getPranzo()), convertRecipeBeanToModel(nutritionalPlanDayBean.getCena()),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
+            nutritionalPlanBase.addNutritionalPlanDay(nutritionalPlanDay);
 
-            nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com",recipe);
+            nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com");
 
 
         }catch (Exception e){
@@ -52,6 +54,16 @@ public class CreateNutritionalController{
 
     }
 
+    public Recipe convertRecipeBeanToModel(RecipeBean recipeBean) {
+        Recipe recipeModel = new Recipe();
+        recipeModel.setName(recipeBean.getName());
+        recipeModel.setDescription(recipeBean.getDescription());
+        recipeModel.setIngredients(recipeBean.getIngredients());
+        return recipeModel;
+    }
+
+    //appena si ha l'email dell utente andra passata come paraetro
+    //String emailPatient;
     public PatientBean displayUserInfo() throws DuplicatedUserException {
 
         //questo e il metodo in cui aggiungere quale utente e stato selezioato dalla View NutritionalPlan Dashboard
@@ -110,22 +122,13 @@ public class CreateNutritionalController{
             //se sono il nutrizionista
             nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
-
-
         }else{
 
             //se sono il paziente
-
              nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"marco@gmail.com",day);
 
 
-        }
-
-
-        //se sono il nutrizionista vabene
-      //  NutritionalPlanDay nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
-
-        if(nutritionalPlanDay==null){
+        }if(nutritionalPlanDay==null){
             throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondente bisogna prima crealo ");
 
         }
@@ -134,11 +137,9 @@ public class CreateNutritionalController{
 
         if(ilnesses==null){
 
-
-
-            nutritionalPlanDayBean.setColazione(nutritionalPlanDay.getColazione());
-            nutritionalPlanDayBean.setPranzo(nutritionalPlanDay.getPranzo());
-            nutritionalPlanDayBean.setCena(nutritionalPlanDay.getCena());
+            nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
+            nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
+            nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
             nutritionalPlanDayBean.setQuantitaColazione(nutritionalPlanDay.getQuantitaColazione());
             nutritionalPlanDayBean.setQuantitaPranzo(nutritionalPlanDay.getQuantitaPranzo());
             nutritionalPlanDayBean.setQuantitaCena(nutritionalPlanDay.getQuantitaCena());
@@ -153,9 +154,9 @@ public class CreateNutritionalController{
 
 
             System.out.println(diabeticDecorator.getQuantitaColazione());
-            nutritionalPlanDayBean.setColazione(nutritionalPlanDay.getColazione());
-            nutritionalPlanDayBean.setPranzo(nutritionalPlanDay.getPranzo());
-            nutritionalPlanDayBean.setCena(nutritionalPlanDay.getCena());
+            nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
+            nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
+            nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
             nutritionalPlanDayBean.setQuantitaColazione(diabeticDecorator.getQuantitaColazione());
             nutritionalPlanDayBean.setQuantitaPranzo(diabeticDecorator.getQuantitaPranzo());
             nutritionalPlanDayBean.setQuantitaCena(diabeticDecorator.getQuantitaCena());
@@ -164,22 +165,22 @@ public class CreateNutritionalController{
 
         }
 
-
-
-
-
-
         return nutritionalPlanDayBean;
 
+    }
 
-
-
+    public RecipeBean convertModeltoRecipeBean(Recipe recipe) {
+        RecipeBean recipeBean = new RecipeBean();
+        recipeBean.setName(recipe.getName());
+        recipeBean.setDescription(recipe.getDescription());
+        recipeBean.setIngredients(recipe.getIngredients());
+        return recipeBean;
     }
 
 
 
     public List<RecipeBean> convertList(List<Recipe> recipes) {
-        //converto il vettore di Recipe in RecipeBean
+
         List<RecipeBean> recipeBeanList = new ArrayList<>();
 
         for (Recipe recipe : recipes) {
@@ -200,8 +201,6 @@ public class CreateNutritionalController{
     public List<RecipeBean> displayRecipe() throws DuplicatedUserException {
         RecipeDao recipeDao = new RecipeDao();
         List<Recipe> recipes= recipeDao.displayRecipe();
-        NutritionalPlanDay nutritionalPlanDay = new NutritionalPlanDay();
-        nutritionalPlanDay.addAllRecipe(recipes);
         List<RecipeBean> recipesBean;
 
         recipesBean=convertList(recipes);
@@ -223,7 +222,6 @@ public class CreateNutritionalController{
 
     public void checkNutritionalPlanDay(String dataSelected) throws NutritionalPlanFounded, DuplicatedUserException {
 
-        NutritionalPlanDay nutritionalPlanDay =new NutritionalPlanDay();
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
         nutritionalPlanDayDao.CheckNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"luca@gmail.com" ,dataSelected);
     }

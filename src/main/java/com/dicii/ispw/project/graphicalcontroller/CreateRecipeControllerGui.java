@@ -54,7 +54,7 @@ public class CreateRecipeControllerGui {
             title = titleField.getText();
             descrizione = descrizioneArea.getText();
             ingredienti=ingredientiField.getText();
-            createNewRecipeController.CreateNewRecipe(recipeBean);
+            createNewRecipeController.createNewRecipe(recipeBean);
 
 
         }

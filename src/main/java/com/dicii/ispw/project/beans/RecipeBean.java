@@ -23,9 +23,7 @@ public class RecipeBean {
     }
 
     public RecipeBean( String name) {
-
         this.name = name;
-
 
     }
 
@@ -48,6 +46,10 @@ public class RecipeBean {
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getIngredients(){ return ingredients;}

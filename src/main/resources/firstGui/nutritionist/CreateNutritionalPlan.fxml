@@ -28,5 +28,6 @@
       <ChoiceBox fx:id="myChoiceBox3" layoutX="182.0" layoutY="217.0" prefWidth="150.0" />
       <ChoiceBox fx:id="myChoiceBox2" layoutX="179.0" layoutY="157.0" prefWidth="150.0" />
       <Label fx:id="data" layoutX="371.0" layoutY="27.0" text="Label" />
+      <Label fx:id="warning" layoutX="259.0" layoutY="52.0" text="Label" />
    </children>
 </AnchorPane>

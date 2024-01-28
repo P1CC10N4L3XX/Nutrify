@@ -18,13 +18,13 @@ public class NutritionalPlanDayDao {
 
 
 
-    public void SaveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist,String emailPatient ,Recipe recipe) throws DuplicatedUserException {
+    public void SaveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist,String emailPatient ) throws DuplicatedUserException {
 
 
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
-            NutritionalPlanDayQueries.insertNutritionalPlanDay(statement,  nutritionalPlanDay ,emailPatient,  emailNutritionist,  recipe );
+            NutritionalPlanDayQueries.insertNutritionalPlanDay(statement,  nutritionalPlanDay ,emailPatient,  emailNutritionist );
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
@@ -84,11 +84,11 @@ public class NutritionalPlanDayDao {
 
 
 
-        String ricettaColazione = resultSet.getString("RicettaColazione");
+        Recipe ricettaColazione = (Recipe) resultSet.getObject("RicettaColazione");
 
-        String ricettaPranzo = resultSet.getString("RicettaPranzo");
+        Recipe ricettaPranzo = (Recipe) resultSet.getObject("RicettaPranzo");
 
-        String ricettaCena = resultSet.getString("RicettaCena");
+        Recipe ricettaCena = (Recipe) resultSet.getObject("ricettaCena");
 
         String quantitaColazione = resultSet.getString("QuantitaColazione");
 

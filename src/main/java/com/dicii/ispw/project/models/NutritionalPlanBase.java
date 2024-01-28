@@ -7,26 +7,15 @@ public class NutritionalPlanBase  {
 
 
     private String data;
-
-
-
     private List<NutritionalPlanDay> nutritionalPlanDayList;
 
 
-
-
     public NutritionalPlanBase(String data){
-
-
         this.data=data;
-
     }
-
-
     public NutritionalPlanBase(){
         this.nutritionalPlanDayList = new ArrayList<>();
     }
-
 
 
 
@@ -38,9 +27,21 @@ public class NutritionalPlanBase  {
         this.data = data;
     }
 
-    public List<NutritionalPlanDay> getNutritionalPlanBaseDayList() {
-        return nutritionalPlanDayList;
+
+    public void addNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay){
+        nutritionalPlanDayList.add(nutritionalPlanDay);
     }
+
+    public void removeNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay){
+        nutritionalPlanDayList.remove(nutritionalPlanDay);
+    }
+
+    public void removeAllNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay){
+        nutritionalPlanDayList.clear();
+    }
+
+
+
 
 
 

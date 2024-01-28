@@ -7,6 +7,7 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.Ilnesses;
 import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.Recipe;
+import com.dicii.ispw.project.patterns.singleton.Session;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class RecipeDao {
     public void saveRecipe(Recipe recipe) throws DuplicatedUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
-            RecipeQueries.saveIntoRecipe(statement,recipe );
+            RecipeQueries.saveIntoRecipe(statement,recipe, Session.getSessionInstance().getLoggedUser().getEmail() );
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
@@ -45,7 +46,6 @@ public class RecipeDao {
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-
             System.out.println(e.getMessage());
         }
 
@@ -55,15 +55,11 @@ public class RecipeDao {
 
 
 
-
-
     public static Recipe createRecipe(ResultSet resultSet) throws SQLException {
-
 
         String name = resultSet.getString("Nome");
         String descriptions = resultSet.getString("Ingredienti");
         String ingredients = resultSet.getString("Descrizione");
-
 
         return new Recipe(name, ingredients,descriptions);
 

@@ -19,12 +19,13 @@ public class CreateNewRecipeController{
 
     private Nutritionist nutritionist;
 
-    public void CreateNewRecipe( RecipeBean recipeBean) throws DuplicatedUserException {
+    public void createNewRecipe( RecipeBean recipeBean) throws DuplicatedUserException {
 
         try {
             recipe = new Recipe(recipeBean.getName(), recipeBean.getDescription(), recipeBean.getIngredients());
             RecipeFileSaver recipeFileSaver = new RecipeFileSaver();
             RecipeDao recipeDao = new RecipeDao();
+
             recipeDao.saveRecipe(recipe);
             recipeFileSaver.saveRecipeInFile(recipe);
         }catch (Exception e){

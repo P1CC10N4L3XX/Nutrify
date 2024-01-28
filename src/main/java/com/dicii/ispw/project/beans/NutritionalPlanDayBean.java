@@ -8,11 +8,11 @@ import java.util.List;
 public class NutritionalPlanDayBean {
 
 
-    private String colazione;
+    private RecipeBean colazione;
 
-    private String cena;
+    private RecipeBean cena;
 
-    private String pranzo;
+    private RecipeBean pranzo;
 
     private String quantitaColazione;
 
@@ -25,7 +25,7 @@ public class NutritionalPlanDayBean {
 
     List<RecipeBean> recipeBeanList;
 
-    public NutritionalPlanDayBean(String day,String colazione, String pranzo, String cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena) {
+    public NutritionalPlanDayBean(String day,RecipeBean colazione, RecipeBean pranzo, RecipeBean cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena) {
         this.day = day;
         this.colazione=colazione;
         this.pranzo=pranzo;
@@ -41,16 +41,16 @@ public class NutritionalPlanDayBean {
 
 
 
-    public String getColazione() {
+    public RecipeBean getColazione() {
 
         return colazione;
     }
 
-    public String getPranzo() {
+    public RecipeBean getPranzo() {
         return pranzo;
     }
 
-    public String getCena() {
+    public RecipeBean getCena() {
         return cena;
     }
 
@@ -70,15 +70,15 @@ public class NutritionalPlanDayBean {
 
 
 
-    public void setColazione(String colazione) {
+    public void setColazione(RecipeBean colazione) {
         this.colazione = colazione;
     }
 
-    public void setPranzo(String pranzo) {
+    public void setPranzo(RecipeBean pranzo) {
         this.pranzo = pranzo;
     }
 
-    public void setCena(String cena) {
+    public void setCena(RecipeBean cena) {
         this.cena = cena;
     }
 
@@ -107,8 +107,7 @@ public class NutritionalPlanDayBean {
     }
 
     public String getDay() {
-
-    return day;
+        return day;
     }
 
     public void setDay(String day) {

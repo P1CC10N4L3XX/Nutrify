@@ -32,9 +32,8 @@ public class TestLoginController {
         LoginApplicationController loginApplicationController = new LoginApplicationController();
         try {
             UserBean userBean = new UserBean(EMAIL,PASSWORD,false);
-            //CredentialsBean credentialsBean = CredentialsBean.ctorWithSyntaxCheck(EMAIL, PASSWORD);
-            userBean = loginApplicationController.loginUser(userBean);
-            if(!Objects.equals(userBean.getEmail(), userBean.getEmail()) || !Objects.equals(userBean.getPassword(), userBean.getPassword())){
+            UserBean userReturned = loginApplicationController.loginUser(userBean);
+            if(!Objects.equals(userBean.getEmail(), userReturned.getEmail()) || !Objects.equals(userBean.getPassword(), userReturned.getPassword())){
                 flag = 0;
             }
         } catch (NotExistentUserException e) {

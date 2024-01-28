@@ -5,6 +5,7 @@ import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.models.Recipe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,6 +55,9 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     @FXML
     private ChoiceBox<String> myChoiceBox3;
+
+    @FXML
+    private Label warning;
 
     private CreateNutritionalController createNutritionalController;
 
@@ -112,33 +116,41 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         colazione= myChoiceBox1.getValue();
         pranzo= myChoiceBox2.getValue();
         cena= myChoiceBox3.getValue();
-        System.out.println(colazione);
-        System.out.println(pranzo);
-        System.out.println(cena);
 
     }
 
 
 
+    public RecipeBean convertStringToReciBean(String ricetta) {
+        RecipeBean recipeBean = new RecipeBean();
+        recipeBean.setName(ricetta);
+        return recipeBean;
+    }
 
     public void createNutritionalPlan(ActionEvent event){
 
-        try {
-
-            nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),colazione,pranzo,cena,grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
-
-            createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
 
 
-            display();
+
+        if(grammiColazioneField==null||grammiPranzoField==null || grammiCenaField==null || colazione==null || pranzo==null || cena==null) {
+            warning.setText("Compilare tuttti i campi");
+        }else{
+            try {
+
+                nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
+                createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
+                display();
+
+            }
+
+            catch(Exception e){
+                System.out.println(e);
+            }
+
 
         }
 
-        catch(Exception e){
 
-
-            System.out.println(e);
-        }
 
     }
 
