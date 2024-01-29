@@ -13,7 +13,8 @@ import java.util.List;
 public class RegisterApplicationController {
     public void registerUser(UserBean userBean) throws DuplicatedUserException {
         UserCredentials userCredentials = new UserCredentials(userBean.getEmail(), userBean.getPassword());
-        if(userBean.getType()) {
+        boolean type=userBean.getType();
+        if(type) {
             NutritionistDao nutritionistDAO = new NutritionistDao();
             nutritionistDAO.saveNutritionist(userCredentials);
         }else{
@@ -28,7 +29,7 @@ public class RegisterApplicationController {
     }
 
     public List<IlnessesBean> displayIlnesses() throws DuplicatedUserException {
-        IlnessesDao ilnessesDao = new IlnessesDao();
+
         List<Ilnesses> ilnesses= IlnessesDao.displayIlnesses();
         List<IlnessesBean> ilnessesBean;
         ilnessesBean=convertList(ilnesses);

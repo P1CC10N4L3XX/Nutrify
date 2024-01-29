@@ -9,6 +9,8 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
 
     private String valoreGlicemicoCena;
 
+    private final String INDICE="g indice glicemico:";
+
     public DiabeticDecorator(NutritionalPlanDay nutritionalplanDay){
         super(nutritionalplanDay);
 
@@ -34,7 +36,7 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
     String preliminaryResults = super.getQuantitaColazione();
     valoreGlicemicoColazione = this.computeValue(Float.parseFloat(preliminaryResults));
 
-    return preliminaryResults +"g indice glicemico:" +valoreGlicemicoColazione;
+    return preliminaryResults + INDICE +valoreGlicemicoColazione;
   }
 
   @Override
@@ -42,7 +44,7 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
     String preliminaryResults = super.getQuantitaPranzo();
     valoreGlicemicoPranzo = this.computeValue(Float.parseFloat(preliminaryResults));
 
-    return preliminaryResults +"g indice glicemico:"+ valoreGlicemicoPranzo;
+    return preliminaryResults + INDICE + valoreGlicemicoPranzo;
   }
 
   @Override
@@ -50,7 +52,7 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
     String preliminaryResults = super.getQuantitaCena();
     valoreGlicemicoCena = this.computeValue(Float.parseFloat(preliminaryResults));
 
-    return preliminaryResults  +"g indice glicemico:"+ valoreGlicemicoCena;
+    return preliminaryResults  + INDICE + valoreGlicemicoCena;
   }
 
 
