@@ -97,7 +97,8 @@ public class CreateNutritionalController{
     public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses) throws DuplicatedUserException,NutritionalPlanNotFoundException{
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
-        if(Session.getSessionInstance().getLoggedUser().getType()){
+        boolean type=Session.getSessionInstance().getLoggedUser().getType();
+        if(type){
 
             nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
@@ -129,8 +130,6 @@ public class CreateNutritionalController{
 
             DiabeticDecorator diabeticDecorator = new DiabeticDecorator(nutritionalPlanDay);
 
-
-            System.out.println(diabeticDecorator.getQuantitaColazione());
             nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
             nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
             nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
@@ -176,7 +175,6 @@ public class CreateNutritionalController{
 
 
     public List<RecipeBean> displayRecipe() throws DuplicatedUserException {
-        RecipeDao recipeDao = new RecipeDao();
         List<Recipe> recipes= RecipeDao.displayRecipe();
         List<RecipeBean> recipesBean;
         recipesBean=convertList(recipes);

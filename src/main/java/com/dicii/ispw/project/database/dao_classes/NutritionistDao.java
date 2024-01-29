@@ -29,18 +29,16 @@ public class NutritionistDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NutritionistQueries.insertIntoNutritionist(statement, nutritionist);
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            throw new DuplicatedUserException(e.getMessage());
         }
     }
     public void saveNutritionistAll(Nutritionist nutritionist) {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NutritionistQueries.updateNutritionistAll(statement,nutritionist);
-        }catch (SQLException e ){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -57,8 +55,8 @@ public class NutritionistDao {
                 throw new NotExistentUserException("This user doesn't exist");
             }
 
-        }catch (SQLException e ){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return resultUser;
     }
@@ -79,8 +77,8 @@ public class NutritionistDao {
                 costo=resultSet.getString(COST);
                 nutritionistResultList.add(new Nutritionist(email,name,surname,dateOfBirth,description,iva,iban,costo));
             }
-        }catch(SQLException e ){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return nutritionistResultList;
     }

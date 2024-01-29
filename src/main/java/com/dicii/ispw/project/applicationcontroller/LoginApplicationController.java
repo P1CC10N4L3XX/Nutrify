@@ -9,7 +9,8 @@ import com.dicii.ispw.project.models.UserCredentials;
 public class LoginApplicationController {
     public UserBean loginUser(UserBean userBeanCredentials) throws NotExistentUserException {
         UserCredentials userCredentials = new UserCredentials(userBeanCredentials.getEmail(), userBeanCredentials.getPassword());
-        if(userBeanCredentials.getType()){
+        boolean type=userBeanCredentials.getType();
+        if(type){
             NutritionistDao nutritionistDAO = new NutritionistDao();
             return nutritionistDAO.loadNutritionistByCredentials(userCredentials);
         }else{

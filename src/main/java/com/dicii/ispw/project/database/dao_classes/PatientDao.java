@@ -34,9 +34,8 @@ public class PatientDao {
             PatientQueries.insertIntoPatient(statement, patient);
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            System.exit(0);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -44,9 +43,8 @@ public class PatientDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             PatientQueries.updatePatientAll(statement, patient);
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            System.exit(0);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -63,8 +61,8 @@ public class PatientDao {
                 throw new NotExistentUserException("This user doesn't exist");
             }
 
-        }catch (SQLException e ){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return resultUser;
     }
@@ -95,8 +93,7 @@ public class PatientDao {
         }
         catch (SQLIntegrityConstraintViolationException e) {
             throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
+        }catch(SQLException ignored){
         }
 
         return patient;

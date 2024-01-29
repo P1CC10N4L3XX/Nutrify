@@ -13,7 +13,6 @@ import java.util.List;
 public class IlnessesDao {
 
 
-
     public static List<Ilnesses> displayIlnesses() throws DuplicatedUserException {
         ArrayList<Ilnesses> ilnesses = new ArrayList<>() ;
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
@@ -29,8 +28,8 @@ public class IlnessesDao {
             }
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
         return ilnesses;

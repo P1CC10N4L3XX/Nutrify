@@ -19,8 +19,8 @@ public class RecipeDao {
             RecipeQueries.saveIntoRecipe(statement,recipe, Session.getSessionInstance().getLoggedUser().getEmail() );
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -67,28 +67,9 @@ public class RecipeDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             RecipeQueries.deleteRecipe(statement, recipe.getName());
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            throw new DuplicatedUserException(e.getMessage());
         }
     }
 
-
-
-
-/*
-
-    public void saveRecipe(Recipe recipe, Nutritionist nutritionist) throws DuplicatedUserException {
-        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
-        try(Statement statement = connection.createStatement()){
-            RecipeQueries.saveIntoRecipe(statement,recipe,nutritionist );
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println("SQL Error");
-        }
-    }
-
-     */
 }

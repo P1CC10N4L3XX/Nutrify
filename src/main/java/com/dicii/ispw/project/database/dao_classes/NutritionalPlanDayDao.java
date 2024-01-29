@@ -11,7 +11,14 @@ import com.dicii.ispw.project.models.*;
 import java.sql.*;
 
 
+
+
 public class NutritionalPlanDayDao {
+
+    private static final String RICETTA_COLAZIONE="RicettaColazione";
+    private static final String RICETTA_PRANZO="RicettaColazione";
+    private static final String RICETTA_CENA="RicettaColazione";
+    
 
 
 
@@ -24,10 +31,8 @@ public class NutritionalPlanDayDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NutritionalPlanDayQueries.insertNutritionalPlanDay(statement,  nutritionalPlanDay ,emailPatient,  emailNutritionist );
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println("SQL Error");
+            throw new DuplicatedUserException(e.getMessage());
         }
     }
 
@@ -60,9 +65,6 @@ public class NutritionalPlanDayDao {
         try (Statement statement = connection.createStatement() ;
              ResultSet resultSet = NutritionalPlanDayQueries.displayNutritionalPlanDay(statement, emailPatient,  emailNutritionist, data ); ) {
 
-
-
-
             if (resultSet.next()) {
 
                 nutritionalPlanDay = createNutritionalPlanDay(resultSet) ;
@@ -79,15 +81,21 @@ public class NutritionalPlanDayDao {
        return nutritionalPlanDay;
     }
 
+    public static Recipe convertStringToRecipe(String ricetta){
+        return new Recipe(ricetta);
+    }
+
     public static NutritionalPlanDay createNutritionalPlanDay(ResultSet resultSet) throws SQLException {
 
 
+        String ricettaColazioneString = resultSet.getString(RICETTA_COLAZIONE);
+        Recipe ricettaColazione = convertStringToRecipe(ricettaColazioneString);
 
-        Recipe ricettaColazione = (Recipe) resultSet.getObject("RicettaColazione");
+        String ricettaPranzoString = resultSet.getString(RICETTA_PRANZO);
+        Recipe ricettaPranzo = convertStringToRecipe(ricettaPranzoString);
 
-        Recipe ricettaPranzo = (Recipe) resultSet.getObject("RicettaPranzo");
-
-        Recipe ricettaCena = (Recipe) resultSet.getObject("ricettaCena");
+        String ricettaCenaString = resultSet.getString(RICETTA_CENA);
+        Recipe ricettaCena = convertStringToRecipe(ricettaCenaString);
 
         String quantitaColazione = resultSet.getString("QuantitaColazione");
 

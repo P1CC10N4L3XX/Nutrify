@@ -15,14 +15,8 @@ public class NutritionalPlanDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NutritionalPlanQueries.insertNutritionalPlan(statement, nutritionalPlan, emailNutritionist,emailPatient );
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println(e.getMessage());
-            System.err.println("Errore SQL: " + e.getMessage());
-            System.err.println("Codice di stato SQL: " + e.getSQLState());
-            System.err.println("Codice di errore SQL: " + e.getErrorCode());
-            e.printStackTrace();
+            throw new DuplicatedUserException(e.getMessage());
         }
     }
 
