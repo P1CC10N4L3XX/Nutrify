@@ -1,9 +1,7 @@
 package com.dicii.ispw.project.graphicalcontroller;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
-import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.RecipeBean;
-import com.dicii.ispw.project.models.Recipe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

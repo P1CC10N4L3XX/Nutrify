@@ -1,7 +1,6 @@
 package com.dicii.ispw.project.database.query;
 
 import com.dicii.ispw.project.models.Nutritionist;
-import com.dicii.ispw.project.models.User;
 import com.dicii.ispw.project.models.UserCredentials;
 
 import java.sql.*;

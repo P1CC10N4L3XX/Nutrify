@@ -1,7 +1,7 @@
 package com.dicii.ispw.project.database.query;
 
 import com.dicii.ispw.project.models.*;
-import com.dicii.ispw.project.patterns.singleton.Session;
+
 
 import java.sql.SQLException;
 import java.sql.Statement;

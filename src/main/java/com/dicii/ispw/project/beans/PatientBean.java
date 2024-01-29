@@ -1,7 +1,5 @@
 package com.dicii.ispw.project.beans;
 
-import com.dicii.ispw.project.models.Ilnesses;
-
 public class PatientBean {
     private String email;
     private String name;

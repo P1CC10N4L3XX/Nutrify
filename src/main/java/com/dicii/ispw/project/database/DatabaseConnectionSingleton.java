@@ -28,7 +28,6 @@ public class DatabaseConnectionSingleton {
 
         } catch ( IOException | SQLException e) {
             this.conn = null;
-            System.out.println(e.getMessage());
         }
     }
 

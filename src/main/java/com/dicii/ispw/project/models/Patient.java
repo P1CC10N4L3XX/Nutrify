@@ -1,6 +1,5 @@
 package com.dicii.ispw.project.models;
 
-import com.dicii.ispw.project.beans.IlnessesBean;
 
 public class Patient extends User {
     private String weight;

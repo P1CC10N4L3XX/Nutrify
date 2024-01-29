@@ -8,9 +8,6 @@ import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.patterns.singleton.Session;
-
-import java.io.IOError;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,7 +104,8 @@ public class CreateNutritionalController{
         }else{
              nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"marco@gmail.com",day);
 
-        }if(nutritionalPlanDay==null){
+        }
+        if(nutritionalPlanDay==null){
             throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondente bisogna prima crealo ");
 
         }
@@ -179,7 +177,7 @@ public class CreateNutritionalController{
 
     public List<RecipeBean> displayRecipe() throws DuplicatedUserException {
         RecipeDao recipeDao = new RecipeDao();
-        List<Recipe> recipes= recipeDao.displayRecipe();
+        List<Recipe> recipes= RecipeDao.displayRecipe();
         List<RecipeBean> recipesBean;
         recipesBean=convertList(recipes);
         return recipesBean;

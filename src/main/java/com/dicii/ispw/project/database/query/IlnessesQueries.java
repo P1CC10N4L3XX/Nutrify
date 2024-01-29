@@ -1,7 +1,5 @@
 package com.dicii.ispw.project.database.query;
 
-import com.dicii.ispw.project.models.*;
-
 import java.sql.*;
 
 public class IlnessesQueries {

@@ -1,12 +1,10 @@
 package com.dicii.ispw.project.graphicalcontroller;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
+
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
-import com.dicii.ispw.project.models.Recipe;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import com.dicii.ispw.project.database.dao_classes.*;
+
 
 import java.net.URL;
 import java.util.List;

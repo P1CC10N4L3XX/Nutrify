@@ -1,10 +1,7 @@
 package com.dicii.ispw.project.graphicalcontroller;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;
-import com.dicii.ispw.project.beans.RecipeBean;
-import com.dicii.ispw.project.models.NutritionalPlanBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,8 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.time.LocalDate;
-
-import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class NutritionalPlanDashboard {

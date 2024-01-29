@@ -60,11 +60,7 @@ public class ViewNutritionalPlan  {
         giorno = dataSelected;
         this.ilnesses=ilnesses;
 
-        try {
-            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        }
+        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
         this.colazione.setText(nutritionalPlanDayBean.getColazione().getName());
         this.pranzo.setText(nutritionalPlanDayBean.getPranzo().getName());
         this.cena.setText(nutritionalPlanDayBean.getCena().getName());

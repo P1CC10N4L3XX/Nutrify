@@ -3,7 +3,6 @@ package com.dicii.ispw.project.graphicalcontroller.patient;
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.IlnessesBean;
 import com.dicii.ispw.project.beans.PatientBean;
-import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.graphicalcontroller.utils.GUI;

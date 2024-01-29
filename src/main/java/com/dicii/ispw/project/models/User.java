@@ -1,7 +1,5 @@
 package com.dicii.ispw.project.models;
 
-import com.dicii.ispw.project.models.record.Credentials;
-import com.dicii.ispw.project.models.record.PersonalInfo;
 
 public class User {
     private String email;

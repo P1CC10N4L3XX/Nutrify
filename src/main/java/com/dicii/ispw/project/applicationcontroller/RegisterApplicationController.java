@@ -29,7 +29,7 @@ public class RegisterApplicationController {
 
     public List<IlnessesBean> displayIlnesses() throws DuplicatedUserException {
         IlnessesDao ilnessesDao = new IlnessesDao();
-        List<Ilnesses> ilnesses= ilnessesDao.displayIlnesses();
+        List<Ilnesses> ilnesses= IlnessesDao.displayIlnesses();
         List<IlnessesBean> ilnessesBean;
         ilnessesBean=convertList(ilnesses);
         return ilnessesBean;

@@ -6,11 +6,10 @@ import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionalPlanDayQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
-import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.models.*;
 
 import java.sql.*;
-import java.util.ArrayList;
+
 
 public class NutritionalPlanDayDao {
 

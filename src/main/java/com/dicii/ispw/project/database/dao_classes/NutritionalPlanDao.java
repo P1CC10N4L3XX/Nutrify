@@ -2,8 +2,6 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionalPlanQueries;
-
-import com.dicii.ispw.project.database.query.RecipeQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.*;
 

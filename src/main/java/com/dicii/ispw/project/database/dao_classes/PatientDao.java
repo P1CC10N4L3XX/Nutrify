@@ -2,14 +2,10 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
-import com.dicii.ispw.project.database.query.NutritionalPlanDayQueries;
-import com.dicii.ispw.project.database.query.NutritionistQueries;
 import com.dicii.ispw.project.database.query.PatientQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.models.Ilnesses;
-import com.dicii.ispw.project.models.NutritionalPlanDay;
 import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.UserCredentials;
 
