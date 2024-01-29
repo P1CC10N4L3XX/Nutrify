@@ -95,7 +95,7 @@ public class PlanController extends DashboardController implements Initializable
             root = loader.load();
 
             ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean());
+            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean().getName());
 
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -124,7 +124,7 @@ public class PlanController extends DashboardController implements Initializable
             this.birthday.setText(patientBean.getDateOfBirth());
             this.weight.setText(patientBean.getWeight());
             this.height.setText(patientBean.getHeight());
-            this.ilneeses.setText(patientBean.getIlnessesBean());
+            this.ilneeses.setText(patientBean.getIlnessesBean().getName());
 
 
 

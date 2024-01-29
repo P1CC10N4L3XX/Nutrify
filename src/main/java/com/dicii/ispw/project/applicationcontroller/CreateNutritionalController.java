@@ -77,13 +77,17 @@ public class CreateNutritionalController{
         patientBean.setDateOfBirth(patient.getDateOfBirth());
         patientBean.setWeight(patient.getWeight());
         patientBean.setHeight(patient.getHeight());
-        patientBean.setIlnesses(patient.getIlnesses().getName());
+        patientBean.setIlnesses(convertIlnessesModelToBean(patient.getIlnesses()));
         return patientBean;
 
-
-
-
     }
+
+    public IlnessesBean convertIlnessesModelToBean(Ilnesses ilnesses) {
+        IlnessesBean ilnessesBean = new IlnessesBean();
+        ilnessesBean.setName(ilnesses.getName());
+        return ilnessesBean;
+    }
+
 
 
 
@@ -202,7 +206,6 @@ public class CreateNutritionalController{
         RecipeDao recipeDao = new RecipeDao();
         List<Recipe> recipes= recipeDao.displayRecipe();
         List<RecipeBean> recipesBean;
-
         recipesBean=convertList(recipes);
         return recipesBean;
     }

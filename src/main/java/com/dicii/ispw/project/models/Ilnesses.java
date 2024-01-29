@@ -11,6 +11,8 @@ public class Ilnesses {
     }
 
 
+
+
     public String getName() {
         return name;
     }

@@ -110,7 +110,7 @@ public class NutritionalPlanDay implements Initializable {
             this.birthday.setText(patientBean.getDateOfBirth());
             this.weight.setText(patientBean.getWeight());
             this.height.setText(patientBean.getHeight());
-            this.ilneeses.setText(patientBean.getIlnessesBean());
+            this.ilneeses.setText(patientBean.getIlnessesBean().getName());
 
 
 
@@ -172,7 +172,7 @@ public class NutritionalPlanDay implements Initializable {
             root = loader.load();
 
             ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean());
+            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean().getName());
 
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

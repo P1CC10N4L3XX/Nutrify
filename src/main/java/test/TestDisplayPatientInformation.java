@@ -2,6 +2,7 @@ package test;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
+import com.dicii.ispw.project.beans.IlnessesBean;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
@@ -26,9 +27,11 @@ public class TestDisplayPatientInformation {
      * le giuste iformazioni del paziente
      */
 
-    PatientBean patientBenExpected =  new PatientBean("luca@gmail.com","luca","cupellaro","10/08","70.00","170","hgv");
 
     /*
+    PatientBean patientBenExpected =  new PatientBean("luca@gmail.com","luca","cupellaro","10/08","70.00","170","hgv","Diabete");
+
+
     @Test
     public void testInformation() {
         int flag = 1;
