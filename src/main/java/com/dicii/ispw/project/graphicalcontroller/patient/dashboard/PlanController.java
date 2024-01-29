@@ -73,13 +73,13 @@ public class PlanController extends DashboardController implements Initializable
             throw new RuntimeException(e);
         }
 
+
     }
     @FXML
     void dataPicker(ActionEvent e){
         LocalDate localDate=dataPicker.getValue();
         String pattern="MMMM dd, yyyy";
         String dataPattern= localDate.format(DateTimeFormatter.ofPattern(pattern));
-        System.out.print(selectionDate);
         selectionDate.setText(dataPattern);
         dataSelected=selectionDate.getText();
 
@@ -117,8 +117,6 @@ public class PlanController extends DashboardController implements Initializable
 
 
             patientBean=createNutritionalController.displayUserInfo();
-            System.out.println(patientBean.getName());
-
             this.name.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
             this.birthday.setText(patientBean.getDateOfBirth());

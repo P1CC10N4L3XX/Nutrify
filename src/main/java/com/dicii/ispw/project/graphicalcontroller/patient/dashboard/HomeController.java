@@ -20,7 +20,7 @@ public class HomeController extends DashboardController implements Initializable
     private final SubscribeToNutritionistController subscribeToNutritionistController;
     @FXML
     private VBox cardLayout;
-    private final int LIMIT_NUMBER = 7;
+    private static final int LIMIT_NUMBER = 7;
 
     private int offset;
     public HomeController(){
@@ -30,27 +30,25 @@ public class HomeController extends DashboardController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<NutritionistBean> nutritionistBeanList = new ArrayList<>(subscribeToNutritionistController.getNutritionistList(LIMIT_NUMBER,offset));
-        try{
-            showNutritionistList(nutritionistBeanList);
-        }catch(IOException e){
-            System.out.println(e.getMessage());
-        }
+
+            try {
+                showNutritionistList(nutritionistBeanList);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
     }
-    public void handleScroll(){
+    public void handleScroll() throws IOException {
         double scrollPosition = cardLayout.getScene().getWindow().getHeight() + cardLayout.getHeight();
         if(scrollPosition >= cardLayout.getBoundsInParent().getHeight()){
 
             onScrollFinished();
         }
     }
-    public void onScrollFinished() {
+    public void onScrollFinished() throws IOException {
         offset = offset+LIMIT_NUMBER;
         List<NutritionistBean> nutritionistBeanList = new ArrayList<>(subscribeToNutritionistController.getNutritionistList(LIMIT_NUMBER,offset));
-        try {
-            showNutritionistList(nutritionistBeanList);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        showNutritionistList(nutritionistBeanList);
 
     }
     private void showNutritionistList(List<NutritionistBean> nutritionistBeanList) throws IOException{

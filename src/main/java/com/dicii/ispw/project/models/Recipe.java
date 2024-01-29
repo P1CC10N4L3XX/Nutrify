@@ -1,7 +1,7 @@
 package com.dicii.ispw.project.models;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 public class Recipe implements Serializable {
 

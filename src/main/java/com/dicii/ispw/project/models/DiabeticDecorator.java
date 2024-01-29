@@ -9,7 +9,7 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
 
     private String valoreGlicemicoCena;
 
-    private final String INDICE="g indice glicemico:";
+    private static final String INDICE="g indice glicemico:";
 
     public DiabeticDecorator(NutritionalPlanDay nutritionalplanDay){
         super(nutritionalplanDay);

@@ -18,6 +18,11 @@ public class NutritionalPlanDayDao {
     private static final String RICETTA_COLAZIONE="RicettaColazione";
     private static final String RICETTA_PRANZO="RicettaColazione";
     private static final String RICETTA_CENA="RicettaColazione";
+    private static final String QUANTITA_COLAZIONE="QuantitaColazione";
+    private static final String QUANTITA_PRANZO="QuantitaCena";
+    private static final String QUANTITA_CENA="QuantitaCena";
+    private static final String DATA_CONSUMAZIONE="DataConsumazione";
+
     
 
 
@@ -97,13 +102,13 @@ public class NutritionalPlanDayDao {
         String ricettaCenaString = resultSet.getString(RICETTA_CENA);
         Recipe ricettaCena = convertStringToRecipe(ricettaCenaString);
 
-        String quantitaColazione = resultSet.getString("QuantitaColazione");
+        String quantitaColazione = resultSet.getString(QUANTITA_COLAZIONE);
 
-        String quantitaPranzo = resultSet.getString("QuantitaPranzo");
+        String quantitaPranzo = resultSet.getString(QUANTITA_PRANZO);
 
-        String quantitaCena = resultSet.getString("QuantitaCena");
+        String quantitaCena = resultSet.getString(QUANTITA_CENA);
 
-        String dataConsumazione = resultSet.getString("DataConsumazione");
+        String dataConsumazione = resultSet.getString(DATA_CONSUMAZIONE);
 
 
 

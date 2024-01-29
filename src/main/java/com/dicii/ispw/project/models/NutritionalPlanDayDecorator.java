@@ -12,19 +12,16 @@ public class NutritionalPlanDayDecorator implements NutritionalPlan {
 
     @Override
     public String getQuantitaColazione() {
-        String resutlFromRedirection=this.component.getQuantitaColazione();
-        return resutlFromRedirection;
+        return this.component.getQuantitaColazione();
     }
 
     @Override
     public String getQuantitaPranzo() {
-        String resutlFromRedirection=this.component.getQuantitaPranzo();
-        return resutlFromRedirection;
+        return this.component.getQuantitaPranzo();
     }
 
     @Override
     public String getQuantitaCena() {
-        String resutlFromRedirection=this.component.getQuantitaCena();
-        return resutlFromRedirection;
+        return this.component.getQuantitaCena();
     }
 }
