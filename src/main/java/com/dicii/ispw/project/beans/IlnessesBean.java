@@ -7,11 +7,10 @@ public class IlnessesBean {
 
 
     public IlnessesBean(String name){
-
         this.name = name;
-
-
     }
+
+    public IlnessesBean(){}
 
     public String getName() {
         return name;

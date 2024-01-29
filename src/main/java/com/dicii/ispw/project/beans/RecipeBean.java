@@ -48,8 +48,8 @@ public class RecipeBean {
         return description;
     }
 
-    public void setDescription(String ingredients) {
-        this.ingredients = ingredients;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getIngredients(){ return ingredients;}

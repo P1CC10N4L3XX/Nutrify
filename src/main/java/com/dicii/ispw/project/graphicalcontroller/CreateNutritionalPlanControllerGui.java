@@ -129,9 +129,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public void createNutritionalPlan(ActionEvent event){
 
-
-
-
         if(grammiColazioneField==null||grammiPranzoField==null || grammiCenaField==null || colazione==null || pranzo==null || cena==null) {
             warning.setText("Compilare tuttti i campi");
         }else{

@@ -18,8 +18,6 @@ public class Patient extends User {
 
     }
 
-    public Patient(){}
-
 
 
     public Patient(String email,String name,String surname,String dateOfBirth,String description,String weight, String height, Ilnesses ilnesses){
@@ -29,6 +27,8 @@ public class Patient extends User {
         this.ilnesses=ilnesses;
 
     }
+
+    public Patient(){}
 
     public Ilnesses getIlnesses(){
         return ilnesses;
