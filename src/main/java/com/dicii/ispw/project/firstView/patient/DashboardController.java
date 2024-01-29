@@ -1,5 +1,5 @@
-package com.dicii.ispw.project.graphicalcontroller.patient;
-import com.dicii.ispw.project.graphicalcontroller.utils.GUI;
+package com.dicii.ispw.project.firstView.patient;
+import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 

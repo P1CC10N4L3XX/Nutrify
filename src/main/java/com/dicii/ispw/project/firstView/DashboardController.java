@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.graphicalcontroller;
+package com.dicii.ispw.project.firstView;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +24,7 @@ public class DashboardController {
     }
     public void switchLoginSecond(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/secondGui/Login.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/secondGui/Registration.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
         scene = new Scene(root);

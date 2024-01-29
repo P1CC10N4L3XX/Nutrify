@@ -1,11 +1,11 @@
-package com.dicii.ispw.project.graphicalcontroller.patient;
+package com.dicii.ispw.project.firstView.patient;
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.IlnessesBean;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
-import com.dicii.ispw.project.graphicalcontroller.utils.GUI;
+import com.dicii.ispw.project.firstView.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

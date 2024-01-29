@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.graphicalcontroller;
+package com.dicii.ispw.project.firstView;
 
 import com.dicii.ispw.project.applicationcontroller.OAuthGoogle;
 import javafx.fxml.FXML;

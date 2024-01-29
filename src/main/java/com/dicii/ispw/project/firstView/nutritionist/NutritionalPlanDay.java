@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.graphicalcontroller;
+package com.dicii.ispw.project.firstView.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 
@@ -6,6 +6,7 @@ import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
+import com.dicii.ispw.project.firstView.ViewNutritionalPlan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

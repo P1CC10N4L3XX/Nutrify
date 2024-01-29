@@ -17,7 +17,7 @@ public class Nutrify extends Application {
         stage.setScene(scene);
         stage.show();
     }
-//ho modificato una cosa a caso
+
     public static void main(String[] args) {
         launch();
 

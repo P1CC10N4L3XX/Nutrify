@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.graphicalcontroller;
+package com.dicii.ispw.project.firstView.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
 import com.dicii.ispw.project.beans.RecipeBean;
@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;

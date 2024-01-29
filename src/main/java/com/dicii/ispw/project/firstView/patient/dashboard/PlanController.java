@@ -1,11 +1,11 @@
-package com.dicii.ispw.project.graphicalcontroller.patient.dashboard;
+package com.dicii.ispw.project.firstView.patient.dashboard;
 
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
-import com.dicii.ispw.project.graphicalcontroller.ViewNutritionalPlan;
-import com.dicii.ispw.project.graphicalcontroller.patient.DashboardController;
+import com.dicii.ispw.project.firstView.ViewNutritionalPlan;
+import com.dicii.ispw.project.firstView.patient.DashboardController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.graphicalcontroller.patient;
+package com.dicii.ispw.project.firstView.patient;
 
 import com.dicii.ispw.project.beans.NutritionistBean;
 
