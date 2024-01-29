@@ -1,8 +1,8 @@
 package com.dicii.ispw.project.beans;
 
-import com.dicii.ispw.project.graphicalcontroller.NutritionalPlanDay;
 
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 public class NutritionalPlanDayBean {

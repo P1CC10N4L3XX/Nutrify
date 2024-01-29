@@ -24,32 +24,19 @@ public class CreateNutritionalController{
 
     private NutritionalPlanDay nutritionalPlanDay;
 
-    private  Recipe recipe;
-
     private  Patient patient;
 
-    private  Nutritionist nutritionist;
 
 
+    public void sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean) throws DuplicatedUserException {
 
 
-
-
-    public void sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean){
-
-
-        try {
-            NutritionalPlanBase nutritionalPlanBase = new NutritionalPlanBase();
+            nutritionalPlanBase = new NutritionalPlanBase();
             nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),convertRecipeBeanToModel(nutritionalPlanDayBean.getColazione()),convertRecipeBeanToModel(nutritionalPlanDayBean.getPranzo()), convertRecipeBeanToModel(nutritionalPlanDayBean.getCena()),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
             nutritionalPlanBase.addNutritionalPlanDay(nutritionalPlanDay);
 
             nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com");
-
-
-        }catch (Exception e){
-            System.out.println(e);
-        }
 
 
     }
@@ -97,21 +84,12 @@ public class CreateNutritionalController{
 
         if(nutritionalPlanBase==null){
 
-            try{
                 nutritionalPlanBase = new NutritionalPlanBase(nutritionalPlanBean.getDate());
-
 
                 //mi sto richiamando l'email del nutrizionista loggato
                 //manca l'email del paziente
                 NutritionalPlanDao nutritionalPlanDao = new NutritionalPlanDao();
                 nutritionalPlanDao.SaveNutritionalPlan(nutritionalPlanBase, Session.getSessionInstance().getLoggedUser().getEmail(),"nikita@gmail.com" );
-
-
-
-            }catch (IOError e){
-                System.out.println(e.getMessage());
-
-            }
 
         }
 
@@ -119,18 +97,15 @@ public class CreateNutritionalController{
     }
 
 
-    public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses) throws DuplicatedUserException,NutritionalPlanNotFoundException, InvocationTargetException {
+    public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses) throws DuplicatedUserException,NutritionalPlanNotFoundException{
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
         if(Session.getSessionInstance().getLoggedUser().getType()){
-            //se sono il nutrizionista
+
             nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay("luca@gmail.com", Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
         }else{
-
-            //se sono il paziente
              nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"marco@gmail.com",day);
-
 
         }if(nutritionalPlanDay==null){
             throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondente bisogna prima crealo ");
