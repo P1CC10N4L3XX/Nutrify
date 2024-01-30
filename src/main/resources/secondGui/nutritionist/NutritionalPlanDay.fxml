@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="722.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondView.nutritionist.NutritionalPlanDay">
+    <children>
+        <Text fill="WHITE" layoutX="201.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashBoard" textAlignment="CENTER" wrappingWidth="323.2909851074219">
+            <font>
+                <Font name="Tahoma Bold" size="36.0" />
+            </font></Text>
+        <AnchorPane layoutX="254.0" layoutY="70.0" prefHeight="4.0" prefWidth="217.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+
+        </ImageView>
+        <TextField fx:id="subscribeCommandLine" blendMode="SRC_ATOP" onAction="#onCommand" cache="true" cacheHint="SPEED" layoutX="234.0" layoutY="376.0" mouseTransparent="true"  prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+            <font>
+                <Font name="Tahoma" size="14.0" />
+            </font>
+        </TextField>
+        <AnchorPane layoutX="246.0" layoutY="402.0" prefHeight="4.0" prefWidth="207.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+        <ScrollPane layoutX="48.0" layoutY="95.0" prefHeight="199.0" prefWidth="248.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
+                    <children>
+                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- Create Nutritional Plan&#10;- Add Recipe&#10;- submit&#10;- login" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Button fx:id="enterButton" layoutX="475.0" layoutY="377.0" mnemonicParsing="false"  style="-fx-background-color: black;" />
+        <ListView layoutX="387.0" layoutY="117.0" prefHeight="185.0" prefWidth="230.0" />
+        <Text layoutX="484.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" />
+
+    </children>
+</Pane>
