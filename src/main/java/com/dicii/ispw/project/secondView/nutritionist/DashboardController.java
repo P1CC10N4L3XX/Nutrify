@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class DashboardController {
     @FXML
-    public TextField commandLine;
+    private TextField commandLine;
 
     private NutritionalPlanBean nutritionalPlanBean;
     private CreateNutritionalController createNutritionalController;

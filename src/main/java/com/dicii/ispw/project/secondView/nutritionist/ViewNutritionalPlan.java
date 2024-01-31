@@ -1,17 +1,20 @@
-package com.dicii.ispw.project.firstView;
-
+package com.dicii.ispw.project.secondView.nutritionist;
 import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class ViewNutritionalPlan  {
+
+public class ViewNutritionalPlan {
 
     @FXML
     private Label colazione;
@@ -37,21 +40,18 @@ public class ViewNutritionalPlan  {
 
     String ilnesses;
 
-
-
     private NutritionalPlanDayBean nutritionalPlanDayBean;
     private CreateNutritionalController createNutritionalController;
 
 
 
+    @FXML
+    public TextField commandLine ;
+    private static final String BACK="back";
+
     public ViewNutritionalPlan(){
         createNutritionalController = new CreateNutritionalController();
     }
-
-    public void back(ActionEvent event) throws IOException {
-        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
-    }
-
 
     public void takeParameter(String dataSelected,String ilnesses) throws NutritionalPlanNotFoundException, DuplicatedUserException {
 
@@ -71,10 +71,17 @@ public class ViewNutritionalPlan  {
     }
 
 
+    @FXML
+    public void onCommand(ActionEvent event) throws IOException, NotExistentUserException {
+        String commandText = commandLine.getText() ;
+        commandLine.setStyle(null);
+        commandLine.setText("");
+        if (commandText.matches(BACK)) {
+            GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
+            return ;
+        }
+
+
+    }
 
 }
-
-
-
-
-

@@ -5,6 +5,7 @@ import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -94,7 +95,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
 
     public void displayData(String dataValue){
-        System.out.println(dataValue);
+
         if(dataValue!=null){
             data.setText(dataValue);
         }
@@ -146,7 +147,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         }
 
 
-
     }
 
 
@@ -156,12 +156,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public void back(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDashboard.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDashboard.fxml");
 
     }
 

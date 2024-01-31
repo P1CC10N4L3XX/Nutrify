@@ -137,9 +137,6 @@ public class NutritionalPlanDay implements Initializable {
 
             }
 
-
-
-
         }
         catch(NutritionalPlanFounded e){
                   warning.setText(e.getMessage());
@@ -148,9 +145,6 @@ public class NutritionalPlanDay implements Initializable {
 
 
     }
-
-
-
 
 
 
@@ -175,9 +169,6 @@ public class NutritionalPlanDay implements Initializable {
         }catch (NutritionalPlanNotFoundException e){
             warning.setText(e.getMessage());
         }
-
-
-
 
 
 

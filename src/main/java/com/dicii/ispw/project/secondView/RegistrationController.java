@@ -27,15 +27,15 @@ public class RegistrationController {
 
 
     @FXML
-    public TextField subscribeCommandLine;
+    private TextField subscribeCommandLine;
     @FXML
-    public TextField email;
+    private TextField email;
     @FXML
-    public TextField password;
+    private TextField password;
     @FXML
-    public TextField confermapassword;
-
-    @FXML public TextField userTypeField ;
+    private TextField confermapassword;
+    @FXML
+    private TextField userTypeField ;
 
     private Map<String, TextField> textFieldMap ;
 
@@ -75,7 +75,9 @@ public class RegistrationController {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Correctly Subscribed!!") ;
                 alert.showAndWait() ;
 
-
+                if(type){
+                    GUI.switchPage(event,"/secondGui/nutritionist/NutritionistPersonalInfoRegistration.fxml");
+                }
 
 
             }catch (DuplicatedUserException e) {
@@ -89,10 +91,6 @@ public class RegistrationController {
             GUI.switchPage(event,"/SecondGui/Login.fxml");
             return ;
         }
-
-
-
-
 
     }
 

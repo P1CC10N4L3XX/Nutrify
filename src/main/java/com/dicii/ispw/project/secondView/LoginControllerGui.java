@@ -19,15 +19,19 @@ import java.util.Objects;
 public class LoginControllerGui {
 
     @FXML
-    public TextField commandLine ;
-    @FXML public TextField emailField ;
-
-    @FXML public TextField typeField ;
-    @FXML public TextField passwordField ;
+    private TextField commandLine ;
+    @FXML
+    private TextField emailField ;
+    @FXML
+    private TextField typeField ;
+    @FXML
+    private TextField passwordField ;
+    @FXML
+    private Button enterButton ;
 
     private Boolean type;
 
-    @FXML public Button enterButton ;
+
 
     private LoginApplicationController loginController;
 

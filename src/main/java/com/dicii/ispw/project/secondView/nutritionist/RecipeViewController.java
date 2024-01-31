@@ -30,17 +30,10 @@ public class RecipeViewController implements Initializable {
     private CreateNutritionalController createNutritionalController;
 
 
-    private static final String CREATE="add new recipe .*";
+    private static final String CREATE="add new recipe";
 
     private static final String DELETE="delete recipe .*";
     private static final String SUBMIT="submit";
-
-
-    private String selectedRecipe;
-
-    public RecipeViewController(){
-        createNutritionalController = new CreateNutritionalController();
-    }
 
     @FXML
     public ListView<String> myListView;
@@ -51,6 +44,12 @@ public class RecipeViewController implements Initializable {
     private List<RecipeBean> list;
 
     private String recipeName;
+
+
+    public RecipeViewController(){
+        createNutritionalController = new CreateNutritionalController();
+    }
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -77,7 +76,6 @@ public class RecipeViewController implements Initializable {
         commandLine.setText("");
         if (commandText.matches(CREATE)) {
             GUI.switchPage(event,"/SecondGui/nutritionist/AddNewRecipe.fxml");
-
         }
         else if (commandText.matches(DELETE)) {
 
@@ -85,7 +83,6 @@ public class RecipeViewController implements Initializable {
 
             for (RecipeBean recipe : list) {
                 if(recipeName.matches(recipe.getName())){
-                    System.out.println(recipe.getName());
                     recipes.setText(recipeName);
                 }else{
                     System.out.println("non puoi eliminarla non e presente");

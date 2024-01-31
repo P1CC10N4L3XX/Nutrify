@@ -3,6 +3,7 @@ package com.dicii.ispw.project.secondView.nutritionist;
 import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -18,10 +19,11 @@ public class AddNewRecipe {
         createNewRecipeController = new CreateNewRecipeController();
     }
 
-    private static final String SUBMIT="Submit";
-    private static final String DESCRIPTIONS="set descriptions .*";
+    private static final String BACK="back";
+    private static final String SUBMIT="submit";
+    private static final String DESCRIPTIONS="set description .*";
     private static final String SET_NAME="set name .*";
-    private static final String SET_INGREDIENTS="Set ingredients .*";
+    private static final String SET_INGREDIENTS="set ingredients .*";
 
     @FXML
     public TextField commandLine;
@@ -65,6 +67,10 @@ public class AddNewRecipe {
 
             recipeBean = new RecipeBean(name.getText(),descriptions.getText(),ingredients.getText());
             createNewRecipeController.createNewRecipe(recipeBean);
+
+        }else if(commandText.matches(BACK)){
+
+            GUI.switchPage(event,"/secondGui/nutritionist/RecipeViewController.fxml");
 
         }
 
