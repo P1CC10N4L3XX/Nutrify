@@ -11,7 +11,7 @@ public class NutritionalPlanDao {
 
 
 
-    public void SaveNutritionalPlan(NutritionalPlanBase nutritionalPlan, String emailNutritionist, String emailPatient) throws DuplicatedUserException {
+    public void saveNutritionalPlan(NutritionalPlanBase nutritionalPlan, String emailNutritionist, String emailPatient) throws DuplicatedUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NutritionalPlanQueries.insertNutritionalPlan(statement, nutritionalPlan, emailNutritionist,emailPatient );

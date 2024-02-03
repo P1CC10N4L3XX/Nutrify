@@ -17,10 +17,6 @@ public class PatientDao {
     private static final String NAME = "Nome";
     private static final String SURNAME = "Cognome";
     private static final String BIRTH = "DataDiNascita";
-    private static final String IBAN = "Iban";
-    private static final String IVA = "Iva";
-    private static final String COST = "CostoMensile";
-    private static final String DESCRIPTION = "Descrizione";
 
     private static final String HEIGHT = "Altezza";
 

@@ -26,10 +26,8 @@ public class IlnessesDao {
                 ilnesses.add(illness);
 
             }
-        }catch(SQLIntegrityConstraintViolationException e){
+        }catch(SQLException e){
             throw new DuplicatedUserException(e.getMessage());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
 
         return ilnesses;

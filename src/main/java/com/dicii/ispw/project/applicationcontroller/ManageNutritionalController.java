@@ -35,7 +35,7 @@ public class ManageNutritionalController{
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
             nutritionalPlanBase.addNutritionalPlanDay(nutritionalPlanDay);
 
-            nutritionalPlanDayDao.SaveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com");
+            nutritionalPlanDayDao.saveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com");
 
 
     }
@@ -88,7 +88,7 @@ public class ManageNutritionalController{
                 //mi sto richiamando l'email del nutrizionista loggato
                 //manca l'email del paziente
                 NutritionalPlanDao nutritionalPlanDao = new NutritionalPlanDao();
-                nutritionalPlanDao.SaveNutritionalPlan(nutritionalPlanBase, Session.getSessionInstance().getLoggedUser().getEmail(),"nikita@gmail.com" );
+                nutritionalPlanDao.saveNutritionalPlan(nutritionalPlanBase, Session.getSessionInstance().getLoggedUser().getEmail(),"nikita@gmail.com" );
 
         }
 
@@ -187,7 +187,7 @@ public class ManageNutritionalController{
     public void checkNutritionalPlanDay(String dataSelected) throws NutritionalPlanFounded, DuplicatedUserException {
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
-        nutritionalPlanDayDao.CheckNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"luca@gmail.com" ,dataSelected);
+        nutritionalPlanDayDao.checkNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"luca@gmail.com" ,dataSelected);
     }
 
 

@@ -1,8 +1,6 @@
 package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
-
-
 import com.dicii.ispw.project.database.query.NutritionalPlanDayQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
@@ -29,9 +27,7 @@ public class NutritionalPlanDayDao {
 
 
 
-    public void SaveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist,String emailPatient ) throws DuplicatedUserException {
-
-
+    public void saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist,String emailPatient ) throws DuplicatedUserException {
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
@@ -43,7 +39,7 @@ public class NutritionalPlanDayDao {
 
 
 
-    public void CheckNutritionalPlanDay( String emailNutritionist,String emailPatient , String data) throws DuplicatedUserException, NutritionalPlanFounded {
+    public void checkNutritionalPlanDay( String emailNutritionist,String emailPatient , String data) throws DuplicatedUserException, NutritionalPlanFounded {
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try (Statement statement = connection.createStatement() ;
@@ -51,9 +47,7 @@ public class NutritionalPlanDayDao {
 
             if (resultSet.next()) {
 
-
                 throw new NutritionalPlanFounded("la data selezionata ha gia un piano nutrizionale creato ");
-
             }
 
         }catch(SQLIntegrityConstraintViolationException e){
@@ -77,10 +71,8 @@ public class NutritionalPlanDayDao {
             }
 
         }
-        catch (SQLIntegrityConstraintViolationException e) {
+        catch (SQLException e) {
             throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
         }
 
        return nutritionalPlanDay;

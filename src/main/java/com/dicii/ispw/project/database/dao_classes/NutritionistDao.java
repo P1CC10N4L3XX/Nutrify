@@ -1,16 +1,13 @@
 package com.dicii.ispw.project.database.dao_classes;
 
-import com.dicii.ispw.project.beans.NutritionistBean;
+
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionistQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.models.Nutritionist;
-import com.dicii.ispw.project.models.User;
 import com.dicii.ispw.project.models.UserCredentials;
-
-import java.io.PrintStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,10 +57,17 @@ public class NutritionistDao {
         }
         return resultUser;
     }
-    public List<Nutritionist> getNutritionistList(int from, int to){
+    public List<Nutritionist> getNutritionistList(int from, int to) throws RuntimeException{
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         List<Nutritionist> nutritionistResultList = new ArrayList<>();
-        String email,name,surname,dateOfBirth,description,iva,iban,costo;
+        String email;
+        String name;
+        String surname;
+        String dateOfBirth;
+        String description;
+        String iva;
+        String iban;
+        String costo;
         try(Statement statement = connection.createStatement()){
             ResultSet resultSet = NutritionistQueries.selectListOfNutritionist(statement,from,to);
             while(resultSet.next()){
