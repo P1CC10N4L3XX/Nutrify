@@ -1,14 +1,11 @@
 package com.dicii.ispw.project.secondView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.firstView.utils.GUI;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +24,7 @@ public class RecipeViewController implements Initializable {
     public TextField commandLine;
 
     private NutritionalPlanBean nutritionalPlanBean;
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
     private static final String CREATE="add new recipe";
@@ -47,7 +44,7 @@ public class RecipeViewController implements Initializable {
 
 
     public RecipeViewController(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
 
@@ -62,7 +59,6 @@ public class RecipeViewController implements Initializable {
         for (RecipeBean recipe : list) {
 
             myListView.getItems().addAll(String.valueOf(recipe.getName()));
-
 
         }
     }
@@ -93,7 +89,7 @@ public class RecipeViewController implements Initializable {
 
 
                 RecipeBean recipeBean = new RecipeBean(recipeName);
-                CreateNewRecipeController createNewRecipeController = new CreateNewRecipeController();
+                ManageNutritionalController createNewRecipeController = new ManageNutritionalController();
                 createNewRecipeController.deleteRecipe(recipeBean);
 
         }

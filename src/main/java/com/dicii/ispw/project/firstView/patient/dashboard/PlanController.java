@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.firstView.patient.dashboard;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
@@ -57,12 +57,12 @@ public class PlanController extends DashboardController implements Initializable
 
     private PatientBean patientBean;
 
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
 
     public PlanController(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     @Override

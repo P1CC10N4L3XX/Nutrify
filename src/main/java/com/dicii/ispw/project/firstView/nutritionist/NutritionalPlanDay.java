@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.firstView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
@@ -59,14 +59,14 @@ public class NutritionalPlanDay implements Initializable {
 
     private PatientBean patientBean;
 
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
 
 
 
     public NutritionalPlanDay(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     @Override

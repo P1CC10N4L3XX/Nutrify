@@ -1,7 +1,7 @@
 package com.dicii.ispw.project.firstView.nutritionist;
 
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
@@ -58,7 +58,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     @FXML
     private Label warning;
 
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
 
@@ -67,7 +67,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
 
     public CreateNutritionalPlanControllerGui(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
 

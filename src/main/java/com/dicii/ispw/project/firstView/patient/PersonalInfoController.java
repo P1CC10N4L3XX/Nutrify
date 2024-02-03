@@ -47,7 +47,7 @@ public class PersonalInfoController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
-            display();
+            list = registerApplicationController.displayIlnesses();
         } catch (DuplicatedUserException e) {
             throw new RuntimeException(e);
         }
@@ -64,10 +64,6 @@ public class PersonalInfoController implements Initializable {
 
     }
 
-    public void display() throws DuplicatedUserException {
-        list = registerApplicationController.displayIlnesses();
-
-    }
 
 
     public void getIlnesses(ActionEvent event){

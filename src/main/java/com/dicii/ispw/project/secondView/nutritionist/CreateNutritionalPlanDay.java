@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.secondView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
@@ -23,7 +23,7 @@ public class CreateNutritionalPlanDay implements Initializable {
 
 
     private List<RecipeBean> list;
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
     @FXML
     private ListView<String> myListView;
 
@@ -73,7 +73,7 @@ public class CreateNutritionalPlanDay implements Initializable {
 
 
     public CreateNutritionalPlanDay(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     @Override
@@ -152,7 +152,7 @@ public class CreateNutritionalPlanDay implements Initializable {
             quantityd.setText(quantityD);
             return;
         } else if (commandText.matches(BACK)) {
-            GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
+            GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
             return;
         }
 

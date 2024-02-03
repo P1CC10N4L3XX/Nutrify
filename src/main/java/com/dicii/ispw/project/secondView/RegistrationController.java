@@ -77,6 +77,8 @@ public class RegistrationController {
 
                 if(type){
                     GUI.switchPage(event,"/secondGui/nutritionist/NutritionistPersonalInfoRegistration.fxml");
+                }else{
+                    GUI.switchPage(event,"/secondGui/patient/PatientPersonalInfoRegistration.fxml");
                 }
 
 

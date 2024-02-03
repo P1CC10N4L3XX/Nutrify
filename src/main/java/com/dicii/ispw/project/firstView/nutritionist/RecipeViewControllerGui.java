@@ -1,7 +1,6 @@
 package com.dicii.ispw.project.firstView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.firstView.utils.GUI;
@@ -20,7 +19,7 @@ import java.util.ResourceBundle;
 public class RecipeViewControllerGui implements Initializable {
 
 
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
     @FXML
     private ListView<String> myListView;
@@ -30,7 +29,7 @@ public class RecipeViewControllerGui implements Initializable {
     private String selectedRecipe;
 
     public RecipeViewControllerGui(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
 
@@ -70,7 +69,7 @@ public class RecipeViewControllerGui implements Initializable {
     public void deleteRecipe(ActionEvent event) throws Exception {
 
         RecipeBean recipeBean = new RecipeBean(selectedRecipe);
-        CreateNewRecipeController createNewRecipeController = new CreateNewRecipeController();
+        ManageNutritionalController createNewRecipeController = new ManageNutritionalController();
         createNewRecipeController.deleteRecipe(recipeBean);
 
 

@@ -13,13 +13,15 @@ import java.util.List;
 
 
 
-public class CreateNutritionalController{
+public class ManageNutritionalController{
 
 
 
     private  NutritionalPlanBase nutritionalPlanBase;
 
     private NutritionalPlanDay nutritionalPlanDay;
+
+    private Recipe recipe;
 
     private  Patient patient;
 
@@ -186,6 +188,26 @@ public class CreateNutritionalController{
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
         nutritionalPlanDayDao.CheckNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(),"luca@gmail.com" ,dataSelected);
+    }
+
+
+    public void createNewRecipe( RecipeBean recipeBean) throws DuplicatedUserException {
+
+        recipe = new Recipe(recipeBean.getName(), recipeBean.getDescription(), recipeBean.getIngredients());
+        RecipeFileSaver recipeFileSaver = new RecipeFileSaver();
+        RecipeDao recipeDao = new RecipeDao();
+
+        recipeDao.saveRecipe(recipe);
+        recipeFileSaver.saveRecipeInFile(recipe);
+
+    }
+
+    public void deleteRecipe(RecipeBean recipeBean) throws DuplicatedUserException {
+
+        recipe = new Recipe(recipeBean.getName());
+        RecipeDao recipeDao = new RecipeDao();
+        recipeDao.deleteRecipe(recipe);
+
     }
 }
 

@@ -2,19 +2,17 @@ package com.dicii.ispw.project.secondView.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.NutritionistBean;
-import com.dicii.ispw.project.beans.UserBean;
+
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.firstView.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
+
 
 public class NutritionistPersonalInfoRegistration {
 
@@ -128,10 +126,9 @@ public class NutritionistPersonalInfoRegistration {
         LocalDate date = LocalDate.parse(dataTime, formatter);
         if (dataTime.equals(date.format(formatter))) {
             a=true;
-            System.out.println("La stringa ha il formato corretto.");
+
         } else {
             a=false;
-            System.out.println("La stringa non ha il formato corretto.");
         }
 
         return a;

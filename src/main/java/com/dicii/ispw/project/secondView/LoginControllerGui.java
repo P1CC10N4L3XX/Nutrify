@@ -2,15 +2,14 @@ package com.dicii.ispw.project.secondView;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.firstView.LoginController;
 import com.dicii.ispw.project.firstView.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -39,7 +38,7 @@ public class LoginControllerGui {
     }
 
     @FXML
-    public void onCommand(ActionEvent event) throws IOException, NotExistentUserException {
+    public void onCommand(ActionEvent event) throws IOException {
         String commandText = commandLine.getText() ;
         commandLine.setStyle(null);
         commandLine.setText("");
@@ -78,18 +77,24 @@ public class LoginControllerGui {
                 if (Objects.equals(typecamp, "P")){
                     type=false;
                 }
+                try{
+                    UserBean loggedUser = new UserBean(userEmail, userPassword,type);
+                    Session.getSessionInstance().setLoggedUser(loginController.loginUser(loggedUser));
 
+                    if(Objects.equals(typecamp, "N")){
 
-                UserBean loggedUser = new UserBean(userEmail, userPassword,type);
-                Session.getSessionInstance().setLoggedUser(loginController.loginUser(loggedUser));
+                        GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
+                    }
+                    if(Objects.equals(typecamp, "P")){
+                        GUI.switchPage(event,"/firstGui/patient/PatientDashBoard.fxml");
+                    }
+                }catch (NotExistentUserException e){
+                    Alert completeAlert = new Alert(Alert.AlertType.WARNING, "user does not exist") ;
+                    completeAlert.showAndWait() ;
 
-                if(Objects.equals(typecamp, "N")){
-
-                    GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
                 }
-                if(Objects.equals(typecamp, "P")){
-                    //GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDashboard.fxml");
-                }
+
+
             }
             return ;
         }

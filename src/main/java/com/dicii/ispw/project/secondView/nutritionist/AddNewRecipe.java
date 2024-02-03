@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.secondView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.firstView.utils.GUI;
@@ -13,10 +13,10 @@ import java.io.IOException;
 
 public class AddNewRecipe {
 
-    private CreateNewRecipeController createNewRecipeController;
+    private ManageNutritionalController createNewRecipeController;
 
     public AddNewRecipe(){
-        createNewRecipeController = new CreateNewRecipeController();
+        createNewRecipeController = new ManageNutritionalController();
     }
 
     private static final String BACK="back";

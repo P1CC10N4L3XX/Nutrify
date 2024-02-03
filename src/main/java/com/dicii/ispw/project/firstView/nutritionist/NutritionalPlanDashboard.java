@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.firstView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +19,10 @@ public class NutritionalPlanDashboard {
 
     private NutritionalPlanBean nutritionalPlanBean;
 
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
     public NutritionalPlanDashboard(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     public void createNutritionalPlan(ActionEvent event) throws Exception {

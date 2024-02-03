@@ -1,5 +1,5 @@
 package com.dicii.ispw.project.secondView.nutritionist;
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
@@ -41,7 +41,7 @@ public class ViewNutritionalPlan {
     String ilnesses;
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
 
@@ -50,7 +50,7 @@ public class ViewNutritionalPlan {
     private static final String BACK="back";
 
     public ViewNutritionalPlan(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     public void takeParameter(String dataSelected,String ilnesses) throws NutritionalPlanNotFoundException, DuplicatedUserException {

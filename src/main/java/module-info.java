@@ -27,4 +27,5 @@ module com.example.progetto {
     exports com.dicii.ispw.project.secondView.nutritionist;
     opens com.dicii.ispw.project.secondView.nutritionist to javafx.fxml;
     opens com.dicii.ispw.project.secondView to javafx.fxml;
+    opens com.dicii.ispw.project.secondView.patient to javafx.fxml;
 }

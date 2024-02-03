@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.secondView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
@@ -61,7 +61,7 @@ public class NutritionalPlanDay implements Initializable {
 
     private PatientBean patientBean;
 
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
     private static final String BACK="back";
@@ -74,7 +74,7 @@ public class NutritionalPlanDay implements Initializable {
 
 
     public NutritionalPlanDay(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     @Override
@@ -108,7 +108,7 @@ public class NutritionalPlanDay implements Initializable {
 
     }
 
-    public void onCommand(ActionEvent event) throws IOException, NotExistentUserException {
+    public void onCommand(ActionEvent event) throws Exception {
         String commandText = commandLine.getText();
         commandLine.setStyle(null);
         commandLine.setText("");
@@ -191,10 +191,10 @@ public class NutritionalPlanDay implements Initializable {
         LocalDate date = LocalDate.parse(dataTime, formatter);
         if (dataTime.equals(date.format(formatter))) {
             a=true;
-            System.out.println("La stringa ha il formato corretto.");
+
         } else {
             a=false;
-            System.out.println("La stringa non ha il formato corretto.");
+
         }
 
         return a;

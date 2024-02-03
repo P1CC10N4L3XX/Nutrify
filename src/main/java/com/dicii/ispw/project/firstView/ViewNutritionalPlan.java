@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.firstView;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
@@ -40,12 +40,12 @@ public class ViewNutritionalPlan  {
 
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
 
     public ViewNutritionalPlan(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     public void back(ActionEvent event) throws IOException {

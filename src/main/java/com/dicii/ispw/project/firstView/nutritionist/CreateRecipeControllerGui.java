@@ -1,6 +1,7 @@
 package com.dicii.ispw.project.firstView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNewRecipeController;
+
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
@@ -26,12 +27,12 @@ public class CreateRecipeControllerGui {
     @FXML
     private TextArea descrizioneArea;
 
-    private CreateNewRecipeController createNewRecipeController;
+    private ManageNutritionalController createNewRecipeController;
 
 
 
     public CreateRecipeControllerGui(){
-        createNewRecipeController = new CreateNewRecipeController();
+        createNewRecipeController = new ManageNutritionalController();
     }
 
 

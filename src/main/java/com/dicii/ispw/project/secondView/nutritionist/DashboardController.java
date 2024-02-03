@@ -1,28 +1,24 @@
 package com.dicii.ispw.project.secondView.nutritionist;
 
-import com.dicii.ispw.project.applicationcontroller.CreateNutritionalController;
+import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;
-import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.NotExistentUserException;
+
 import com.dicii.ispw.project.firstView.utils.GUI;
-import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
+
 
 public class DashboardController {
     @FXML
     private TextField commandLine;
 
     private NutritionalPlanBean nutritionalPlanBean;
-    private CreateNutritionalController createNutritionalController;
+    private ManageNutritionalController createNutritionalController;
 
 
     private static final String CREATE="Create Nutritional Plan";
@@ -30,11 +26,11 @@ public class DashboardController {
     private static final String RECIPE="Add Recipe";
 
     public DashboardController(){
-        createNutritionalController = new CreateNutritionalController();
+        createNutritionalController = new ManageNutritionalController();
     }
 
     @FXML
-    public void onCommand(ActionEvent event) throws IOException, NotExistentUserException {
+    public void onCommand(ActionEvent event) throws Exception {
 
         String commandText = commandLine.getText() ;
 
@@ -50,8 +46,8 @@ public class DashboardController {
 
                 createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
 
-            } catch (DuplicatedUserException e) {
-                throw new RuntimeException(e);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
             return ;
         }
