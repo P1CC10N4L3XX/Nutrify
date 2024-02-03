@@ -7,6 +7,7 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstView.ViewNutritionalPlan;
+import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,11 +72,13 @@ public class NutritionalPlanDay implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             viewPatientInfo();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            warning.setText("errore durante l'inizializzazione");
         }
+
     }
 
 
@@ -86,13 +89,9 @@ public class NutritionalPlanDay implements Initializable {
         String dataPattern= localDate.format(DateTimeFormatter.ofPattern(pattern));
         selectionDate.setText(dataPattern);
         dataSelected=selectionDate.getText();
-
-
     }
 
     public void viewPatientInfo() throws DuplicatedUserException {
-
-        try {
 
             patientBean=createNutritionalController.displayUserInfo();
 
@@ -103,19 +102,14 @@ public class NutritionalPlanDay implements Initializable {
             this.height.setText(patientBean.getHeight());
             this.ilneeses.setText(patientBean.getIlnessesBean().getName());
 
-
-
-        }catch (NullPointerException e){
-            System.out.println(e.getMessage());
-        }
-
-
     }
 
 
 
 
     public void createNutritionalPlanDay(ActionEvent event) throws Exception {
+
+
 
         try{
             LocalDate localDate=dataPicker.getValue();
@@ -141,7 +135,6 @@ public class NutritionalPlanDay implements Initializable {
         catch(NutritionalPlanFounded e){
                   warning.setText(e.getMessage());
         }
-
 
 
     }

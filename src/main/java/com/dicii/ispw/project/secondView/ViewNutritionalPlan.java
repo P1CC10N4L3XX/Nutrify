@@ -1,10 +1,11 @@
-package com.dicii.ispw.project.secondView.nutritionist;
+package com.dicii.ispw.project.secondView;
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstView.utils.GUI;
+import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -76,10 +77,15 @@ public class ViewNutritionalPlan {
         String commandText = commandLine.getText() ;
         commandLine.setStyle(null);
         commandLine.setText("");
-        if (commandText.matches(BACK)) {
-            GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
-            return ;
+        if(commandText.matches(BACK)){
+            if(Session.getSessionInstance().getLoggedUser().getType()){
+                GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
+            }else{
+                GUI.switchPage(event,"/secondGui/patient/dashboard/DashboardPlan.fxml");
+            }
         }
+
+
 
 
     }

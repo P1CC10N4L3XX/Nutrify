@@ -1,5 +1,7 @@
 package com.dicii.ispw.project.firstView.utils;
 
+import com.dicii.ispw.project.firstView.ViewNutritionalPlan;
+import com.dicii.ispw.project.firstView.nutritionist.CreateNutritionalPlanControllerGui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,4 +24,7 @@ public class GUI {
         stage.setScene(scene);
         stage.show();
     }
+
+
+
 }

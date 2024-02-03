@@ -31,14 +31,14 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
                     <children>
-                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- submit&#10;- login" />
+                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- submit&#10;- my plan&#10;- login" />
                     </children>
                 </AnchorPane>
             </content>
         </ScrollPane>
         <Button fx:id="enterButton" layoutX="475.0" layoutY="377.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
         <ListView layoutX="387.0" layoutY="102.0" prefHeight="185.0" prefWidth="230.0" />
-        <Text layoutX="484.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritionist" />
+        <Text layoutX="472.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritionist" />
 
     </children>
 </Pane>

@@ -86,7 +86,7 @@ public class LoginControllerGui {
                         GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
                     }
                     if(Objects.equals(typecamp, "P")){
-                        GUI.switchPage(event,"/firstGui/patient/PatientDashBoard.fxml");
+                        GUI.switchPage(event,"/secondGui/patient/PatientDashBoard.fxml");
                     }
                 }catch (NotExistentUserException e){
                     Alert completeAlert = new Alert(Alert.AlertType.WARNING, "user does not exist") ;

@@ -5,6 +5,7 @@ import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstView.utils.GUI;
+import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -49,7 +50,12 @@ public class ViewNutritionalPlan  {
     }
 
     public void back(ActionEvent event) throws IOException {
-        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
+        if(Session.getSessionInstance().getLoggedUser().getType()){
+            GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
+        }else{
+            GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
+        }
+
     }
 
 
