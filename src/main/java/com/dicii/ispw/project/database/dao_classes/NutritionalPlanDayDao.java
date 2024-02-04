@@ -53,10 +53,8 @@ public class NutritionalPlanDayDao {
                 throw new NutritionalPlanFounded("la data selezionata ha gia un piano nutrizionale creato ");
             }
 
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            throw new DuplicatedUserException(e.getMessage());
         }
     }
 

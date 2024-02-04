@@ -28,9 +28,9 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     private String cena;
 
 
-    public TextField grammiColazioneField;
-    public TextField grammiPranzoField;
-    public TextField grammiCenaField;
+    private TextField grammiColazioneField;
+    private TextField grammiPranzoField;
+    private TextField grammiCenaField;
 
     public TextArea descrizioneArea;
 
@@ -49,7 +49,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     @FXML
     private Label warning;
 
-    private ManageNutritionalController createNutritionalController;
+    private final ManageNutritionalController createNutritionalController;
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
 

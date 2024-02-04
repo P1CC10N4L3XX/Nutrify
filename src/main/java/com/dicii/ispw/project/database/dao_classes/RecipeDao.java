@@ -38,10 +38,8 @@ public class RecipeDao {
                 recipes.add(recipe);
 
             }
-        }catch(SQLIntegrityConstraintViolationException e){
-            throw new DuplicatedUserException(e.getMessage());
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            throw new DuplicatedUserException(e.getMessage());
         }
 
         return recipes;

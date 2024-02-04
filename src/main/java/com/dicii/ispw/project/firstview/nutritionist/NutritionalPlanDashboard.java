@@ -2,6 +2,7 @@ package com.dicii.ispw.project.firstview.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -27,42 +28,19 @@ public class NutritionalPlanDashboard {
 
     public void createNutritionalPlan(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDay.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
 
-
-        try {
-            LocalDate currentDate = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String formattedDateString = currentDate.format(formatter);
-            nutritionalPlanBean = new NutritionalPlanBean(formattedDateString);
-
-            createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
-
-        }
-
-        catch(Exception e){
-
-            System.out.println(e.getMessage());
-        }
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDateString = currentDate.format(formatter);
+        nutritionalPlanBean = new NutritionalPlanBean(formattedDateString);
+        createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
 
     }
 
-
-
-
     public void recipeDashBoard(ActionEvent event) throws Exception {
 
-        root = FXMLLoader.load(getClass().getResource("/firstGui/nutritionist/RecipeView.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        GUI.switchPage(event,"/firstGui/nutritionist/RecipeView.fxml");
 
     }
 

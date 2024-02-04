@@ -3,6 +3,7 @@ package com.dicii.ispw.project.firstview.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
+import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +37,7 @@ public class CreateRecipeControllerGui {
     }
 
 
-    public void createRecipeB(ActionEvent event){
+    public void createRecipeB(ActionEvent event) {
 
         try {
             recipeBean = new RecipeBean(titleField.getText(),descrizioneArea.getText(),ingredientiField.getText());
@@ -46,11 +47,8 @@ public class CreateRecipeControllerGui {
             createNewRecipeController.createNewRecipe(recipeBean);
 
 
-        }
-
-        catch(Exception e){
-
-            System.out.println(e);
+        } catch (DuplicatedUserException e) {
+            throw new RuntimeException(e);
         }
 
     }
