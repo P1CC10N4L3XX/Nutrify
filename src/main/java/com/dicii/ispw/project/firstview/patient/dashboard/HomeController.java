@@ -1,9 +1,9 @@
-package com.dicii.ispw.project.firstView.patient.dashboard;
+package com.dicii.ispw.project.firstview.patient.dashboard;
 
 import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistController;
 import com.dicii.ispw.project.beans.NutritionistBean;
-import com.dicii.ispw.project.firstView.patient.DashboardController;
-import com.dicii.ispw.project.firstView.patient.NutritionistCardController;
+import com.dicii.ispw.project.firstview.patient.DashboardController;
+import com.dicii.ispw.project.firstview.patient.NutritionistCardController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

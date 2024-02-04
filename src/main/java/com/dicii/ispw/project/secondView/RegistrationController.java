@@ -4,7 +4,7 @@ package com.dicii.ispw.project.secondView;
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.firstView.utils.GUI;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

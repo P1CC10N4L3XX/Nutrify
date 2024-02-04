@@ -1,7 +1,6 @@
-package com.dicii.ispw.project.firstView.utils;
+package com.dicii.ispw.project.firstview.utils;
 
-import com.dicii.ispw.project.firstView.ViewNutritionalPlan;
-import com.dicii.ispw.project.firstView.nutritionist.CreateNutritionalPlanControllerGui;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +12,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GUI {
+
+    private GUI() {}
     private static Stage stage;
     private static Scene scene;
     private static Parent root;

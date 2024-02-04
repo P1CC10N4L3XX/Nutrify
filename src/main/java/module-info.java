@@ -13,16 +13,16 @@ module com.example.progetto {
 
     opens com.dicii.ispw.project to javafx.fxml;
     exports com.dicii.ispw.project;
-    exports com.dicii.ispw.project.firstView.patient;
-    opens com.dicii.ispw.project.firstView.patient to javafx.fxml;
-    exports com.dicii.ispw.project.firstView;
-    opens com.dicii.ispw.project.firstView to javafx.fxml;
+    exports com.dicii.ispw.project.firstview.patient;
+    opens com.dicii.ispw.project.firstview.patient to javafx.fxml;
+    exports com.dicii.ispw.project.firstview;
+    opens com.dicii.ispw.project.firstview to javafx.fxml;
     exports com.dicii.ispw.project.applicationcontroller;
     opens com.dicii.ispw.project.applicationcontroller to javafx.fxml;
-    exports com.dicii.ispw.project.firstView.nutritionist;
-    opens com.dicii.ispw.project.firstView.nutritionist to javafx.fxml;
-    exports com.dicii.ispw.project.firstView.patient.dashboard;
-    opens com.dicii.ispw.project.firstView.patient.dashboard to javafx.fxml;
+    exports com.dicii.ispw.project.firstview.nutritionist;
+    opens com.dicii.ispw.project.firstview.nutritionist to javafx.fxml;
+    exports com.dicii.ispw.project.firstview.patient.dashboard;
+    opens com.dicii.ispw.project.firstview.patient.dashboard to javafx.fxml;
     exports com.dicii.ispw.project.secondView;
     exports com.dicii.ispw.project.secondView.nutritionist;
     opens com.dicii.ispw.project.secondView.nutritionist to javafx.fxml;

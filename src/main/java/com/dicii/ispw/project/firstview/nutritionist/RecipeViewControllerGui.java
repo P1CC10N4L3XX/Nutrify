@@ -1,9 +1,9 @@
-package com.dicii.ispw.project.firstView.nutritionist;
+package com.dicii.ispw.project.firstview.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.firstView.utils.GUI;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;

@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.firstView;
+package com.dicii.ispw.project.firstview;
 
 public class SubscribeToANutritionistController {
 }

@@ -5,7 +5,7 @@ import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.firstView.utils.GUI;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

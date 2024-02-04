@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstView.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.LoginController">
     <Button layoutX="430.0" layoutY="543.0" mnemonicParsing="false" onAction="#switchRegistration" prefHeight="39.0" prefWidth="116.0" style="-fx-text-alignment: right;" styleClass="switchButton" stylesheets="@CSS/Style.css" text="Registrati" textFill="WHITE" />
     <Pane prefHeight="589.0" prefWidth="454.0" style="-fx-background-color: rgba(254,192,32,255);" stylesheets="@CSS/Style.css">
         <Text fill="WHITE" layoutX="156.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Login" wrappingWidth="185.85287475585938">

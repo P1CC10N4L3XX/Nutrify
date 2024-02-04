@@ -22,9 +22,11 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
     String valore=null;
     if(quantita>30 ){
       valore="ALTO";
-    }if(quantita>20 && quantita<30){
+    }
+    if(quantita>20 && quantita<30){
       valore="MEDIO";
-    }if(quantita<20){
+    }
+    if(quantita<20){
       valore="BASSO";
     }
 

@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.firstView.nutritionist;
+package com.dicii.ispw.project.firstview.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;

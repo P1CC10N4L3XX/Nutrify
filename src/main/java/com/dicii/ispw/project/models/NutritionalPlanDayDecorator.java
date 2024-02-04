@@ -6,7 +6,7 @@ public abstract class NutritionalPlanDayDecorator implements NutritionalPlan {
 
     private NutritionalPlan component;
 
-    public NutritionalPlanDayDecorator(NutritionalPlan component){
+    protected NutritionalPlanDayDecorator(NutritionalPlan component){
         this.component=component;
     }
 

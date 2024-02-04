@@ -4,7 +4,7 @@ import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
 
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.firstView.utils.GUI;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

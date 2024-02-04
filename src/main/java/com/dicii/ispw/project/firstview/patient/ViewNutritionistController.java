@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.firstView.patient;
+package com.dicii.ispw.project.firstview.patient;
 
 import com.dicii.ispw.project.beans.NutritionistBean;
 import javafx.fxml.FXML;

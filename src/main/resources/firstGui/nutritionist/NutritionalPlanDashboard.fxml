@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstView.nutritionist.NutritionalPlanDashboard">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.nutritionist.NutritionalPlanDashboard">
    <children>
       <Text layoutX="228.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritional plan Dashboard" />
       <Button fx:id="CreateNutritionalPlan" layoutX="57.0" layoutY="74.0" mnemonicParsing="false" onAction="#createNutritionalPlan" text="CreateNutritionalPlan" />

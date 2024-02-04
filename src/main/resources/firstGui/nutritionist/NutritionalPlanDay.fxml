@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="642.0" prefWidth="744.0" style="-fx-background-color: #f2fafc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstView.nutritionist.NutritionalPlanDay">
+<AnchorPane prefHeight="642.0" prefWidth="744.0" style="-fx-background-color: #f2fafc;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.nutritionist.NutritionalPlanDay">
    <Button fx:id="Create" layoutX="46.0" layoutY="129.0" mnemonicParsing="false" onAction="#createNutritionalPlanDay" text="Create" />
    <Button layoutX="119.0" layoutY="129.0" mnemonicParsing="false" onAction="#viewNutritionalPlan" text="view" />
    <Text layoutX="320.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NutritionalPlanDay" />

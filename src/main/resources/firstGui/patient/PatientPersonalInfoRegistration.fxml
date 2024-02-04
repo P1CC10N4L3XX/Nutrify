@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="878.0" style="-fx-background-color: rgba(254,192,32,255);" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstView.patient.PersonalInfoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="878.0" style="-fx-background-color: rgba(254,192,32,255);" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.patient.PersonalInfoController">
     <children>
         <ImageView fitHeight="583.0" fitWidth="657.0" layoutX="148.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
             <image>

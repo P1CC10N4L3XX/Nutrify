@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.firstView;
+package com.dicii.ispw.project.firstview;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

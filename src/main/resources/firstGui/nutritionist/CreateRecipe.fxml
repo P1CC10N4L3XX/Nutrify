@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstView.nutritionist.CreateRecipeControllerGui">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.nutritionist.CreateRecipeControllerGui">
     <children>
         <Text layoutX="201.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CreateRecipe Form" textAlignment="CENTER" wrappingWidth="196.251953125" />
         <TextArea fx:id="descrizioneArea" layoutX="165.0" layoutY="151.0" prefHeight="79.0" prefWidth="270.0" />
