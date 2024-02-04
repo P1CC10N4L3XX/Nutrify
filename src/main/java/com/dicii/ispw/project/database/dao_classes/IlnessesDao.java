@@ -12,6 +12,8 @@ import java.util.List;
 
 public class IlnessesDao {
 
+    public IlnessesDao(){}
+
 
     public static List<Ilnesses> displayIlnesses() throws DuplicatedUserException {
         ArrayList<Ilnesses> ilnesses = new ArrayList<>() ;

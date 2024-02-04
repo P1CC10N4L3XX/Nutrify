@@ -77,8 +77,8 @@ public class NutritionistBean{
         this.iva = iva;
     }
 
-    public void setIBAN(String IBAN) {
-        this.iban = IBAN;
+    public void setIBAN(String iban) {
+        this.iban = iban;
     }
 
     public void setCost(String cost) {

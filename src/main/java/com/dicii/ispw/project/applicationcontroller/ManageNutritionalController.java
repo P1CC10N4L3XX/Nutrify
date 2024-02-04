@@ -35,11 +35,7 @@ public class ManageNutritionalController{
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
             nutritionalPlanBase.addNutritionalPlanDay(nutritionalPlanDay);
 
-           if(nutritionalPlanDayDao.saveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com")){
-               return true;
-           }else{
-               return false;
-           }
+            return nutritionalPlanDayDao.saveNutritionalPlanDay(nutritionalPlanDay, Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com");
 
 
 
@@ -166,11 +162,11 @@ public class ManageNutritionalController{
 
         List<RecipeBean> recipeBeanList = new ArrayList<>();
 
-        for (Recipe recipe : recipes) {
+        for (Recipe recipeName : recipes) {
             RecipeBean recipeBean = new RecipeBean();
 
-            recipeBean.setName(recipe.getName());
-            recipeBean.setIngredients(recipe.getIngredients());
+            recipeBean.setName(recipeName.getName());
+            recipeBean.setIngredients(recipeName.getIngredients());
 
 
             recipeBeanList.add(recipeBean);

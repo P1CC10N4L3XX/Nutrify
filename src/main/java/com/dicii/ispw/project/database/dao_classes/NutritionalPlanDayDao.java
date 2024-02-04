@@ -34,10 +34,7 @@ public class NutritionalPlanDayDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try (Statement statement = connection.createStatement()) {
 
-           if(NutritionalPlanDayQueries.insertNutritionalPlanDay(statement, nutritionalPlanDay, emailNutritionist, emailPatient )){
-               return true;
-           }
-        return false;
+            return NutritionalPlanDayQueries.insertNutritionalPlanDay(statement, nutritionalPlanDay, emailNutritionist, emailPatient);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
