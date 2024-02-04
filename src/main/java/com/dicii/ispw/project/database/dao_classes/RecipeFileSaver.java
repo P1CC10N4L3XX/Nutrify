@@ -18,15 +18,7 @@ public class RecipeFileSaver {
         recipeFileName =  "src/main/java/com/dicii/ispw/project/database/ALLRECIPES" ;
     }
 
-    private static final String secretKey = "YourSecretKey"; // Chiave segreta per la crittografia
 
-    public static String encrypt(String plainText) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
-        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
-        return Base64.getEncoder().encodeToString(encryptedBytes);
-    }
 
     public void saveRecipeInFile(Recipe recipe) {
         try(

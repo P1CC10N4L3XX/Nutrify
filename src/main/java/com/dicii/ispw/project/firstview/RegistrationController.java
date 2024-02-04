@@ -30,8 +30,8 @@ public class RegistrationController{
     @FXML
     private RadioButton patientRadioButton;
 
-    private String NUTRITIONIST_PATH = "/firstGui/nutritionist/NutritionistPersonalInfoRegistration.fxml";
-    private String PATIENT_PATH = "/firstGui/patient/PatientPersonalInfoRegistration.fxml";
+    private static final String  NUTRITIONIST_PATH = "/firstGui/nutritionist/NutritionistPersonalInfoRegistration.fxml";
+    private static final String PATIENT_PATH = "/firstGui/patient/PatientPersonalInfoRegistration.fxml";
 
     public RegistrationController(){
         registerApplicationController= new RegisterApplicationController();

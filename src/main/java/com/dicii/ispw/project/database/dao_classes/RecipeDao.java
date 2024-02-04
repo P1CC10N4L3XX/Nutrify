@@ -17,10 +17,8 @@ public class RecipeDao {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             RecipeQueries.saveIntoRecipe(statement,recipe, Session.getSessionInstance().getLoggedUser().getEmail() );
-        }catch(SQLIntegrityConstraintViolationException e){
+        }catch(SQLException e){
             throw new DuplicatedUserException(e.getMessage());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
