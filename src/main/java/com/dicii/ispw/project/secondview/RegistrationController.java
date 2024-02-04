@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.secondView;
+package com.dicii.ispw.project.secondview;
 
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;

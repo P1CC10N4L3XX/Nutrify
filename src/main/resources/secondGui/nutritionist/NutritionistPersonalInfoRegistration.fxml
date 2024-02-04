@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="679.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondView.nutritionist.NutritionistPersonalInfoRegistration">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="679.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondview.nutritionist.NutritionistPersonalInfoRegistration">
     <children>
         <Text fill="WHITE" layoutX="194.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritionist Information" textAlignment="CENTER" wrappingWidth="323.2909851074219">
             <font>

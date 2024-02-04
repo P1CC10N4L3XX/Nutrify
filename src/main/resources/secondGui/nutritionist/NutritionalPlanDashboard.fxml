@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="722.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondView.nutritionist.DashboardController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="722.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondview.nutritionist.DashboardController">
     <children>
         <Text fill="WHITE" layoutX="201.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashBoard" textAlignment="CENTER" wrappingWidth="323.2909851074219">
             <font>

@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.secondView.nutritionist;
+package com.dicii.ispw.project.secondview.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
 import com.dicii.ispw.project.beans.NutritionistBean;

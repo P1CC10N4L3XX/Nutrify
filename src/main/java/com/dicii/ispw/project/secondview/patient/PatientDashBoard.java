@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.secondView.patient;
+package com.dicii.ispw.project.secondview.patient;
 
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;

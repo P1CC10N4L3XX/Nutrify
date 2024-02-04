@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.secondView.nutritionist;
+package com.dicii.ispw.project.secondview.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
@@ -32,7 +32,7 @@ public class AddNewRecipe {
     @FXML
     public TextField ingredients;
     @FXML
-    public TextField descriptions;
+    public TextField descript;
 
     private RecipeBean recipeBean;
 
@@ -55,7 +55,7 @@ public class AddNewRecipe {
         }
         else if (commandText.matches(DESCRIPTIONS)) {
             String description = commandText.replace("set description ", "") ;
-            descriptions.setText(description);
+            descript.setText(description);
 
 
         }else if(commandText.matches(SET_INGREDIENTS)){
@@ -65,7 +65,7 @@ public class AddNewRecipe {
 
         }else if(commandText.matches(SUBMIT)){
 
-            recipeBean = new RecipeBean(name.getText(),descriptions.getText(),ingredients.getText());
+            recipeBean = new RecipeBean(name.getText(),descript.getText(),ingredients.getText());
             createNewRecipeController.createNewRecipe(recipeBean);
 
         }else if(commandText.matches(BACK)){

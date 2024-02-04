@@ -1,12 +1,11 @@
-package com.dicii.ispw.project.secondView.nutritionist;
+package com.dicii.ispw.project.secondview.patient;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstview.utils.GUI;
-import com.dicii.ispw.project.secondView.ViewNutritionalPlan;
+import com.dicii.ispw.project.secondview.ViewNutritionalPlan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,14 +17,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
-public class NutritionalPlanDay implements Initializable {
-
+public class DashboardPlan implements Initializable {
     private Stage stage;
     private Scene scene;
 
@@ -69,10 +68,9 @@ public class NutritionalPlanDay implements Initializable {
 
     private static final String VIEW_PLAN="view plan";
 
-    private static final String CREATE_PLAN="create plan";
 
 
-    public NutritionalPlanDay(){
+    public DashboardPlan(){
         createNutritionalController = new ManageNutritionalController();
     }
 
@@ -133,32 +131,6 @@ public class NutritionalPlanDay implements Initializable {
             }
 
 
-        } else if (commandText.matches(CREATE_PLAN)) {
-            try{
-
-                if(data.getText()==null){
-                    warning.setText("Seleziona la data");
-                }else{
-                    createNutritionalController.checkNutritionalPlanDay(data.getText());
-                    FXMLLoader loader =new FXMLLoader(getClass().getResource("/secondGui/nutritionist/CreateNutritionalPlanDay.fxml"));
-                    root = loader.load();
-
-                    CreateNutritionalPlanDay createNutritionalPlanDay = loader.getController();
-                    createNutritionalPlanDay.displayData(data.getText());
-
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setResizable(false);
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-
-                }
-
-            }
-            catch(NutritionalPlanFounded | DuplicatedUserException e){
-                warning.setText(e.getMessage());
-            }
-
 
         }
         else if (commandText.matches(SET_DATA)) {
@@ -181,7 +153,7 @@ public class NutritionalPlanDay implements Initializable {
         }
         else if (commandText.matches(BACK)) {
 
-            GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
+            GUI.switchPage(event,"/secondGui/patient/PatientDashboard.fxml");
 
         }
 
@@ -204,6 +176,5 @@ public class NutritionalPlanDay implements Initializable {
 
         return a;
     }
-
 
 }
