@@ -47,7 +47,7 @@ public class TestLoginController {
         } catch (NotExistentUserException e) {
 
             flag = -1;
-            e.printStackTrace();
+
         }
         assertEquals(1, flag);
     }

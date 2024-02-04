@@ -3,7 +3,11 @@ package com.dicii.ispw.project.database.dao_classes;
 import com.dicii.ispw.project.models.Recipe;
 
 
+import javax.crypto.Cipher;
+import javax.crypto.CipherOutputStream;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
+import java.security.Key;
 
 
 public class RecipeFileSaver {
@@ -17,17 +21,31 @@ public class RecipeFileSaver {
     }
 
 
+    private static final String SECRET_KEY = "YourSecretKey"; // Chiave segreta per la crittografia
 
     public void saveRecipeInFile(Recipe recipe) {
-        try(
-                FileOutputStream fileOutputStream = new FileOutputStream(recipeFileName);
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        try {
 
-        ) {
-            objectOutputStream.writeObject(recipe);
-        } catch (IOException ignored) {
+            Cipher cipher = Cipher.getInstance("AES");
+            Key secretKey = generateKey();
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+
+
+            try (FileOutputStream fileOutputStream = new FileOutputStream(recipeFileName);
+                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(new CipherOutputStream(fileOutputStream, cipher))) {
+
+                objectOutputStream.writeObject(recipe);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+
+    private Key generateKey() {
+        return new SecretKeySpec(RecipeFileSaver.SECRET_KEY.getBytes(), "AES");
+    }
+
 
     public Recipe loadRecipeFromFile() {
         Recipe recipe = new Recipe() ;
