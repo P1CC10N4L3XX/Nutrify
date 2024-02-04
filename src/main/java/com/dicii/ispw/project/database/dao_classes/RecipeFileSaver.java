@@ -2,11 +2,9 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.models.Recipe;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+
 
 public class RecipeFileSaver {
 
@@ -28,7 +26,6 @@ public class RecipeFileSaver {
         ) {
             objectOutputStream.writeObject(recipe);
         } catch (IOException ignored) {
-            //If the file isn't found, then the previous Cart isn't saved
         }
     }
 

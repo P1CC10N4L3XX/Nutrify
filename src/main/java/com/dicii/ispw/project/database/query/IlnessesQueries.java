@@ -4,9 +4,11 @@ import java.sql.*;
 
 public class IlnessesQueries {
 
+    public IlnessesQueries(){}
+
 
     public static ResultSet displayIlnesses(Statement statement) throws SQLException {
-        String query = String.format("SELECT Nome FROM malattia ");
+        String query = "SELECT Nome FROM malattia ";
         return statement.executeQuery(query);
     }
 
