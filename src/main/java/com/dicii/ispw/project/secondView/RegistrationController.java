@@ -8,7 +8,7 @@ import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
+
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -47,9 +47,9 @@ public class RegistrationController {
         subscribeCommandLine.setText("");
 
         if (commandText.startsWith("set") && setCommand(commandText)) {
-            return;
+
         } else if (commandText.startsWith("type") && typeCommand(commandText)) {
-            return ;
+
         }
         else if (commandText.startsWith("register") && registerCommand(commandText)) {
 
@@ -78,11 +78,11 @@ public class RegistrationController {
                 alert.showAndWait();
             }
 
-            return;
+
 
         }  else if (commandText.compareTo("login") == 0) {
             GUI.switchPage(event,"/SecondGui/Login.fxml");
-            return ;
+
         }
 
     }

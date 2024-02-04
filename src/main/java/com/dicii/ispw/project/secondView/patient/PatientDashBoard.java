@@ -1,13 +1,9 @@
 package com.dicii.ispw.project.secondView.patient;
 
-import com.dicii.ispw.project.beans.NutritionalPlanBean;
 import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class PatientDashBoard {
 

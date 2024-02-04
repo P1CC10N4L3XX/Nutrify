@@ -132,7 +132,7 @@ public class NutritionalPlanDay implements Initializable {
                 warning.setText(e.getMessage());
             }
 
-            return;
+
         } else if (commandText.matches(CREATE_PLAN)) {
             try{
 
@@ -177,7 +177,7 @@ public class NutritionalPlanDay implements Initializable {
                 alert.showAndWait() ;
             }
 
-            return;
+
         }
         else if (commandText.matches(BACK)) {
 

@@ -2,7 +2,7 @@ package com.dicii.ispw.project.secondView;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
-import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
+
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.firstView.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
@@ -45,21 +45,21 @@ public class LoginControllerGui {
         if (commandText.matches("set email .*")) {
             String username = commandText.replace("set email ", "") ;
             emailField.setText(username);
-            return ;
+
         }
         else if (commandText.matches("set password .*")) {
             String password = commandText.replace("set password ", "") ;
             passwordField.setText(password);
-            return ;
+
         }
         else if (commandText.matches("type .*")) {
             String type = commandText.replace("type ", "") ;
             typeField.setText(type);
-            return ;
+
         }
         else if (commandText.compareTo("subscribe") == 0) {
             GUI.switchPage(event,"/SecondGui/RegistrationController.fxml");
-            return ;
+
         }
         else if (commandText.compareTo("submit") == 0) {
             String userEmail = emailField.getText() ;
@@ -96,7 +96,7 @@ public class LoginControllerGui {
 
 
             }
-            return ;
+
         }
 
 

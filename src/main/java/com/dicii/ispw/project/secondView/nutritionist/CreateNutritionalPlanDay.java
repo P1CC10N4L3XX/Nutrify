@@ -116,8 +116,6 @@ public class CreateNutritionalPlanDay implements Initializable {
                 completeAlert.showAndWait() ;
             }
 
-
-            return;
         } else if (commandText.matches(SET_LAUNCH)) {
             String launchName = commandText.replace("set launch ", "");
             if(checkRecipe(launchName)){
@@ -125,7 +123,7 @@ public class CreateNutritionalPlanDay implements Initializable {
             }else{
                 completeAlert.showAndWait() ;
             }
-            return;
+
         }
         else if (commandText.matches(SET_DINNER)) {
             String dinnerName = commandText.replace("set dinner ", "");
@@ -135,25 +133,25 @@ public class CreateNutritionalPlanDay implements Initializable {
                 completeAlert.showAndWait() ;
             }
 
-            return;
+
         }
         else if (commandText.matches(SET_QUANTITYB)) {
             String quantityB = commandText.replace("set quantityb ", "");
             quantityb.setText(quantityB);
-            return;
+
         }
         else if (commandText.matches(SET_QUANTITYL)) {
             String quantityL = commandText.replace("set quantityl ", "");
             quantityl.setText(quantityL);
-            return;
+
         }
         else if (commandText.matches(SET_QUANTITYD)) {
             String quantityD = commandText.replace("set quantityd ", "");
             quantityd.setText(quantityD);
-            return;
+
         } else if (commandText.matches(BACK)) {
             GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
-            return;
+
         }
 
         else if (commandText.matches(SUBMIT)) {
@@ -176,7 +174,7 @@ public class CreateNutritionalPlanDay implements Initializable {
 
             }
 
-            return;
+
         }
 
     }

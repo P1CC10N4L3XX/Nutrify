@@ -34,11 +34,9 @@ public class RecipeFileSaver {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
         ) {
-            objectOutputStream.writeObject(encrypt(recipe.getName()));
+            objectOutputStream.writeObject(recipe);
         } catch (IOException ignored) {
             //If the file isn't found, then the previous Cart isn't saved
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
 

@@ -101,12 +101,12 @@ public class PatientPersonalInfoRegistration implements Initializable {
         if (commandText.matches(SET_NAME)) {
             String name = commandText.replace("set name ", "") ;
             nameTextField.setText(name);
-            return ;
+
         }
         else if (commandText.matches(SET_SURNAME)) {
             String username = commandText.replace("set surname ", "") ;
             surnameTextField.setText(username);
-            return ;
+
         }
         else if (commandText.matches(SET_BIRTHDAY)) {
             String birthday = commandText.replace("set birthday ", "") ;
@@ -117,18 +117,18 @@ public class PatientPersonalInfoRegistration implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:31/01/2024") ;
                 alert.showAndWait() ;
             }
-            return ;
+
 
         }
         else if (commandText.matches(SET_WEIGHT)) {
             String weight = commandText.replace("set weight ", "") ;
             weightTextField.setText(weight);
-            return ;
+
         }
         else if (commandText.matches(SET_HEIGHT)) {
             String height = commandText.replace("set height ", "") ;
             heightTextField.setText(height);
-            return ;
+
         }
         else if (commandText.matches(ILLNESSES)) {
             String illnesses = commandText.replace("set illnesses ", "") ;
@@ -138,12 +138,12 @@ public class PatientPersonalInfoRegistration implements Initializable {
                 completeAlert.showAndWait() ;
             }
             illnessesField.setText(illnesses);
-            return ;
+
 
         }
         else if (commandText.matches(BACK)) {
             GUI.switchPage(event,"/secondGui/user/Registration.fxml");
-            return ;
+
         }
         else if (commandText.compareTo(SUBMIT) == 0) {
             try {

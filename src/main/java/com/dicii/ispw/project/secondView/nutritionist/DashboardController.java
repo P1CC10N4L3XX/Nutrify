@@ -2,8 +2,6 @@ package com.dicii.ispw.project.secondView.nutritionist;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanBean;
-import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-
 import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,11 +47,11 @@ public class DashboardController {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            return ;
+
         }
         else if (commandText.matches(RECIPE)) {
             GUI.switchPage(event,"/SecondGui/nutritionist/RecipeView.fxml");
-            return ;
+
         }
 
 

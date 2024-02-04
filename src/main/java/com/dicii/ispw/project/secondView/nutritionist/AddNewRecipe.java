@@ -50,18 +50,18 @@ public class AddNewRecipe {
 
             String namerecipe = commandText.replace("set name ", "") ;
             name.setText(namerecipe);
-            return ;
+
 
         }
         else if (commandText.matches(DESCRIPTIONS)) {
             String description = commandText.replace("set description ", "") ;
             descriptions.setText(description);
-            return ;
+
 
         }else if(commandText.matches(SET_INGREDIENTS)){
             String ingredietsRecipe = commandText.replace("set ingredients ", "") ;
             ingredients.setText(ingredietsRecipe);
-            return ;
+
 
         }else if(commandText.matches(SUBMIT)){
 

@@ -130,7 +130,7 @@ public class DashboardPlan implements Initializable {
                 warning.setText(e.getMessage());
             }
 
-            return;
+
 
         }
         else if (commandText.matches(SET_DATA)) {
@@ -149,7 +149,7 @@ public class DashboardPlan implements Initializable {
                 alert.showAndWait() ;
             }
 
-            return;
+
         }
         else if (commandText.matches(BACK)) {
 

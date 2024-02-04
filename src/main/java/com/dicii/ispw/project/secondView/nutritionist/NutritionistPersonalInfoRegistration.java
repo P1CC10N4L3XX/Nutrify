@@ -69,12 +69,12 @@ public class NutritionistPersonalInfoRegistration {
         if (commandText.matches(SET_NAME)) {
             String name = commandText.replace("set name ", "") ;
             nameTextField.setText(name);
-            return ;
+
         }
         else if (commandText.matches(SET_SURNAME)) {
             String username = commandText.replace("set surname ", "") ;
             surnameTextField.setText(username);
-            return ;
+
         }
         else if (commandText.matches(SET_BIRTHDAY)) {
             String birthday = commandText.replace("set birthday ", "") ;
@@ -84,28 +84,28 @@ public class NutritionistPersonalInfoRegistration {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:31/01/2024") ;
                 alert.showAndWait() ;
             }
-            return ;
+
         }
         else if (commandText.compareTo(SET_IBAN) == 0) {
             String iban = commandText.replace("set iban ", "") ;
             ibanTextField.setText(iban);
-            return ;
+
         }
         else if (commandText.compareTo(SET_COST) == 0) {
             String cost = commandText.replace("set cost ", "") ;
             costTextField.setText(cost);
-            return ;
+
         }
         else if (commandText.compareTo(DESCRIPTION) == 0) {
             String iva = commandText.replace("set iva ", "") ;
             ivaTextField.setText(iva);
-            return ;
+
 
         }
         else if (commandText.compareTo(BACK) == 0) {
             String description = commandText.replace("set description ", "") ;
             descriptionTextArea.setText(description);
-            return ;
+
         }
         else if (commandText.compareTo(SUBMIT) == 0) {
             try {

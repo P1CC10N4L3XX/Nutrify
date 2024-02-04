@@ -2,7 +2,7 @@ package com.dicii.ispw.project.secondView.nutritionist;
 
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
-import com.dicii.ispw.project.beans.NutritionalPlanBean;
+
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.firstView.utils.GUI;
@@ -23,7 +23,6 @@ public class RecipeViewController implements Initializable {
     @FXML
     public TextField commandLine;
 
-    private NutritionalPlanBean nutritionalPlanBean;
     private ManageNutritionalController createNutritionalController;
 
 
