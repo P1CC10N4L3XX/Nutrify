@@ -2,7 +2,11 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.models.Recipe;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 public class RecipeFileSaver {
 
@@ -14,14 +18,27 @@ public class RecipeFileSaver {
         recipeFileName =  "src/main/java/com/dicii/ispw/project/database/ALLRECIPES" ;
     }
 
+    private static final String secretKey = "YourSecretKey"; // Chiave segreta per la crittografia
+
+    public static String encrypt(String plainText) throws Exception {
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
+        return Base64.getEncoder().encodeToString(encryptedBytes);
+    }
+
     public void saveRecipeInFile(Recipe recipe) {
         try(
                 FileOutputStream fileOutputStream = new FileOutputStream(recipeFileName);
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
         ) {
-            objectOutputStream.writeObject(recipe);
+            objectOutputStream.writeObject(encrypt(recipe.getName()));
         } catch (IOException ignored) {
             //If the file isn't found, then the previous Cart isn't saved
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
