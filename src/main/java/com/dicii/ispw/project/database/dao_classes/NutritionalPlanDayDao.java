@@ -21,25 +21,31 @@ public class NutritionalPlanDayDao {
     private static final String QUANTITA_CENA="QuantitaCena";
     private static final String DATA_CONSUMAZIONE="DataConsumazione";
 
+    private static final String DESCRIZIONE="Descrizione";
+
     
 
 
 
 
 
-    public void saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist,String emailPatient ) throws DuplicatedUserException {
+    public boolean saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist, String emailPatient ) {
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
-        try(Statement statement = connection.createStatement()){
-            NutritionalPlanDayQueries.insertNutritionalPlanDay(statement,  nutritionalPlanDay ,emailPatient,  emailNutritionist );
-        }catch(SQLException e){
-            throw new DuplicatedUserException(e.getMessage());
+        try (Statement statement = connection.createStatement()) {
+
+           if(NutritionalPlanDayQueries.insertNutritionalPlanDay(statement, nutritionalPlanDay, emailNutritionist, emailPatient )){
+               return true;
+           }
+        return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
     }
 
 
-
-    public void checkNutritionalPlanDay( String emailNutritionist,String emailPatient , String data) throws DuplicatedUserException, NutritionalPlanFounded {
+        public void checkNutritionalPlanDay( String emailNutritionist,String emailPatient , String data) throws DuplicatedUserException, NutritionalPlanFounded {
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try (Statement statement = connection.createStatement() ;
@@ -102,9 +108,11 @@ public class NutritionalPlanDayDao {
 
         String dataConsumazione = resultSet.getString(DATA_CONSUMAZIONE);
 
+        String descrizione = resultSet.getString(DESCRIZIONE);
 
 
-        return new NutritionalPlanDay(dataConsumazione,ricettaColazione,ricettaPranzo,ricettaCena,quantitaColazione,quantitaPranzo,quantitaCena);
+
+        return new NutritionalPlanDay(dataConsumazione,ricettaColazione,ricettaPranzo,ricettaCena,quantitaColazione,quantitaPranzo,quantitaCena,descrizione);
 
     }
 

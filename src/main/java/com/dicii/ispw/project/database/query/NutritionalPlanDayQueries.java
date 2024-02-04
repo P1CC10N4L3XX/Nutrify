@@ -9,13 +9,16 @@ import java.sql.Statement;
 public class NutritionalPlanDayQueries {
 
 
-    public static boolean insertNutritionalPlanDay(Statement statement, NutritionalPlanDay nutritionalPlanDay ,String emailNutritionist, String emailPatient) throws SQLException {
+    public static Boolean insertNutritionalPlanDay(Statement statement, NutritionalPlanDay nutritionalPlanDay , String emailNutritionist, String emailPatient) throws SQLException {
         String query = String.format("INSERT INTO partecipazione (Nutrizionista,Paziente, RicettaColazione, RicettaPranzo, RicettaCena, QuantitaColazione" +
-                        " ,QuantitaPranzo,QuantitaCena,DataConsumazione) values('%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+                        " ,QuantitaPranzo,QuantitaCena,DataConsumazione,Descrizione) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",
                 emailNutritionist,emailPatient,nutritionalPlanDay.getColazione().getName(),nutritionalPlanDay.getPranzo().getName(),
                 nutritionalPlanDay.getCena().getName(),nutritionalPlanDay.getQuantitaColazione(),nutritionalPlanDay.getQuantitaPranzo(),
-                nutritionalPlanDay.getQuantitaCena(),nutritionalPlanDay.getDay());
-        return statement.execute(query);
+                nutritionalPlanDay.getQuantitaCena(),nutritionalPlanDay.getDay(),nutritionalPlanDay.getDescription());
+        if(statement.execute(query)){
+            return true;
+        }
+        return false;
     }
 
     public static ResultSet displayNutritionalPlanDay(Statement statement, String emailPaziente,String emailNutrizionista,String data) throws SQLException {

@@ -8,16 +8,10 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
+import javafx.scene.control.*;
 
 
 import java.net.URL;
@@ -26,10 +20,7 @@ import java.util.ResourceBundle;
 
 public class CreateNutritionalPlanControllerGui  implements Initializable{
 
-    private Stage stage;
-    private Scene scene;
 
-    private Parent root;
     private String colazione;
 
     private String pranzo;
@@ -78,9 +69,9 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         } catch (DuplicatedUserException e) {
             throw new RuntimeException(e);
         }
-        int i=0;
+
         for (RecipeBean recipe : list) {
-            i++;
+
 
             myChoiceBox1.getItems().addAll(String.valueOf(recipe.getName()));
             myChoiceBox2.getItems().addAll(String.valueOf(recipe.getName()));
@@ -128,14 +119,27 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public void createNutritionalPlan(ActionEvent event){
 
-        if(grammiColazioneField==null||grammiPranzoField==null || grammiCenaField==null || colazione==null || pranzo==null || cena==null) {
+        if(grammiColazioneField.getText().isEmpty()||grammiPranzoField.getText().isEmpty() || grammiCenaField.getText().isEmpty() || colazione.isEmpty() || pranzo.isEmpty() || cena.isEmpty() || descrizioneArea.getText().isEmpty()) {
             warning.setText("Compilare tuttti i campi");
         }else{
             try {
 
-                nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
-                createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
-                display();
+                nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText(),descrizioneArea.getText());
+
+                if(createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean)){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "not saved!!") ;
+                    alert.showAndWait() ;
+                }else{
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "succesfully saved!!") ;
+                    alert.showAndWait() ;
+                }
+                grammiColazioneField.setText("");
+                grammiPranzoField.setText("");
+                grammiCenaField.setText("");
+                descrizioneArea.setText("");
+
+
+
 
             }
 

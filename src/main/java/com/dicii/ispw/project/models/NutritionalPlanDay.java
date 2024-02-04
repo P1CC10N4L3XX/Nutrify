@@ -18,10 +18,12 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
     private String quantitaCena;
 
+    private String descrizione;
 
 
 
-    public NutritionalPlanDay( String day,Recipe colazione, Recipe pranzo, Recipe cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena){
+
+    public NutritionalPlanDay( String day,Recipe colazione, Recipe pranzo, Recipe cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena, String descrizione){
 
         this.day =day;
         this.colazione=colazione;
@@ -30,6 +32,7 @@ public class NutritionalPlanDay implements NutritionalPlan {
         this.quantitaColazione=quantitaColazioe;
         this.quantitaPranzo=quantitaPranzo;
         this.quantitaCena=quantitaCena;
+        this.descrizione=descrizione;
 
     }
 
@@ -49,6 +52,10 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
     public Recipe getCena() {
         return cena;
+    }
+
+    public String getDescription() {
+        return descrizione;
     }
 
     @Override

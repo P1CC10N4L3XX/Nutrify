@@ -2,7 +2,7 @@ package com.dicii.ispw.project.models;
 
 import com.dicii.ispw.project.patterns.Decorator.NutritionalPlan;
 
-public class NutritionalPlanDayDecorator implements NutritionalPlan {
+public abstract class NutritionalPlanDayDecorator implements NutritionalPlan {
 
     private NutritionalPlan component;
 

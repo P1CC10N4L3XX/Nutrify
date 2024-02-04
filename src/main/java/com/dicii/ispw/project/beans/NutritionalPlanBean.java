@@ -6,8 +6,6 @@ public class NutritionalPlanBean {
 
     private String data;
 
-
-
     List<NutritionalPlanDayBean> nutritionalPlanDayBeanList;
 
     public NutritionalPlanBean(String data){

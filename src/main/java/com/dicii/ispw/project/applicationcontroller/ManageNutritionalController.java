@@ -27,15 +27,20 @@ public class ManageNutritionalController{
 
 
 
-    public void sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean) throws DuplicatedUserException {
+    public boolean sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean)  {
 
 
             nutritionalPlanBase = new NutritionalPlanBase();
-            nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),convertRecipeBeanToModel(nutritionalPlanDayBean.getColazione()),convertRecipeBeanToModel(nutritionalPlanDayBean.getPranzo()), convertRecipeBeanToModel(nutritionalPlanDayBean.getCena()),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());
+            nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),convertRecipeBeanToModel(nutritionalPlanDayBean.getColazione()),convertRecipeBeanToModel(nutritionalPlanDayBean.getPranzo()), convertRecipeBeanToModel(nutritionalPlanDayBean.getCena()),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena(),nutritionalPlanDayBean.getDescription());
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
             nutritionalPlanBase.addNutritionalPlanDay(nutritionalPlanDay);
 
-            nutritionalPlanDayDao.saveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com");
+           if(nutritionalPlanDayDao.saveNutritionalPlanDay(nutritionalPlanDay,  Session.getSessionInstance().getLoggedUser().getEmail(), "nikita@gmail.com")){
+               return true;
+           }else{
+               return false;
+           }
+
 
 
     }

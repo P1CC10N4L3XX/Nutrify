@@ -32,14 +32,6 @@ public class NutritionalPlanBase  {
         nutritionalPlanDayList.add(nutritionalPlanDay);
     }
 
-    public void removeNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay){
-        nutritionalPlanDayList.remove(nutritionalPlanDay);
-    }
-
-    public void removeAllNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay){
-        nutritionalPlanDayList.clear();
-    }
-
 
 
 

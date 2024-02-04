@@ -9,10 +9,7 @@ import com.dicii.ispw.project.firstView.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,6 +47,9 @@ public class CreateNutritionalPlanDay implements Initializable {
 
     @FXML
     private Label data;
+
+    @FXML
+    private TextArea description;
 
     private Alert completeAlert;
 
@@ -158,13 +158,13 @@ public class CreateNutritionalPlanDay implements Initializable {
 
         else if (commandText.matches(SUBMIT)) {
 
-            if(quantityb==null||quantityd==null || quantityl==null || launch==null || dinner==null || breakfast==null) {
+            if(quantityb.getText().isEmpty()||quantityd.getText().isEmpty() || quantityl.getText().isEmpty() || launch.getText().isEmpty() || dinner.getText().isEmpty() || breakfast.getText().isEmpty()) {
                 completeAlert = new Alert(Alert.AlertType.WARNING, "Compile all fields") ;
                 completeAlert.showAndWait() ;
             }else{
                 try {
 
-                    nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(breakfast.getText()),convertStringToReciBean(launch.getText()),convertStringToReciBean(dinner.getText()),quantityb.getText(),quantityd.getText(),quantityl.getText());
+                    nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(breakfast.getText()),convertStringToReciBean(launch.getText()),convertStringToReciBean(dinner.getText()),quantityb.getText(),quantityd.getText(),quantityl.getText(), description.getText());
                     createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
 
                 }

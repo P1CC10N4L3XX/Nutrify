@@ -10,8 +10,6 @@ public class RecipeBean {
     private String description;
     private String ingredients;
 
-    private String type;
-
     private List<RecipeBean> recipeBeanList;
 
     public RecipeBean( String name, String description, String ingredients) {

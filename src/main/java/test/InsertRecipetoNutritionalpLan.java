@@ -28,7 +28,7 @@ public class InsertRecipetoNutritionalpLan {
 
         // Setup
 
-        NutritionalPlanDay nutritionalPlanDay = new NutritionalPlanDay("", expectedColazione, expectedPranzo, expectedCena, "34", "56", "100");
+        NutritionalPlanDay nutritionalPlanDay = new NutritionalPlanDay("", expectedColazione, expectedPranzo, expectedCena, "34", "56", "100","pasta con poco sale");
 
         Recipe actualColazione = nutritionalPlanDay.getColazione();
         Recipe actualPranzo = nutritionalPlanDay.getPranzo();

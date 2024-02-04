@@ -17,15 +17,6 @@ import java.util.Map;
 public class RegistrationController {
 
 
-    private static final String LOGIN="Login";
-
-    private static final String REGISTRATI="Registrati";
-
-    private static final String SET_EMAIL="set email .*";
-    private static final String SET_PASSWORD="Set_password";
-
-
-
     @FXML
     private TextField subscribeCommandLine;
     @FXML

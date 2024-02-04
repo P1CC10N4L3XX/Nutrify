@@ -21,11 +21,12 @@ public class NutritionalPlanDayBean {
     private String quantitaCena;
 
     private String day;
+    private String descrizione;
 
 
     List<RecipeBean> recipeBeanList;
 
-    public NutritionalPlanDayBean(String day,RecipeBean colazione, RecipeBean pranzo, RecipeBean cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena) {
+    public NutritionalPlanDayBean(String day,RecipeBean colazione, RecipeBean pranzo, RecipeBean cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena,String descrizione) {
         this.day = day;
         this.colazione=colazione;
         this.pranzo=pranzo;
@@ -33,6 +34,7 @@ public class NutritionalPlanDayBean {
         this.quantitaColazione=quantitaColazioe;
         this.quantitaPranzo=quantitaPranzo;
         this.quantitaCena=quantitaCena;
+        this.descrizione=descrizione;
 
     }
 
@@ -54,6 +56,9 @@ public class NutritionalPlanDayBean {
         return cena;
     }
 
+    public String getDescription() {
+        return descrizione;
+    }
 
 
     public String getQuantitaColazione() {
