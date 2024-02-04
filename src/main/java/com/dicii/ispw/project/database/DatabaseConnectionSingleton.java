@@ -9,7 +9,6 @@ import java.util.Properties;
 
 public class DatabaseConnectionSingleton {
 
-    private static final int DBTIMEOUT = 8;
     private static DatabaseConnectionSingleton dbConn;
     private Connection conn;
 

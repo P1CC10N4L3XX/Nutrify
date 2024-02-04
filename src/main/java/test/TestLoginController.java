@@ -6,7 +6,11 @@ import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import org.junit.Test;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
+import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,8 +21,6 @@ public class TestLoginController {
      *                  Matricola 0307070
      */
 
-    private static final String EMAIL = "luca@gmail.com";
-    private static final String PASSWORD = "123";
 
     /**
      * Nel database è stato precedentemente registrato il paziente
@@ -27,11 +29,17 @@ public class TestLoginController {
      *  vada effettivamente a buon fine e restituisca il paziente corretto.
      */
     @Test
-    public void testLogin() {
+    public void testLogin() throws IOException {
+
+        FileInputStream fileInputStream = new FileInputStream("src/main/java/test/test.properties");
+        Properties prop = new Properties();
+        prop.load(fileInputStream);
+        String password = prop.getProperty("PASSWORD");
+        String username = prop.getProperty("EMAIL");
         int flag = 1;
         LoginApplicationController loginApplicationController = new LoginApplicationController();
         try {
-            UserBean userBean = new UserBean(EMAIL,PASSWORD,false);
+            UserBean userBean = new UserBean(username,password,false);
             UserBean userReturned = loginApplicationController.loginUser(userBean);
             if(!Objects.equals(userBean.getEmail(), userReturned.getEmail()) || !Objects.equals(userBean.getPassword(), userReturned.getPassword())){
                 flag = 0;
