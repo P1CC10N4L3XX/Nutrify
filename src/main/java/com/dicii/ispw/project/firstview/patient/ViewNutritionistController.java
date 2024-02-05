@@ -17,7 +17,12 @@ public class ViewNutritionistController extends DashboardController {
     @FXML
     private Label nameLabel;
     @FXML
+    private Label nutritionistPrice;
+    @FXML
+    private Label nutritionistDetails;
+    @FXML
     private Button subscribeButton;
+
 
     private final SubscribeToNutritionistController subscribeToNutritionistController;
 
@@ -26,7 +31,9 @@ public class ViewNutritionistController extends DashboardController {
     }
     public void initDetails(NutritionistBean nutritionistBean){
         nameLabel.setText(nutritionistBean.getName()+" "+nutritionistBean.getSurname());
-        subscribeButton.setOnAction(event -> subscribeButtonHandler(nutritionistBean));
+        nutritionistPrice.setText(nutritionistBean.getCost());
+        nutritionistDetails.setText(nutritionistBean.getDescription());
+        subscribeButton.setOnAction(_ -> subscribeButtonHandler(nutritionistBean));
     }
 
     private void subscribeButtonHandler(NutritionistBean nutritionistBean){
