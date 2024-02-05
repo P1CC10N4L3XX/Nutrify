@@ -14,6 +14,8 @@ public class RecipeFileSaver {
 
     private final String recipeFileName ;
 
+    private static final String ALGO="AES";
+
 
 
     public RecipeFileSaver() {
@@ -26,7 +28,7 @@ public class RecipeFileSaver {
     public void saveRecipeInFile(Recipe recipe) {
         try {
 
-            Cipher cipher = Cipher.getInstance("AES");
+            Cipher cipher = Cipher.getInstance(ALGO);
             Key secretKey = generateKey();
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
 
