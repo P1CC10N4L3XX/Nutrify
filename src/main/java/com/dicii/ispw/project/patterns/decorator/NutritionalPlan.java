@@ -1,4 +1,4 @@
-package com.dicii.ispw.project.patterns.Decorator;
+package com.dicii.ispw.project.patterns.decorator;
 
 public interface  NutritionalPlan {
         public String getQuantitaColazione();

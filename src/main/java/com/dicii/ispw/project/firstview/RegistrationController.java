@@ -30,8 +30,8 @@ public class RegistrationController{
     @FXML
     private RadioButton patientRadioButton;
 
-    private static final String  NUTRITIONIST_PATH = "/firstGui/nutritionist/NutritionistPersonalInfoRegistration.fxml";
-    private static final String PATIENT_PATH = "/firstGui/patient/PatientPersonalInfoRegistration.fxml";
+
+
 
     public RegistrationController(){
         registerApplicationController= new RegisterApplicationController();
@@ -48,7 +48,7 @@ public class RegistrationController{
                 UserBean userBean = userCredentials();
                 registerApplicationController.registerUser(userBean);
                 Session.getSessionInstance().setLoggedUser(userBean);
-                GUI.switchPage(event,(nutritionistRadioButton.isSelected()) ? (NUTRITIONIST_PATH) : (PATIENT_PATH));
+                GUI.switchPage(event,(nutritionistRadioButton.isSelected()) ? ("/firstGui/nutritionist/NutritionistPersonalInfoRegistration.fxml") : ("/firstGui/patient/PatientPersonalInfoRegistration.fxml"));
             }catch(InvalidUserExceptionInfo e){
                 notificationLabel.setText(e.getMessage());
             }catch(DuplicatedUserException e){

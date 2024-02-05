@@ -1,5 +1,5 @@
 package com.dicii.ispw.project.models;
-import com.dicii.ispw.project.patterns.Decorator.NutritionalPlan;
+import com.dicii.ispw.project.patterns.decorator.NutritionalPlan;
 
 public class NutritionalPlanDay implements NutritionalPlan {
 

@@ -19,14 +19,13 @@ public class NutritionalPlanDayQueries {
                 emailNutritionist,emailPatient,nutritionalPlanDay.getColazione().getName(),nutritionalPlanDay.getPranzo().getName(),
                 nutritionalPlanDay.getCena().getName(),nutritionalPlanDay.getQuantitaColazione(),nutritionalPlanDay.getQuantitaPranzo(),
                 nutritionalPlanDay.getQuantitaCena(),nutritionalPlanDay.getDay(),nutritionalPlanDay.getDescription());
-        boolean execute = statement.execute(query);
-        return execute;
+        return  statement.execute(query);
+
     }
 
     public static ResultSet displayNutritionalPlanDay(Statement statement, String emailPaziente,String emailNutrizionista,String data) throws SQLException {
         String query = String.format("SELECT * FROM partecipazione Where Nutrizionista= '%s' && Paziente= '%s' AND DataConsumazione='%s' ",emailNutrizionista, emailPaziente, data);
-        ResultSet resultSet = statement.executeQuery(query);
-        return resultSet;
+        return statement.executeQuery(query);
     }
 
 

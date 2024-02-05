@@ -4,7 +4,6 @@ import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.UserCredentials;
 
 import java.sql.*;
-import java.util.List;
 
 public class NutritionistQueries extends Queries{
 
