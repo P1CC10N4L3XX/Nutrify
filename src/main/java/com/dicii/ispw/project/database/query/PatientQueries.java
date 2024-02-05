@@ -30,6 +30,8 @@ public class PatientQueries extends Queries{
     }
 
 
-
-
+    public static void setSubscriptionRequestForPatient(Statement statement, String subscriber, String nutritionist) throws SQLException{
+        String sql = String.format("UPDATE paziente SET SubscriptionRequest = '%s' WHERE Email = '%s'",nutritionist,subscriber);
+        statement.executeUpdate(sql);
+    }
 }

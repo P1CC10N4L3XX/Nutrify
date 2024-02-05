@@ -1,7 +1,9 @@
 package com.dicii.ispw.project.models;
 
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String email;
     private String name;
     private String surname;
@@ -14,6 +16,10 @@ public class User {
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
         this.description = description;
+    }
+
+    public User(String email){
+        this.email = email;
     }
 
     public User(){}

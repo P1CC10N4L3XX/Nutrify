@@ -9,7 +9,9 @@ public class NutritionistBean{
     private String iva;
     private String iban;
     private String cost;
-
+    public NutritionistBean(String email){
+        this.email = email;
+    }
     public NutritionistBean(String email,String name,String surname,String description, String dateOfBirth, String iva, String iban, String cost){
         this.email=email;
         this.name=name;

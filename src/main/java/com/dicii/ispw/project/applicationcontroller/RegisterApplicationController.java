@@ -36,14 +36,14 @@ public class RegisterApplicationController {
         return ilnessesBean;
     }
 
-    public List<IlnessesBean> convertList(List<Ilnesses> ilnesses) {
+    public List<IlnessesBean> convertList(List<Ilnesses> ilnessesList) {
 
         List<IlnessesBean> ilnessesBeanList = new ArrayList<>();
 
-        for (Ilnesses ilneses : ilnesses) {
+        for (Ilnesses ilnesses : ilnessesList) {
             IlnessesBean ilnessesBean = new IlnessesBean();
 
-            ilnessesBean.setName(ilneses.getName());
+            ilnessesBean.setName(ilnesses.getName());
 
             ilnessesBeanList.add(ilnessesBean);
         }

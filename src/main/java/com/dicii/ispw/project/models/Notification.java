@@ -1,27 +1,25 @@
-package com.dicii.ispw.project.beans;
+package com.dicii.ispw.project.models;
 
+import java.io.Serializable;
 
-
-public class NotificationBean {
-    private String sender;
-    private String receiver;
+public class Notification implements Serializable {
+    private User sender;
+    private User receiver;
     private String message;
     private String dateTime;
-
-
-
-    public NotificationBean(String sender, String receiver, String dateTime, String message) {
+    private String type;
+    public Notification(User sender, User receiver, String dateTime, String message,String type){
         this.sender = sender;
         this.receiver = receiver;
         this.dateTime = dateTime;
         this.message = message;
+        this.type = type;
     }
-
-    public String getSender() {
+    public User getSender() {
         return sender;
     }
 
-    public String getReceiver() {
+    public User getReceiver() {
         return receiver;
     }
 
@@ -41,11 +39,19 @@ public class NotificationBean {
         this.message = message;
     }
 
-    public void setReceiver(String receiver) {
+    public void setReceiver(User receiver) {
         this.receiver = receiver;
     }
 
-    public void setSender(String sender) {
+    public void setSender(User sender) {
         this.sender = sender;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

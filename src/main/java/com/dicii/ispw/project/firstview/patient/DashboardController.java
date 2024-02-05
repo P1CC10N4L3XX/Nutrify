@@ -21,5 +21,8 @@ public class DashboardController {
         GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardPlan.fxml");
     }
 
+    public void switchNotificationArea(ActionEvent event) throws Exception{
+        GUI.switchPage(event,"/firstGui/patient/dashboard/NotificationArea.fxml");
+    }
 
 }
