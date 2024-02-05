@@ -32,7 +32,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     private TextField grammiPranzoField;
     private TextField grammiCenaField;
 
-    public TextArea descrizioneArea;
 
     @FXML
     Label data;
@@ -119,12 +118,12 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public void createNutritionalPlan(ActionEvent event){
 
-        if(grammiColazioneField.getText().isEmpty()||grammiPranzoField.getText().isEmpty() || grammiCenaField.getText().isEmpty() || colazione.isEmpty() || pranzo.isEmpty() || cena.isEmpty() || descrizioneArea.getText().isEmpty()) {
+        if(grammiColazioneField.getText().isEmpty()||grammiPranzoField.getText().isEmpty() || grammiCenaField.getText().isEmpty() || colazione.isEmpty() || pranzo.isEmpty() || cena.isEmpty()) {
             warning.setText("Compilare tuttti i campi");
         }else{
             try {
 
-                nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText(),descrizioneArea.getText());
+                nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
 
                 if(createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean)){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "not saved!!") ;
@@ -136,7 +135,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
                 grammiColazioneField.setText("");
                 grammiPranzoField.setText("");
                 grammiCenaField.setText("");
-                descrizioneArea.setText("");
+
 
 
 

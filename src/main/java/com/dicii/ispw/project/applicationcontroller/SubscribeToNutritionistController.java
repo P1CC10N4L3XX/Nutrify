@@ -20,17 +20,17 @@ public class SubscribeToNutritionistController {
         NutritionistDao nutritionistDAO = new NutritionistDao();
         List<Nutritionist> nutritionistList = new ArrayList<>(nutritionistDAO.getNutritionistList(limitNumber,offset));
         List<NutritionistBean> nutritionistBeanList = new ArrayList<>();
-        String email,name,surname,description,dateOfBirth,IVA,IBAN,cost;
+        String email,name,surname,description,dateOfBirth,iva,iban,cost;
         for (Nutritionist nutritionist : nutritionistList) {
             email = nutritionist.getEmail();
             name = nutritionist.getName();
             surname = nutritionist.getSurname();
             description = nutritionist.getDescription();
             dateOfBirth = nutritionist.getDateOfBirth();
-            IVA = nutritionist.getIva();
-            IBAN = nutritionist.getIban();
+            iva = nutritionist.getIva();
+            iban = nutritionist.getIban();
             cost = nutritionist.getCosto();
-            nutritionistBeanList.add(new NutritionistBean(email, name, surname, description, dateOfBirth, IVA, IBAN, cost));
+            nutritionistBeanList.add(new NutritionistBean(email, name, surname, description, dateOfBirth, iva, iban, cost));
         }
         return nutritionistBeanList;
     }
@@ -94,7 +94,10 @@ public class SubscribeToNutritionistController {
 
     private List<NotificationBean> setNotificationBeanList(List<Notification> notificationList){
         List<NotificationBean> notificationBeanList = new ArrayList<>();
-        String sender,destination,message,dateTime;
+        String sender;
+        String destination;
+        String message;
+        String dateTime;
         for(Notification notification : notificationList){
             sender = notification.getSender().getEmail();
             destination = notification.getReceiver().getEmail();

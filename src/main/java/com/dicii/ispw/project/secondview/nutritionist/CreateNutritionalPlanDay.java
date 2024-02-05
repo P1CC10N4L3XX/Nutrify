@@ -48,8 +48,6 @@ public class CreateNutritionalPlanDay implements Initializable {
     @FXML
     private Label data;
 
-    @FXML
-    private TextArea description;
 
     private Alert completeAlert;
 
@@ -162,7 +160,7 @@ public class CreateNutritionalPlanDay implements Initializable {
             }else{
                 try {
 
-                    nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(breakfast.getText()),convertStringToReciBean(launch.getText()),convertStringToReciBean(dinner.getText()),quantityb.getText(),quantityd.getText(),quantityl.getText(), description.getText());
+                    nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(breakfast.getText()),convertStringToReciBean(launch.getText()),convertStringToReciBean(dinner.getText()),quantityb.getText(),quantityd.getText(),quantityl.getText());
                     createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean);
 
                 }

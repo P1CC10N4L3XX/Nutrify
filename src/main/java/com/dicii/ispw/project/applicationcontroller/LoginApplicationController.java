@@ -5,7 +5,6 @@ import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
 import com.dicii.ispw.project.database.dao_classes.PatientDao;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.models.UserCredentials;
-import com.dicii.ispw.project.patterns.singleton.Session;
 
 public class LoginApplicationController {
     public UserBean loginUser(UserBean userBeanCredentials) throws NotExistentUserException {

@@ -21,12 +21,12 @@ public class NutritionalPlanDayBean {
     private String quantitaCena;
 
     private String day;
-    private String descrizione;
+
 
 
     List<RecipeBean> recipeBeanList;
 
-    public NutritionalPlanDayBean(String day,RecipeBean colazione, RecipeBean pranzo, RecipeBean cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena,String descrizione) {
+    public NutritionalPlanDayBean(String day,RecipeBean colazione, RecipeBean pranzo, RecipeBean cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena) {
         this.day = day;
         this.colazione=colazione;
         this.pranzo=pranzo;
@@ -34,7 +34,7 @@ public class NutritionalPlanDayBean {
         this.quantitaColazione=quantitaColazioe;
         this.quantitaPranzo=quantitaPranzo;
         this.quantitaCena=quantitaCena;
-        this.descrizione=descrizione;
+
 
     }
 
@@ -56,9 +56,7 @@ public class NutritionalPlanDayBean {
         return cena;
     }
 
-    public String getDescription() {
-        return descrizione;
-    }
+
 
 
     public String getQuantitaColazione() {
@@ -73,8 +71,6 @@ public class NutritionalPlanDayBean {
         return quantitaCena;
     }
 
-
-
     public void setColazione(RecipeBean colazione) {
         this.colazione = colazione;
     }
@@ -86,7 +82,6 @@ public class NutritionalPlanDayBean {
     public void setCena(RecipeBean cena) {
         this.cena = cena;
     }
-
 
     public void setQuantitaColazione(String quantitaColazione) {
         this.quantitaColazione = quantitaColazione;
@@ -100,17 +95,6 @@ public class NutritionalPlanDayBean {
         this.quantitaCena = quantitaCena;
     }
 
-
-
-
-    public List<RecipeBean> getRecipeBeanList() {
-        return recipeBeanList;
-    }
-
-    public void setRecipeBeanList(List<RecipeBean> exerciseBeanList) {
-        this.recipeBeanList = exerciseBeanList;
-    }
-
     public String getDay() {
         return day;
     }
@@ -120,7 +104,5 @@ public class NutritionalPlanDayBean {
         this.day = day;
     }
 
-    public void addRecipeBean(RecipeBean exerciseBean) {
-        recipeBeanList.add(exerciseBean);
-    }
+
 }
