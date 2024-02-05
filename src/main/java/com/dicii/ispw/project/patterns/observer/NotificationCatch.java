@@ -12,10 +12,11 @@ import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class NotificationCatch implements Observable{
-    private List<Observer> observers = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
@@ -39,9 +40,6 @@ public class NotificationCatch implements Observable{
             addObserver((Observer) registry.lookup(userDestination.getEmail()));
         }
         notify(notification);
-        for(Observer observer : observers){
-            removeObserver(observer);
-        }
     }
 
 }

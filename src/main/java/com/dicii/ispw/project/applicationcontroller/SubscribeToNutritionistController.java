@@ -4,7 +4,6 @@ import com.dicii.ispw.project.beans.NotificationBean;
 import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.database.dao_classes.NotificationDao;
 import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
-import com.dicii.ispw.project.database.dao_classes.PatientDao;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.SubscriptionRequestBean;
@@ -13,9 +12,6 @@ import com.dicii.ispw.project.patterns.singleton.Session;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
