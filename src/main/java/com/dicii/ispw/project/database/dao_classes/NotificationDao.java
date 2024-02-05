@@ -2,7 +2,6 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NotificationQueries;
-import com.dicii.ispw.project.database.query.NutritionistQueries;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.models.Notification;
 import com.dicii.ispw.project.models.SubscriptionRequest;
@@ -27,8 +26,10 @@ public class NotificationDao {
     public List<Notification> getNotificationListByUser(User user,String type) throws NotExistentNotification{
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         List<Notification> notificationResultList = new ArrayList<>();
-        User sender,destination;
-        String message,dateTime;
+        User sender;
+        User destination;
+        String message;
+        String dateTime;
         try(Statement statement = connection.createStatement()){
             ResultSet resultSet = NotificationQueries.selectListOfNotification(statement,user,type);
             if(!resultSet.isBeforeFirst()){
@@ -42,7 +43,7 @@ public class NotificationDao {
                 notificationResultList.add(new Notification(sender,destination,dateTime,message,type));
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return notificationResultList;

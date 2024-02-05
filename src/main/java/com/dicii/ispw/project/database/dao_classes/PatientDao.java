@@ -97,7 +97,7 @@ public class PatientDao {
                 String ilnessesName=resultSet.getString(ILLNESSES);
                 Ilnesses ilnesses = new Ilnesses(ilnessesName);
 
-                patient.setIlnesses(ilnesses);
+                patient.setIllnesses(ilnesses);
 
             }
 

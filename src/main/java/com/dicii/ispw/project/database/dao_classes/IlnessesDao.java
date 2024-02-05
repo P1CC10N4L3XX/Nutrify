@@ -12,7 +12,7 @@ import java.util.List;
 
 public class IlnessesDao {
 
-    public IlnessesDao(){}
+    private IlnessesDao(){}
 
 
     public static List<Ilnesses> displayIlnesses() throws DuplicatedUserException {

@@ -4,8 +4,7 @@ package com.dicii.ispw.project.models;
 public class Patient extends User {
     private String weight;
     private String height;
-
-    private Ilnesses ilnesses;
+    private Ilnesses illnesses;
 
 
 
@@ -27,19 +26,19 @@ public class Patient extends User {
         super(email,name,surname,dateOfBirth,description);
         this.weight = weight;
         this.height = height;
-        this.ilnesses=ilnesses;
+        this.illnesses=ilnesses;
 
     }
 
     public Patient(){}
 
     public Ilnesses getIlnesses(){
-        return ilnesses;
+        return illnesses;
     }
 
-    public void setIlnesses(Ilnesses ilnesses){
+    public void setIllnesses(Ilnesses illnesses){
 
-        this.ilnesses=ilnesses;
+        this.illnesses=illnesses;
     }
     public String getWeight() {
         return weight;
