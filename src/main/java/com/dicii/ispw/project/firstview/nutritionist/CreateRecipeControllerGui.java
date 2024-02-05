@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 
 public class CreateRecipeControllerGui {
 
@@ -37,9 +39,9 @@ public class CreateRecipeControllerGui {
     }
 
 
-    public void createRecipeB(ActionEvent event) {
+    public void createRecipeB(ActionEvent event) throws DuplicatedUserException {
 
-        try {
+
             recipeBean = new RecipeBean(titleField.getText(),descrizioneArea.getText(),ingredientiField.getText());
             title = titleField.getText();
             descrizione = descrizioneArea.getText();
@@ -47,14 +49,10 @@ public class CreateRecipeControllerGui {
             createNewRecipeController.createNewRecipe(recipeBean);
 
 
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
 
-    public void back(ActionEvent event) throws Exception {
+    public void back(ActionEvent event) throws IOException {
         GUI.switchPage(event,"/firstGui/nutritionist/RecipeView.fxml");
 
     }
