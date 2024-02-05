@@ -11,55 +11,39 @@ import java.security.Key;
 
 
 public class RecipeFileSaver {
-
-    private final String recipeFileName ;
-
-    private static final String ALGO="AES";
-
-
-
-    public RecipeFileSaver() {
-        recipeFileName =  "src/main/java/com/dicii/ispw/project/database/ALLRECIPES" ;
-    }
-
-
-    private static final String SECRET_KEY = "YourSecretKey"; // Chiave segreta per la crittografia
+    private static final String RECIPE_FILE_PATH = "src/main/java/com/dicii/ispw/project/database/ALLRECIPES";
+    private static final String ENCRYPTION_ALGORITHM = "AES";
+    private static final String ENCRYPTION_SECRET_KEY = "YourSecretKey";
 
     public void saveRecipeInFile(Recipe recipe) {
         try {
-
-            Cipher cipher = Cipher.getInstance(ALGO);
+            Cipher cipher = Cipher.getInstance(ENCRYPTION_ALGORITHM);
             Key secretKey = generateKey();
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-
-            try (FileOutputStream fileOutputStream = new FileOutputStream(recipeFileName);
+            try (FileOutputStream fileOutputStream = new FileOutputStream(RECIPE_FILE_PATH);
                  ObjectOutputStream objectOutputStream = new ObjectOutputStream(new CipherOutputStream(fileOutputStream, cipher))) {
-
                 objectOutputStream.writeObject(recipe);
             }
         } catch (Exception e) {
+            // Gestire l'eccezione in modo appropriato
             e.printStackTrace();
         }
     }
 
-
-    private Key generateKey() {
-        return new SecretKeySpec(RecipeFileSaver.SECRET_KEY.getBytes(), "AES");
-    }
-
-
     public Recipe loadRecipeFromFile() {
-        Recipe recipe = new Recipe() ;
-        try(
-                FileInputStream fileInputStream = new FileInputStream(recipeFileName);
-                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-        ) {
+        Recipe recipe = null;
+        try (FileInputStream fileInputStream = new FileInputStream(RECIPE_FILE_PATH);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
             recipe = (Recipe) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException exception) {
-            //If the file doesn't contain a previous cart, then is given back a new Cart instance
+            // Gestire l'eccezione in modo appropriato
+            exception.printStackTrace();
         }
-        return recipe ;
+        return recipe;
     }
 
+    private Key generateKey() {
+        return new SecretKeySpec(ENCRYPTION_SECRET_KEY.getBytes(), ENCRYPTION_ALGORITHM);
+    }
 }
+
