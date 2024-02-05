@@ -129,7 +129,8 @@ public class RegistrationController {
         userBeanInfo.setPassword(password.getText());
 
         if(email.getText().isEmpty() || password.getText().isEmpty() ) {
-            System.out.println("Set Valid Info!!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "compille all fields") ;
+            alert.showAndWait() ;
 
         }
         return userBeanInfo;

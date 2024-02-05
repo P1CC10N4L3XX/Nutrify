@@ -7,6 +7,12 @@ import java.sql.*;
 import java.util.List;
 
 public class NutritionistQueries extends Queries{
+
+        private NutritionistQueries() {
+            // Do nothing, just to prevent instantiation
+        }
+
+
         public static boolean insertIntoNutritionist(Statement statement, UserCredentials nutritionist) throws SQLException {
             String sql = String.format("INSERT INTO nutrizionista (Email,Password) values('%s','%s')",nutritionist.getEmail(),nutritionist.getPassword());
             return statement.execute(sql);

@@ -12,13 +12,12 @@ public class NutritionistBean{
     public NutritionistBean(String email){
         this.email = email;
     }
-    public NutritionistBean(String email,String name,String surname,String description, String dateOfBirth, String iva, String iban, String cost){
+    public NutritionistBean(String email,String name,String surname,String description, String dateOfBirth, String iban, String cost){
         this.email=email;
         this.name=name;
         this.surname=surname;
         this.description=description;
         this.dateOfBirth=dateOfBirth;
-        this.iva=iva;
         this.iban=iban;
         this.cost=cost;
     }
@@ -43,9 +42,7 @@ public class NutritionistBean{
         return dateOfBirth;
     }
 
-    public String getIVA() {
-        return iva;
-    }
+
 
     public String getIBAN() {
         return iban;
@@ -73,10 +70,6 @@ public class NutritionistBean{
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setIVA(String iva) {
-        this.iva = iva;
     }
 
     public void setIBAN(String iban) {

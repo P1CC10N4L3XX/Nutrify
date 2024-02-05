@@ -22,8 +22,6 @@ public class PersonalInfoController {
     @FXML
     private TextField ibanTextField;
     @FXML
-    private TextField ivaTextField;
-    @FXML
     private TextField costTextField;
     @FXML
     private TextArea descriptionTextArea;
@@ -45,9 +43,9 @@ public class PersonalInfoController {
         }
     }
     private NutritionistBean nutritionistInfo() throws InvalidUserExceptionInfo{
-        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || ibanTextField.getText().isEmpty() || ivaTextField.getText().isEmpty() || costTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty() || dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")).isEmpty()){
+        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || ibanTextField.getText().isEmpty() || costTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty() || dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")).isEmpty()){
             throw new InvalidUserExceptionInfo("compile all fields!");
         }
-        return new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),ivaTextField.getText(),ibanTextField.getText(),costTextField.getText());
+        return new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),ibanTextField.getText(),costTextField.getText());
     }
 }

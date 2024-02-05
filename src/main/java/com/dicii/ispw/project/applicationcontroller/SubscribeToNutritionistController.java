@@ -20,17 +20,23 @@ public class SubscribeToNutritionistController {
         NutritionistDao nutritionistDAO = new NutritionistDao();
         List<Nutritionist> nutritionistList = new ArrayList<>(nutritionistDAO.getNutritionistList(limitNumber,offset));
         List<NutritionistBean> nutritionistBeanList = new ArrayList<>();
-        String email,name,surname,description,dateOfBirth,iva,iban,cost;
+        String email;
+        String name;
+        String surname;
+        String description;
+        String dateOfBirth;
+        String iva;
+        String iban;
+        String cost;
         for (Nutritionist nutritionist : nutritionistList) {
             email = nutritionist.getEmail();
             name = nutritionist.getName();
             surname = nutritionist.getSurname();
             description = nutritionist.getDescription();
             dateOfBirth = nutritionist.getDateOfBirth();
-            iva = nutritionist.getIva();
             iban = nutritionist.getIban();
             cost = nutritionist.getCosto();
-            nutritionistBeanList.add(new NutritionistBean(email, name, surname, description, dateOfBirth, iva, iban, cost));
+            nutritionistBeanList.add(new NutritionistBean(email, name, surname, description, dateOfBirth, iban, cost));
         }
         return nutritionistBeanList;
     }

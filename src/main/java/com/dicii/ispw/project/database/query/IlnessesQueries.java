@@ -4,7 +4,9 @@ import java.sql.*;
 
 public class IlnessesQueries {
 
-    public IlnessesQueries(){}
+    private IlnessesQueries() {
+        // Do nothing, just to prevent instantiation
+    }
 
 
     public static ResultSet displayIlnesses(Statement statement) throws SQLException {

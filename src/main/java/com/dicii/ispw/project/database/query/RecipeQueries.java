@@ -8,6 +8,10 @@ import java.sql.Statement;
 
 public class RecipeQueries {
 
+    private RecipeQueries() {
+        // Do nothing, just to prevent instantiation
+    }
+
 
 
     public static boolean  saveIntoRecipe(Statement statement, Recipe recipe, String emailNutritionist) throws SQLException {

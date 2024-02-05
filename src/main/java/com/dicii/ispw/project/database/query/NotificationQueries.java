@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class NotificationQueries {
+
+    private NotificationQueries() {
+        // Do nothing, just to prevent instantiation
+    }
     public static ResultSet selectListOfNotification(Statement statement, User user,String type) throws SQLException {
         String query = String.format("SELECT * FROM notifiche WHERE Destination = '%s' AND Type = '%s'",user.getEmail(),type);
         return statement.executeQuery(query);

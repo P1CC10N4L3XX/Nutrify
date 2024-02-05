@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class PatientQueries extends Queries{
+
+    private PatientQueries() {
+        // Do nothing, just to prevent instantiation
+    }
     public static boolean insertIntoPatient(Statement statement, UserCredentials patient) throws SQLException {
         String sql = String.format("INSERT INTO paziente (Email,Password) values('%s','%s')",patient.getEmail(),patient.getPassword());
         return statement.execute(sql);

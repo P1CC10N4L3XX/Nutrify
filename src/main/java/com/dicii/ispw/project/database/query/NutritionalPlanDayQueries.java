@@ -8,6 +8,10 @@ import java.sql.Statement;
 
 public class NutritionalPlanDayQueries {
 
+    private NutritionalPlanDayQueries() {
+        // Do nothing, just to prevent instantiation
+    }
+
 
     public static Boolean insertNutritionalPlanDay(Statement statement, NutritionalPlanDay nutritionalPlanDay , String emailNutritionist, String emailPatient) throws SQLException {
         String query = String.format("INSERT INTO partecipazione (Nutrizionista,Paziente, RicettaColazione, RicettaPranzo, RicettaCena, QuantitaColazione" +

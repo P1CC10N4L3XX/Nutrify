@@ -5,6 +5,7 @@ import com.dicii.ispw.project.beans.NutritionistBean;
 
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,8 +25,6 @@ public class NutritionistPersonalInfoRegistration {
     private TextField dateOfBirthDatePicker;
     @FXML
     private TextField ibanTextField;
-    @FXML
-    private TextField ivaTextField;
     @FXML
     private TextField costTextField;
     @FXML
@@ -97,14 +96,14 @@ public class NutritionistPersonalInfoRegistration {
 
         }
         else if (commandText.compareTo(DESCRIPTION) == 0) {
-            String iva = commandText.replace("set iva ", "") ;
-            ivaTextField.setText(iva);
+            String description = commandText.replace("set description ", "") ;
+            descriptionTextArea.setText(description);
 
 
         }
         else if (commandText.compareTo(BACK) == 0) {
-            String description = commandText.replace("set description ", "") ;
-            descriptionTextArea.setText(description);
+            GUI.switchPage(event,"/SecondGui/Login.fxml");
+
 
         }
         else if (commandText.compareTo(SUBMIT) == 0) {
@@ -135,11 +134,11 @@ public class NutritionistPersonalInfoRegistration {
     }
 
     private NutritionistBean nutritionistInfo() throws InvalidUserExceptionInfo{
-        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || ibanTextField.getText().isEmpty() ||
-                ivaTextField.getText().isEmpty() || costTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty() ||
+        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || ibanTextField.getText().isEmpty()
+                 || costTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty() ||
                 dateOfBirthDatePicker.getText().isEmpty()){
             throw new InvalidUserExceptionInfo("compile all fields!");
         }
-        return new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getText(),ivaTextField.getText(),ibanTextField.getText(),costTextField.getText());
+        return new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getText(),ibanTextField.getText(),costTextField.getText());
     }
 }
