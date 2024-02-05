@@ -7,7 +7,6 @@ import org.junit.Test;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
@@ -31,11 +30,16 @@ public class TestLoginController {
     @Test
     public void testLogin() throws IOException {
 
-        FileInputStream fileInputStream = new FileInputStream("src/main/java/test/test.properties");
-        Properties prop = new Properties();
-        prop.load(fileInputStream);
-        String password = prop.getProperty("PASSWORD");
-        String username = prop.getProperty("EMAIL");
+        String password;
+        String username;
+
+        try(FileInputStream fileInputStream = new FileInputStream("src/main/java/test/test.properties");){
+            Properties prop = new Properties();
+            prop.load(fileInputStream);
+            password = prop.getProperty("PASSWORD");
+            username = prop.getProperty("EMAIL");
+        }
+
         int flag = 1;
         LoginApplicationController loginApplicationController = new LoginApplicationController();
         try {

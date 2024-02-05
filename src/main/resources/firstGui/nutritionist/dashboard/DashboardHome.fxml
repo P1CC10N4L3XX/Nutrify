@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tooltip?>
@@ -17,14 +18,14 @@
             <Image url="@../../Image/logo.png" />
         </ImageView>
         <Separator layoutY="79.0" prefHeight="27.0" prefWidth="265.0" />
-        <Button layoutX="15.0" layoutY="181.0" mnemonicParsing="false" onAction="#switchRecipes" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Patients">
+        <Button layoutX="15.0" layoutY="181.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Patients">
             <graphic>
                 <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../../Image/Icons/patients-logo.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button layoutX="15.0" layoutY="251.0" mnemonicParsing="false" onAction="#switchPlan" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Recipes">
+        <Button layoutX="15.0" layoutY="251.0" mnemonicParsing="false" onAction="#recipeDashBoard" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Recipes">
             <graphic>
                 <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../../Image/Icons/food.png" />
@@ -101,6 +102,9 @@
                   <Label layoutX="-34.0" layoutY="39.0" prefHeight="146.0" prefWidth="317.0" style="-fx-text-fill: white; -fx-font-size: 100; -fx-alignment: center;" text="0" />
                </children>
             </Pane>
+            <ListView fx:id="listView" layoutX="245.0" layoutY="333.0" prefHeight="343.0" prefWidth="364.0" />
+            <Text layoutX="396.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your clients" />
+            <Button fx:id="CreateNutritionalPlan" layoutX="94.0" layoutY="297.0" mnemonicParsing="false" onAction="#createNutritionalPlan" text="Create Nutritional Plan" />
          </children>
         </AnchorPane>
     </ScrollPane>
