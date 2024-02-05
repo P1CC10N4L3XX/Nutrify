@@ -32,20 +32,9 @@ public class NotificationBean {
     public String getMessage() {
         return message;
     }
-
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
-    }
-
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
 
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
 }

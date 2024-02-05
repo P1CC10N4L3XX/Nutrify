@@ -20,7 +20,7 @@ public class Session {
         port= new int[]{0, 0};
     }
 
-    public synchronized static Session getSessionInstance(){
+    public static synchronized Session getSessionInstance(){
         if(Session.sessionInstance == null){
             Session.sessionInstance = new Session();
         }
