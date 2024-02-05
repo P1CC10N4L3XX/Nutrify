@@ -1,7 +1,8 @@
-package com.dicii.ispw.project.firstview.patient;
+package com.dicii.ispw.project.firstview.patient.obj;
 
 import com.dicii.ispw.project.beans.NutritionistBean;
 
+import com.dicii.ispw.project.firstview.patient.ViewNutritionistController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

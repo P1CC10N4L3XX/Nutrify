@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" stylesheets="@../../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.graphicalcontroller.patient.DashboardController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" stylesheets="@../../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.nutritionist.dashboard.DashboardHome">
     <Pane layoutY="-2.0" prefHeight="730.0" prefWidth="265.0" styleClass="dashboardMenu" stylesheets="@../../CSS/Style.css">
         <ImageView fitHeight="228.0" fitWidth="344.0" layoutX="-38.0" layoutY="-69.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../Image/logo.png" />
@@ -65,7 +65,7 @@
                         <Tooltip text="profile info" />
                     </tooltip>
                 </Button>
-                <Button id="button" layoutX="42.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: rgba(0,0,0,0);">
+                <Button id="button" layoutX="42.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchNotificationArea" style="-fx-background-color: rgba(0,0,0,0);">
                     <tooltip>
                         <Tooltip text="notification" />
                     </tooltip>

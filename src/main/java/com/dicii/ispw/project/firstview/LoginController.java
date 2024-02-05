@@ -49,11 +49,12 @@ public class LoginController{
         try{
             UserBean loginUserBean = loginInfo();
             Session.getSessionInstance().setLoggedUser(loginApplicationController.loginUser(loginUserBean));
+            Session.getSessionInstance().initNotificatorSystem();
             if(patientRadioButton.isSelected()){
                 GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
             }
             if(nutritionistRadioButton.isSelected()){
-                GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDashboard.fxml");
+                GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardHome.fxml");
             }
         }catch(InvalidUserExceptionInfo | NotExistentUserException e){
             notificationLabel.setText(e.getMessage());
