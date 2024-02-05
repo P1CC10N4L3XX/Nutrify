@@ -77,13 +77,15 @@ public class PatientPersonalInfoRegistration implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         try {
             list = registerApplicationController.displayIlnesses();
         } catch (DuplicatedUserException e) {
             throw new RuntimeException(e);
         }
-        for (IlnessesBean ilnessesBean : list) {
-            ilnessesTextView.getItems().addAll(String.valueOf(ilnessesBean.getName()));
+
+        for (IlnessesBean ilnesesBean : list) {
+            ilnessesTextView.getItems().addAll(String.valueOf(ilnesesBean.getName()));
 
         }
 

@@ -25,7 +25,6 @@ public class SubscribeToNutritionistController {
         String surname;
         String description;
         String dateOfBirth;
-        String iva;
         String iban;
         String cost;
         for (Nutritionist nutritionist : nutritionistList) {
