@@ -9,7 +9,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="106.0" prefWidth="870.0" style="-fx-background-radius: 15; -fx-background-color: rgb(50,50,50);" stylesheets="@../../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.patient.obj.AcceptedCardController">
     <children>
         <Label fx:id="notificationSender" layoutX="14.0" prefHeight="46.0" prefWidth="616.0" style="-fx-text-fill: white; -fx-font-size: 20;" />
-        <Button fx:id="paymentButton" layoutX="640.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="204.0" style="-fx-padding: 10; -fx-text-fill: white; -fx-background-color: rgba(0,0,0,0);">
+        <Button fx:id="paymentButton" layoutX="640.0" layoutY="26.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="204.0" style="-fx-padding: 10; -fx-text-fill: white; -fx-background-color: rgba(0,0,0,0);" styleClass="normalButton">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true">
                <image>

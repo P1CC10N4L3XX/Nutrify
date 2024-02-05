@@ -1,5 +1,6 @@
 package com.dicii.ispw.project.database.query;
 
+import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.UserCredentials;
 
@@ -34,8 +35,8 @@ public class PatientQueries extends Queries{
     }
 
 
-    public static void setSubscriptionRequestForPatient(Statement statement, String subscriber, String nutritionist) throws SQLException{
-        String sql = String.format("UPDATE paziente SET SubscriptionRequest = '%s' WHERE Email = '%s'",nutritionist,subscriber);
+    public static void setSubscriptionForPatient(Statement statement, Patient patient, Nutritionist nutritionist) throws SQLException{
+        String sql = String.format("UPDATE paziente SET Nutrizionista = '%s' WHERE Email = '%s'",nutritionist.getEmail(),patient.getEmail());
         statement.executeUpdate(sql);
     }
 }

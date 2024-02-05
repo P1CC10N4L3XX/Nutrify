@@ -79,11 +79,12 @@
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                            <ScrollPane layoutY="24.0" prefHeight="579.0" prefWidth="912.0" vbarPolicy="NEVER">
+                            <ScrollPane layoutY="30.0" prefHeight="579.0" prefWidth="912.0" vbarPolicy="NEVER">
                                 <content>
                                     <VBox fx:id="subscriptionAcceptedCardLayout" alignment="TOP_CENTER" prefHeight="652.0" prefWidth="892.0" spacing="10.0" />
                                 </content>
                             </ScrollPane>
+                            <Label fx:id="noAcceptedLabel" layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="366.0" style="-fx-text-fill: red;" />
                         </children>
                     </AnchorPane>
                 </content>
@@ -92,11 +93,12 @@
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
-                     <ScrollPane prefHeight="579.0" prefWidth="912.0" vbarPolicy="NEVER">
+                     <ScrollPane layoutY="31.0" prefHeight="579.0" prefWidth="912.0" vbarPolicy="NEVER">
                         <content>
                            <VBox fx:id="subscriptionRefusedCardLayout" alignment="TOP_CENTER" prefHeight="645.0" prefWidth="892.0" spacing="10.0" />
                         </content>
                      </ScrollPane>
+                     <Label fx:id="noRefusedLabel" layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="366.0" style="-fx-text-fill: red;" />
                   </children></AnchorPane>
                 </content>
             </Tab>
@@ -107,6 +109,5 @@
          </Tab>
         </tabs>
     </TabPane>
-          <Label fx:id="errorLabel" layoutX="265.0" layoutY="101.0" prefHeight="17.0" prefWidth="366.0" style="-fx-text-fill: red;" />
 
 </Pane>

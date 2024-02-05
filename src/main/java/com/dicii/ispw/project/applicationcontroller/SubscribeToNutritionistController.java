@@ -4,6 +4,7 @@ import com.dicii.ispw.project.beans.NotificationBean;
 import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.database.dao_classes.NotificationDao;
 import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
+import com.dicii.ispw.project.database.dao_classes.PatientDao;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.SubscriptionRequestBean;
@@ -12,12 +13,22 @@ import com.dicii.ispw.project.patterns.singleton.Session;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SubscribeToNutritionistController {
+    private final NutritionistDao nutritionistDAO;
+    private final PatientDao patientDAO;
+    private final NotificationDao notificationDAO;
+
+    public SubscribeToNutritionistController(){
+        nutritionistDAO = new NutritionistDao();
+        patientDAO = new PatientDao();
+        notificationDAO = new NotificationDao();
+    }
     public List<NutritionistBean> getNutritionistList(int limitNumber,int offset){
-        NutritionistDao nutritionistDAO = new NutritionistDao();
         List<Nutritionist> nutritionistList = new ArrayList<>(nutritionistDAO.getNutritionistList(limitNumber,offset));
         List<NutritionistBean> nutritionistBeanList = new ArrayList<>();
         String email;
@@ -44,7 +55,6 @@ public class SubscribeToNutritionistController {
         Nutritionist nutritionist = new Nutritionist(subscriptionRequestBean.getNutritionist());
         String currentDate = subscriptionRequestBean.getDateTime();
         SubscriptionRequest subscriptionRequest = new SubscriptionRequest(subscriber,nutritionist,currentDate);
-        NotificationDao notificationDAO = new NotificationDao();
         notificationDAO.setSubscriptionRequest(subscriptionRequest);
         NotificationCatch notificationCatch = new NotificationCatch();
         Notification notification = new Notification(subscriber,nutritionist,currentDate,"Subscription Request",null);
@@ -53,7 +63,6 @@ public class SubscribeToNutritionistController {
     }
 
     public List<NotificationBean> getSubscriptionRequestNotifications() throws NotExistentNotification {
-        NotificationDao notificationDAO = new NotificationDao();
         User user = new User(Session.getSessionInstance().getLoggedUser().getEmail());
         List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user,"SubscriptionRequest"));
         return setNotificationBeanList(notificationList);
@@ -65,8 +74,7 @@ public class SubscribeToNutritionistController {
         String dateTime = notificationBean.getDateTime();
         String message = notificationBean.getMessage();
         Notification notification = new Notification(sender,receiver,dateTime,message,"SubscriptionAccepted");
-        NotificationDao notificationDAO = new NotificationDao();
-        notificationDAO.setAcceptedSubscriptionRequest(notification);
+        notificationDAO.setAcceptedOrRefusedSubscriptionRequest(notification);
         NotificationCatch notificationCatch = new NotificationCatch();
         notificationCatch.notifyUser(notification,receiver);
     }
@@ -77,26 +85,30 @@ public class SubscribeToNutritionistController {
         String dateTime = notificationBean.getDateTime();
         String message = notificationBean.getMessage();
         Notification notification = new Notification(sender, receiver, dateTime, message,"SubscriptionRefused");
-        NotificationDao notificationDAO = new NotificationDao();
-        notificationDAO.setRefusedSubscriptionRequest(notification);
+        notificationDAO.setAcceptedOrRefusedSubscriptionRequest(notification);
         NotificationCatch notificationCatch = new NotificationCatch();
         notificationCatch.notifyUser(notification,receiver);
     }
 
     public List<NotificationBean> getSubscriptionAcceptedNotifications() throws NotExistentNotification {
-        NotificationDao notificationDAO = new NotificationDao();
         User user = new User(Session.getSessionInstance().getLoggedUser().getEmail());
         List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user,"SubscriptionAccepted"));
         return setNotificationBeanList(notificationList);
     }
 
     public List<NotificationBean> getSubscriptionRefusedNotifications() throws NotExistentNotification{
-        NotificationDao notificationDao = new NotificationDao();
         User user = new User(Session.getSessionInstance().getLoggedUser().getEmail());
-        List<Notification> notificationList = new ArrayList<>(notificationDao.getNotificationListByUser(user, "SubscriptionRefused"));
+        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user, "SubscriptionRefused"));
         return setNotificationBeanList(notificationList);
     }
-
+    public void removeNotificationFromList(NotificationBean notificationBean) {
+        User sender = new User(notificationBean.getSender());
+        User destination = new User(notificationBean.getReceiver());
+        String message = notificationBean.getMessage();
+        String dateTime = notificationBean.getDateTime();
+        Notification notification = new Notification(sender,destination,message,dateTime,"SubscriptionRefused");
+        notificationDAO.removeNotification(notification);
+    }
     private List<NotificationBean> setNotificationBeanList(List<Notification> notificationList){
         List<NotificationBean> notificationBeanList = new ArrayList<>();
         String sender;
@@ -111,5 +123,16 @@ public class SubscribeToNutritionistController {
             notificationBeanList.add(new NotificationBean(sender,destination,dateTime,message));
         }
         return notificationBeanList;
+    }
+
+    public void subscribePatientToNutritionist(NutritionistBean nutritionistBean) throws NotBoundException, RemoteException {
+        Patient patient = new Patient(Session.getSessionInstance().getLoggedUser().getEmail());
+        Nutritionist nutritionist = new Nutritionist(nutritionistBean.getEmail());
+        String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        patientDAO.setSubscriptionRequestPatient(patient,nutritionist);
+        notificationDAO.removeSubscriptionRequestNotificationPatient(patient);
+        NotificationCatch notificationCatch = new NotificationCatch();
+        Notification notification = new Notification(patient,nutritionist,dateTime,"Subscription made",null);
+        notificationCatch.notifyUser(notification,nutritionist);
     }
 }

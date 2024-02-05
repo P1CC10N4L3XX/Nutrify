@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.patient.PaymentController">
+   <children>
+      <Label layoutX="408.0" layoutY="31.0" prefHeight="58.0" prefWidth="332.0" style="-fx-alignment: center; -fx-font-size: 40;" text="Pay With Paypal" />
+      <Button layoutX="26.0" layoutY="31.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="205.0" style="-fx-padding: 15; -fx-background-radius: 15; -fx-background-color: #4287f5; -fx-text-fill: white;" text="Return to home">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/Icons/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="499.0" layoutY="104.0" prefHeight="39.0" prefWidth="150.0" style="-fx-alignment: center;" text="Insert paypal credentials" />
+      <TextField layoutX="423.0" layoutY="183.0" prefHeight="25.0" prefWidth="303.0" promptText="email" style="-fx-alignment: center;" />
+      <TextField layoutX="423.0" layoutY="251.0" prefHeight="25.0" prefWidth="303.0" promptText="password" style="-fx-alignment: center;" />
+      <Button fx:id="payButton" layoutX="515.0" layoutY="351.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" style="-fx-padding: 10; -fx-background-color: #4287f5; -fx-text-fill: white;" styleClass="normalButton" text="Pay" />
+      <ImageView fitHeight="211.0" fitWidth="258.0" layoutX="899.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/PaypalLogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

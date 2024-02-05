@@ -25,7 +25,9 @@ public class NotificationCenterController extends DashboardController implements
     @FXML
     private VBox subscriptionRefusedCardLayout;
     @FXML
-    private Label errorLabel;
+    private Label noAcceptedLabel;
+    @FXML
+    private Label noRefusedLabel;
     private final SubscribeToNutritionistController subscribeToNutritionistController;
 
     public NotificationCenterController(){
@@ -37,10 +39,16 @@ public class NotificationCenterController extends DashboardController implements
         try{
             List<NotificationBean> subscriptionAcceptedNotificationBeanList = new ArrayList<>(subscribeToNutritionistController.getSubscriptionAcceptedNotifications());
             showSubscriptionAcceptedNotificationList(subscriptionAcceptedNotificationBeanList);
+        }catch(NotExistentNotification e){
+            noAcceptedLabel.setText(e.getMessage());
+        }catch(IOException e){
+            throw new RuntimeException(e);
+        }
+        try{
             List<NotificationBean> subscriptionRefusedNotificationBeanList = new ArrayList<>(subscribeToNutritionistController.getSubscriptionRefusedNotifications());
             showSubscriptionRefusedNotificationList(subscriptionRefusedNotificationBeanList);
-        }catch(NotExistentNotification e){
-            errorLabel.setText(e.getMessage());
+        }catch (NotExistentNotification e){
+            noRefusedLabel.setText(e.getMessage());
         }catch(IOException e){
             throw new RuntimeException(e);
         }

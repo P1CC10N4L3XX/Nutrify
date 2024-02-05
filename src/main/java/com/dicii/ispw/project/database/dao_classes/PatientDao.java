@@ -5,10 +5,7 @@ import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.PatientQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.models.Ilnesses;
-import com.dicii.ispw.project.models.Patient;
-import com.dicii.ispw.project.models.SubscriptionRequest;
-import com.dicii.ispw.project.models.UserCredentials;
+import com.dicii.ispw.project.models.*;
 
 import java.sql.*;
 
@@ -68,12 +65,10 @@ public class PatientDao {
         return resultUser;
     }
 
-    public void setSubscriptionRequestPatient(SubscriptionRequest subscriptionRequest){
+    public void setSubscriptionRequestPatient(Patient patient, Nutritionist nutritionist){
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
-            String subscriber = subscriptionRequest.getSubscriber().getEmail();
-            String nutritionist = subscriptionRequest.getNutritionist().getEmail();
-            PatientQueries.setSubscriptionRequestForPatient(statement,subscriber,nutritionist);
+            PatientQueries.setSubscriptionForPatient(statement,patient,nutritionist);
         }catch(SQLException e ){
             throw new RuntimeException(e);
         }

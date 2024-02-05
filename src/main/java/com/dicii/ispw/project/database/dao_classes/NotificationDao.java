@@ -4,8 +4,10 @@ import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NotificationQueries;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.models.Notification;
+import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.SubscriptionRequest;
 import com.dicii.ispw.project.models.User;
+import javafx.scene.chart.XYChart;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -59,7 +61,7 @@ public class NotificationDao {
         }
     }
 
-    public void setAcceptedSubscriptionRequest(Notification notification) {
+    public void setAcceptedOrRefusedSubscriptionRequest(Notification notification) {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NotificationQueries.deleteSubscriptionRequestNotification(statement,notification);
@@ -69,13 +71,21 @@ public class NotificationDao {
         }
     }
 
-    public void setRefusedSubscriptionRequest(Notification notification) {
+    public void removeNotification(Notification notification) {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
-            NotificationQueries.deleteSubscriptionRequestNotification(statement,notification);
-            NotificationQueries.insertNotification(statement,notification);
-        }catch(SQLException e ){
-            throw new RuntimeException();
+            NotificationQueries.deleteNotification(statement,notification);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void removeSubscriptionRequestNotificationPatient(Patient patient) {
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+        try(Statement statement = connection.createStatement()){
+            NotificationQueries.deleteAllSubscriptionRequestOfPatient(statement,patient);
+        }catch(SQLException e){
+            throw new RuntimeException(e);
         }
     }
 }

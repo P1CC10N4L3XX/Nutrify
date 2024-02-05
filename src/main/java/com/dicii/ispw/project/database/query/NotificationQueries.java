@@ -1,6 +1,7 @@
 package com.dicii.ispw.project.database.query;
 
 import com.dicii.ispw.project.models.Notification;
+import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.User;
 
 import java.sql.ResultSet;
@@ -27,11 +28,24 @@ public class NotificationQueries {
         statement.execute(sql);
     }
 
+    public static void deleteNotification(Statement statement, Notification notification) throws SQLException{
+        String sender = notification.getSender().getEmail();
+        String destination = notification.getReceiver().getEmail();
+        String type = notification.getType();
+        String sql = String.format("DELETE FROM notifiche WHERE Sender = '%s' AND Destination = '%s' AND Type = '%s'",sender,destination,type);
+        statement.execute(sql);
+    }
+
     public static void deleteSubscriptionRequestNotification(Statement statement, Notification notification) throws SQLException{
         String sender = notification.getReceiver().getEmail();
         String destination = notification.getSender().getEmail();
         String type = "SubscriptionRequest";
         String sql = String.format("DELETE FROM notifiche WHERE Sender = '%s' AND Destination = '%s' AND Type = '%s'",sender,destination,type);
+        statement.execute(sql);
+    }
+
+    public static void deleteAllSubscriptionRequestOfPatient(Statement statement,Patient patient) throws SQLException{
+        String sql = String.format("DELETE FROM notifiche WHERE (Sender = '%s' OR Destination = '%s') AND (Type = 'SubscriptionRequest' OR Type = 'SubscriptionAccepted')",patient.getEmail(),patient.getEmail());
         statement.execute(sql);
     }
 }
