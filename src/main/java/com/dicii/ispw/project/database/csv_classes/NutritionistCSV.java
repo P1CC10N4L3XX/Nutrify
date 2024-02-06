@@ -40,6 +40,9 @@ public class NutritionistCSV implements NutritionistDaoInterface {
         if(duplicatedRecordEmail){
             throw new DuplicatedUserException("User already exists");
         }
+        saveNutritionist(this.fd,nutritionist);
+    }
+    public void saveNutritionist(File fd, UserCredentials nutritionist){
         CSVWriter csvWriter;
         try {
             csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(fd)));
