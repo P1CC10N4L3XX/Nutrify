@@ -8,6 +8,7 @@ import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
+import com.dicii.ispw.project.patterns.decorator.NutritionalPlan;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import java.util.ArrayList;
 import java.util.List;
@@ -141,51 +142,38 @@ public class ManageNutritionalController{
     public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses, String email) throws DuplicatedUserException,NutritionalPlanNotFoundException{
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
-        boolean type=Session.getSessionInstance().getLoggedUser().getType();
-        if(type){
+        boolean type = Session.getSessionInstance().getLoggedUser().getType();
+        NutritionalPlanDay nutritionalPlanDay;
 
-            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(email, Session.getSessionInstance().getLoggedUser().getEmail(),day);
 
-        }else{
-
-            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay( Session.getSessionInstance().getLoggedUser().getEmail(),email,day);
+        if (type) {
+            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(email, Session.getSessionInstance().getLoggedUser().getEmail(), day);
+        } else {
+            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(), email, day);
         }
-        if(nutritionalPlanDay==null){
-            throw new NutritionalPlanNotFoundException("la data selezionata non ha nessun piano nutrizionale corrispondente bisogna prima crealo ");
 
+
+        if (nutritionalPlanDay == null) {
+            throw new NutritionalPlanNotFoundException("La data selezionata non ha nessun piano nutrizionale corrispondente, bisogna prima crearlo");
         }
 
         NutritionalPlanDayBean nutritionalPlanDayBean = new NutritionalPlanDayBean();
 
-        if(ilnesses.equals("Nessuna") || ilnesses.equals("Celiacita") ){
 
-            nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
-            nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
-            nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
-            nutritionalPlanDayBean.setQuantitaColazione(nutritionalPlanDay.getQuantitaColazione());
-            nutritionalPlanDayBean.setQuantitaPranzo(nutritionalPlanDay.getQuantitaPranzo());
-            nutritionalPlanDayBean.setQuantitaCena(nutritionalPlanDay.getQuantitaCena());
-            nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
+        NutritionalPlanApplaier nutritionalPlanApplaier = new NutritionalPlanApplaier(nutritionalPlanDay);
+        String[] decoratedPlan = nutritionalPlanApplaier.applyDecorator(nutritionalPlanDay, ilnesses);
 
 
-        }
-        if( ilnesses != null && ilnesses.equals("Diabete") ){
-
-
-            DiabeticDecorator diabeticDecorator = new DiabeticDecorator(nutritionalPlanDay);
-
-            nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
-            nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
-            nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
-            nutritionalPlanDayBean.setQuantitaColazione(diabeticDecorator.getQuantitaColazione());
-            nutritionalPlanDayBean.setQuantitaPranzo(diabeticDecorator.getQuantitaPranzo());
-            nutritionalPlanDayBean.setQuantitaCena(diabeticDecorator.getQuantitaCena());
-            nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
-
-
-        }
+        nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
+        nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
+        nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
+        nutritionalPlanDayBean.setQuantitaColazione(decoratedPlan[0]);
+        nutritionalPlanDayBean.setQuantitaPranzo(decoratedPlan[1]);
+        nutritionalPlanDayBean.setQuantitaCena(decoratedPlan[2]);
+        nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
 
         return nutritionalPlanDayBean;
+
 
     }
 
