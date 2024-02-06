@@ -1,5 +1,7 @@
 package com.dicii.ispw.project.models;
 
+import com.dicii.ispw.project.patterns.decorator.NutritionalPlan;
+
 public class DiabeticDecorator extends NutritionalPlanDayDecorator {
 
   //  in base ai valori presi decidero tramite una formula i valori glicemici
@@ -11,8 +13,8 @@ public class DiabeticDecorator extends NutritionalPlanDayDecorator {
 
     private static final String INDICE="g indice glicemico:";
 
-    public DiabeticDecorator(NutritionalPlanDay nutritionalplanDay){
-        super(nutritionalplanDay);
+    public DiabeticDecorator(NutritionalPlan nutritionalplan){
+        super(nutritionalplan);
 
     }
 
