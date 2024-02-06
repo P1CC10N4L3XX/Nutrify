@@ -11,8 +11,6 @@
    <Button layoutX="119.0" layoutY="129.0" mnemonicParsing="false" onAction="#viewNutritionalPlan" text="view" />
    <Text layoutX="320.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NutritionalPlanDay" />
    <DatePicker fx:id="dataPicker" layoutX="209.0" layoutY="129.0" onAction="#dataPicker" promptText="Enter data" />
-   <Text layoutX="46.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client:" />
-   <Label fx:id="label" layoutX="82.0" layoutY="85.0" text="Label" />
    <Label fx:id="selectionDate" layoutX="145.0" layoutY="196.0" text="Label" />
    <Text layoutX="46.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data selezionata:" />
    <Label fx:id="warning" layoutX="48.0" layoutY="236.0" text="Label" textFill="#c90404" />
@@ -29,6 +27,7 @@
    <Label fx:id="weight" layoutX="283.0" layoutY="313.0" text="Label" />
    <Label fx:id="height" layoutX="283.0" layoutY="349.0" text="Label" />
    <Label fx:id="ilneeses" layoutX="283.0" layoutY="383.0" text="Label" />
+   <Label fx:id="patientSelected" layoutX="209.0" layoutY="272.0" text="Label" />
 
 
 

@@ -14,6 +14,14 @@ public class PatientQueries extends Queries{
     private PatientQueries() {
         // Do nothing, just to prevent instantiation
     }
+
+
+
+    public static ResultSet displayPatients(Statement statement, String nutritionistEmail) throws SQLException {
+        String query = String.format("SELECT Email FROM paziente WHERE Nutrizionista='%s'",nutritionistEmail);
+        return statement.executeQuery(query);
+    }
+
     public static boolean insertIntoPatient(Statement statement, UserCredentials patient) throws SQLException {
         String sql = String.format("INSERT INTO paziente (Email,Password) values('%s','%s')",patient.getEmail(),patient.getPassword());
         return statement.execute(sql);
@@ -26,6 +34,11 @@ public class PatientQueries extends Queries{
 
     public static ResultSet selectPatientByCredentials(Statement statement, UserCredentials patient) throws SQLException{
         String query = String.format("SELECT * FROM paziente WHERE Email='%s' AND Password='%s'",patient.getEmail(),patient.getPassword());
+        return statement.executeQuery(query);
+    }
+
+    public static ResultSet selectSubscribeNutritionist(Statement statement, String emailPatient) throws SQLException{
+        String query = String.format("SELECT Nutrizionista FROM paziente WHERE Email='%s' ",emailPatient);
         return statement.executeQuery(query);
     }
 

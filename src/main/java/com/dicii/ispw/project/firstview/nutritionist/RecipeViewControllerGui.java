@@ -78,7 +78,7 @@ public class RecipeViewControllerGui implements Initializable {
 
     public void back(ActionEvent event) throws Exception {
 
-        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDashBoard.fxml");
+        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardHome.fxml/");
 
     }
 

@@ -60,7 +60,12 @@ public class ViewNutritionalPlan {
         giorno = dataSelected;
         this.ilnesses=ilnesses;
 
-        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
+
+        if(Session.getSessionInstance().getLoggedUser().getType()){
+            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,Session.getSessionInstance().getLoggedUser().getEmail());
+        }else{
+            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,Session.getSessionInstance().getLoggedUser().getEmail());
+        }
         this.colazione.setText(nutritionalPlanDayBean.getColazione().getName());
         this.pranzo.setText(nutritionalPlanDayBean.getPranzo().getName());
         this.cena.setText(nutritionalPlanDayBean.getCena().getName());

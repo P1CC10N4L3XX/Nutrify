@@ -57,6 +57,8 @@ public class NutritionalPlanDay implements Initializable {
     @FXML
     private TextField data;
 
+    private String email="hshsh";
+
 
     private PatientBean patientBean;
 
@@ -89,7 +91,7 @@ public class NutritionalPlanDay implements Initializable {
 
         try {
 
-            patientBean=createNutritionalController.displayUserInfo();
+           // patientBean=createNutritionalController.displayUserInfo();
 
             this.nome.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
@@ -139,7 +141,7 @@ public class NutritionalPlanDay implements Initializable {
                 if(data.getText()==null){
                     warning.setText("Seleziona la data");
                 }else{
-                    createNutritionalController.checkNutritionalPlanDay(data.getText());
+                    createNutritionalController.checkNutritionalPlanDay(data.getText(),email);
                     FXMLLoader loader =new FXMLLoader(getClass().getResource("/secondGui/nutritionist/CreateNutritionalPlanDay.fxml"));
                     root = loader.load();
 

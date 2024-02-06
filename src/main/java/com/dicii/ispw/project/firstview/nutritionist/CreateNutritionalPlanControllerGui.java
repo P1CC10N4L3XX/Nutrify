@@ -27,14 +27,16 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     private String cena;
 
-
+    @FXML
     private TextField grammiColazioneField;
+    @FXML
     private TextField grammiPranzoField;
+    @FXML
     private TextField grammiCenaField;
 
 
     @FXML
-    Label data;
+    private Label data;
 
     @FXML
     private ChoiceBox<String> myChoiceBox1;
@@ -47,6 +49,8 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     @FXML
     private Label warning;
+    @FXML
+    private Label patientField;
 
     private final ManageNutritionalController createNutritionalController;
 
@@ -55,6 +59,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     private List<RecipeBean> list;
 
+    private String email;
 
     public CreateNutritionalPlanControllerGui(){
         createNutritionalController = new ManageNutritionalController();
@@ -84,10 +89,13 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
     }
 
 
-    public void displayData(String dataValue){
+    public void displayData(String dataValue,String emailPatientSelected){
 
         if(dataValue!=null){
             data.setText(dataValue);
+            email = emailPatientSelected;
+            patientField.setText(email);
+
         }
 
 
@@ -123,19 +131,16 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         }else{
             try {
 
+
                 nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
 
-                if(createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean)){
+                if(createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean,email)){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "not saved!!") ;
                     alert.showAndWait() ;
                 }else{
                     Alert alert = new Alert(Alert.AlertType.INFORMATION, "succesfully saved!!") ;
                     alert.showAndWait() ;
                 }
-                grammiColazioneField.setText("");
-                grammiPranzoField.setText("");
-                grammiCenaField.setText("");
-
 
 
 
@@ -159,7 +164,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
     public void back(ActionEvent event) throws Exception {
 
-        GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDashboard.fxml");
+        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardHome.fxml");
 
     }
 

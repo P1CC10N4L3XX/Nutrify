@@ -42,13 +42,14 @@ public class NutritionalPlanDayDao {
     }
 
 
-        public void checkNutritionalPlanDay( String emailNutritionist,String emailPatient , String data) throws DuplicatedUserException, NutritionalPlanFounded {
+    public void checkNutritionalPlanDay( String emailNutritionist,String emailPatient , String data) throws DuplicatedUserException, NutritionalPlanFounded {
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try (Statement statement = connection.createStatement() ;
              ResultSet resultSet = NutritionalPlanDayQueries.displayNutritionalPlanDay(statement, emailPatient,  emailNutritionist, data ); ) {
 
             if (resultSet.next()) {
+
 
                 throw new NutritionalPlanFounded("la data selezionata ha gia un piano nutrizionale creato ");
             }
@@ -75,6 +76,7 @@ public class NutritionalPlanDayDao {
         catch (SQLException e) {
             throw new DuplicatedUserException(e.getMessage());
         }
+
 
        return nutritionalPlanDay;
     }
@@ -103,11 +105,8 @@ public class NutritionalPlanDayDao {
 
         String dataConsumazione = resultSet.getString(DATA_CONSUMAZIONE);
 
-        String descrizione = resultSet.getString(DESCRIZIONE);
 
-
-
-        return new NutritionalPlanDay(dataConsumazione,ricettaColazione,ricettaPranzo,ricettaCena,quantitaColazione,quantitaPranzo,quantitaCena,descrizione);
+        return new NutritionalPlanDay(dataConsumazione,ricettaColazione,ricettaPranzo,ricettaCena,quantitaColazione,quantitaPranzo,quantitaCena);
 
     }
 

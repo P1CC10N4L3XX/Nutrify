@@ -1,6 +1,7 @@
 package com.dicii.ispw.project.models;
 import com.dicii.ispw.project.patterns.decorator.NutritionalPlan;
 
+
 public class NutritionalPlanDay implements NutritionalPlan {
 
 
@@ -18,12 +19,14 @@ public class NutritionalPlanDay implements NutritionalPlan {
 
     private String quantitaCena;
 
-    private String descrizione;
 
 
 
 
-    public NutritionalPlanDay( String day,Recipe colazione, Recipe pranzo, Recipe cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena, String descrizione){
+
+
+
+    public NutritionalPlanDay( String day,Recipe colazione, Recipe pranzo, Recipe cena, String quantitaColazioe,String quantitaPranzo,String quantitaCena){
 
         this.day =day;
         this.colazione=colazione;
@@ -32,7 +35,7 @@ public class NutritionalPlanDay implements NutritionalPlan {
         this.quantitaColazione=quantitaColazioe;
         this.quantitaPranzo=quantitaPranzo;
         this.quantitaCena=quantitaCena;
-        this.descrizione=descrizione;
+
 
     }
 
@@ -54,9 +57,7 @@ public class NutritionalPlanDay implements NutritionalPlan {
         return cena;
     }
 
-    public String getDescription() {
-        return descrizione;
-    }
+
 
     @Override
     public String getQuantitaColazione() {

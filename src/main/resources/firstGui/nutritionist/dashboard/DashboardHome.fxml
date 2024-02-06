@@ -102,7 +102,7 @@
                   <Label layoutX="-34.0" layoutY="39.0" prefHeight="146.0" prefWidth="317.0" style="-fx-text-fill: white; -fx-font-size: 100; -fx-alignment: center;" text="0" />
                </children>
             </Pane>
-            <ListView fx:id="listView" layoutX="245.0" layoutY="333.0" prefHeight="343.0" prefWidth="364.0" />
+            <ListView fx:id="myListView" layoutX="245.0" layoutY="333.0" prefHeight="343.0" prefWidth="364.0" />
             <Text layoutX="396.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your clients" />
             <Button fx:id="CreateNutritionalPlan" layoutX="94.0" layoutY="297.0" mnemonicParsing="false" onAction="#createNutritionalPlan" text="Create Nutritional Plan" />
          </children>

@@ -40,7 +40,7 @@ public class DashboardController {
                 LocalDate currentDate = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 String formattedDateString = currentDate.format(formatter);
-                nutritionalPlanBean = new NutritionalPlanBean(formattedDateString);
+               // nutritionalPlanBean = new NutritionalPlanBean(formattedDateString);
 
                 createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
 

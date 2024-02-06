@@ -87,7 +87,7 @@ public class DashboardPlan implements Initializable {
 
         try {
 
-            patientBean=createNutritionalController.displayUserInfo();
+          //  patientBean=createNutritionalController.displayUserInfo();
 
             this.nome.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());

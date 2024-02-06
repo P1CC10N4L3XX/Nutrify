@@ -33,12 +33,10 @@ public class ViewNutritionalPlan  {
     private Label quantitaCena;
 
     @FXML
-    Label day;
-    String giorno;
+    private Label day;
+    private String giorno;
 
-    String ilnesses;
-
-
+    private String ilnesses;
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
     private ManageNutritionalController createNutritionalController;
@@ -51,7 +49,7 @@ public class ViewNutritionalPlan  {
 
     public void back(ActionEvent event) throws IOException {
         if(Session.getSessionInstance().getLoggedUser().getType()){
-            GUI.switchPage(event,"/firstGui/nutritionist/NutritionalPlanDay.fxml");
+            GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardHome.fxml");
         }else{
             GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
         }
@@ -59,13 +57,15 @@ public class ViewNutritionalPlan  {
     }
 
 
-    public void takeParameter(String dataSelected,String ilnesses) throws NutritionalPlanNotFoundException, DuplicatedUserException {
+    public void takeParameter(String dataSelected,String ilnesses, String email) throws NutritionalPlanNotFoundException, DuplicatedUserException {
 
         day.setText(dataSelected);
         giorno = dataSelected;
         this.ilnesses=ilnesses;
 
-        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses);
+        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,email);
+
+
         this.colazione.setText(nutritionalPlanDayBean.getColazione().getName());
         this.pranzo.setText(nutritionalPlanDayBean.getPranzo().getName());
         this.cena.setText(nutritionalPlanDayBean.getCena().getName());

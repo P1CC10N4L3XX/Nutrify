@@ -23,7 +23,7 @@ public class RegisterApplicationController {
         }
     }
     public void completeRegistrationNutritionist(NutritionistBean nutritionistBean) {
-        Nutritionist nutritionist = new Nutritionist (nutritionistBean.getEmail(),nutritionistBean.getName(),nutritionistBean.getSurname(),nutritionistBean.getDateOfBirth(),nutritionistBean.getDescription(),nutritionistBean.getIVA(),nutritionistBean.getIBAN(),nutritionistBean.getCost());
+        Nutritionist nutritionist = new Nutritionist (nutritionistBean.getEmail(),nutritionistBean.getName(),nutritionistBean.getSurname(), nutritionistBean.getDescription(), nutritionistBean.getDateOfBirth(),nutritionistBean.getDescription(),nutritionistBean.getIBAN(),nutritionistBean.getCost());
         NutritionistDao nutritionistDAO = new NutritionistDao();
         nutritionistDAO.saveNutritionistAll(nutritionist);
     }

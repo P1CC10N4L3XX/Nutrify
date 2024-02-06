@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.nutritionist.CreateNutritionalPlanControllerGui">
    <children>
       <TextField fx:id="grammiColazioneField" layoutX="356.0" layoutY="94.0" prefHeight="26.0" prefWidth="46.0" />
-      <Text layoutX="175.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CreateNutritionalPlan Form foe Day:" textAlignment="CENTER" wrappingWidth="196.251953125" />
+      <Text layoutX="95.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CreateNutritionalPlan Form foe Day:" textAlignment="CENTER" wrappingWidth="196.251953125" />
       <Text layoutX="355.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="grammi:" wrappingWidth="84.4273681640625" />
       <Text layoutX="180.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colazione:" />
       <Text layoutX="182.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pranzo:" />
@@ -27,7 +27,9 @@
       <ChoiceBox fx:id="myChoiceBox1" layoutX="179.0" layoutY="94.0" prefWidth="150.0" />
       <ChoiceBox fx:id="myChoiceBox3" layoutX="182.0" layoutY="217.0" prefWidth="150.0" />
       <ChoiceBox fx:id="myChoiceBox2" layoutX="179.0" layoutY="157.0" prefWidth="150.0" />
-      <Label fx:id="data" layoutX="371.0" layoutY="27.0" text="Label" />
-      <Label fx:id="warning" layoutX="259.0" layoutY="52.0" text="Label" />
+      <Label fx:id="data" layoutX="301.0" layoutY="26.0" prefHeight="18.0" prefWidth="61.0" />
+      <Label fx:id="warning" layoutX="259.0" layoutY="52.0" />
+      <Text layoutX="377.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient:" />
+      <Label fx:id="patientField" layoutX="460.0" layoutY="27.0" />
    </children>
 </AnchorPane>

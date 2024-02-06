@@ -3,11 +3,14 @@ package com.dicii.ispw.project.database.dao_classes;
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.PatientQueries;
+import com.dicii.ispw.project.database.query.RecipeQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.models.*;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PatientDao {
     private static final String EMAIL = "Email";
@@ -35,6 +38,37 @@ public class PatientDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<Patient> displayPatient(String nutritionistEmail) throws DuplicatedUserException {
+        ArrayList<Patient> patients = new ArrayList<>() ;
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+
+        try(Statement statement = connection.createStatement();
+            ResultSet resultSet = PatientQueries.displayPatients(statement, nutritionistEmail)) {
+
+            while (resultSet.next()) {
+
+                Patient patient = createPatient(resultSet);
+                patients.add(patient);
+
+
+            }
+        }catch(SQLException e){
+            throw new DuplicatedUserException(e.getMessage());
+        }
+
+
+        return patients;
+
+    }
+
+    public static Patient createPatient(ResultSet resultSet) throws SQLException {
+
+        String email = resultSet.getString("Email");
+
+        return new Patient(email);
+
     }
 
     public void savePatientAll(Patient patient){
@@ -74,9 +108,30 @@ public class PatientDao {
         }
     }
 
+
+    public User loadNutritionistSubscribed(String patientEmail) throws NotExistentUserException {
+        Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+        User resultUser = new User();
+        try(Statement statement = connection.createStatement()){
+            ResultSet resultSet = PatientQueries.selectSubscribeNutritionist(statement,patientEmail);
+            if(resultSet.next()){
+                resultUser.setEmail(resultSet.getString(NUTRITIONIST));
+
+            }else{
+                throw new NotExistentUserException("This user doesn't exist");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return resultUser;
+    }
+
+
     public Patient selectInfoPatient(String emailPatient) throws DuplicatedUserException {
         Patient patient = new Patient();
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
+
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = PatientQueries.selectInfoPatient(statement, emailPatient ); ) {

@@ -10,7 +10,7 @@ import com.dicii.ispw.project.firstview.ViewNutritionalPlan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,12 +18,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 
-public class NutritionalPlanDay implements Initializable {
+
+public class NutritionalPlanDay {
     private Stage stage;
     private Scene scene;
 
@@ -55,30 +54,23 @@ public class NutritionalPlanDay implements Initializable {
     @FXML
     private Label warning;
 
-    String dataSelected;
+    @FXML
+    private Label patientSelected;
+
+    private String dataSelected;
 
     private PatientBean patientBean;
 
     private ManageNutritionalController createNutritionalController;
 
-
-
+    private String email;
 
 
     public NutritionalPlanDay(){
         createNutritionalController = new ManageNutritionalController();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        try {
-            viewPatientInfo();
-        } catch (DuplicatedUserException e) {
-            warning.setText("errore durante l'inizializzazione");
-        }
-
-    }
 
 
     @FXML
@@ -90,9 +82,15 @@ public class NutritionalPlanDay implements Initializable {
         dataSelected=selectionDate.getText();
     }
 
-    public void viewPatientInfo() throws DuplicatedUserException {
 
-            patientBean=createNutritionalController.displayUserInfo();
+
+    public void viewPatientInfo(String emailPatient) throws DuplicatedUserException {
+
+            email=emailPatient;
+            patientSelected.setText(emailPatient);
+
+
+            patientBean=createNutritionalController.displayUserInfo(emailPatient);
 
             this.nome.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
@@ -106,6 +104,7 @@ public class NutritionalPlanDay implements Initializable {
 
 
 
+
     public void createNutritionalPlanDay(ActionEvent event) throws Exception {
 
 
@@ -115,12 +114,12 @@ public class NutritionalPlanDay implements Initializable {
             if(localDate==null){
                 warning.setText("Seleziona la data");
             }else{
-                createNutritionalController.checkNutritionalPlanDay(dataSelected);
+                createNutritionalController.checkNutritionalPlanDay(dataSelected,email);
                 FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
                 root = loader.load();
 
                 CreateNutritionalPlanControllerGui createNutritionalPlanControllerGui = loader.getController();
-                createNutritionalPlanControllerGui.displayData(dataSelected);
+                createNutritionalPlanControllerGui.displayData(dataSelected,email);
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setResizable(false);
@@ -149,7 +148,7 @@ public class NutritionalPlanDay implements Initializable {
             root = loader.load();
 
             ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean().getName());
+            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean().getName(),email);
 
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

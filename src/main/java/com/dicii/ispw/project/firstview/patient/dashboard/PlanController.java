@@ -2,10 +2,13 @@ package com.dicii.ispw.project.firstview.patient.dashboard;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
+import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstview.ViewNutritionalPlan;
 import com.dicii.ispw.project.firstview.patient.DashboardController;
+import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -91,11 +94,13 @@ public class PlanController extends DashboardController implements Initializable
 
         try{
 
+            UserBean userBean = createNutritionalController.loadNutritionistSubscribed(Session.getSessionInstance().getLoggedUser().getEmail());
+
             FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/ViewNutritionalPlan.fxml"));
             root = loader.load();
 
             ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean().getName());
+            viewNutritionalPlan.takeParameter(dataSelected,patientBean.getIlnessesBean().getName(),userBean.getEmail());
 
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -106,6 +111,8 @@ public class PlanController extends DashboardController implements Initializable
 
         }catch (NutritionalPlanNotFoundException e){
             warning.setText(e.getMessage());
+        }catch (NotExistentUserException e){
+            warning.setText("attualmente non sei iscritto a nessun nutrizionista");
         }
 
 
@@ -116,7 +123,7 @@ public class PlanController extends DashboardController implements Initializable
         try {
 
 
-            patientBean=createNutritionalController.displayUserInfo();
+            patientBean=createNutritionalController.displayUserInfo(Session.getSessionInstance().getLoggedUser().getEmail());
             this.name.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
             this.birthday.setText(patientBean.getDateOfBirth());
