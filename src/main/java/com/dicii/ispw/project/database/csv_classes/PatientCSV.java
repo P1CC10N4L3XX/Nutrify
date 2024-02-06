@@ -50,7 +50,7 @@ public class PatientCSV implements PatientDaoInterface {
         }
         CSVWriter csvWriter;
         try {
-            csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(fd, true)));
+            csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(fd)));
         }catch (Exception e){
             throw new RuntimeException(e);
         }
