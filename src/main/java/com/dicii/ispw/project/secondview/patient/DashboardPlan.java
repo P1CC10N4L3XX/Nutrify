@@ -2,9 +2,11 @@ package com.dicii.ispw.project.secondview.patient;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
+import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstview.utils.GUI;
+import com.dicii.ispw.project.patterns.singleton.Session;
 import com.dicii.ispw.project.secondview.ViewNutritionalPlan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +33,7 @@ public class DashboardPlan implements Initializable {
     private Parent root;
 
     @FXML
-    private Label nome;
+    private Label name;
     @FXML
     private Label surname;
 
@@ -87,15 +89,13 @@ public class DashboardPlan implements Initializable {
 
         try {
 
-          //  patientBean=createNutritionalController.displayUserInfo();
-
-            this.nome.setText(patientBean.getName());
+            patientBean=createNutritionalController.displayUserInfo(Session.getSessionInstance().getLoggedUser().getEmail());
+            this.name.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
             this.birthday.setText(patientBean.getDateOfBirth());
             this.weight.setText(patientBean.getWeight());
             this.height.setText(patientBean.getHeight());
             this.ilneeses.setText(patientBean.getIlnessesBean().getName());
-
 
 
         }catch (NullPointerException e){
@@ -113,11 +113,13 @@ public class DashboardPlan implements Initializable {
 
             try{
 
+                UserBean userBean = createNutritionalController.loadNutritionistSubscribed(Session.getSessionInstance().getLoggedUser().getEmail());
+
                 FXMLLoader loader =new FXMLLoader(getClass().getResource("/secondGui/ViewNutritionalPlan.fxml"));
                 root = loader.load();
 
                 ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName());
+                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName(), userBean.getEmail());
 
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

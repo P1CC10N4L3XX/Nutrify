@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
-public class NutritionalPlanDay implements Initializable {
+public class NutritionalPlanDay {
 
     private Stage stage;
     private Scene scene;
@@ -57,7 +57,11 @@ public class NutritionalPlanDay implements Initializable {
     @FXML
     private TextField data;
 
-    private String email="hshsh";
+    @FXML
+    private Label patientSelected;
+
+    private String email;
+
 
 
     private PatientBean patientBean;
@@ -78,20 +82,14 @@ public class NutritionalPlanDay implements Initializable {
         createNutritionalController = new ManageNutritionalController();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            viewPatientInfo();
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
-    public void viewPatientInfo() throws DuplicatedUserException {
 
-        try {
+    public void viewPatientInfo(String emailPatient) throws DuplicatedUserException {
 
-           // patientBean=createNutritionalController.displayUserInfo();
+            email=emailPatient;
+            patientSelected.setText(emailPatient);
+
+            patientBean=createNutritionalController.displayUserInfo(emailPatient);
 
             this.nome.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
@@ -99,13 +97,6 @@ public class NutritionalPlanDay implements Initializable {
             this.weight.setText(patientBean.getWeight());
             this.height.setText(patientBean.getHeight());
             this.ilneeses.setText(patientBean.getIlnessesBean().getName());
-
-
-
-        }catch (NullPointerException e){
-            System.out.println(e.getMessage());
-        }
-
 
     }
 
@@ -121,7 +112,7 @@ public class NutritionalPlanDay implements Initializable {
                 root = loader.load();
 
                 ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName());
+                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName(),patientSelected.getText());
 
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -164,7 +155,7 @@ public class NutritionalPlanDay implements Initializable {
 
         }
         else if (commandText.matches(SET_DATA)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:31/01/2024") ;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:gennaio 16, 2024") ;
             try{
                 String dataValue = commandText.replace("set data ", "");
 

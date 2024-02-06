@@ -36,10 +36,12 @@ public class ViewNutritionalPlan {
     private Label quantitaCena;
 
     @FXML
-    Label day;
-    String giorno;
+    private Label day;
+    @FXML
+    private Label patientSelected;
+    private String giorno;
 
-    String ilnesses;
+    private String ilnesses;
 
     private NutritionalPlanDayBean nutritionalPlanDayBean;
     private ManageNutritionalController createNutritionalController;
@@ -54,18 +56,17 @@ public class ViewNutritionalPlan {
         createNutritionalController = new ManageNutritionalController();
     }
 
-    public void takeParameter(String dataSelected,String ilnesses) throws NutritionalPlanNotFoundException, DuplicatedUserException {
+    public void takeParameter(String dataSelected,String ilnesses,String email) throws NutritionalPlanNotFoundException, DuplicatedUserException {
 
         day.setText(dataSelected);
+        patientSelected.setText(dataSelected);
         giorno = dataSelected;
         this.ilnesses=ilnesses;
 
 
-        if(Session.getSessionInstance().getLoggedUser().getType()){
-            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,Session.getSessionInstance().getLoggedUser().getEmail());
-        }else{
-            nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,Session.getSessionInstance().getLoggedUser().getEmail());
-        }
+
+        nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,email);
+
         this.colazione.setText(nutritionalPlanDayBean.getColazione().getName());
         this.pranzo.setText(nutritionalPlanDayBean.getPranzo().getName());
         this.cena.setText(nutritionalPlanDayBean.getCena().getName());
@@ -84,9 +85,9 @@ public class ViewNutritionalPlan {
         commandLine.setText("");
         if(commandText.matches(BACK)){
             if(Session.getSessionInstance().getLoggedUser().getType()){
-                GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
+                GUI.switchPage(event,"/secondGui/nutritionist/dashboard/DashboardHome.fxml");
             }else{
-                GUI.switchPage(event,"/secondGui/patient/dashboard/DashboardPlan.fxml");
+                GUI.switchPage(event,"/secondGui/patient/DashboardPlan.fxml");
             }
         }
 

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="691.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondview.nutritionist.NutritionalPlanDay">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="691.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondview.patient.DashboardPlan">
     <children>
         <Text fill="WHITE" layoutX="153.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashboardPlan" textAlignment="CENTER" wrappingWidth="428.0910339355469">
             <font>
@@ -50,7 +50,7 @@
         <Text fill="WHITE" layoutX="506.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Wheight" />
         <Text fill="WHITE" layoutX="506.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Height" />
         <Text fill="WHITE" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Ilneeses" />
-        <Label fx:id="nome" layoutX="390.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
+        <Label fx:id="name" layoutX="390.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
         <Label fx:id="surname" layoutX="404.0" layoutY="272.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
         <Label fx:id="birthday" layoutX="397.0" layoutY="306.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
         <Label fx:id="weight" layoutX="568.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />

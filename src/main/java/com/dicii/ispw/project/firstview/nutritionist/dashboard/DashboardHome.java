@@ -20,9 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -36,8 +34,6 @@ public class DashboardHome extends DashboardController implements Initializable 
     private Scene scene;
 
     private Parent root;
-
-
 
     private NutritionistBean nutritionistBean;
 

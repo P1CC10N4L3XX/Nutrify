@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -21,7 +22,7 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" onAction="#onCommand" cacheHint="SPEED" layoutX="234.0" layoutY="376.0" mouseTransparent="true"  prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="234.0" layoutY="376.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -31,14 +32,20 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
                     <children>
-                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- Create Nutritional Plan&#10;- Add Recipe&#10;- submit&#10;- login" />
+                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- create plan&#10;- set patient &lt;patient&gt;&#10;- add recipe&#10;- submit&#10;- login" />
                     </children>
                 </AnchorPane>
             </content>
         </ScrollPane>
         <Button fx:id="enterButton" layoutX="475.0" layoutY="377.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
-      <ListView layoutX="387.0" layoutY="117.0" prefHeight="185.0" prefWidth="230.0" />
-      <Text layoutX="484.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" />
+      <ListView fx:id="myListView" layoutX="387.0" layoutY="102.0" prefHeight="185.0" prefWidth="230.0" />
+      <Text fill="WHITE" layoutX="484.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" />
+      <TextField fx:id="patientField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="387.0" layoutY="314.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+         <font>
+            <Font name="Tahoma" size="14.0" />
+         </font>
+      </TextField>
+      <Label fx:id="warning" layoutX="122.0" layoutY="319.0" textFill="WHITE" />
 
     </children>
 </Pane>

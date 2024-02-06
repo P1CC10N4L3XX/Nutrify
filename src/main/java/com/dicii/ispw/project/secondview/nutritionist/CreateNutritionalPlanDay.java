@@ -150,7 +150,7 @@ public class CreateNutritionalPlanDay implements Initializable {
             quantityd.setText(quantityD);
 
         } else if (commandText.matches(BACK)) {
-            GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDay.fxml");
+            GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
 
         }
 

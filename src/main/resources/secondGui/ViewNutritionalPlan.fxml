@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="798.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondview.ViewNutritionalPlan">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="534.0" prefWidth="748.0" style="-fx-background-color: #212121;" styleClass="borde" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.secondview.ViewNutritionalPlan">
     <children>
         <Text fill="WHITE" layoutX="144.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ViewNutritionalPlan" textAlignment="CENTER" wrappingWidth="428.0910339355469">
             <font>
@@ -21,12 +21,12 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="225.0" layoutY="418.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="275.0" layoutY="417.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
-        <AnchorPane layoutX="237.0" layoutY="444.0" prefHeight="4.0" prefWidth="207.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
+        <AnchorPane layoutX="287.0" layoutY="443.0" prefHeight="4.0" prefWidth="207.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
         <ScrollPane layoutX="52.0" layoutY="137.0" prefHeight="199.0" prefWidth="248.0">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
@@ -36,23 +36,23 @@
                 </AnchorPane>
             </content>
         </ScrollPane>
-        <Button fx:id="enterButton" layoutX="458.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
-        <Text fill="WHITE" layoutX="336.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Information patient selected" />
-        <Label fx:id="warning" layoutX="338.0" layoutY="168.0" textFill="WHITE" />
+        <Button fx:id="enterButton" layoutX="508.0" layoutY="419.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
+        <Text fill="WHITE" layoutX="367.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Information patient selected" />
+        <Label fx:id="patientSelected" layoutX="528.0" layoutY="163.0" prefHeight="17.0" prefWidth="89.0" textFill="WHITE" />
       <Label fx:id="day" layoutX="144.0" layoutY="109.0" prefHeight="17.0" prefWidth="136.0" textFill="WHITE" />
       <Text fill="WHITE" layoutX="62.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data selected" />
-      <Text fill="WHITE" layoutX="328.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricetta Colazione: " />
-      <Text fill="WHITE" layoutX="328.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricetta Pranzo: " />
-      <Text fill="WHITE" layoutX="328.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricetta Cena: " />
-      <Text fill="WHITE" layoutX="539.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
-      <Text fill="WHITE" layoutX="539.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
-      <Text fill="WHITE" layoutX="539.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
-      <Label fx:id="colazione" layoutX="431.0" layoutY="231.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="pranzo" layoutX="417.0" layoutY="276.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="cena" layoutX="412.0" layoutY="326.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="quantitaColazione" layoutX="591.0" layoutY="230.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="quantitaPranzo" layoutX="591.0" layoutY="275.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="quantitaCena" layoutX="591.0" layoutY="319.0" text="Label" textFill="#fffdfd" />
+      <Text fill="WHITE" layoutX="371.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricetta Colazione: " />
+      <Text fill="WHITE" layoutX="371.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricetta Pranzo: " />
+      <Text fill="WHITE" layoutX="371.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ricetta Cena: " />
+      <Text fill="WHITE" layoutX="582.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
+      <Text fill="WHITE" layoutX="582.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
+      <Text fill="WHITE" layoutX="582.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
+      <Label fx:id="colazione" layoutX="474.0" layoutY="199.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="pranzo" layoutX="460.0" layoutY="244.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="cena" layoutX="455.0" layoutY="294.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="quantitaColazione" layoutX="634.0" layoutY="198.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="quantitaPranzo" layoutX="634.0" layoutY="243.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="quantitaCena" layoutX="634.0" layoutY="287.0" text="Label" textFill="#fffdfd" />
 
     </children>
 </Pane>

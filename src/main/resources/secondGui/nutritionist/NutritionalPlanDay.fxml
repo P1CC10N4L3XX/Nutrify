@@ -57,6 +57,7 @@
       <Label fx:id="height" layoutX="568.0" layoutY="272.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
       <Label fx:id="ilneeses" layoutX="568.0" layoutY="306.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
       <Label fx:id="warning" layoutX="338.0" layoutY="168.0" textFill="#05f701" />
+      <Label fx:id="patientSelected" layoutX="494.0" layoutY="195.0" prefHeight="17.0" prefWidth="167.0" textFill="WHITE" />
 
     </children>
 </Pane>

@@ -63,6 +63,8 @@ public class ViewNutritionalPlan  {
         giorno = dataSelected;
         this.ilnesses=ilnesses;
 
+
+
         nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,email);
 
 
