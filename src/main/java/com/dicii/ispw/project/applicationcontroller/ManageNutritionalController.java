@@ -236,11 +236,8 @@ public class ManageNutritionalController{
     public void createNewRecipe( RecipeBean recipeBean) throws DuplicatedUserException {
 
         recipe = new Recipe(recipeBean.getName(), recipeBean.getDescription(), recipeBean.getIngredients());
-        RecipeFileSaver recipeFileSaver = new RecipeFileSaver();
         RecipeDao recipeDao = new RecipeDao();
-
         recipeDao.saveRecipe(recipe);
-        recipeFileSaver.saveRecipeInFile(recipe);
 
     }
 
