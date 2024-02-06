@@ -30,15 +30,12 @@ public class ManageNutritionalController{
 
     public boolean sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, String emailPatient)  {
 
-
             nutritionalPlanBase = new NutritionalPlanBase();
             nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),convertRecipeBeanToModel(nutritionalPlanDayBean.getColazione()),convertRecipeBeanToModel(nutritionalPlanDayBean.getPranzo()), convertRecipeBeanToModel(nutritionalPlanDayBean.getCena()),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());
             NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
             nutritionalPlanBase.addNutritionalPlanDay(nutritionalPlanDay);
 
             return nutritionalPlanDayDao.saveNutritionalPlanDay(nutritionalPlanDay, Session.getSessionInstance().getLoggedUser().getEmail(), emailPatient);
-
-
 
     }
 
