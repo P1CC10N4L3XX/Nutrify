@@ -33,16 +33,13 @@ public class TestDisplayPatientInformation {
     public void testInformation() {
         int flag = 1;
         ManageNutritionalController createNutritionalController = new ManageNutritionalController();
-        try {
 
-            PatientBean patientBean;
-            patientBean= createNutritionalController.displayUserInfo("luca@gmail.com");
-            if(!Objects.equals(patientBenExpected.getName(), patientBean.getName()) ){
-                flag = 0;
-            }
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+        PatientBean patientBean;
+        patientBean= createNutritionalController.displayUserInfo("luca@gmail.com");
+        if(!Objects.equals(patientBenExpected.getName(), patientBean.getName()) ){
+            flag = 0;
         }
+
         assertEquals(1, flag);
     }
 

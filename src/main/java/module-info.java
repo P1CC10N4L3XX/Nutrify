@@ -7,6 +7,7 @@ module com.example.progetto {
     requires junit;
     requires org.junit.jupiter.api;
     requires java.rmi;
+    requires com.opencsv;
 
 
     exports test;

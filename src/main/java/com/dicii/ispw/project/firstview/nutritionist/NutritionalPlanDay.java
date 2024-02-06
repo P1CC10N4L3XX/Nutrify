@@ -84,7 +84,7 @@ public class NutritionalPlanDay {
 
 
 
-    public void viewPatientInfo(String emailPatient) throws DuplicatedUserException {
+    public void viewPatientInfo(String emailPatient) {
 
             email=emailPatient;
             patientSelected.setText(emailPatient);

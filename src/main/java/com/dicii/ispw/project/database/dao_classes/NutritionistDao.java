@@ -3,6 +3,7 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
+import com.dicii.ispw.project.database.dao_interfaces.NutritionistDaoInterface;
 import com.dicii.ispw.project.database.query.NutritionistQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
@@ -12,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NutritionistDao {
+public class NutritionistDao implements NutritionistDaoInterface {
     private static final String EMAIL = "Email";
     private static final String PASSWORD = "Password";
     private static final String NAME = "Nome";
@@ -39,15 +40,14 @@ public class NutritionistDao {
         }
     }
 
-    public UserBean loadNutritionistByCredentials(UserCredentials nutritionist) throws NotExistentUserException {
+    public UserCredentials loadNutritionistByCredentials(UserCredentials nutritionist) throws NotExistentUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
-        UserBean resultUser = new UserBean();
+        UserCredentials resultUser = new UserCredentials();
         try(Statement statement = connection.createStatement()){
             ResultSet resultSet = NutritionistQueries.selectNutritionistByCredentials(statement,nutritionist);
             if(resultSet.next()){
                 resultUser.setEmail(resultSet.getString(EMAIL));
                 resultUser.setPassword(resultSet.getString(PASSWORD));
-                resultUser.setType(true);
             }else{
                 throw new NotExistentUserException("This user doesn't exist");
             }
@@ -57,7 +57,7 @@ public class NutritionistDao {
         }
         return resultUser;
     }
-    public List<Nutritionist> getNutritionistList(int from, int to) throws RuntimeException{
+    public List<Nutritionist> getNutritionistList(int from, int to) {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         List<Nutritionist> nutritionistResultList = new ArrayList<>();
         String email;

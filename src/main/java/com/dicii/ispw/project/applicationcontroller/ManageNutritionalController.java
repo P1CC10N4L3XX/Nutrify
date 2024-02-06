@@ -48,7 +48,7 @@ public class ManageNutritionalController{
     }
 
 
-    public PatientBean displayUserInfo(String patientSelected) throws DuplicatedUserException {
+    public PatientBean displayUserInfo(String patientSelected) {
 
 
         PatientDao patientDao = new PatientDao();

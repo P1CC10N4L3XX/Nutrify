@@ -84,35 +84,32 @@ public class DashboardHome extends DashboardController implements Initializable 
 
     public void createNutritionalPlan(ActionEvent event) throws Exception {
 
-        try{
-            nutritionistBean = new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail());
+        nutritionistBean = new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail());
 
-            PatientBean patientBeanSelected = new PatientBean();
-            patientBeanSelected.setEmail(selectedPatient);
-
-
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDay.fxml"));
-            root = loader.load();
-
-            NutritionalPlanDay nutritionalPlanDay = loader.getController();
-            nutritionalPlanDay.viewPatientInfo(selectedPatient);
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setResizable(false);
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        PatientBean patientBeanSelected = new PatientBean();
+        patientBeanSelected.setEmail(selectedPatient);
 
 
-            LocalDate currentDate = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String formattedDateString = currentDate.format(formatter);
-            nutritionalPlanBean = new NutritionalPlanBean(formattedDateString,patientBeanSelected,nutritionistBean);
-            createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDay.fxml"));
+        root = loader.load();
 
-        }catch(DuplicatedUserException e){
-            System.out.println("piano creato");
-        }
+        NutritionalPlanDay nutritionalPlanDay = loader.getController();
+        nutritionalPlanDay.viewPatientInfo(selectedPatient);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setResizable(false);
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDateString = currentDate.format(formatter);
+        nutritionalPlanBean = new NutritionalPlanBean(formattedDateString,patientBeanSelected,nutritionistBean);
+        createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
+
+
 
 
     }

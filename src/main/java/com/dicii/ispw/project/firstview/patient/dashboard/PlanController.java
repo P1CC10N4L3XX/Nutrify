@@ -70,13 +70,7 @@ public class PlanController extends DashboardController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            viewPatientInfo();
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
-        }
-
-
+        viewPatientInfo();
     }
     @FXML
     void dataPicker(ActionEvent e){
@@ -118,7 +112,7 @@ public class PlanController extends DashboardController implements Initializable
 
     }
 
-    public void viewPatientInfo() throws DuplicatedUserException {
+    public void viewPatientInfo() {
 
         try {
 

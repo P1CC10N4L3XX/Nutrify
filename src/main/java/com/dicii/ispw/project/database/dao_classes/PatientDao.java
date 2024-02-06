@@ -2,6 +2,7 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
+import com.dicii.ispw.project.database.dao_interfaces.PatientDaoInterface;
 import com.dicii.ispw.project.database.query.PatientQueries;
 import com.dicii.ispw.project.database.query.RecipeQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
@@ -12,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientDao {
+public class PatientDao implements PatientDaoInterface {
     private static final String EMAIL = "Email";
     private static final String PASSWORD = "Password";
     private static final String NAME = "Nome";
@@ -80,15 +81,14 @@ public class PatientDao {
         }
     }
 
-    public UserBean loadPatientByCredentials(UserCredentials patient) throws NotExistentUserException {
+    public UserCredentials loadPatientByCredentials(UserCredentials patient) throws NotExistentUserException {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
-        UserBean resultUser = new UserBean();
+        UserCredentials resultUser = new UserCredentials();
         try(Statement statement = connection.createStatement()){
             ResultSet resultSet = PatientQueries.selectPatientByCredentials(statement,patient);
             if(resultSet.next()){
                 resultUser.setEmail(resultSet.getString(EMAIL));
                 resultUser.setPassword(resultSet.getString(PASSWORD));
-                resultUser.setType(false);
             }else{
                 throw new NotExistentUserException("This user doesn't exist");
             }
@@ -128,7 +128,7 @@ public class PatientDao {
     }
 
 
-    public Patient selectInfoPatient(String emailPatient) throws DuplicatedUserException {
+    public Patient selectInfoPatient(String emailPatient) {
         Patient patient = new Patient();
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
 
@@ -151,10 +151,8 @@ public class PatientDao {
 
             }
 
-        }
-        catch (SQLIntegrityConstraintViolationException e) {
-            throw new DuplicatedUserException(e.getMessage());
-        }catch(SQLException ignored){
+        }catch(SQLException e){
+            throw new RuntimeException(e);
         }
 
         return patient;
