@@ -4,6 +4,7 @@ import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistContr
 import com.dicii.ispw.project.models.Notification;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Objects;
 
 public class NotificatorSystem extends UnicastRemoteObject implements Observer{
     private final SubscribeToNutritionistController subscribeToNutritionistController;
@@ -13,5 +14,15 @@ public class NotificatorSystem extends UnicastRemoteObject implements Observer{
     @Override
     public void update(Notification notification) throws RemoteException {
         subscribeToNutritionistController.showNotificationPopUp(notification);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        NotificatorSystem other = (NotificatorSystem) obj;
+        return Objects.equals(subscribeToNutritionistController, other.subscribeToNutritionistController);
     }
 }
