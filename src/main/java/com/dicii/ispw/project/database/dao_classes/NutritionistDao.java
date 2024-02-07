@@ -8,11 +8,13 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.models.Nutritionist;
 import com.dicii.ispw.project.models.UserCredentials;
+
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NutritionistDao implements NutritionistDaoInterface {
+public class NutritionistDao implements NutritionistDaoInterface, Serializable {
     private static final String EMAIL = "Email";
     private static final String PASSWORD = "Password";
     private static final String NAME = "Nome";

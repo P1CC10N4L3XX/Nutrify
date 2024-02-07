@@ -6,11 +6,12 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.models.Recipe;
 import com.dicii.ispw.project.patterns.singleton.Session;
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeDao {
+public class RecipeDao implements Serializable {
 
 
     public void saveRecipe(Recipe recipe) throws DuplicatedUserException {
