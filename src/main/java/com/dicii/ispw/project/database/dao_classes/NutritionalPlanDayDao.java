@@ -3,6 +3,7 @@ package com.dicii.ispw.project.database.dao_classes;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NutritionalPlanDayQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.InvalidNutritionalPlanDay;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.models.*;
 
@@ -25,11 +26,7 @@ public class NutritionalPlanDayDao {
 
     
 
-
-
-
-
-    public boolean saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist, String emailPatient ) {
+    public boolean saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist, String emailPatient ) throws InvalidNutritionalPlanDay{
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try (Statement statement = connection.createStatement()) {
@@ -49,7 +46,6 @@ public class NutritionalPlanDayDao {
              ResultSet resultSet = NutritionalPlanDayQueries.displayNutritionalPlanDay(statement, emailPatient,  emailNutritionist, data ); ) {
 
             if (resultSet.next()) {
-
 
                 throw new NutritionalPlanFounded("la data selezionata ha gia un piano nutrizionale creato ");
             }

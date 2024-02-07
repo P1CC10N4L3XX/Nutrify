@@ -5,6 +5,7 @@ import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.InvalidNutritionalPlanDay;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -147,7 +148,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
 
             }
 
-            catch(Exception e){
+            catch(InvalidNutritionalPlanDay e){
                 System.out.println(e);
             }
 
