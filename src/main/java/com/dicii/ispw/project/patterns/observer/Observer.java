@@ -7,5 +7,5 @@ import java.rmi.RemoteException;
 
 public interface Observer extends Remote {
 
-    void update(Notification notificationBean) throws RemoteException;
+    void update(Notification notification) throws RemoteException;
 }

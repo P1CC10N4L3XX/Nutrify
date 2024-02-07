@@ -10,7 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -52,7 +52,7 @@ public class LoginControllerGui {
 
     private void makeLogin(ActionEvent event) throws IOException{
         try{
-            UserBean loginUserBean = loginInfo();
+            UserCredentialsBean loginUserBean = loginInfo();
             Session.getSessionInstance().setLoggedUser(loginController.loginUser(loginUserBean));
             Session.getSessionInstance().initNotificatorSystem();
             boolean type=loginUserBean.getType();
@@ -67,16 +67,16 @@ public class LoginControllerGui {
         }
     }
 
-    private UserBean loginInfo() throws InvalidUserExceptionInfo {
+    private UserCredentialsBean loginInfo() throws InvalidUserExceptionInfo {
         String email = emailField.getText();
         String password = passwordField.getText();
         String typeText = typeField.getText();
         if(email.isEmpty() || password.isEmpty() || typeText.isEmpty()) throw new InvalidUserExceptionInfo("compile all fields");
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
         if(typeText.equals("N")) {
-            return new UserBean(email, password, true);
+            return new UserCredentialsBean(email, password, true);
         }else if(typeText.equals("P")){
-            return new UserBean(email,password,false);
+            return new UserCredentialsBean(email,password,false);
         }else{
             throw new InvalidUserExceptionInfo("compile the type as N or P");
         }
