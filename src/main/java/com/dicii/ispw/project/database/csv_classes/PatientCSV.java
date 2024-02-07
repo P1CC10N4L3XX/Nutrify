@@ -23,19 +23,10 @@ public class PatientCSV implements PatientDaoInterface {
 
     private final File fd;
 
-    private final int ATTRIBUTES_NUMBER=9;
 
 
     public PatientCSV() {
         this.fd = new File(CSV_FILE_NAME);
-
-        if(!fd.exists()){
-            try {
-                fd.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
     @Override
     public void savePatient(UserCredentials patient) throws DuplicatedUserException {
@@ -55,7 +46,7 @@ public class PatientCSV implements PatientDaoInterface {
             throw new RuntimeException(e);
         }
 
-        String[] record = new String[ATTRIBUTES_NUMBER];
+        String[] record = new String[9];
 
         record[PatientAttributesOrder.getIndexPatientEmail()] = patient.getEmail();
         record[PatientAttributesOrder.getIndexPatientPassword()] = patient.getPassword();
@@ -65,7 +56,7 @@ public class PatientCSV implements PatientDaoInterface {
             csvWriter.flush();
             csvWriter.close();
         }catch (Exception e){
-            throw new RuntimeException(e);
+            e.getStackTrace();
         }
     }
 

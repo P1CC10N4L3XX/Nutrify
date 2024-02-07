@@ -54,12 +54,9 @@ public class DashboardHome extends DashboardController implements Initializable 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        try {
-            list = createNutritionalController.displayPatient(Session.getSessionInstance().getLoggedUser().getEmail());
 
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
-        }
+        list = createNutritionalController.displayPatient(Session.getSessionInstance().getLoggedUser().getEmail());
+
         for (PatientBean patientBean : list) {
 
             myListView.getItems().addAll(String.valueOf(patientBean.getEmail()));

@@ -78,17 +78,10 @@ public class DashboardPlan implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            viewPatientInfo();
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
-        }
+        viewPatientInfo();
     }
 
-    public void viewPatientInfo() throws DuplicatedUserException {
-
-        try {
-
+    public void viewPatientInfo() {
             patientBean=createNutritionalController.displayUserInfo(Session.getSessionInstance().getLoggedUser().getEmail());
             this.name.setText(patientBean.getName());
             this.surname.setText(patientBean.getSurname());
@@ -96,11 +89,6 @@ public class DashboardPlan implements Initializable {
             this.weight.setText(patientBean.getWeight());
             this.height.setText(patientBean.getHeight());
             this.ilneeses.setText(patientBean.getIlnessesBean().getName());
-
-
-        }catch (NullPointerException e){
-            System.out.println(e.getMessage());
-        }
 
 
     }

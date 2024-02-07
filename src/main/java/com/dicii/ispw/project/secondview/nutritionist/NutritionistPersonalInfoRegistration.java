@@ -123,14 +123,7 @@ public class NutritionistPersonalInfoRegistration {
         boolean a;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate date = LocalDate.parse(dataTime, formatter);
-        if (dataTime.equals(date.format(formatter))) {
-            a=true;
-
-        } else {
-            a=false;
-        }
-
-        return a;
+        return (dataTime.equals(date.format(formatter)));
     }
 
     private NutritionistBean nutritionistInfo() throws InvalidUserExceptionInfo{

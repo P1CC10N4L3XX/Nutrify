@@ -92,7 +92,7 @@ public class ManageNutritionalController{
     }
 
 
-    public List<PatientBean> displayPatient(String emailNutritionist) throws DuplicatedUserException {
+    public List<PatientBean> displayPatient(String emailNutritionist){
 
         List<Patient> patients= PatientDao.displayPatient(emailNutritionist);
         List<PatientBean> patientsBean;
