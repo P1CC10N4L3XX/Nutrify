@@ -66,11 +66,12 @@ public class NutritionistCSV implements NutritionistDaoInterface {
     }
 
     private Nutritionist selectInfoNutritionist(String nutritionistEmail){
-        CSVReader csvReader;
+        CSVReader csvReader = null;
         try{
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         String[] myRecord;
         try {
@@ -93,15 +94,16 @@ public class NutritionistCSV implements NutritionistDaoInterface {
     }
     @Override
     public void saveNutritionistAll(Nutritionist nutritionist) {
-        CSVReader csvReader;
-        CSVWriter csvWriter;
-        File tmpFD;
+        CSVReader csvReader = null;
+        CSVWriter csvWriter = null;
+        File tmpFD = null;
         try{
             tmpFD = File.createTempFile("dao","tmp");
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
             csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(tmpFD)));
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         String[] myRecord;
         try{

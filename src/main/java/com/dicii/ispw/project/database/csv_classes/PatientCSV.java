@@ -21,7 +21,18 @@ public class PatientCSV implements PatientDaoInterface {
 
     private static final String CSV_FILE_NAME = "file/PatientFile.csv";
 
+    private static final int EMAIL = 0;
+    private static final int PASSWORD = 1;
+    private static final int NAME = 2;
+    private static final int SURNAME = 3;
+    private static final int BIRTH = 4;
+    private static final int WEIGHT = 5;
+    private static final int HEIGHT = 6;
+    private static final int NUTRITIONIST = 7;
+    private static final int ILLNESSES = 8;
+
     private final File fd;
+
 
 
 
@@ -39,17 +50,18 @@ public class PatientCSV implements PatientDaoInterface {
         if(duplicatedRecordEmail){
             throw new DuplicatedUserException("User already exists");
         }
-        CSVWriter csvWriter;
+        CSVWriter csvWriter = null;
         try {
             csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(fd)));
         }catch (Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         String[] record = new String[9];
 
-        record[PatientAttributesOrder.getIndexPatientEmail()] = patient.getEmail();
-        record[PatientAttributesOrder.getIndexPatientPassword()] = patient.getPassword();
+        record[EMAIL] = patient.getEmail();
+        record[PASSWORD] = patient.getPassword();
 
         csvWriter.writeNext(record);
         try {
@@ -62,28 +74,28 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public void savePatientAll(Patient patient) {
-        CSVReader csvReader;
-        CSVWriter csvWriter;
-        File tmpFD;
+        CSVReader csvReader = null;
+        CSVWriter csvWriter = null;
+        File tmpFD = null;
         try{
             tmpFD = File.createTempFile("dao","tmp");
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
             csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(tmpFD)));
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
-        String[] record;
+        String[] myRecord;
         try{
-            while((record = csvReader.readNext())!=null){
-                int posEmail = PatientAttributesOrder.getIndexPatientEmail();
-                if(record[posEmail].equals(patient.getEmail())){
-                    record[PatientAttributesOrder.getIndexPatientName()] = patient.getName();
-                    record[PatientAttributesOrder.getIndexPatientSurname()]=patient.getSurname();
-                    record[PatientAttributesOrder.getIndexPatientBirth()] = patient.getDateOfBirth();
-                    record[PatientAttributesOrder.getIndexPatientWeight()] = patient.getWeight();
-                    record[PatientAttributesOrder.getIndexPatientHeight()] = patient.getHeight();
+            while((myRecord = csvReader.readNext())!=null){
+                if(myRecord[EMAIL].equals(patient.getEmail())){
+                    myRecord[NAME] = patient.getName();
+                    myRecord[SURNAME]=patient.getSurname();
+                    myRecord[BIRTH] = patient.getDateOfBirth();
+                    myRecord[WEIGHT] = patient.getWeight();
+                    myRecord[HEIGHT] = patient.getHeight();
                 }
-                csvWriter.writeNext(record);
+                csvWriter.writeNext(myRecord);
             }
             csvWriter.flush();
             csvWriter.close();
@@ -102,13 +114,11 @@ public class PatientCSV implements PatientDaoInterface {
         }catch(Exception e){
             throw new RuntimeException(e);
         }
-        String[] record;
+        String[] myRecord;
         boolean recordFound = false;
         try{
-            while((record = csvReader.readNext())!=null){
-                int posEmail = PatientAttributesOrder.getIndexPatientEmail();
-                int posPass = PatientAttributesOrder.getIndexPatientPassword();
-                if(record[posEmail].equals(userCredentials.getEmail()) && record[posPass].equals(userCredentials.getPassword())){
+            while((myRecord = csvReader.readNext())!=null){
+                if(myRecord[EMAIL].equals(userCredentials.getEmail()) && myRecord[PASSWORD].equals(userCredentials.getPassword())){
                     recordFound = true;
                     break;
                 }
@@ -125,24 +135,24 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public void setSubscriptionRequestPatient(Patient patient, Nutritionist nutritionist) {
-        CSVReader csvReader;
-        CSVWriter csvWriter;
-        File tmpFD;
+        CSVReader csvReader = null;
+        CSVWriter csvWriter = null;
+        File tmpFD = null;
         try{
             tmpFD = File.createTempFile("dao","tmp");
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
             csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(tmpFD)));
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
-        String[] record;
+        String[] myRecord;
         try{
-            while ((record = csvReader.readNext())!=null){
-                int posEmail = PatientAttributesOrder.getIndexPatientEmail();
-                if(record[posEmail].equals(patient.getEmail())){
-                    record[PatientAttributesOrder.getIndexPatientNutritionist()] = nutritionist.getEmail();
+            while ((myRecord = csvReader.readNext())!=null){
+                if(myRecord[EMAIL].equals(patient.getEmail())){
+                    myRecord[NUTRITIONIST] = nutritionist.getEmail();
                 }
-                csvWriter.writeNext(record);
+                csvWriter.writeNext(myRecord);
             }
             csvWriter.flush();
             csvWriter.close();
@@ -157,21 +167,23 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public User loadNutritionistSubscribed(String patientEmail) throws NotExistentUserException {
-        CSVReader csvReader;
+        CSVReader csvReader = null;
         try {
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
         }catch (Exception e){
-            throw new RuntimeException();
+            e.printStackTrace();
+            System.exit(0);
         }
-        String[] record;
+        String[] myRecord;
         try{
-            while((record = csvReader.readNext())!=null){
-                if(record[PatientAttributesOrder.getIndexPatientEmail()].equals(patientEmail)){
-                    return new User(record[PatientAttributesOrder.getIndexPatientNutritionist()]);
+            while((myRecord = csvReader.readNext())!=null){
+                if(myRecord[EMAIL].equals(patientEmail)){
+                    return new User(myRecord[NUTRITIONIST]);
                 }
             }
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         throw new NotExistentUserException("This user doesn't exist");
     }
@@ -182,57 +194,28 @@ public class PatientCSV implements PatientDaoInterface {
         try {
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         String[] record;
         Patient patientResult = null;
         try {
             while ((record = csvReader.readNext()) != null){
-                int posEmail = PatientAttributesOrder.getIndexPatientEmail();
 
-                if(record[posEmail].equals(emailPatient)){
-                    String email = record[PatientAttributesOrder.getIndexPatientEmail()];
-                    String name = record[PatientAttributesOrder.getIndexPatientName()];
-                    String surname = record[PatientAttributesOrder.getIndexPatientSurname()];
-                    String dateOfBirth = record[PatientAttributesOrder.getIndexPatientBirth()];
-                    String weight = record[PatientAttributesOrder.getIndexPatientHeight()];
-                    String height = record[PatientAttributesOrder.getIndexPatientHeight()];
+                if(record[EMAIL].equals(emailPatient)){
+                    String email = record[EMAIL];
+                    String name = record[NAME];
+                    String surname = record[SURNAME];
+                    String dateOfBirth = record[BIRTH];
+                    String weight = record[WEIGHT];
+                    String height = record[HEIGHT];
                     patientResult = new Patient(email,name,surname,null,dateOfBirth,weight,height);
                 }
             }
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return patientResult;
-    }
-
-    private static class PatientAttributesOrder{
-        public static int getIndexPatientEmail(){
-            return 0;
-        }
-        public static int getIndexPatientPassword(){
-            return 1;
-        }
-        public static int getIndexPatientName(){
-            return 2;
-        }
-        public static int getIndexPatientSurname(){
-            return 3;
-        }
-        public static int getIndexPatientBirth(){
-            return 4;
-        }
-        public static int getIndexPatientWeight(){
-            return 5;
-        }
-        public static int getIndexPatientHeight(){
-            return 6;
-        }
-        public static int getIndexPatientNutritionist(){
-            return 7;
-        }
-        public static int getIndexPatientIllness(){
-            return 8;
-        }
     }
 }
