@@ -1,7 +1,7 @@
 package com.dicii.ispw.project.firstview;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.database.TypesOfPersistenceLayer;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
@@ -48,8 +48,8 @@ public class LoginController{
 
     public void loginButton(ActionEvent event) throws IOException {
         try{
-            UserBean loginUserBean = loginInfo();
-            Session.getSessionInstance().setLoggedUser(loginApplicationController.loginUser(loginUserBean));
+            UserCredentialsBean loginUserCredentialsBean = loginInfo();
+            Session.getSessionInstance().setLoggedUser(loginApplicationController.loginUser(loginUserCredentialsBean));
             Session.getSessionInstance().initNotificatorSystem();
             if(patientRadioButton.isSelected()){
                 GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
@@ -73,14 +73,14 @@ public class LoginController{
         popUpStage.show();
 
     }
-    private UserBean loginInfo() throws InvalidUserExceptionInfo{
+    private UserCredentialsBean loginInfo() throws InvalidUserExceptionInfo{
         String email=emailField.getText();
         String password=passwordField.getText();
         boolean nutritionist = nutritionistRadioButton.isSelected();
         boolean patient = patientRadioButton.isSelected();
         if(email.isEmpty() || password.isEmpty() || (!patient && !nutritionist)) throw new InvalidUserExceptionInfo("Compile all fields");
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
-        return new UserBean(email,password,nutritionist);
+        return new UserCredentialsBean(email,password,nutritionist);
 
 
 

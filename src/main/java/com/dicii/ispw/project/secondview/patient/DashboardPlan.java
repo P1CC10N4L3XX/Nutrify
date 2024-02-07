@@ -2,7 +2,7 @@ package com.dicii.ispw.project.secondview.patient;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.PatientBean;
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstview.utils.GUI;
@@ -101,13 +101,13 @@ public class DashboardPlan implements Initializable {
 
             try{
 
-                UserBean userBean = createNutritionalController.loadNutritionistSubscribed(Session.getSessionInstance().getLoggedUser().getEmail());
+                UserCredentialsBean userCredentialsBean = createNutritionalController.loadNutritionistSubscribed(Session.getSessionInstance().getLoggedUser().getEmail());
 
                 FXMLLoader loader =new FXMLLoader(getClass().getResource("/secondGui/ViewNutritionalPlan.fxml"));
                 root = loader.load();
 
                 ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName(), userBean.getEmail());
+                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName(), userCredentialsBean.getEmail());
 
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

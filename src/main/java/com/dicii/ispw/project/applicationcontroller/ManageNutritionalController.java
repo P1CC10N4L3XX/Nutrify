@@ -124,13 +124,13 @@ public class ManageNutritionalController{
 
     }
 
-    public UserBean loadNutritionistSubscribed(String patient) throws NotExistentUserException {
-        UserBean userBean = new UserBean();
+    public UserCredentialsBean loadNutritionistSubscribed(String patient) throws NotExistentUserException {
+        UserCredentialsBean userCredentialsBean = new UserCredentialsBean();
         User users;
         PatientDao patientDao = new PatientDao();
         users=patientDao.loadNutritionistSubscribed(patient);
-        userBean.setEmail(users.getEmail());
-        return userBean;
+        userCredentialsBean.setEmail(users.getEmail());
+        return userCredentialsBean;
     }
 
 

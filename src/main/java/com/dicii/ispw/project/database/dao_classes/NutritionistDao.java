@@ -1,7 +1,6 @@
 package com.dicii.ispw.project.database.dao_classes;
 
 
-import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.dao_interfaces.NutritionistDaoInterface;
 import com.dicii.ispw.project.database.query.NutritionistQueries;

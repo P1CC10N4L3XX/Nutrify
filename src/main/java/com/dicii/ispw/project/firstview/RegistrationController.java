@@ -1,7 +1,7 @@
 package com.dicii.ispw.project.firstview;
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.firstview.utils.GUI;
@@ -45,9 +45,9 @@ public class RegistrationController{
     @FXML
     protected void registerButton(ActionEvent event) throws IOException {
             try{
-                UserBean userBean = userCredentials();
-                registerApplicationController.registerUser(userBean);
-                Session.getSessionInstance().setLoggedUser(userBean);
+                UserCredentialsBean userCredentialsBean = userCredentials();
+                registerApplicationController.registerUser(userCredentialsBean);
+                Session.getSessionInstance().setLoggedUser(userCredentialsBean);
                 GUI.switchPage(event,(nutritionistRadioButton.isSelected()) ? ("/firstGui/nutritionist/NutritionistPersonalInfoRegistration.fxml") : ("/firstGui/patient/PatientPersonalInfoRegistration.fxml"));
             }catch(InvalidUserExceptionInfo e){
                 notificationLabel.setText(e.getMessage());
@@ -55,7 +55,7 @@ public class RegistrationController{
                 notificationLabel.setText("That email is used");
             }
         }
-        private UserBean userCredentials() throws InvalidUserExceptionInfo{
+        private UserCredentialsBean userCredentials() throws InvalidUserExceptionInfo{
             String email = emailField.getText();
             String password = passwordField.getText();
             String confirmPassword = confirmPasswordField.getText();
@@ -68,7 +68,7 @@ public class RegistrationController{
             }else if(!password.equals(confirmPassword)){
                 throw new InvalidUserExceptionInfo("Passwords don't match");
             }
-            return new UserBean(email,password,selectedNutritionist);
+            return new UserCredentialsBean(email,password,selectedNutritionist);
 
         }
 

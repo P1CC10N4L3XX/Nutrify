@@ -1,7 +1,7 @@
 package test;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import org.junit.Test;
 
@@ -43,9 +43,9 @@ public class TestLoginController {
         int flag = 1;
         LoginApplicationController loginApplicationController = new LoginApplicationController();
         try {
-            UserBean userBean = new UserBean(username,password,false);
-            UserBean userReturned = loginApplicationController.loginUser(userBean);
-            if(!Objects.equals(userBean.getEmail(), userReturned.getEmail()) || !Objects.equals(userBean.getPassword(), userReturned.getPassword())){
+            UserCredentialsBean userCredentialsBean = new UserCredentialsBean(username,password,false);
+            UserCredentialsBean userReturned = loginApplicationController.loginUser(userCredentialsBean);
+            if(!Objects.equals(userCredentialsBean.getEmail(), userReturned.getEmail()) || !Objects.equals(userCredentialsBean.getPassword(), userReturned.getPassword())){
                 flag = 0;
             }
         } catch (NotExistentUserException e) {
