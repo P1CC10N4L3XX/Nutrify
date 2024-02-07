@@ -163,7 +163,7 @@ public class PatientPersonalInfoRegistration implements Initializable {
         if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || heightTextField.getText().isEmpty() || weightTextField.getText().isEmpty()  || dateOfBirthDatePicker.getText().isEmpty() || illnessesField.getText().isEmpty()){
             throw new InvalidUserExceptionInfo("compile all fields!");
         }
-        return new PatientBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getText(),weightTextField.getText(),heightTextField.getText(),new IlnessesBean(illnessesField.getText()));
+        return new PatientBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),dateOfBirthDatePicker.getText(),weightTextField.getText(),heightTextField.getText(),new IlnessesBean(illnessesField.getText()));
     }
 
 

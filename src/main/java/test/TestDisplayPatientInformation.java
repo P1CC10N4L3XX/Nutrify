@@ -24,7 +24,7 @@ public class TestDisplayPatientInformation {
 
     IlnessesBean ilnessesBean= new IlnessesBean("Diabete");
 
-    PatientBean patientBenExpected = new PatientBean("luca@gmail.com","luca","cupellaro","10/08","70.00","170","hgv",ilnessesBean);
+    PatientBean patientBenExpected = new PatientBean("luca@gmail.com","luca","cupellaro","10/08","70.00","170",ilnessesBean);
 
 
     @Test

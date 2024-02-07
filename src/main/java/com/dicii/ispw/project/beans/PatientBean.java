@@ -6,8 +6,8 @@ public class PatientBean extends UserBean{
 
     private IlnessesBean ilnesses;
 
-    public PatientBean(String email,String name,String surname, String description, String dateOfBirth, String weight, String height,IlnessesBean ilnesses){
-        super(email,name,surname,description,dateOfBirth);
+    public PatientBean(String email,String name,String surname, String dateOfBirth, String weight, String height,IlnessesBean ilnesses){
+        super(email,name,surname,dateOfBirth);
         this.weight=weight;
         this.height=height;
         this.ilnesses=ilnesses;

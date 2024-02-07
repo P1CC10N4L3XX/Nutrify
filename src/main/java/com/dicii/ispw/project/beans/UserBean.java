@@ -4,7 +4,6 @@ public class UserBean {
     private String email;
     private String name;
     private String surname;
-    private String description;
     private String dateOfBirth;
 
     public UserBean(){}
@@ -12,11 +11,10 @@ public class UserBean {
     public UserBean(String email){
         this.email = email;
     }
-    public UserBean(String email, String name, String surname, String description, String dateOfBirth){
+    public UserBean(String email, String name, String surname, String dateOfBirth){
         this.email = email;
         this.name = name;
         this.surname = surname;
-        this.description = description;
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -52,11 +50,7 @@ public class UserBean {
         return dateOfBirth;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public String getDescription() {
-        return description;
-    }
+
+
 }
