@@ -102,6 +102,8 @@ public class CreateNutritionalPlanDay implements Initializable {
 
     }
 
+
+
     public void onCommand(ActionEvent event) throws IOException {
 
         completeAlert = new Alert(Alert.AlertType.WARNING, "Recipe not found") ;
@@ -111,22 +113,20 @@ public class CreateNutritionalPlanDay implements Initializable {
         commandLine.setText("");
         if (commandText.matches(SET_BREAKFAST)) {
             String breakfastName = commandText.replace("set breakfast ", "");
-            if(checkRecipe(breakfastName)){
-                breakfast.setText(breakfastName);
-            }
+            checkRecipe(breakfastName,breakfast);
+
+
 
         } else if (commandText.matches(SET_LAUNCH)) {
             String launchName = commandText.replace("set launch ", "");
-            if(checkRecipe(launchName)){
-                launch.setText(launchName);
-            }
+            checkRecipe(launchName,launch);
+
 
         }
         else if (commandText.matches(SET_DINNER)) {
             String dinnerName = commandText.replace("set dinner ", "");
-            if(checkRecipe(dinnerName)){
-                dinner.setText(dinnerName);
-            }
+            checkRecipe(dinnerName,dinner);
+
 
 
         }
@@ -167,18 +167,22 @@ public class CreateNutritionalPlanDay implements Initializable {
 
     }
 
-    public boolean checkRecipe(String recipeName){
-        boolean a=false;
+    public void checkRecipe(String recipeName, TextField textField){
+
 
         for (RecipeBean recipe : list) {
             if(recipeName.matches(recipe.getName())){
-                a=true;
-                return a;
+                textField.setText(recipeName);
+                break;
+
             }
         }
+        completeAlert = new Alert(Alert.AlertType.WARNING, "recipe not found") ;
+        completeAlert.showAndWait() ;
 
-        return a;
     }
+
+
 
     public RecipeBean convertStringToReciBean(String ricetta) {
         RecipeBean recipeBean = new RecipeBean();
