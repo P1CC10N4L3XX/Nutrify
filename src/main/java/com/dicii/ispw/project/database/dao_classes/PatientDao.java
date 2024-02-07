@@ -75,7 +75,8 @@ public class PatientDao implements PatientDaoInterface {
         try(Statement statement = connection.createStatement()){
             PatientQueries.updatePatientAll(statement, patient);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -92,7 +93,8 @@ public class PatientDao implements PatientDaoInterface {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return resultUser;
     }
@@ -102,7 +104,8 @@ public class PatientDao implements PatientDaoInterface {
         try(Statement statement = connection.createStatement()){
             PatientQueries.setSubscriptionForPatient(statement,patient,nutritionist);
         }catch(SQLException e ){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -120,7 +123,8 @@ public class PatientDao implements PatientDaoInterface {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return resultUser;
     }
@@ -150,7 +154,8 @@ public class PatientDao implements PatientDaoInterface {
             }
 
         }catch(SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         return patient;

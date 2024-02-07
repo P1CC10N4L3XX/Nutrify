@@ -24,7 +24,8 @@ public class GoogleController implements Initializable {
         try {
             engine.load(OAuthGoogle.generateQuery());
         } catch (NoSuchAlgorithmException | IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
 

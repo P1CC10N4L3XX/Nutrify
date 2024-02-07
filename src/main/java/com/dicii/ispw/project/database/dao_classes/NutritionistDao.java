@@ -35,7 +35,8 @@ public class NutritionistDao implements NutritionistDaoInterface {
         try(Statement statement = connection.createStatement()){
             NutritionistQueries.updateNutritionistAll(statement,nutritionist);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -52,7 +53,8 @@ public class NutritionistDao implements NutritionistDaoInterface {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return resultUser;
     }
@@ -81,7 +83,8 @@ public class NutritionistDao implements NutritionistDaoInterface {
                 nutritionistResultList.add(new Nutritionist(email,name,surname,dateOfBirth,description,iva,iban,costo));
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return nutritionistResultList;
     }

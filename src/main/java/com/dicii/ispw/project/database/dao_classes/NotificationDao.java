@@ -44,7 +44,8 @@ public class NotificationDao {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         return notificationResultList;
     }
@@ -57,7 +58,8 @@ public class NotificationDao {
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedNotificationException("Subscription request already sent to this user");
         }catch(SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -67,7 +69,8 @@ public class NotificationDao {
             NotificationQueries.deleteSubscriptionRequestNotification(statement,notification);
             NotificationQueries.insertNotification(statement,notification);
         }catch(SQLException e){
-            throw new RuntimeException();
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -76,7 +79,8 @@ public class NotificationDao {
         try(Statement statement = connection.createStatement()){
             NotificationQueries.deleteNotification(statement,notification);
         }catch (SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -85,7 +89,8 @@ public class NotificationDao {
         try(Statement statement = connection.createStatement()){
             NotificationQueries.deleteAllSubscriptionRequestOfPatient(statement,patient);
         }catch(SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 }

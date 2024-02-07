@@ -26,15 +26,18 @@ public class NutritionalPlanDayDao {
 
     
 
-    public boolean saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist, String emailPatient ) throws InvalidNutritionalPlanDay{
+    public boolean saveNutritionalPlanDay(NutritionalPlanDay nutritionalPlanDay, String emailNutritionist, String emailPatient ){
 
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try (Statement statement = connection.createStatement()) {
 
             return NutritionalPlanDayQueries.insertNutritionalPlanDay(statement, nutritionalPlanDay, emailNutritionist, emailPatient);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
+
+        return false;
 
     }
 
