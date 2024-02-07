@@ -13,7 +13,7 @@ public class DashboardController {
 
     }
 
-    public void switchRecipes(ActionEvent event) throws IOException {
+    public void recipeDashBoard(ActionEvent event) throws IOException {
 
         GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardRecipes.fxml");
 

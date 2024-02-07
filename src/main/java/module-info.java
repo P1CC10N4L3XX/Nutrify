@@ -31,7 +31,6 @@ module com.example.progetto {
     opens com.dicii.ispw.project.patterns.observer;
     exports com.dicii.ispw.project.firstview.obj to javafx.fxml;
     opens com.dicii.ispw.project.firstview.obj;
-    exports com.dicii.ispw.project.firstview.nutritionist.dashboard to javafx.fxml;
     opens com.dicii.ispw.project.firstview.nutritionist.dashboard;
     exports com.dicii.ispw.project.beans;
     exports com.dicii.ispw.project.models;
@@ -43,4 +42,5 @@ module com.example.progetto {
     opens com.dicii.ispw.project.secondview.nutritionist;
     exports com.dicii.ispw.project.secondview.patient to javafx.fxml;
     opens com.dicii.ispw.project.secondview.patient;
+    exports com.dicii.ispw.project.firstview.nutritionist.dashboard;
 }

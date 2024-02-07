@@ -2,10 +2,7 @@ package com.dicii.ispw.project.applicationcontroller;
 
 import com.dicii.ispw.project.beans.*;
 import com.dicii.ispw.project.database.dao_classes.*;
-import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
-import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
+import com.dicii.ispw.project.exceptions.*;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.patterns.singleton.Session;
@@ -113,7 +110,7 @@ public class ManageNutritionalController{
 
     }
 
-    public void createNutrutionalPlan(NutritionalPlanBean nutritionalPlanBean) throws DuplicatedUserException {
+    public void createNutrutionalPlan(NutritionalPlanBean nutritionalPlanBean) throws NutritionalPlanBaseAlreadyCreated {
 
 
         if(nutritionalPlanBase==null){

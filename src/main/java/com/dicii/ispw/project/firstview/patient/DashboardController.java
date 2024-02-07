@@ -21,7 +21,7 @@ public class DashboardController {
 
     public void switchRecipes(ActionEvent event) throws Exception {
 
-        GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardRecipes.fxml");
+        GUI.switchPage(event, "/firstGui/nutritionist/dashboard/DashboardRecipes.fxml");
 
     }
     public void switchPlan(ActionEvent event) throws Exception {

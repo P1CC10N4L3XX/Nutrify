@@ -7,6 +7,7 @@ import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.firstview.ViewNutritionalPlan;
+import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -166,5 +169,7 @@ public class NutritionalPlanDay {
     }
 
 
-
+    public void back(ActionEvent event) throws IOException {
+        GUI.switchPage(event,"/FirstGui/nutritionist/dashboard/DashboardHome.fxml");
+    }
 }
