@@ -26,10 +26,10 @@ import java.util.ResourceBundle;
 
 public class NutritionalPlanDay {
 
-    private Stage stage;
-    private Scene scene;
+    private Stage stages;
+    private Scene scenes;
 
-    private Parent root;
+    private Parent roots;
 
     @FXML
     private Label nameField;
@@ -107,17 +107,17 @@ public class NutritionalPlanDay {
             try{
 
                 FXMLLoader loader =new FXMLLoader(getClass().getResource("/secondGui/ViewNutritionalPlan.fxml"));
-                root = loader.load();
+                roots = loader.load();
 
                 ViewNutritionalPlan viewNutritionalPlan = loader.getController();
                 viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName(),patientSelected.getText());
 
 
-                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setResizable(false);
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                stages = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stages.setResizable(false);
+                scenes = new Scene(roots);
+                stages.setScene(scenes);
+                stages.show();
 
             }catch (NutritionalPlanNotFoundException | DuplicatedUserException e){
                 e.printStackTrace();
@@ -132,16 +132,16 @@ public class NutritionalPlanDay {
                 }else{
                     createNutritionalController.checkNutritionalPlanDay(data.getText(),email);
                     FXMLLoader loader =new FXMLLoader(getClass().getResource("/secondGui/nutritionist/CreateNutritionalPlanDay.fxml"));
-                    root = loader.load();
+                    roots = loader.load();
 
                     CreateNutritionalPlanDay createNutritionalPlanDay = loader.getController();
                     createNutritionalPlanDay.displayData(data.getText());
 
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setResizable(false);
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
+                    stages = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stages.setResizable(false);
+                    scenes = new Scene(roots);
+                    stages.setScene(scenes);
+                    stages.show();
 
                 }
 
