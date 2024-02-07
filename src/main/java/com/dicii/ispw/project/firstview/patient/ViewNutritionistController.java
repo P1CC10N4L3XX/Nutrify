@@ -3,8 +3,11 @@ package com.dicii.ispw.project.firstview.patient;
 import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistController;
 import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.beans.SubscriptionRequestBean;
+import com.dicii.ispw.project.exceptions.DuplicatedNotificationException;
+import com.dicii.ispw.project.exceptions.NotOnlineUserException;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -43,8 +46,9 @@ public class ViewNutritionistController extends DashboardController {
         SubscriptionRequestBean subscriptionRequestBean = new SubscriptionRequestBean(subscriber,nutritionist,dateTime);
         try {
             subscribeToNutritionistController.sendSubscriptionRequest(subscriptionRequestBean);
-        }catch(RemoteException | NotBoundException e){
-            System.out.println(e.getMessage());
+        }catch(NotOnlineUserException | DuplicatedNotificationException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage());
+            alert.showAndWait();
         }
     }
 }

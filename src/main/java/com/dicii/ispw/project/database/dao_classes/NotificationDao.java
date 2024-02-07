@@ -2,6 +2,7 @@ package com.dicii.ispw.project.database.dao_classes;
 
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.query.NotificationQueries;
+import com.dicii.ispw.project.exceptions.DuplicatedNotificationException;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.models.Notification;
 import com.dicii.ispw.project.models.Patient;
@@ -9,10 +10,7 @@ import com.dicii.ispw.project.models.SubscriptionRequest;
 import com.dicii.ispw.project.models.User;
 import javafx.scene.chart.XYChart;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,11 +49,13 @@ public class NotificationDao {
         return notificationResultList;
     }
 
-    public void setSubscriptionRequest(SubscriptionRequest subscriptionRequest) {
+    public void setSubscriptionRequest(SubscriptionRequest subscriptionRequest) throws DuplicatedNotificationException{
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         Notification notification = new Notification(subscriptionRequest.getSubscriber(),subscriptionRequest.getNutritionist(),subscriptionRequest.getDateTime(),"Subscription Request","SubscriptionRequest");
         try(Statement statement = connection.createStatement()){
             NotificationQueries.insertNotification(statement,notification);
+        }catch(SQLIntegrityConstraintViolationException e){
+            throw new DuplicatedNotificationException("Subscription request already sent to this user");
         }catch(SQLException e){
             throw new RuntimeException(e);
         }

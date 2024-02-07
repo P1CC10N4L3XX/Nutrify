@@ -5,7 +5,9 @@ import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.database.dao_classes.NotificationDao;
 import com.dicii.ispw.project.database.dao_classes.NutritionistDao;
 import com.dicii.ispw.project.database.dao_classes.PatientDao;
+import com.dicii.ispw.project.exceptions.DuplicatedNotificationException;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
+import com.dicii.ispw.project.exceptions.NotOnlineUserException;
 import com.dicii.ispw.project.firstview.obj.NotificationPopUpController;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.SubscriptionRequestBean;
@@ -62,15 +64,13 @@ public class SubscribeToNutritionistController {
         }
         return nutritionistBeanList;
     }
-    public void sendSubscriptionRequest(SubscriptionRequestBean subscriptionRequestBean) throws RemoteException,NotBoundException {
+    public void sendSubscriptionRequest(SubscriptionRequestBean subscriptionRequestBean) throws NotOnlineUserException, DuplicatedNotificationException {
         Patient subscriber = new Patient(subscriptionRequestBean.getSubscriber());
         Nutritionist nutritionist = new Nutritionist(subscriptionRequestBean.getNutritionist());
         String currentDate = subscriptionRequestBean.getDateTime();
         SubscriptionRequest subscriptionRequest = new SubscriptionRequest(subscriber,nutritionist,currentDate);
         notificationDAO.setSubscriptionRequest(subscriptionRequest);
-        NotificationCatch notificationCatch = new NotificationCatch();
-        Notification notification = new Notification(subscriber,nutritionist,currentDate,SUBSCRIPTION_REQUEST,null);
-        notificationCatch.notifyUser(notification,nutritionist);
+        sendNotificationPopUp(subscriber,nutritionist,currentDate,"Subscription request");
 
     }
 
@@ -80,26 +80,24 @@ public class SubscribeToNutritionistController {
         return setNotificationBeanList(notificationList);
     }
 
-    public void acceptSubscriptionRequest(NotificationBean notificationBean) throws RemoteException,NotBoundException{
+    public void acceptSubscriptionRequest(NotificationBean notificationBean) throws NotOnlineUserException{
         User sender = new User(notificationBean.getSender());
         User receiver = new User(notificationBean.getReceiver());
         String dateTime = notificationBean.getDateTime();
         String message = notificationBean.getMessage();
         Notification notification = new Notification(sender,receiver,dateTime,message,SUBSCRIPTION_ACCEPTED);
         notificationDAO.setAcceptedOrRefusedSubscriptionRequest(notification);
-        NotificationCatch notificationCatch = new NotificationCatch();
-        notificationCatch.notifyUser(notification,receiver);
+        sendNotificationPopUp(sender,receiver,dateTime,message);
     }
 
-    public void refuseSubscriptionRequest(NotificationBean notificationBean) throws RemoteException, NotBoundException{
+    public void refuseSubscriptionRequest(NotificationBean notificationBean) throws NotOnlineUserException {
         User sender = new User(notificationBean.getSender());
         User receiver = new User(notificationBean.getReceiver());
         String dateTime = notificationBean.getDateTime();
         String message = notificationBean.getMessage();
         Notification notification = new Notification(sender, receiver, dateTime, message,SUBSCRIPTION_REFUSED);
         notificationDAO.setAcceptedOrRefusedSubscriptionRequest(notification);
-        NotificationCatch notificationCatch = new NotificationCatch();
-        notificationCatch.notifyUser(notification,receiver);
+        sendNotificationPopUp(sender,receiver,dateTime,message);
     }
 
     public List<NotificationBean> getSubscriptionAcceptedNotifications() throws NotExistentNotification {
@@ -137,15 +135,22 @@ public class SubscribeToNutritionistController {
         return notificationBeanList;
     }
 
-    public void subscribePatientToNutritionist(NutritionistBean nutritionistBean) throws NotBoundException, RemoteException {
+    public void subscribePatientToNutritionist(NutritionistBean nutritionistBean) throws NotOnlineUserException {
         Patient patient = new Patient(Session.getSessionInstance().getLoggedUser().getEmail());
         Nutritionist nutritionist = new Nutritionist(nutritionistBean.getEmail());
         String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         patientDAO.setSubscriptionRequestPatient(patient,nutritionist);
         notificationDAO.removeSubscriptionRequestNotificationPatient(patient);
-        NotificationCatch notificationCatch = new NotificationCatch();
-        Notification notification = new Notification(patient,nutritionist,dateTime,"Subscription made",null);
-        notificationCatch.notifyUser(notification,nutritionist);
+        sendNotificationPopUp(patient,nutritionist,dateTime,"Subscription made");
+    }
+    private void sendNotificationPopUp(User sender,User destination,String dateTime,String message) throws NotOnlineUserException{
+        try {
+            NotificationCatch notificationCatch = new NotificationCatch();
+            Notification notification = new Notification(sender, destination, dateTime, message, null);
+            notificationCatch.notifyUser(notification, destination);
+        }catch (RemoteException | NotBoundException e ){
+            throw new NotOnlineUserException("The user is currently offline he will see the notification of subscription request");
+        }
     }
 
     public void showNotification(Notification notification){

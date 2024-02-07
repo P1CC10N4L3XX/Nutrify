@@ -2,8 +2,10 @@ package com.dicii.ispw.project.firstview.nutritionist.obj;
 
 import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistController;
 import com.dicii.ispw.project.beans.NotificationBean;
+import com.dicii.ispw.project.exceptions.NotOnlineUserException;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -41,8 +43,9 @@ public class SubscriptionCardController {
         NotificationBean notificationBean = new NotificationBean(sender,patientEmail,dateTime,"Subscription request accepted");
         try {
             subscribeToNutritionistController.acceptSubscriptionRequest(notificationBean);
-        }catch(Exception e ){
-            System.out.println(e.getMessage());
+        }catch(NotOnlineUserException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage());
+            alert.showAndWait();
         }
         removeCardBox();
     }
@@ -53,8 +56,9 @@ public class SubscriptionCardController {
         NotificationBean notificationBean = new NotificationBean(sender, patientEmail, dateTime,"Subscription request refused");
         try{
             subscribeToNutritionistController.refuseSubscriptionRequest(notificationBean);
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+        }catch(NotOnlineUserException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage());
+            alert.showAndWait();
         }
         removeCardBox();
     }
