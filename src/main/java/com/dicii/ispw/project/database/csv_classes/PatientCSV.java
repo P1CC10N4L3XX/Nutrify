@@ -109,7 +109,7 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public UserCredentials loadPatientByCredentials(UserCredentials userCredentials) throws NotExistentUserException {
-        CSVReader csvReader;
+        CSVReader csvReader = null;
         try{
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
         }catch(Exception e){
