@@ -19,8 +19,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -87,20 +85,20 @@ public class NutritionalPlanDay {
 
 
 
-    public void viewPatientInfo(String emailPatient) {
+    public void viewPatientInfo(String emailPatient) throws DuplicatedUserException {
 
-            email=emailPatient;
-            patientSelected.setText(emailPatient);
+        email=emailPatient;
+        patientSelected.setText(emailPatient);
 
 
-            patientBean=createNutritionalController.displayUserInfo(emailPatient);
+        patientBean=createNutritionalController.displayUserInfo(emailPatient);
 
-            this.nome.setText(patientBean.getName());
-            this.surname.setText(patientBean.getSurname());
-            this.birthday.setText(patientBean.getDateOfBirth());
-            this.weight.setText(patientBean.getWeight());
-            this.height.setText(patientBean.getHeight());
-            this.ilneeses.setText(patientBean.getIlnessesBean().getName());
+        this.nome.setText(patientBean.getName());
+        this.surname.setText(patientBean.getSurname());
+        this.birthday.setText(patientBean.getDateOfBirth());
+        this.weight.setText(patientBean.getWeight());
+        this.height.setText(patientBean.getHeight());
+        this.ilneeses.setText(patientBean.getIlnessesBean().getName());
 
     }
 
@@ -118,7 +116,7 @@ public class NutritionalPlanDay {
                 warning.setText("Seleziona la data");
             }else{
                 createNutritionalController.checkNutritionalPlanDay(dataSelected,email);
-                FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlan.fxml"));
+                FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/CreateNutritionalPlans.fxml"));
                 root = loader.load();
 
                 CreateNutritionalPlanControllerGui createNutritionalPlanControllerGui = loader.getController();
@@ -134,7 +132,7 @@ public class NutritionalPlanDay {
 
         }
         catch(NutritionalPlanFounded e){
-                  warning.setText(e.getMessage());
+            warning.setText(e.getMessage());
         }
 
 
@@ -168,8 +166,13 @@ public class NutritionalPlanDay {
 
     }
 
+    public void back(ActionEvent event) throws Exception{
+        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardHome.fxml");
 
-    public void back(ActionEvent event) throws IOException {
-        GUI.switchPage(event,"/FirstGui/nutritionist/dashboard/DashboardHome.fxml");
+
+
     }
+
+
+
 }
