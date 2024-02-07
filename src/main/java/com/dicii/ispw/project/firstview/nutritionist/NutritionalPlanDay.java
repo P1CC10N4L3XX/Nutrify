@@ -145,7 +145,7 @@ public class NutritionalPlanDay {
 
         try{
 
-            FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/ViewNutritionalPlan.fxml"));
+            FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/ViewNutritionalPlans.fxml"));
             root = loader.load();
 
             ViewNutritionalPlan viewNutritionalPlan = loader.getController();
