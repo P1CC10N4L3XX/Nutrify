@@ -42,7 +42,7 @@ public class NutritionistDetailsController {
             try {
                 subscribeToNutritionistController.sendSubscriptionRequest(new SubscriptionRequestBean(subscriber,nutritionist,dateTime));
             } catch (RemoteException | NotBoundException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
         }
     }
