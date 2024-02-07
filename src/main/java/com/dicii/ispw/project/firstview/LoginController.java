@@ -82,9 +82,6 @@ public class LoginController{
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
         return new UserCredentialsBean(email,password,nutritionist);
 
-
-
-
     }
 
 

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -27,15 +26,14 @@
         </ImageView>
         <ScrollPane hbarPolicy="NEVER" layoutX="251.0" layoutY="152.0" prefHeight="426.0" prefWidth="394.0" style="-fx-background: transparent; -fx-background-color: transparent;">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="546.0" prefWidth="378.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="402.0" prefWidth="378.0" style="-fx-background-color: transparent; -fx-background: transparent;">
                     <children>
                         <TextField fx:id="nameTextField" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="174.0" promptText="Name" style="-fx-alignment: center; -fx-background-radius: 15;" />
                         <TextField fx:id="surnameTextField" layoutX="193.0" layoutY="14.0" prefHeight="25.0" prefWidth="177.0" promptText="Surname" style="-fx-alignment: center; -fx-background-radius: 15;" />
                         <TextField fx:id="weightTextField" layoutX="13.0" layoutY="85.0" prefHeight="25.0" prefWidth="356.0" promptText="Peso" style="-fx-alignment: center; -fx-background-radius: 15;" />
                         <DatePicker fx:id="dateOfBirthDatePicker" layoutX="14.0" layoutY="46.0" prefHeight="25.0" prefWidth="353.0" promptText="Date of birth" style="-fx-border-color: black;" />
                         <TextField fx:id="heightTextField" layoutX="13.0" layoutY="122.0" prefHeight="25.0" prefWidth="354.0" promptText="Altezza" style="-fx-alignment: center; -fx-background-radius: 15;" />
-                        <TextArea fx:id="descriptionTextArea" layoutX="13.0" layoutY="226.0" prefHeight="257.0" prefWidth="354.0" promptText="Enter a description..." />
-                        <Button layoutX="125.0" layoutY="495.0" mnemonicParsing="false" onAction="#completeRegistration" style="-fx-background-color: #4287f5; -fx-background-radius: 15; -fx-padding: 10;" styleClass="normalButton" text="Complete registration" />
+                        <Button layoutX="120.0" layoutY="351.0" mnemonicParsing="false" onAction="#completeRegistration" style="-fx-background-color: #4287f5; -fx-background-radius: 15; -fx-padding: 10;" styleClass="normalButton" text="Complete registration" />
                         <Label fx:id="notificationLabel" layoutX="126.0" layoutY="466.0" prefHeight="17.0" prefWidth="135.0" style="-fx-text-fill: red; -fx-alignment: center;" />
                   <ChoiceBox fx:id="illness" layoutX="12.0" layoutY="173.0" prefHeight="26.0" prefWidth="351.0" />
                   <Text layoutX="177.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="illnesses" />

@@ -30,8 +30,6 @@ public class PersonalInfoController implements Initializable {
     @FXML
     private TextField heightTextField;
     @FXML
-    private TextArea descriptionTextArea;
-    @FXML
     private Label notificationLabel;
 
     private List<IlnessesBean> list;
@@ -89,9 +87,9 @@ public class PersonalInfoController implements Initializable {
 
     }
     private PatientBean patientInfo() throws InvalidUserExceptionInfo{
-        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || heightTextField.getText().isEmpty() || weightTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty() || dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")).isEmpty()){
+        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || heightTextField.getText().isEmpty() || weightTextField.getText().isEmpty() || dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")).isEmpty()){
             throw new InvalidUserExceptionInfo("compile all fields!");
         }
-        return new PatientBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),weightTextField.getText(),heightTextField.getText(),ilnessesBean);
+        return new PatientBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),dateOfBirthDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),weightTextField.getText(),heightTextField.getText(),ilnessesBean);
     }
 }
