@@ -1,14 +1,16 @@
-package com.dicii.ispw.project.firstview.nutritionist;
+package com.dicii.ispw.project.firstview.nutritionist.dashboard;
 
 import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.firstview.nutritionist.DashboardController;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 
@@ -16,13 +18,16 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class RecipeViewControllerGui implements Initializable {
+public class RecipeViewControllerGui extends DashboardController implements Initializable {
 
 
     private ManageNutritionalController createNutritionalController;
 
     @FXML
     private ListView<String> myListView;
+
+    @FXML
+    private Label warning;
 
     private List<RecipeBean> list;
 
@@ -59,7 +64,7 @@ public class RecipeViewControllerGui implements Initializable {
 
     }
     public void addRecipe(ActionEvent event) throws Exception {
-        GUI.switchPage(event,"/firstGui/nutritionist/CreateRecipe.fxml");
+        GUI.switchPage(event,"/firstGui/nutritionist/CreateRecipes.fxml");
 
 
     }
@@ -67,6 +72,10 @@ public class RecipeViewControllerGui implements Initializable {
 
 
     public void deleteRecipe(ActionEvent event) throws Exception {
+
+        if(selectedRecipe==null){
+            warning.setText("select recipe to delete before");
+        }
 
         RecipeBean recipeBean = new RecipeBean(selectedRecipe);
         ManageNutritionalController createNewRecipeController = new ManageNutritionalController();
@@ -78,7 +87,7 @@ public class RecipeViewControllerGui implements Initializable {
 
     public void back(ActionEvent event) throws Exception {
 
-        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardHome.fxml/");
+        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardHome.fxml");
 
     }
 

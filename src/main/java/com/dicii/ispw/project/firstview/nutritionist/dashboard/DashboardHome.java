@@ -6,6 +6,7 @@ import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 
+import com.dicii.ispw.project.exceptions.NutritionalPlanBaseAlreadyCreated;
 import com.dicii.ispw.project.firstview.nutritionist.DashboardController;
 import com.dicii.ispw.project.firstview.nutritionist.NutritionalPlanDay;
 import com.dicii.ispw.project.firstview.utils.GUI;
@@ -18,9 +19,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -41,6 +46,9 @@ public class DashboardHome extends DashboardController implements Initializable 
 
     @FXML
     private ListView<String> myListView;
+
+    @FXML
+    private Label warning;
 
     private List<PatientBean> list;
     private String selectedPatient;
@@ -77,41 +85,49 @@ public class DashboardHome extends DashboardController implements Initializable 
 
     public void createNutritionalPlan(ActionEvent event) throws Exception {
 
-        nutritionistBean = new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail());
+        if(selectedPatient==null){
+            warning.setText("select patient before");
+        }else{
+            try{
+                nutritionistBean = new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail());
 
-        PatientBean patientBeanSelected = new PatientBean();
-        patientBeanSelected.setEmail(selectedPatient);
-
-
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDay.fxml"));
-        root = loader.load();
-
-        NutritionalPlanDay nutritionalPlanDay = loader.getController();
-        nutritionalPlanDay.viewPatientInfo(selectedPatient);
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setResizable(false);
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+                PatientBean patientBeanSelected = new PatientBean();
+                patientBeanSelected.setEmail(selectedPatient);
 
 
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String formattedDateString = currentDate.format(formatter);
-        nutritionalPlanBean = new NutritionalPlanBean(formattedDateString,patientBeanSelected,nutritionistBean);
-        createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
+                FXMLLoader loader =new FXMLLoader(getClass().getResource("/firstGui/nutritionist/NutritionalPlanDays.fxml"));
+                root = loader.load();
+
+                NutritionalPlanDay nutritionalPlanDay = loader.getController();
+                nutritionalPlanDay.viewPatientInfo(selectedPatient);
+
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setResizable(false);
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+
+                LocalDate currentDate = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                String formattedDateString = currentDate.format(formatter);
+                nutritionalPlanBean = new NutritionalPlanBean(formattedDateString,patientBeanSelected,nutritionistBean);
+                createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
+
+            }catch (NutritionalPlanBaseAlreadyCreated e){
+                Alert commandAlert = new Alert(Alert.AlertType.WARNING, "your are managing the nutritional plan of "+selectedPatient);
+                commandAlert.showAndWait();
+            }
+
+
+        }
 
 
 
 
     }
 
-    public void recipeDashBoard(ActionEvent event) throws Exception {
 
-        GUI.switchPage(event,"/firstGui/nutritionist/RecipeView.fxml");
-
-    }
 
 
 }

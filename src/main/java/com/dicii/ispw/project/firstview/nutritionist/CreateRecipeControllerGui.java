@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 
-public class CreateRecipeControllerGui {
+public class CreateRecipeControllerGui extends DashboardController {
 
     private String title;
 
@@ -53,7 +53,7 @@ public class CreateRecipeControllerGui {
 
 
     public void back(ActionEvent event) throws IOException {
-        GUI.switchPage(event,"/firstGui/nutritionist/RecipeView.fxml");
+        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardRecipes.fxml");
 
     }
 }
