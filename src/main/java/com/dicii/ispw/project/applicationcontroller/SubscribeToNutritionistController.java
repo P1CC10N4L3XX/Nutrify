@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.time.LocalDateTime;
@@ -29,7 +30,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubscribeToNutritionistController {
+public class SubscribeToNutritionistController implements Serializable {
     private final NutritionistDao nutritionistDAO;
     private final PatientDao patientDAO;
     private final NotificationDao notificationDAO;
