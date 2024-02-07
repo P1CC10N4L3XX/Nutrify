@@ -1,6 +1,8 @@
 package com.dicii.ispw.project.models;
 
-public class Ilnesses {
+import java.io.Serializable;
+
+public class Ilnesses implements Serializable {
 
 
     private String name;

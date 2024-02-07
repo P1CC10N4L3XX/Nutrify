@@ -1,12 +1,13 @@
 package com.dicii.ispw.project.models;
 
 
-import java.io.Serializable;
 
-public class Patient extends User implements Serializable {
+public class Patient extends User {
     private String weight;
     private String height;
-    private Ilnesses illnesses;
+    private transient Ilnesses illnesses;
+
+
 
 
 
