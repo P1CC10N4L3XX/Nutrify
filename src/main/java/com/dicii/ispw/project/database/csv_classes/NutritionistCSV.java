@@ -17,6 +17,15 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class NutritionistCSV implements NutritionistDaoInterface {
     private static final String CSV_FILE_NAME = "file/NutritionistFile.csv";
+    private static final int EMAIL = 0;
+    private static final int PASSWORD = 1;
+    private static final int NAME = 2;
+    private static final int SURNAME = 3;
+    private static final int BIRTH = 4;
+    private static final int IBAN = 5;
+    private static final int IVA = 6;
+    private static final int COST = 7;
+    private static final int DESCRIPTION = 8;
     private final File fd;
 
     public NutritionistCSV(){
@@ -44,8 +53,8 @@ public class NutritionistCSV implements NutritionistDaoInterface {
 
         String[] myRecord = new String[9];
 
-        myRecord[NutritionistAttributesOrder.getIndexNutritionistEmail()] = nutritionist.getEmail();
-        myRecord[NutritionistAttributesOrder.getIndexNutritionistPassword()] = nutritionist.getPassword();
+        myRecord[EMAIL] = nutritionist.getEmail();
+        myRecord[PASSWORD] = nutritionist.getPassword();
 
         csvWriter.writeNext(myRecord);
         try {
@@ -66,7 +75,7 @@ public class NutritionistCSV implements NutritionistDaoInterface {
         String[] myRecord;
         try {
             while ((myRecord = csvReader.readNext())!=null){
-                if(myRecord[NutritionistAttributesOrder.getIndexNutritionistEmail()].equals(nutritionistEmail)){
+                if(myRecord[EMAIL].equals(nutritionistEmail)){
                     return new Nutritionist(nutritionistEmail);
                 }
             }
@@ -97,15 +106,14 @@ public class NutritionistCSV implements NutritionistDaoInterface {
         String[] myRecord;
         try{
             while((myRecord = csvReader.readNext())!=null){
-                int posEmail = NutritionistAttributesOrder.getIndexNutritionistEmail();
-                if(myRecord[posEmail].equals(nutritionist.getEmail())){
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistName()] = nutritionist.getEmail();
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistSurname()] = nutritionist.getSurname();
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistBirth()] = nutritionist.getDateOfBirth();
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistIban()] = nutritionist.getIban();
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistIva()] = nutritionist.getIva();
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistCost()] = nutritionist.getCosto();
-                    myRecord[NutritionistAttributesOrder.getIndexNutritionistDescription()] = nutritionist.getDescription();
+                if(myRecord[EMAIL].equals(nutritionist.getEmail())){
+                    myRecord[NAME] = nutritionist.getEmail();
+                    myRecord[SURNAME] = nutritionist.getSurname();
+                    myRecord[BIRTH] = nutritionist.getDateOfBirth();
+                    myRecord[IBAN] = nutritionist.getIban();
+                    myRecord[IVA] = nutritionist.getIva();
+                    myRecord[COST] = nutritionist.getCosto();
+                    myRecord[DESCRIPTION] = nutritionist.getDescription();
                 }
             }
             csvWriter.flush();
@@ -131,9 +139,7 @@ public class NutritionistCSV implements NutritionistDaoInterface {
         boolean recordFound = false;
         try{
             while((myRecord = csvReader.readNext())!=null){
-                int posEmail = NutritionistAttributesOrder.getIndexNutritionistEmail();
-                int posPass = NutritionistAttributesOrder.getIndexNutritionistPassword();
-                if(myRecord[posEmail].equals(nutritionist.getEmail()) && myRecord[posPass].equals(nutritionist.getPassword())){
+                if(myRecord[EMAIL].equals(nutritionist.getEmail()) && myRecord[PASSWORD].equals(nutritionist.getPassword())){
                     recordFound = true;
                     break;
                 }
@@ -154,60 +160,31 @@ public class NutritionistCSV implements NutritionistDaoInterface {
         List<Nutritionist> nutritionistList = new ArrayList<Nutritionist>();
         try {
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
         String[] myRecord;
         int i = 0;
         try {
-            while ((myRecord = csvReader.readNext())!=null){
-                if(i>=from && i<=to){
-                    String email=myRecord[NutritionistAttributesOrder.getIndexNutritionistEmail()];
-                    String name=myRecord[NutritionistAttributesOrder.getIndexNutritionistName()];
-                    String surname = myRecord[NutritionistAttributesOrder.getIndexNutritionistSurname()];
-                    String dateOfBirth = myRecord[NutritionistAttributesOrder.getIndexNutritionistBirth()];
-                    String description = myRecord[NutritionistAttributesOrder.getIndexNutritionistDescription()];
-                    String iva = myRecord[NutritionistAttributesOrder.getIndexNutritionistIva()];
-                    String iban = myRecord[NutritionistAttributesOrder.getIndexNutritionistIban()];
-                    String costo = myRecord[NutritionistAttributesOrder.getIndexNutritionistCost()];
-                    nutritionistList.add(new Nutritionist(email,name,surname,dateOfBirth,description,iva,iban,costo));
+            while ((myRecord = csvReader.readNext()) != null) {
+                if (i >= from && i <= to) {
+                    String email = myRecord[EMAIL];
+                    String name = myRecord[NAME];
+                    String surname = myRecord[SURNAME];
+                    String dateOfBirth = myRecord[BIRTH];
+                    String description = myRecord[DESCRIPTION];
+                    String iva = myRecord[IVA];
+                    String iban = myRecord[IBAN];
+                    String costo = myRecord[COST];
+                    nutritionistList.add(new Nutritionist(email, name, surname, dateOfBirth, description, iva, iban, costo));
                 }
                 i++;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
         return nutritionistList;
-    }
-    private static class NutritionistAttributesOrder{
-        public static int getIndexNutritionistEmail(){
-            return 0;
-        }
-        public static int getIndexNutritionistPassword(){
-            return 1;
-        }
-        public static int getIndexNutritionistName(){
-            return 2;
-        }
-        public static int getIndexNutritionistSurname(){
-            return 3;
-        }
-        public static int getIndexNutritionistBirth(){
-            return 4;
-        }
-        public static int getIndexNutritionistIban(){
-            return 5;
-        }
-        public static int getIndexNutritionistIva(){
-            return 6;
-        }
-        public static int getIndexNutritionistCost(){
-            return 7;
-        }
-        public static int getIndexNutritionistDescription(){
-            return 8;
-        }
     }
 }
