@@ -1,7 +1,6 @@
 package com.dicii.ispw.project.database.query;
 
 import com.dicii.ispw.project.models.Notification;
-import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.User;
 
 import java.sql.ResultSet;
