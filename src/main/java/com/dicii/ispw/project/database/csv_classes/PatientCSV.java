@@ -3,10 +3,7 @@ package com.dicii.ispw.project.database.csv_classes;
 import com.dicii.ispw.project.database.dao_interfaces.PatientDaoInterface;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
-import com.dicii.ispw.project.models.Nutritionist;
-import com.dicii.ispw.project.models.Patient;
-import com.dicii.ispw.project.models.User;
-import com.dicii.ispw.project.models.UserCredentials;
+import com.dicii.ispw.project.models.*;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -164,6 +161,7 @@ public class PatientCSV implements PatientDaoInterface {
     public Patient selectInfoPatient(String emailPatient){
         String[] myRecord;
         Patient patientResult = null;
+
         try (CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))){
             while ((myRecord = csvReader.readNext()) != null){
 
@@ -174,7 +172,9 @@ public class PatientCSV implements PatientDaoInterface {
                     String dateOfBirth = myRecord[BIRTH];
                     String weight = myRecord[WEIGHT];
                     String height = myRecord[HEIGHT];
-                    patientResult = new Patient(email,name,surname,null,dateOfBirth,weight,height);
+                    String illnessesField=myRecord[ILLNESSES];
+                    Ilnesses ilnessesText = new Ilnesses(illnessesField);
+                    patientResult = new Patient(email,name,surname,dateOfBirth,weight,height,ilnessesText);
                 }
             }
         } catch (Exception e) {

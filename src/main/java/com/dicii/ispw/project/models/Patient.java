@@ -15,18 +15,15 @@ public class Patient extends User {
         super(email);
     }
 
-    public Patient(String email,String name,String surname,String dateOfBirth,String description,String weight, String height){
-        super(email,name,surname,dateOfBirth,description);
+    public Patient(String email,String name,String surname,String dateOfBirth,String weight, String height){
+        super(email,name,surname,dateOfBirth);
         this.weight = weight;
         this.height = height;
 
-
     }
 
-
-
-    public Patient(String email,String name,String surname,String dateOfBirth,String description,String weight, String height, Ilnesses ilnesses){
-        super(email,name,surname,dateOfBirth,description);
+    public Patient(String email,String name,String surname,String dateOfBirth,String weight, String height, Ilnesses ilnesses){
+        super(email,name,surname,dateOfBirth);
         this.weight = weight;
         this.height = height;
         this.illnesses=ilnesses;

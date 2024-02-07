@@ -59,7 +59,7 @@ public class RegisterApplicationController {
 
 
     public void completeRegistrationPatient(PatientBean patientBean){
-        Patient patient = new Patient (patientBean.getEmail(),patientBean.getName(), patientBean.getSurname(),patientBean.getDateOfBirth(),patientBean.getDescription(),patientBean.getWeight(),patientBean.getHeight(),convertIlnessesBeanToModel(patientBean.getIlnessesBean()));
+        Patient patient = new Patient (patientBean.getEmail(),patientBean.getName(), patientBean.getSurname(),patientBean.getDateOfBirth(),patientBean.getWeight(),patientBean.getHeight(),convertIlnessesBeanToModel(patientBean.getIlnessesBean()));
         PatientDao patientDAO = new PatientDao();
         patientDAO.savePatientAll(patient);
     }

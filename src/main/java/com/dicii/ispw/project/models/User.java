@@ -8,14 +8,14 @@ public class User implements Serializable {
     private String name;
     private String surname;
     private String dateOfBirth;
-    private String description;
 
-    public User(String email,String name,String surname,String dateOfBirth,String description){
+
+    public User(String email,String name,String surname,String dateOfBirth){
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
-        this.description = description;
+
     }
 
     public User(String email){
@@ -34,9 +34,7 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setDescription(String description) {
-        this.description = description;
-    }
+
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
@@ -52,9 +50,7 @@ public class User implements Serializable {
         return surname;
     }
 
-    public String getDescription() {
-        return description;
-    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
