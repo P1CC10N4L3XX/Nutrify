@@ -124,10 +124,8 @@ public class PatientPersonalInfoRegistration implements Initializable {
             String illnesses = commandText.replace("set illnesses ", "") ;
             if(checkIllnesses(illnesses)){
                 illnessesField.setText(illnesses);
-            }else{
-                completeAlert.showAndWait() ;
             }
-            illnessesField.setText(illnesses);
+
         }
         else if (commandText.matches(BACK)) {
             GUI.switchPage(event,"/secondGui/user/Registration.fxml");
