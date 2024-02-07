@@ -5,7 +5,7 @@ import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.firstview.DashboardController;
+import com.dicii.ispw.project.firstview.FirstViewController;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class RecipeViewController extends DashboardController implements Initializable {
+public class RecipeViewController extends FirstViewController implements Initializable {
 
     @FXML
     public TextField commandLine;

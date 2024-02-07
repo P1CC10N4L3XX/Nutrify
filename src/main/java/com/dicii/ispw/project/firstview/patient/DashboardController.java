@@ -11,24 +11,11 @@ public class DashboardController {
 
     @FXML
     public void switchHome(ActionEvent event) throws IOException {
-        try{
-            GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
-        }catch (Exception e){
-            e.printStackTrace();
-            System.exit(0);
-        }
-
-    }
-
-    public void switchRecipes(ActionEvent event) throws IOException {
-
-        GUI.switchPage(event, "/firstGui/nutritionist/dashboard/DashboardRecipes.fxml");
-
+        GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
     }
     public void switchPlan(ActionEvent event) throws IOException {
         GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardPlan.fxml");
     }
-
     public void switchNotificationArea(ActionEvent event) throws IOException{
         GUI.switchPage(event,"/firstGui/patient/dashboard/NotificationArea.fxml");
     }

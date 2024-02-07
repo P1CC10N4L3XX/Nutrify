@@ -20,14 +20,7 @@
             <Image url="@../../Image/logo.png" />
         </ImageView>
         <Separator layoutY="79.0" prefHeight="27.0" prefWidth="265.0" />
-        <Button layoutX="15.0" layoutY="181.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Patients">
-            <graphic>
-                <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../Image/Icons/patients-logo.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button layoutX="15.0" layoutY="251.0" mnemonicParsing="false" onAction="#recipeDashBoard" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Recipes">
+        <Button layoutX="16.0" layoutY="177.0" mnemonicParsing="false" onAction="#recipeDashBoard" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Recipes">
             <graphic>
                 <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../../Image/Icons/food.png" />
