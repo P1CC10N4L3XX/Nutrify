@@ -1,7 +1,7 @@
 package com.dicii.ispw.project.secondview;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.firstview.utils.GUI;
@@ -12,7 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class LoginControllerGui {
     @FXML
@@ -52,10 +51,10 @@ public class LoginControllerGui {
 
     private void makeLogin(ActionEvent event) throws IOException{
         try{
-            UserBean loginUserBean = loginInfo();
-            Session.getSessionInstance().setLoggedUser(loginController.loginUser(loginUserBean));
+            UserCredentialsBean loginUserCredentialsBean = loginInfo();
+            Session.getSessionInstance().setLoggedUser(loginController.loginUser(loginUserCredentialsBean));
             Session.getSessionInstance().initNotificatorSystem();
-            if(loginUserBean.getType()){
+            if(loginUserCredentialsBean.getType()){
                 GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
             }else{
                 GUI.switchPage(event,"/secondGui/patient/PatientDashboard.fxml");
@@ -66,16 +65,16 @@ public class LoginControllerGui {
         }
     }
 
-    private UserBean loginInfo() throws InvalidUserExceptionInfo {
+    private UserCredentialsBean loginInfo() throws InvalidUserExceptionInfo {
         String email = emailField.getText();
         String password = passwordField.getText();
         String typeText = typeField.getText();
         if(email.isEmpty() || password.isEmpty() || typeText.isEmpty()) throw new InvalidUserExceptionInfo("compile all fields");
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
         if(typeText.equals("N")) {
-            return new UserBean(email, password, true);
+            return new UserCredentialsBean(email, password, true);
         }else if(typeText.equals("P")){
-            return new UserBean(email,password,false);
+            return new UserCredentialsBean(email,password,false);
         }else{
             throw new InvalidUserExceptionInfo("compile the type as N or P");
         }

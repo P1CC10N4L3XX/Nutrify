@@ -2,7 +2,7 @@ package com.dicii.ispw.project.secondview;
 
 
 import com.dicii.ispw.project.applicationcontroller.RegisterApplicationController;
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.firstview.utils.GUI;
@@ -54,17 +54,17 @@ public class RegistrationController {
 
     private void makeRegistration(ActionEvent event) throws IOException{
         try {
-            UserBean userBean = userInfo();
-            registerApplicationController.registerUser(userBean);
-            Session.getSessionInstance().setLoggedUser(userBean);
-            GUI.switchPage(event,(userBean.getType()) ? ("/secondGui/nutritionist/NutritionistPersonalInfoRegistration.fxml") : ("/secondGui/patient/PatientPersonalInfoRegistration.fxml"));
+            UserCredentialsBean userCredentialsBean = userInfo();
+            registerApplicationController.registerUser(userCredentialsBean);
+            Session.getSessionInstance().setLoggedUser(userCredentialsBean);
+            GUI.switchPage(event,(userCredentialsBean.getType()) ? ("/secondGui/nutritionist/NutritionistPersonalInfoRegistration.fxml") : ("/secondGui/patient/PatientPersonalInfoRegistration.fxml"));
         }catch(InvalidUserExceptionInfo | DuplicatedUserException e){
             Alert completeAlert = new Alert(Alert.AlertType.WARNING, e.getMessage());
             completeAlert.showAndWait();
         }
     }
 
-    private UserBean userInfo() throws InvalidUserExceptionInfo{
+    private UserCredentialsBean userInfo() throws InvalidUserExceptionInfo{
         String email = this.email.getText();
         String password = this.password.getText();
         String confermaPassword = this.confermaPassword.getText();
@@ -73,7 +73,7 @@ public class RegistrationController {
         if(email.isEmpty() || password.isEmpty() || confermaPassword.isEmpty() ||  (!typeText.equals("N") && !typeText.equals("P"))) throw new InvalidUserExceptionInfo("compile all fields");
         if(!password.equals(confermaPassword)) throw new InvalidUserExceptionInfo("Passwords don't match");
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
-        return new UserBean(email,password,type);
+        return new UserCredentialsBean(email,password,type);
     }
 }
 

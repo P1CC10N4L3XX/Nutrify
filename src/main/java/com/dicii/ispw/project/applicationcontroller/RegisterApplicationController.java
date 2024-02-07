@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterApplicationController {
-    public void registerUser(UserBean userBean) throws DuplicatedUserException {
-        UserCredentials userCredentials = new UserCredentials(userBean.getEmail(), userBean.getPassword());
-        boolean type=userBean.getType();
+    public void registerUser(UserCredentialsBean userCredentialsBean) throws DuplicatedUserException {
+        UserCredentials userCredentials = new UserCredentials(userCredentialsBean.getEmail(), userCredentialsBean.getPassword());
+        boolean type= userCredentialsBean.getType();
         if(type) {
             NutritionistDao nutritionistDAO = new NutritionistDao();
             nutritionistDAO.saveNutritionist(userCredentials);

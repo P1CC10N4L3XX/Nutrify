@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.patterns.singleton;
 
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.patterns.observer.NotificatorSystem;
 
 import java.rmi.RemoteException;
@@ -8,7 +8,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class Session {
-    private UserBean loggedUser;
+    private UserCredentialsBean loggedUser;
     private NotificatorSystem notificatorSystem;
 
     private int[] port;
@@ -27,11 +27,11 @@ public class Session {
         return sessionInstance;
     }
 
-    public UserBean getLoggedUser(){
+    public UserCredentialsBean getLoggedUser(){
         return loggedUser;
     }
 
-    public void setLoggedUser(UserBean loggedUser) {
+    public void setLoggedUser(UserCredentialsBean loggedUser) {
         this.loggedUser = loggedUser;
     }
 

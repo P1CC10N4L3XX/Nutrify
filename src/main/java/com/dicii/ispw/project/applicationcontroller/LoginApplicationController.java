@@ -1,6 +1,6 @@
 package com.dicii.ispw.project.applicationcontroller;
 
-import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.beans.UserCredentialsBean;
 import com.dicii.ispw.project.database.TypesOfPersistenceLayer;
 import com.dicii.ispw.project.database.csv_classes.NutritionistCSV;
 import com.dicii.ispw.project.database.csv_classes.PatientCSV;
@@ -34,7 +34,7 @@ public class LoginApplicationController {
         }
     }
 
-    public UserBean loginUser(UserBean userBeanCredentials) throws NotExistentUserException {
+    public UserCredentialsBean loginUser(UserCredentialsBean userBeanCredentials) throws NotExistentUserException {
         UserCredentials userCredentials = new UserCredentials(userBeanCredentials.getEmail(), userBeanCredentials.getPassword());
         UserCredentials userCredentialsResult;
         boolean type=userBeanCredentials.getType();
@@ -43,6 +43,6 @@ public class LoginApplicationController {
         }else{
             userCredentialsResult = patientDAO.loadPatientByCredentials(userCredentials);
         }
-        return new UserBean(userCredentialsResult.getEmail(),userCredentialsResult.getPassword(),type);
+        return new UserCredentialsBean(userCredentialsResult.getEmail(),userCredentialsResult.getPassword(),type);
     }
 }

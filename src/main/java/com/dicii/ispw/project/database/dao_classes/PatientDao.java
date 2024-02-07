@@ -1,10 +1,8 @@
 package com.dicii.ispw.project.database.dao_classes;
 
-import com.dicii.ispw.project.beans.UserBean;
 import com.dicii.ispw.project.database.DatabaseConnectionSingleton;
 import com.dicii.ispw.project.database.dao_interfaces.PatientDaoInterface;
 import com.dicii.ispw.project.database.query.PatientQueries;
-import com.dicii.ispw.project.database.query.RecipeQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.models.*;
