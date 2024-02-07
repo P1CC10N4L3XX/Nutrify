@@ -50,25 +50,15 @@ public class PatientCSV implements PatientDaoInterface {
         if(duplicatedRecordEmail){
             throw new DuplicatedUserException("User already exists");
         }
-        CSVWriter csvWriter = null;
-        try {
-            csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(fd)));
+        String[] myRecord = new String[9];
+        try (CSVWriter csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(fd)));){
+
+            myRecord[EMAIL] = patient.getEmail();
+            myRecord[PASSWORD] = patient.getPassword();
+            csvWriter.writeNext(myRecord);
         }catch (Exception e){
             e.printStackTrace();
             System.exit(0);
-        }
-
-        String[] myRecord = new String[9];
-
-        myRecord[EMAIL] = patient.getEmail();
-        myRecord[PASSWORD] = patient.getPassword();
-
-        csvWriter.writeNext(myRecord);
-        try {
-            csvWriter.flush();
-            csvWriter.close();
-        }catch (Exception e){
-            e.getStackTrace();
         }
     }
 
