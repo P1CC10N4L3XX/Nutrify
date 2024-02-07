@@ -134,7 +134,6 @@ public class NutritionistCSV implements NutritionistDaoInterface {
                     String surname = myRecord[SURNAME];
                     String dateOfBirth = myRecord[BIRTH];
                     String description = myRecord[DESCRIPTION];
-                    String iva = myRecord[IVA];
                     String iban = myRecord[IBAN];
                     String cost = myRecord[COST];
                     nutritionistList.add(new Nutritionist(email, name, surname, dateOfBirth, description, iban, cost));
