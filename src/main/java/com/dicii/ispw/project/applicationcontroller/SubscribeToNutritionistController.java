@@ -81,7 +81,7 @@ public class SubscribeToNutritionistController implements Serializable {
         return setNotificationBeanList(notificationList);
     }
 
-    public void acceptSubscriptionRequest(NotificationBean notificationBean) throws NotOnlineUserException{
+    public void acceptSubscriptionRequest(NotificationBean notificationBean) throws NotOnlineUserException,DuplicatedNotificationException{
         User sender = new User(notificationBean.getSender());
         User receiver = new User(notificationBean.getReceiver());
         String dateTime = notificationBean.getDateTime();
@@ -91,7 +91,7 @@ public class SubscribeToNutritionistController implements Serializable {
         sendNotificationPopUp(sender,receiver,dateTime,message);
     }
 
-    public void refuseSubscriptionRequest(NotificationBean notificationBean) throws NotOnlineUserException {
+    public void refuseSubscriptionRequest(NotificationBean notificationBean) throws NotOnlineUserException,DuplicatedNotificationException {
         User sender = new User(notificationBean.getSender());
         User receiver = new User(notificationBean.getReceiver());
         String dateTime = notificationBean.getDateTime();
@@ -154,7 +154,7 @@ public class SubscribeToNutritionistController implements Serializable {
         }
     }
 
-    public void showNotification(Notification notification){
+    public void showNotificationPopUp(Notification notification){
         String sender = notification.getSender().getEmail();
         String receiver = notification.getReceiver().getEmail();
         String dateTime = notification.getDateTime();
