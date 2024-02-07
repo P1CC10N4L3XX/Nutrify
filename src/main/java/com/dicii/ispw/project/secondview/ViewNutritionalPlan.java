@@ -18,22 +18,22 @@ import java.io.IOException;
 public class ViewNutritionalPlan {
 
     @FXML
-    private Label colazione;
+    private Label colazioneField;
 
     @FXML
-    private Label pranzo;
+    private Label pranzoField;
 
     @FXML
-    private Label cena;
+    private Label cenaField;
 
     @FXML
-    private Label quantitaColazione;
+    private Label quantitaColazioneField;
 
     @FXML
-    private Label quantitaPranzo;
+    private Label quantitaPranzoField;
 
     @FXML
-    private Label quantitaCena;
+    private Label quantitaCenaField;
 
     @FXML
     private Label day;
@@ -67,12 +67,12 @@ public class ViewNutritionalPlan {
 
         nutritionalPlanDayBean = createNutritionalController.displayNutritionalPlanDay(giorno,ilnesses,email);
 
-        this.colazione.setText(nutritionalPlanDayBean.getColazione().getName());
-        this.pranzo.setText(nutritionalPlanDayBean.getPranzo().getName());
-        this.cena.setText(nutritionalPlanDayBean.getCena().getName());
-        this.quantitaColazione.setText(nutritionalPlanDayBean.getQuantitaColazione());
-        this.quantitaPranzo.setText(nutritionalPlanDayBean.getQuantitaPranzo());
-        this.quantitaCena.setText(nutritionalPlanDayBean.getQuantitaCena());
+        this.colazioneField.setText(nutritionalPlanDayBean.getColazione().getName());
+        this.pranzoField.setText(nutritionalPlanDayBean.getPranzo().getName());
+        this.cenaField.setText(nutritionalPlanDayBean.getCena().getName());
+        this.quantitaColazioneField.setText(nutritionalPlanDayBean.getQuantitaColazione());
+        this.quantitaPranzoField.setText(nutritionalPlanDayBean.getQuantitaPranzo());
+        this.quantitaCenaField.setText(nutritionalPlanDayBean.getQuantitaCena());
 
 
     }

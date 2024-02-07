@@ -47,12 +47,12 @@
       <Text fill="WHITE" layoutX="582.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
       <Text fill="WHITE" layoutX="582.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
       <Text fill="WHITE" layoutX="582.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantita" />
-      <Label fx:id="colazione" layoutX="474.0" layoutY="199.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="pranzo" layoutX="460.0" layoutY="244.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="cena" layoutX="455.0" layoutY="294.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="quantitaColazione" layoutX="634.0" layoutY="198.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="quantitaPranzo" layoutX="634.0" layoutY="243.0" text="Label" textFill="#fffdfd" />
-      <Label fx:id="quantitaCena" layoutX="634.0" layoutY="287.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="colazioneField" layoutX="474.0" layoutY="199.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="pranzoField" layoutX="460.0" layoutY="244.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="cenaField" layoutX="455.0" layoutY="294.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="quantitaColazioneField" layoutX="634.0" layoutY="198.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="quantitaPranzoField" layoutX="634.0" layoutY="243.0" text="Label" textFill="#fffdfd" />
+      <Label fx:id="quantitaCenaField" layoutX="634.0" layoutY="287.0" text="Label" textFill="#fffdfd" />
 
     </children>
 </Pane>
