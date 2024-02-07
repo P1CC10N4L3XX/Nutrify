@@ -64,11 +64,11 @@ public class DashboardPlan implements Initializable {
     private ManageNutritionalController createNutritionalController;
 
 
-    private static final String BACK="back";
+    private static final String BACKINPUT="back";
 
-    private static final String SET_DATA="set data .*";
+    private static final String SET_DATAINPUT="set data .*";
 
-    private static final String VIEW_PLAN="view plan";
+    private static final String VIEW_PLANINPUT="view plan";
 
 
 
@@ -97,7 +97,7 @@ public class DashboardPlan implements Initializable {
         String commandText = commandLine.getText();
         commandLine.setStyle(null);
         commandLine.setText("");
-        if (commandText.matches(VIEW_PLAN)) {
+        if (commandText.matches(VIEW_PLANINPUT)) {
 
             try{
 
@@ -123,7 +123,7 @@ public class DashboardPlan implements Initializable {
 
 
         }
-        else if (commandText.matches(SET_DATA)) {
+        else if (commandText.matches(SET_DATAINPUT)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:31/01/2024") ;
             try{
                 String dataValue = commandText.replace("set data ", "");
@@ -141,7 +141,7 @@ public class DashboardPlan implements Initializable {
 
 
         }
-        else if (commandText.matches(BACK)) {
+        else if (commandText.matches(BACKINPUT)) {
 
             GUI.switchPage(event,"/secondGui/patient/PatientDashboard.fxml");
 
