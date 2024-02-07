@@ -37,7 +37,8 @@ public class NutritionistCardController {
             stage.setScene(new Scene(root));
             stage.show();
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 }

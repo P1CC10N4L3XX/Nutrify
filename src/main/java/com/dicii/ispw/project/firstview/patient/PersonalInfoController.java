@@ -49,7 +49,8 @@ public class PersonalInfoController implements Initializable {
         try {
             list = registerApplicationController.displayIlnesses();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         for (IlnessesBean ilnesses : list) {

@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -45,7 +46,8 @@ public class RecipeViewControllerGui extends DashboardController implements Init
         try {
             list = createNutritionalController.displayRecipe();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         for (RecipeBean recipe : list) {
 
@@ -85,7 +87,7 @@ public class RecipeViewControllerGui extends DashboardController implements Init
     }
 
 
-    public void back(ActionEvent event) throws Exception {
+    public void back(ActionEvent event) throws IOException {
 
         GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardHome.fxml");
 

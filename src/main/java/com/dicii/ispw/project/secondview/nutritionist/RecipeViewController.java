@@ -10,6 +10,7 @@ import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -54,7 +55,8 @@ public class RecipeViewController extends DashboardController implements Initial
         try {
             list = createNutritionalController.displayRecipe();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         for (RecipeBean recipe : list) {
 
@@ -81,7 +83,8 @@ public class RecipeViewController extends DashboardController implements Initial
                 if(recipeName.matches(recipe.getName())){
                     recipes.setText(recipeName);
                 }else{
-                    System.out.println("non puoi eliminarla non e presente");
+                    Alert completeAlert = new Alert(Alert.AlertType.WARNING, "Recipe not found") ;
+                    completeAlert.showAndWait() ;
                 }
             }
 

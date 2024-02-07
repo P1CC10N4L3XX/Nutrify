@@ -25,7 +25,7 @@ public class ManageNutritionalController{
 
 
 
-    public boolean sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, String emailPatient) throws InvalidNutritionalPlanDay {
+    public boolean sendNutritionalPlanDay(NutritionalPlanDayBean nutritionalPlanDayBean, String emailPatient) {
 
             nutritionalPlanBase = new NutritionalPlanBase();
             nutritionalPlanDay = new NutritionalPlanDay(nutritionalPlanDayBean.getDay(),convertRecipeBeanToModel(nutritionalPlanDayBean.getColazione()),convertRecipeBeanToModel(nutritionalPlanDayBean.getPranzo()), convertRecipeBeanToModel(nutritionalPlanDayBean.getCena()),nutritionalPlanDayBean.getQuantitaColazione(),nutritionalPlanDayBean.getQuantitaPranzo(),nutritionalPlanDayBean.getQuantitaCena());

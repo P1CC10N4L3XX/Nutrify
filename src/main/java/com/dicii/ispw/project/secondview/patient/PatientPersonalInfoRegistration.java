@@ -79,7 +79,8 @@ public class PatientPersonalInfoRegistration implements Initializable {
         try {
             list = registerApplicationController.displayIlnesses();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         for (IlnessesBean ilnesesBean : list) {

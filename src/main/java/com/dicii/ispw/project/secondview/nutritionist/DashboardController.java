@@ -118,7 +118,8 @@ public class DashboardController implements Initializable {
                     createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
 
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    e.printStackTrace();
+                    System.exit(0);
                 }
             }
 

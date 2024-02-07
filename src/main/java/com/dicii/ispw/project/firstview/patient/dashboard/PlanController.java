@@ -127,7 +127,8 @@ public class PlanController extends DashboardController implements Initializable
 
 
         }catch (NullPointerException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            System.exit(0);
         }
 
 

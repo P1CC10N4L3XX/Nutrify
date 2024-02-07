@@ -41,7 +41,7 @@ public class LoginController{
 
 
     @FXML
-    protected void switchRegistration(ActionEvent event) throws Exception {
+    protected void switchRegistration(ActionEvent event) throws IOException {
         GUI.switchPage(event,"/firstGui/Registration.fxml");
     }
 

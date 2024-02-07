@@ -14,21 +14,22 @@ public class DashboardController {
         try{
             GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
         }catch (Exception e){
-            throw e;
+            e.printStackTrace();
+            System.exit(0);
         }
 
     }
 
-    public void switchRecipes(ActionEvent event) throws Exception {
+    public void switchRecipes(ActionEvent event) throws IOException {
 
         GUI.switchPage(event, "/firstGui/nutritionist/dashboard/DashboardRecipes.fxml");
 
     }
-    public void switchPlan(ActionEvent event) throws Exception {
+    public void switchPlan(ActionEvent event) throws IOException {
         GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardPlan.fxml");
     }
 
-    public void switchNotificationArea(ActionEvent event) throws Exception{
+    public void switchNotificationArea(ActionEvent event) throws IOException{
         GUI.switchPage(event,"/firstGui/patient/dashboard/NotificationArea.fxml");
     }
 

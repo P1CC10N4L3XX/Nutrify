@@ -42,7 +42,8 @@ public class NotificationCenterController extends DashboardController implements
         }catch(NotExistentNotification e){
             noAcceptedLabel.setText(e.getMessage());
         }catch(IOException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         try{
             List<NotificationBean> subscriptionRefusedNotificationBeanList = new ArrayList<>(subscribeToNutritionistController.getSubscriptionRefusedNotifications());
@@ -50,7 +51,8 @@ public class NotificationCenterController extends DashboardController implements
         }catch (NotExistentNotification e){
             noRefusedLabel.setText(e.getMessage());
         }catch(IOException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 

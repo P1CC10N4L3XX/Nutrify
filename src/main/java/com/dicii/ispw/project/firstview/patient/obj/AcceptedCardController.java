@@ -41,7 +41,8 @@ public class AcceptedCardController {
             stage.setScene(new Scene(root));
             stage.show();
         }catch(IOException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 }

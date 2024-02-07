@@ -5,7 +5,6 @@ import com.dicii.ispw.project.applicationcontroller.ManageNutritionalController;
 import com.dicii.ispw.project.beans.NutritionalPlanDayBean;
 import com.dicii.ispw.project.beans.RecipeBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
-import com.dicii.ispw.project.exceptions.InvalidNutritionalPlanDay;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,7 +71,8 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         try {
             display();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
         for (RecipeBean recipe : list) {
@@ -130,7 +130,7 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
         if(grammiColazioneField.getText().isEmpty()||grammiPranzoField.getText().isEmpty() || grammiCenaField.getText().isEmpty() || colazione.isEmpty() || pranzo.isEmpty() || cena.isEmpty()) {
             warning.setText("Compilare tuttti i campi");
         }else{
-            try {
+
 
 
                 nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(colazione),convertStringToReciBean(pranzo),convertStringToReciBean(cena),grammiColazioneField.getText(),grammiPranzoField.getText(),grammiCenaField.getText());
@@ -144,13 +144,6 @@ public class CreateNutritionalPlanControllerGui  implements Initializable{
                 }
 
 
-
-
-            }
-
-            catch(InvalidNutritionalPlanDay e){
-                System.out.println(e);
-            }
 
 
         }

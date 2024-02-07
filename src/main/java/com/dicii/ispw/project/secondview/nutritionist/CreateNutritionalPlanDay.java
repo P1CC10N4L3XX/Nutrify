@@ -82,7 +82,8 @@ public class CreateNutritionalPlanDay implements Initializable {
         try {
             list = createNutritionalController.displayRecipe();
         } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         for (RecipeBean recipe : list) {
 
@@ -168,7 +169,8 @@ public class CreateNutritionalPlanDay implements Initializable {
                 }
 
                 catch(Exception e){
-                    System.out.println(e);
+                    e.printStackTrace();
+                    System.exit(0);
                 }
 
 

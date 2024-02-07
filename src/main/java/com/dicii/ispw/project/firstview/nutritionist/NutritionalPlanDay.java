@@ -19,6 +19,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -166,7 +168,7 @@ public class NutritionalPlanDay {
 
     }
 
-    public void back(ActionEvent event) throws Exception{
+    public void back(ActionEvent event) throws IOException {
         GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashBoardHome.fxml");
 
 

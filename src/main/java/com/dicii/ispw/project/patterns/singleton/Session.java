@@ -51,7 +51,8 @@ public class Session {
             Registry registry = LocateRegistry.createRegistry(port[0]);
             registry.rebind(loggedUser.getEmail(),notificatorSystem);
         }catch(RemoteException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            System.exit(0);
         }
     }
     public NotificatorSystem getNotificatorSystem() {

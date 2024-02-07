@@ -34,7 +34,8 @@ public class HomeController extends DashboardController implements Initializable
             try {
                 showNutritionistList(nutritionistBeanList);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
+                System.exit(0);
             }
 
     }

@@ -35,7 +35,8 @@ public class PatientDao implements PatientDaoInterface {
         }catch(SQLIntegrityConstraintViolationException e){
             throw new DuplicatedUserException(e.getMessage());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -54,7 +55,8 @@ public class PatientDao implements PatientDaoInterface {
 
             }
         }catch(SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
 

@@ -36,7 +36,8 @@ public class NotificationCenterController extends DashboardController implements
             errorLabel.setText(e.getMessage());
         }
         catch (IOException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
     private void showSubscriptionRequestNotificationList(List<NotificationBean> notificationBeanList) throws IOException{

@@ -20,7 +20,7 @@ public class RecipeQueries {
     }
 
     public static ResultSet displayRecipe(Statement statement) throws SQLException {
-        String query = String.format("SELECT * FROM ricetta ");
+        String query = "SELECT * FROM ricetta ";
         return statement.executeQuery(query);
     }
 
