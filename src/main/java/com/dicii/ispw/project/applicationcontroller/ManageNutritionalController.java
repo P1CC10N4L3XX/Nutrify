@@ -105,7 +105,7 @@ public class ManageNutritionalController{
 
     }
 
-    public Nutritionist convertNutritionistBeanToModel(NutritionistBean nutritionistBean){
+    public Nutritionist convertNutritionistBeanToModel(){
         return new Nutritionist(Session.getSessionInstance().getLoggedUser().getEmail());
 
     }
@@ -115,7 +115,7 @@ public class ManageNutritionalController{
 
         if(nutritionalPlanBase==null){
 
-                nutritionalPlanBase = new NutritionalPlanBase(nutritionalPlanBean.getDate(),convertPatientBeanToModel(nutritionalPlanBean.getPatient()),convertNutritionistBeanToModel(nutritionalPlanBean.getNutritionist()));
+                nutritionalPlanBase = new NutritionalPlanBase(nutritionalPlanBean.getDate(),convertPatientBeanToModel(nutritionalPlanBean.getPatient()),convertNutritionistBeanToModel());
                 NutritionalPlanDao nutritionalPlanDao = new NutritionalPlanDao();
                 nutritionalPlanDao.saveNutritionalPlan(nutritionalPlanBase, nutritionalPlanBase.getNutritionist(),nutritionalPlanBase.getPatient());
 

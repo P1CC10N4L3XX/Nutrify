@@ -1,7 +1,5 @@
 package com.dicii.ispw.project.models;
 
-import com.dicii.ispw.project.beans.NutritionistBean;
-import com.dicii.ispw.project.beans.PatientBean;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -92,8 +92,7 @@ public class NutritionistCSV implements NutritionistDaoInterface {
                 }
             }
             csvWriter.flush();
-            csvWriter.close();
-            csvReader.close();
+
             Files.move(tmpFD.toPath(),fd.toPath(),REPLACE_EXISTING);
         }catch(Exception e){
             e.printStackTrace();

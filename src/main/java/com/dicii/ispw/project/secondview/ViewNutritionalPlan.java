@@ -84,7 +84,8 @@ public class ViewNutritionalPlan {
         commandLine.setStyle(null);
         commandLine.setText("");
         if(commandText.matches(BACK)){
-            if(Session.getSessionInstance().getLoggedUser().getType()){
+            boolean type=Session.getSessionInstance().getLoggedUser().getType();
+            if(type){
                 GUI.switchPage(event,"/secondGui/nutritionist/dashboard/DashboardHome.fxml");
             }else{
                 GUI.switchPage(event,"/secondGui/patient/DashboardPlan.fxml");

@@ -39,7 +39,7 @@ public class CreateRecipeControllerGui extends DashboardController {
     }
 
 
-    public void createRecipeB(ActionEvent event) throws DuplicatedUserException {
+    public void createRecipeB() throws DuplicatedUserException {
 
 
             recipeBean = new RecipeBean(titleField.getText(),descrizioneArea.getText(),ingredientiField.getText());

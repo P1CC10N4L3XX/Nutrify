@@ -57,7 +57,8 @@ public class RegistrationController {
             UserBean userBean = userInfo();
             registerApplicationController.registerUser(userBean);
             Session.getSessionInstance().setLoggedUser(userBean);
-            GUI.switchPage(event,(userBean.getType()) ? ("/secondGui/nutritionist/NutritionistPersonalInfoRegistration.fxml") : ("/secondGui/patient/PatientPersonalInfoRegistration.fxml"));
+            boolean type=userBean.getType();
+            GUI.switchPage(event,(type) ? ("/secondGui/nutritionist/NutritionistPersonalInfoRegistration.fxml") : ("/secondGui/patient/PatientPersonalInfoRegistration.fxml"));
         }catch(InvalidUserExceptionInfo | DuplicatedUserException e){
             Alert completeAlert = new Alert(Alert.AlertType.WARNING, e.getMessage());
             completeAlert.showAndWait();
@@ -65,15 +66,15 @@ public class RegistrationController {
     }
 
     private UserBean userInfo() throws InvalidUserExceptionInfo{
-        String email = this.email.getText();
-        String password = this.password.getText();
-        String confermaPassword = this.confermaPassword.getText();
+        String emailfield = this.email.getText();
+        String passwordField = this.password.getText();
+        String confermaPasswordField = this.confermaPassword.getText();
         String typeText = userTypeField.getText();
         boolean type = (typeText.equals("N"));
-        if(email.isEmpty() || password.isEmpty() || confermaPassword.isEmpty() ||  (!typeText.equals("N") && !typeText.equals("P"))) throw new InvalidUserExceptionInfo("compile all fields");
+        if(emailfield.isEmpty() || passwordField.isEmpty() || confermaPasswordField.isEmpty() ||  (!typeText.equals("N") && !typeText.equals("P"))) throw new InvalidUserExceptionInfo("compile all fields");
         if(!password.equals(confermaPassword)) throw new InvalidUserExceptionInfo("Passwords don't match");
-        if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
-        return new UserBean(email,password,type);
+        if(!emailfield.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
+        return new UserBean(emailfield,passwordField,type);
     }
 }
 

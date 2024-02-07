@@ -41,7 +41,7 @@ public class PersonalInfoController implements Initializable {
     private IlnessesBean ilnessesBean;
 
     @FXML
-    private ChoiceBox<String> illness;
+    private ChoiceBox<String> illnessList;
     private final RegisterApplicationController registerApplicationController;
 
     @Override
@@ -51,23 +51,21 @@ public class PersonalInfoController implements Initializable {
         } catch (DuplicatedUserException e) {
             throw new RuntimeException(e);
         }
-        int i=0;
-        for (IlnessesBean ilnessesBean : list) {
-            i++;
 
-            illness.getItems().addAll(String.valueOf(ilnessesBean.getName()));
+        for (IlnessesBean ilnesses : list) {
+            illnessList.getItems().addAll(String.valueOf(ilnesses.getName()));
 
         }
 
 
-        illness.setOnAction(this::getIlnesses);
+        illnessList.setOnAction(this::getIlnesses);
 
     }
 
 
 
     public void getIlnesses(ActionEvent event){
-        illnes= illness.getValue();
+        illnes= illnessList.getValue();
         ilnessesBean = new IlnessesBean();
         ilnessesBean.setName(illnes);
 

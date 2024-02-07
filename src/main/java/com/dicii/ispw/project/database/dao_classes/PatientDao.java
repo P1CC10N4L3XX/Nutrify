@@ -66,7 +66,7 @@ public class PatientDao implements PatientDaoInterface {
 
     public static Patient createPatient(ResultSet resultSet) throws SQLException {
 
-        String email = resultSet.getString("Email");
+        String email = resultSet.getString(EMAIL);
 
         return new Patient(email);
 

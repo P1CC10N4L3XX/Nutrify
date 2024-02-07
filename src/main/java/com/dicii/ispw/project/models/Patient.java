@@ -1,7 +1,9 @@
 package com.dicii.ispw.project.models;
 
 
-public class Patient extends User {
+import java.io.Serializable;
+
+public class Patient extends User implements Serializable {
     private String weight;
     private String height;
     private Ilnesses illnesses;

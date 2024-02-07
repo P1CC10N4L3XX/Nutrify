@@ -5,7 +5,6 @@ public class Nutritionist extends User{
     private String iban;
     private String costo;
 
-    private NutritionalPlanBase nutritionalPlanBase;
     public Nutritionist(String email){
         super(email);
     }

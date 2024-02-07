@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="727.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dicii.ispw.project.firstview.patient.dashboard.PlanController">
@@ -85,24 +86,72 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="730.0" prefWidth="889.0">
          <children>
             <Text layoutX="353.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza il tuo piano Nutrizionale" />
-            <DatePicker fx:id="dataPicker" layoutX="218.0" layoutY="123.0" onAction="#dataPicker" />
-            <Button layoutX="78.0" layoutY="123.0" mnemonicParsing="false" onAction="#viewNutritionalPlan" text="view" />
+            <DatePicker fx:id="dataPicker" layoutX="447.0" layoutY="149.0" onAction="#dataPicker" />
+            <Button layoutX="326.0" layoutY="143.0" mnemonicParsing="false" onAction="#viewNutritionalPlan" text="view">
+               <font>
+                  <Font size="17.0" />
+               </font></Button>
             <Label fx:id="warning" layoutX="90.0" layoutY="221.0" />
-            <Label fx:id="selectionDate" layoutX="169.0" layoutY="175.0" text="Label" />
-            <Text layoutX="73.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data selezionata:" />
-            <Text layoutX="79.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your informations:" />
-            <Text layoutX="79.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-            <Text layoutX="79.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
-            <Text layoutX="75.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday" />
-            <Text layoutX="276.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheight" />
-            <Text layoutX="276.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height" />
-            <Text layoutX="281.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilneeses:" />
-            <Label fx:id="name" layoutX="128.0" layoutY="320.0" text="Label" />
-            <Label fx:id="surname" layoutX="142.0" layoutY="364.0" text="Label" />
-            <Label fx:id="birthday" layoutX="142.0" layoutY="416.0" text="Label" />
-            <Label fx:id="weight" layoutX="339.0" layoutY="320.0" text="Label" />
-            <Label fx:id="height" layoutX="339.0" layoutY="365.0" text="Label" />
-            <Label fx:id="ilneeses" layoutX="339.0" layoutY="416.0" text="Label" />
+            <Label fx:id="selectionDate" layoutX="436.0" layoutY="229.0" prefHeight="26.0" prefWidth="222.0">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Text layoutX="291.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data selezionata:">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="288.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your informations:">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="288.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="288.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="289.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="485.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheight">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="485.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Text layoutX="490.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilneeses">
+               <font>
+                  <Font size="17.0" />
+               </font></Text>
+            <Label fx:id="name" layoutX="345.0" layoutY="328.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label fx:id="surname" layoutX="366.0" layoutY="370.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label fx:id="birthday" layoutX="367.0" layoutY="422.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label fx:id="weight" layoutX="564.0" layoutY="325.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label fx:id="height" layoutX="549.0" layoutY="370.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label fx:id="ilneeses" layoutX="557.0" layoutY="422.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
          </children></AnchorPane>
     </ScrollPane>
     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />

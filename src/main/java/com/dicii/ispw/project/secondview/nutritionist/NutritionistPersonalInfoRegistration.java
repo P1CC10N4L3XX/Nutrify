@@ -120,7 +120,6 @@ public class NutritionistPersonalInfoRegistration {
 
     public boolean checkData(String dataTime){
 
-        boolean a;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate date = LocalDate.parse(dataTime, formatter);
         return (dataTime.equals(date.format(formatter)));

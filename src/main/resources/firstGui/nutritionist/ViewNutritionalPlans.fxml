@@ -70,82 +70,77 @@
     <ScrollPane hbarPolicy="NEVER" layoutX="265.0" prefHeight="730.0" prefWidth="911.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="764.0" prefWidth="889.0" style="-fx-background-radius: 100;">
             <children>
-                <Text layoutX="333.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritional Plan Day View">
+                <Text layoutX="299.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutritional Plan Day View">
                     <font>
                         <Font size="26.0" />
                     </font></Text>
-                <Label fx:id="warning" layoutX="507.0" layoutY="148.0" prefHeight="27.0" prefWidth="245.0" textAlignment="CENTER" textFill="RED">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
 
-                <Label fx:id="day" layoutX="406.0" layoutY="232.0" prefHeight="26.0" prefWidth="283.0" textAlignment="CENTER" textFill="RED">
+                <Label fx:id="day" layoutX="441.0" layoutY="147.0" prefHeight="26.0" prefWidth="283.0" textAlignment="CENTER" textFill="RED">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Text layoutX="333.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data selected:">
+                <Text layoutX="302.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data selected:">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Text layoutX="248.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Breakfast">
+                <Text layoutX="173.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Breakfast">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Text layoutX="248.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Launch">
+                <Text layoutX="173.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Launch">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Text layoutX="250.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Dinner">
+                <Text layoutX="175.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe Dinner">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Text layoutX="547.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantity">
+                <Text layoutX="472.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantity">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Text layoutX="549.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantity">
+                <Text layoutX="474.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantity">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Text layoutX="552.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantity">
+                <Text layoutX="477.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="quantity">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Text>
-                <Label fx:id="colazione" layoutX="384.0" layoutY="246.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
+                <Label fx:id="colazione" layoutX="309.0" layoutY="245.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="pranzo" layoutX="384.0" layoutY="308.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
+                <Label fx:id="pranzo" layoutX="309.0" layoutY="307.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="cena" layoutX="384.0" layoutY="369.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
+                <Label fx:id="cena" layoutX="309.0" layoutY="368.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="quantitaColazione" layoutX="613.0" layoutY="245.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
+                <Label fx:id="quantitaColazione" layoutX="547.0" layoutY="245.0" prefHeight="26.0" prefWidth="250.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="quantitaPranzo" layoutX="622.0" layoutY="308.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
+                <Label fx:id="quantitaPranzo" layoutX="547.0" layoutY="307.0" prefHeight="26.0" prefWidth="238.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="quantitaCena" layoutX="622.0" layoutY="368.0" prefHeight="26.0" prefWidth="88.0" textAlignment="CENTER">
+                <Label fx:id="quantitaCena" layoutX="547.0" layoutY="367.0" prefHeight="26.0" prefWidth="238.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>

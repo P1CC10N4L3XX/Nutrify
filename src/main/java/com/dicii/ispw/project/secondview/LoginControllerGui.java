@@ -55,7 +55,8 @@ public class LoginControllerGui {
             UserBean loginUserBean = loginInfo();
             Session.getSessionInstance().setLoggedUser(loginController.loginUser(loginUserBean));
             Session.getSessionInstance().initNotificatorSystem();
-            if(loginUserBean.getType()){
+            boolean type=loginUserBean.getType();
+            if(type){
                 GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
             }else{
                 GUI.switchPage(event,"/secondGui/patient/PatientDashboard.fxml");

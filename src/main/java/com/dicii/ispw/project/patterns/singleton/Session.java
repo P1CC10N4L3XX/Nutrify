@@ -40,7 +40,8 @@ public class Session {
     }
 
     public void initNotificatorSystem() {
-        if(loggedUser.getType()){
+        boolean type = loggedUser.getType();
+        if(type){
             port = new int[]{1888, 1889};
         }else{
             port = new int[]{1889,1888};

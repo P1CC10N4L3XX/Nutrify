@@ -48,7 +48,8 @@ public class ViewNutritionalPlan  {
     }
 
     public void back(ActionEvent event) throws IOException {
-        if(Session.getSessionInstance().getLoggedUser().getType()){
+        boolean type=Session.getSessionInstance().getLoggedUser().getType();
+        if(type){
             GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardHome.fxml");
         }else{
             GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
