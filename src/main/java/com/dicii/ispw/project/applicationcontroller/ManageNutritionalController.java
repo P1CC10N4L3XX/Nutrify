@@ -134,7 +134,7 @@ public class ManageNutritionalController{
     }
 
 
-    public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses, String email) throws DuplicatedUserException,NutritionalPlanNotFoundException{
+    public NutritionalPlanDayBean displayNutritionalPlanDay(String day,String ilnesses, String email) throws NutritionalPlanNotFoundException, DuplicatedUserException {
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
         boolean type = Session.getSessionInstance().getLoggedUser().getType();
