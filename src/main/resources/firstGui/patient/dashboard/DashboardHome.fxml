@@ -17,14 +17,7 @@
          <Image url="@../../Image/logo.png" />
       </ImageView>
       <Separator layoutY="79.0" prefHeight="27.0" prefWidth="265.0" />
-      <Button layoutX="15.0" layoutY="181.0" mnemonicParsing="false" onAction="#switchRecipes" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Ricetta">
-         <graphic>
-            <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../Image/Icons/food.png" />
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="15.0" layoutY="251.0" mnemonicParsing="false" onAction="#switchPlan" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Piano">
+      <Button layoutX="14.0" layoutY="179.0" mnemonicParsing="false" onAction="#switchPlan" prefHeight="55.0" prefWidth="238.0" styleClass="dashboardButton" text="Piano">
          <graphic>
             <ImageView fitHeight="89.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../../Image/Icons/plane.png" />

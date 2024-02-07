@@ -18,9 +18,6 @@ public class DashboardController {
         GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardRecipes.fxml");
 
     }
-    public void switchPlan(ActionEvent event) throws IOException {
-        GUI.switchPage(event,"/firstGui/nutritionist/dashboard/DashboardPlan.fxml");
-    }
 
     public void switchNotificationArea(ActionEvent event) throws IOException {
         GUI.switchPage(event, "/firstGui/nutritionist/dashboard/NotificationArea.fxml");

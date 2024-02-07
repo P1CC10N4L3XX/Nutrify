@@ -2,15 +2,13 @@ package com.dicii.ispw.project.firstview;
 
 import com.dicii.ispw.project.firstview.utils.GUI;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DashboardController {
+public class FirstViewController {
     private Stage stage;
     private Scene scene;
 
