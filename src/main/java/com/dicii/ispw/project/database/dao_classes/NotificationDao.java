@@ -8,11 +8,12 @@ import com.dicii.ispw.project.models.Notification;
 import com.dicii.ispw.project.models.SubscriptionRequest;
 import com.dicii.ispw.project.models.User;
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDao {
+public class NotificationDao implements Serializable {
     private static final String SENDER = "Sender";
     private static final String DESTINATION = "Destination";
 
