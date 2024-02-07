@@ -46,7 +46,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
                     <children>
-                        <TextArea editable="false" layoutX="14.0" layoutY="13.0" prefHeight="174.0" prefWidth="242.0" text="- set name&lt;name&gt;&#10;- set surname&lt;surname&gt;&#10;- set birthday&lt;birthday&gt;&#10;- set weight&lt;weight&gt;&#10;- set height&lt;height&gt;&#10;- set illnesses&lt;illnesses&gt;&#10;- submit&#10;- back" />
+                        <TextArea editable="false" layoutX="14.0" layoutY="13.0" prefHeight="174.0" prefWidth="242.0" text="- set name&lt;name&gt;&#10;- set surname&lt;surname&gt;&#10;- set birthday&lt;dd-mm-yyyy&gt;&#10;- set weight&lt;weight&gt;&#10;- set height&lt;height&gt;&#10;- set illnesses&lt;illnesses&gt;&#10;- submit&#10;- back" />
                     </children>
                 </AnchorPane>
             </content>
