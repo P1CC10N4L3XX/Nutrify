@@ -33,21 +33,21 @@ public class DashboardPlan implements Initializable {
     private Parent root;
 
     @FXML
-    private Label name;
+    private Label nameText;
     @FXML
-    private Label surname;
+    private Label surnameText;
 
     @FXML
-    private Label birthday;
+    private Label birthdayText;
 
     @FXML
-    private Label weight;
+    private Label weightText;
 
     @FXML
-    private Label height;
+    private Label heightText;
 
     @FXML
-    private Label ilneeses;
+    private Label ilneesesText;
 
     @FXML
     private TextField commandLine ;
@@ -83,12 +83,12 @@ public class DashboardPlan implements Initializable {
 
     public void viewPatientInfo() {
             patientBean=createNutritionalController.displayUserInfo(Session.getSessionInstance().getLoggedUser().getEmail());
-            this.name.setText(patientBean.getName());
-            this.surname.setText(patientBean.getSurname());
-            this.birthday.setText(patientBean.getDateOfBirth());
-            this.weight.setText(patientBean.getWeight());
-            this.height.setText(patientBean.getHeight());
-            this.ilneeses.setText(patientBean.getIlnessesBean().getName());
+            this.nameText.setText(patientBean.getName());
+            this.surnameText.setText(patientBean.getSurname());
+            this.birthdayText.setText(patientBean.getDateOfBirth());
+            this.weightText.setText(patientBean.getWeight());
+            this.heightText.setText(patientBean.getHeight());
+            this.ilneesesText.setText(patientBean.getIlnessesBean().getName());
 
 
     }
