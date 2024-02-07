@@ -128,7 +128,6 @@ public class NutritionalPlanDay {
 
 
         } else if (commandText.matches(CREATE_PLAN)) {
-            try{
 
                 if(data.getText()==null){
                     warning.setText("Seleziona la data");
@@ -147,13 +146,6 @@ public class NutritionalPlanDay {
                     stage.show();
 
                 }
-
-            }
-            catch(NutritionalPlanFounded | DuplicatedUserException e){
-                e.printStackTrace();
-                System.exit(0);
-            }
-
 
         }
         else if (commandText.matches(SET_DATA)) {

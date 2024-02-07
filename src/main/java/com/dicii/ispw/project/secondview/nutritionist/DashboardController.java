@@ -90,7 +90,7 @@ public class DashboardController implements Initializable {
                 warning.setText("select patient before");
             }else{
 
-                try {
+
                     nutritionistBean = new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail());
 
                     PatientBean patientBeanSelected = new PatientBean();
@@ -117,10 +117,6 @@ public class DashboardController implements Initializable {
 
                     createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    System.exit(0);
-                }
             }
 
 
