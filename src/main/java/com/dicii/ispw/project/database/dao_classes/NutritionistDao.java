@@ -68,7 +68,6 @@ public class NutritionistDao implements NutritionistDaoInterface, Serializable {
         String surname;
         String dateOfBirth;
         String description;
-        String iva;
         String iban;
         String costo;
         try(Statement statement = connection.createStatement()){
