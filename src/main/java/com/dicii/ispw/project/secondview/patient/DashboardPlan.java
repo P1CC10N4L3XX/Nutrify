@@ -56,7 +56,7 @@ public class DashboardPlan implements Initializable {
     private Label warning;
 
     @FXML
-    private TextField data;
+    private TextField data_;
 
 
     private PatientBean patientBean;
@@ -64,11 +64,11 @@ public class DashboardPlan implements Initializable {
     private ManageNutritionalController createNutritionalController;
 
 
-    private static final String BACK="back";
+    private static final String BACK_="back";
 
-    private static final String SET_DATA="set data .*";
+    private static final String SET_DATA_="set data .*";
 
-    private static final String VIEW_PLAN="view plan";
+    private static final String VIEW_PLAN_="view plan";
 
 
 
@@ -97,7 +97,7 @@ public class DashboardPlan implements Initializable {
         String commandText = commandLine.getText();
         commandLine.setStyle(null);
         commandLine.setText("");
-        if (commandText.matches(VIEW_PLAN)) {
+        if (commandText.matches(VIEW_PLAN_)) {
 
             try{
 
@@ -107,7 +107,7 @@ public class DashboardPlan implements Initializable {
                 root = loader.load();
 
                 ViewNutritionalPlan viewNutritionalPlan = loader.getController();
-                viewNutritionalPlan.takeParameter(data.getText(),patientBean.getIlnessesBean().getName(), userCredentialsBean.getEmail());
+                viewNutritionalPlan.takeParameter(data_.getText(),patientBean.getIlnessesBean().getName(), userCredentialsBean.getEmail());
 
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -123,13 +123,13 @@ public class DashboardPlan implements Initializable {
 
 
         }
-        else if (commandText.matches(SET_DATA)) {
+        else if (commandText.matches(SET_DATA_)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:31/01/2024") ;
             try{
                 String dataValue = commandText.replace("set data ", "");
 
                 if(checkData(dataValue)){
-                    data.setText(dataValue);
+                    data_.setText(dataValue);
                 }else{
 
                     alert.showAndWait() ;
@@ -141,7 +141,7 @@ public class DashboardPlan implements Initializable {
 
 
         }
-        else if (commandText.matches(BACK)) {
+        else if (commandText.matches(BACK_)) {
 
             GUI.switchPage(event,"/secondGui/patient/PatientDashboard.fxml");
 
