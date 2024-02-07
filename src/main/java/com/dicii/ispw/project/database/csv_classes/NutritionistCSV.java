@@ -23,7 +23,7 @@ public class NutritionistCSV implements NutritionistDaoInterface {
     private static final int SURNAME = 3;
     private static final int BIRTH = 4;
     private static final int IBAN = 5;
-    private static final int IVA = 6;
+
     private static final int COST = 7;
     private static final int DESCRIPTION = 8;
     private final File fd;
