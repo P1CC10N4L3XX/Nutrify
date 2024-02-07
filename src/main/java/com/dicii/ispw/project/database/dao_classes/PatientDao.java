@@ -41,7 +41,7 @@ public class PatientDao implements PatientDaoInterface {
         }
     }
 
-    public static List<Patient> displayPatient(String nutritionistEmail) throws DuplicatedUserException {
+    public static List<Patient> displayPatient(String nutritionistEmail){
         ArrayList<Patient> patients = new ArrayList<>() ;
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
 
@@ -56,7 +56,7 @@ public class PatientDao implements PatientDaoInterface {
 
             }
         }catch(SQLException e){
-            throw new DuplicatedUserException(e.getMessage());
+            throw new RuntimeException(e);
         }
 
 

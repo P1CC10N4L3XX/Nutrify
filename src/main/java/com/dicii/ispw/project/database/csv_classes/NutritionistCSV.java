@@ -18,18 +18,9 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 public class NutritionistCSV implements NutritionistDaoInterface {
     private static final String CSV_FILE_NAME = "file/NutritionistFile.csv";
     private final File fd;
-    private final int ATTRIBUTES_NUMBER = 9;
 
     public NutritionistCSV(){
         this.fd = new File(CSV_FILE_NAME);
-
-        if(!fd.exists()){
-            try{
-                fd.createNewFile();
-            }catch(IOException e){
-                throw new RuntimeException(e);
-            }
-        }
     }
     @Override
     public void saveNutritionist(UserCredentials nutritionist) throws DuplicatedUserException {
@@ -50,7 +41,7 @@ public class NutritionistCSV implements NutritionistDaoInterface {
             throw new RuntimeException(e);
         }
 
-        String[] record = new String[ATTRIBUTES_NUMBER];
+        String[] record = new String[9];
 
         record[NutritionistAttributesOrder.getIndexNutritionistEmail()] = nutritionist.getEmail();
         record[NutritionistAttributesOrder.getIndexNutritionistPassword()] = nutritionist.getPassword();

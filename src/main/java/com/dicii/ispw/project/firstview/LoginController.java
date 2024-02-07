@@ -2,6 +2,7 @@ package com.dicii.ispw.project.firstview;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
+import com.dicii.ispw.project.database.TypesOfPersistenceLayer;
 import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.firstview.utils.GUI;
@@ -35,7 +36,7 @@ public class LoginController{
     private final LoginApplicationController loginApplicationController;
 
     public LoginController(){
-        loginApplicationController = new LoginApplicationController();
+        loginApplicationController = new LoginApplicationController(TypesOfPersistenceLayer.JDBC);
     }
 
 

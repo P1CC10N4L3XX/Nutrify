@@ -92,7 +92,7 @@ public class ManageNutritionalController{
     }
 
 
-    public List<PatientBean> displayPatient(String emailNutritionist) throws DuplicatedUserException {
+    public List<PatientBean> displayPatient(String emailNutritionist){
 
         List<Patient> patients= PatientDao.displayPatient(emailNutritionist);
         List<PatientBean> patientsBean;
@@ -224,11 +224,8 @@ public class ManageNutritionalController{
     public void createNewRecipe( RecipeBean recipeBean) throws DuplicatedUserException {
 
         recipe = new Recipe(recipeBean.getName(), recipeBean.getDescription(), recipeBean.getIngredients());
-        RecipeFileSaver recipeFileSaver = new RecipeFileSaver();
         RecipeDao recipeDao = new RecipeDao();
-
         recipeDao.saveRecipe(recipe);
-        recipeFileSaver.saveRecipeInFile(recipe);
 
     }
 

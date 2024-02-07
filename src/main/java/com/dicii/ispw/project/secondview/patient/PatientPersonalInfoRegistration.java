@@ -45,8 +45,6 @@ public class PatientPersonalInfoRegistration implements Initializable {
     @FXML
     private TextArea descriptionTextArea;
 
-    private IlnessesBean ilnessesBean;
-
 
     private static final String SET_NAME="set name .*";
 
@@ -93,44 +91,33 @@ public class PatientPersonalInfoRegistration implements Initializable {
 
 
     @FXML
-    public void onCommand(ActionEvent event) throws IOException, NotExistentUserException, InvalidUserExceptionInfo {
-
-        completeAlert = new Alert(Alert.AlertType.WARNING, "Illnesses not found") ;
-
+    public void onCommand(ActionEvent event) throws IOException {
         String commandText = commandLine.getText() ;
-        commandLine.setStyle(null);
         commandLine.setText("");
         if (commandText.matches(SET_NAME)) {
             String name = commandText.replace("set name ", "") ;
             nameTextField.setText(name);
-
         }
         else if (commandText.matches(SET_SURNAME)) {
             String username = commandText.replace("set surname ", "") ;
             surnameTextField.setText(username);
-
         }
         else if (commandText.matches(SET_BIRTHDAY)) {
             String birthday = commandText.replace("set birthday ", "") ;
-
             if(checkData(birthday)){
                 dateOfBirthDatePicker.setText(birthday);
             }else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Formato Stringa non corretto Esempio:31/01/2024") ;
                 alert.showAndWait() ;
             }
-
-
         }
         else if (commandText.matches(SET_WEIGHT)) {
             String weight = commandText.replace("set weight ", "") ;
             weightTextField.setText(weight);
-
         }
         else if (commandText.matches(SET_HEIGHT)) {
             String height = commandText.replace("set height ", "") ;
             heightTextField.setText(height);
-
         }
         else if (commandText.matches(ILLNESSES)) {
             String illnesses = commandText.replace("set illnesses ", "") ;
@@ -140,18 +127,15 @@ public class PatientPersonalInfoRegistration implements Initializable {
                 completeAlert.showAndWait() ;
             }
             illnessesField.setText(illnesses);
-
-
         }
         else if (commandText.matches(BACK)) {
             GUI.switchPage(event,"/secondGui/user/Registration.fxml");
-
         }
         else if (commandText.compareTo(SUBMIT) == 0) {
             try {
                 PatientBean patientBean = patientInfo();
                 registerApplicationController.completeRegistrationPatient(patientBean);
-                GUI.switchPage(event,"/firstGui/patient/dashboard/DashboardHome.fxml");
+                GUI.switchPage(event,"/secondGui/patient/patientDashboard.fxml");
             }catch(InvalidUserExceptionInfo e){
                 notificationLabel.setText(e.getMessage());
             }
@@ -161,40 +145,26 @@ public class PatientPersonalInfoRegistration implements Initializable {
     }
 
     public boolean checkData(String dataTime){
-
-        boolean a;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate date = LocalDate.parse(dataTime, formatter);
-        if (dataTime.equals(date.format(formatter))) {
-            a=true;
-
-        } else {
-            a=false;
-
-        }
-
-        return a;
+        return dataTime.equals(date.format(formatter));
     }
 
     public boolean checkIllnesses(String recipeName){
-        boolean a=false;
-
         for (IlnessesBean ilnessesBean : list) {
             if(recipeName.matches(ilnessesBean.getName())){
-                a=true;
-                return a;
+                return true;
             }
         }
-
-        return a;
+        return false;
     }
 
 
     private PatientBean patientInfo() throws InvalidUserExceptionInfo{
-        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || heightTextField.getText().isEmpty() || weightTextField.getText().isEmpty()  || dateOfBirthDatePicker.getText().isEmpty()){
+        if(nameTextField.getText().isEmpty() || surnameTextField.getText().isEmpty() || heightTextField.getText().isEmpty() || weightTextField.getText().isEmpty()  || dateOfBirthDatePicker.getText().isEmpty() || illnessesField.getText().isEmpty()){
             throw new InvalidUserExceptionInfo("compile all fields!");
         }
-        return new PatientBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getText(),weightTextField.getText(),heightTextField.getText(),ilnessesBean);
+        return new PatientBean(Session.getSessionInstance().getLoggedUser().getEmail(),nameTextField.getText(),surnameTextField.getText(),descriptionTextArea.getText(),dateOfBirthDatePicker.getText(),weightTextField.getText(),heightTextField.getText(),new IlnessesBean(illnessesField.getText()));
     }
 
 

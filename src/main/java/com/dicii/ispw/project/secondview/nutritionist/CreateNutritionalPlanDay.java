@@ -101,7 +101,7 @@ public class CreateNutritionalPlanDay implements Initializable {
 
     }
 
-    public void onCommand(ActionEvent event) throws IOException, NotExistentUserException {
+    public void onCommand(ActionEvent event) throws IOException {
 
         completeAlert = new Alert(Alert.AlertType.WARNING, "Recipe not found") ;
 

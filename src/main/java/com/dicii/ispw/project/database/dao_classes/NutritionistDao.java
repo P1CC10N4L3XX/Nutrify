@@ -28,7 +28,7 @@ public class NutritionistDao implements NutritionistDaoInterface {
         try(Statement statement = connection.createStatement()){
             NutritionistQueries.insertIntoNutritionist(statement, nutritionist);
         }catch(SQLException e){
-            throw new DuplicatedUserException(e.getMessage());
+            throw new DuplicatedUserException("That email is used");
         }
     }
     public void saveNutritionistAll(Nutritionist nutritionist) {

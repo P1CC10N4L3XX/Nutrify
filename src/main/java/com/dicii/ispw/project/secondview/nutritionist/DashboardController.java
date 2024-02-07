@@ -66,12 +66,8 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        try {
-            list = createNutritionalController.displayPatient(Session.getSessionInstance().getLoggedUser().getEmail());
+        list = createNutritionalController.displayPatient(Session.getSessionInstance().getLoggedUser().getEmail());
 
-        } catch (DuplicatedUserException e) {
-            throw new RuntimeException(e);
-        }
         for (PatientBean patientBean : list) {
 
             myListView.getItems().addAll(String.valueOf(patientBean.getEmail()));

@@ -2,22 +2,18 @@ package com.dicii.ispw.project.secondview;
 
 import com.dicii.ispw.project.applicationcontroller.LoginApplicationController;
 import com.dicii.ispw.project.beans.UserBean;
-
+import com.dicii.ispw.project.exceptions.InvalidUserExceptionInfo;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class LoginControllerGui {
-
     @FXML
     private TextField commandLine ;
     @FXML
@@ -26,83 +22,56 @@ public class LoginControllerGui {
     private TextField typeField ;
     @FXML
     private TextField passwordField ;
-    @FXML
-    private Button enterButton ;
-
-    private Boolean type;
-
-
 
     private LoginApplicationController loginController;
 
-    public LoginControllerGui(){loginController = new LoginApplicationController();
+    public LoginControllerGui(){
+        loginController = new LoginApplicationController();
     }
 
     @FXML
-    public void onCommand(ActionEvent event) throws IOException {
-        String commandText = commandLine.getText() ;
-        commandLine.setStyle(null);
+    public void onCommand(ActionEvent event) throws IOException{
+        String commandText = commandLine.getText();
         commandLine.setText("");
-        if (commandText.matches("set email .*")) {
-            String username = commandText.replace("set email ", "") ;
-            emailField.setText(username);
-
+        if(commandText.matches("set email .*")){
+            emailField.setText(commandText.replace("set email ", ""));
+        }else if(commandText.matches("set password .*")){
+            passwordField.setText(commandText.replace("set password ",""));
+        }else if(commandText.matches("type .*")){
+            typeField.setText(commandText.replace("type", ""));
+        }else if(commandText.compareTo("registration") == 0){
+            GUI.switchPage(event, "/secondGui/Registration.fxml");
+        }else if(commandText.compareTo("submit") == 0){
+            makeLogin(event);
+        }else{
+            Alert commandAlert = new Alert(Alert.AlertType.WARNING, "COMANDO NON RICONOSCIUTO");
+            commandAlert.showAndWait();
         }
-        else if (commandText.matches("set password .*")) {
-            String password = commandText.replace("set password ", "") ;
-            passwordField.setText(password);
-
-        }
-        else if (commandText.matches("type .*")) {
-            String type = commandText.replace("type ", "") ;
-            typeField.setText(type);
-
-        }
-        else if (commandText.compareTo("subscribe") == 0) {
-            GUI.switchPage(event,"/SecondGui/RegistrationController.fxml");
-
-        }
-        else if (commandText.compareTo("submit") == 0) {
-            String userEmail = emailField.getText() ;
-            String userPassword = passwordField.getText() ;
-            String typecamp = typeField.getText() ;
-            if (userEmail.isEmpty() || userPassword.isEmpty()) {
-                Alert completeAlert = new Alert(Alert.AlertType.WARNING, "COMPLETARE TUTTI I CAMPI") ;
-                completeAlert.showAndWait() ;
-            }
-            else {
-                if(Objects.equals(typecamp, "N")){
-                    type=true;
-
-                }
-                if (Objects.equals(typecamp, "P")){
-                    type=false;
-                }
-                try{
-                    UserBean loggedUser = new UserBean(userEmail, userPassword,type);
-                    Session.getSessionInstance().setLoggedUser(loginController.loginUser(loggedUser));
-
-                    if(Objects.equals(typecamp, "N")){
-
-                        GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
-                    }
-                    if(Objects.equals(typecamp, "P")){
-                        GUI.switchPage(event,"/secondGui/patient/PatientDashBoard.fxml");
-                    }
-                }catch (NotExistentUserException e){
-                    Alert completeAlert = new Alert(Alert.AlertType.WARNING, "user does not exist") ;
-                    completeAlert.showAndWait() ;
-
-                }
-
-
-            }
-
-        }
-
-
     }
 
+    private void makeLogin(ActionEvent event) throws IOException{
+        try{
+            UserBean loginUserBean = loginInfo();
+            Session.getSessionInstance().setLoggedUser(loginController.loginUser(loginUserBean));
+            Session.getSessionInstance().initNotificatorSystem();
+            if(loginUserBean.getType()){
+                GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
+            }else{
+                GUI.switchPage(event,"/secondGui/patient/PatientDashboard.fxml");
+            }
+        }catch(InvalidUserExceptionInfo | NotExistentUserException e){
+            Alert completeAlert = new Alert(Alert.AlertType.WARNING, e.getMessage());
+            completeAlert.showAndWait();
+        }
+    }
 
-
+    private UserBean loginInfo() throws InvalidUserExceptionInfo {
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        String typeText = typeField.getText();
+        boolean type = typeText.equals("N");
+        if(email.isEmpty() || password.isEmpty() || typeText.isEmpty()) throw new InvalidUserExceptionInfo("compile all fields");
+        if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
+        return new UserBean(email,password,type);
+    }
 }
