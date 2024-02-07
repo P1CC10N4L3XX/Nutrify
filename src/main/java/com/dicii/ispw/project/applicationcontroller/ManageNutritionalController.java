@@ -8,7 +8,6 @@ import com.dicii.ispw.project.exceptions.NutritionalPlanFounded;
 import com.dicii.ispw.project.exceptions.NutritionalPlanNotFoundException;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.RecipeBean;
-import com.dicii.ispw.project.patterns.decorator.NutritionalPlan;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,15 +102,14 @@ public class ManageNutritionalController{
 
 
     public Patient convertPatientBeanToModel(PatientBean patientBean){
-        Patient patient = new Patient();
-        patient.setEmail(patientBean.getEmail());
-        return patient;
+        Patient patientResult = new Patient();
+        patientResult.setEmail(patientBean.getEmail());
+        return patientResult;
 
     }
 
     public Nutritionist convertNutritionistBeanToModel(NutritionistBean nutritionistBean){
-        Nutritionist nutritionist = new Nutritionist(Session.getSessionInstance().getLoggedUser().getEmail());
-        return nutritionist;
+        return new Nutritionist(Session.getSessionInstance().getLoggedUser().getEmail());
 
     }
 
@@ -143,13 +141,13 @@ public class ManageNutritionalController{
 
         NutritionalPlanDayDao nutritionalPlanDayDao = new NutritionalPlanDayDao();
         boolean type = Session.getSessionInstance().getLoggedUser().getType();
-        NutritionalPlanDay nutritionalPlanDay;
+        NutritionalPlanDay nutritionalPlanDayResult;
 
 
         if (type) {
-            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(email, Session.getSessionInstance().getLoggedUser().getEmail(), day);
+            nutritionalPlanDayResult = nutritionalPlanDayDao.displayNutritionalPlanDay(email, Session.getSessionInstance().getLoggedUser().getEmail(), day);
         } else {
-            nutritionalPlanDay = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(), email, day);
+            nutritionalPlanDayResult = nutritionalPlanDayDao.displayNutritionalPlanDay(Session.getSessionInstance().getLoggedUser().getEmail(), email, day);
         }
 
 
@@ -160,17 +158,17 @@ public class ManageNutritionalController{
         NutritionalPlanDayBean nutritionalPlanDayBean = new NutritionalPlanDayBean();
 
 
-        NutritionalPlanApplaier nutritionalPlanApplaier = new NutritionalPlanApplaier(nutritionalPlanDay);
-        String[] decoratedPlan = nutritionalPlanApplaier.applyDecorator(nutritionalPlanDay, ilnesses);
+        NutritionalPlanApplaier nutritionalPlanApplaier = new NutritionalPlanApplaier(nutritionalPlanDayResult);
+        String[] decoratedPlan = nutritionalPlanApplaier.applyDecorator(nutritionalPlanDayResult, ilnesses);
 
 
-        nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDay.getColazione()));
-        nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDay.getPranzo()));
-        nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDay.getCena()));
+        nutritionalPlanDayBean.setColazione(convertModeltoRecipeBean(nutritionalPlanDayResult.getColazione()));
+        nutritionalPlanDayBean.setPranzo(convertModeltoRecipeBean(nutritionalPlanDayResult.getPranzo()));
+        nutritionalPlanDayBean.setCena(convertModeltoRecipeBean(nutritionalPlanDayResult.getCena()));
         nutritionalPlanDayBean.setQuantitaColazione(decoratedPlan[0]);
         nutritionalPlanDayBean.setQuantitaPranzo(decoratedPlan[1]);
         nutritionalPlanDayBean.setQuantitaCena(decoratedPlan[2]);
-        nutritionalPlanDayBean.setDay(nutritionalPlanDay.getDay());
+        nutritionalPlanDayBean.setDay(nutritionalPlanDayResult.getDay());
 
         return nutritionalPlanDayBean;
 

@@ -31,6 +31,9 @@ public class SubscribeToNutritionistController {
     private final NutritionistDao nutritionistDAO;
     private final PatientDao patientDAO;
     private final NotificationDao notificationDAO;
+    private static final String SUBSCRIPTION_REQUEST = "SubscriptionRequest";
+    private static final String SUBSCRIPTION_REFUSED = "SubscriptionRefused";
+    private static final String SUBSCRIPTION_ACCEPTED = "SubscriptionAccepted";
 
     public SubscribeToNutritionistController(){
         nutritionistDAO = new NutritionistDao();
@@ -66,14 +69,14 @@ public class SubscribeToNutritionistController {
         SubscriptionRequest subscriptionRequest = new SubscriptionRequest(subscriber,nutritionist,currentDate);
         notificationDAO.setSubscriptionRequest(subscriptionRequest);
         NotificationCatch notificationCatch = new NotificationCatch();
-        Notification notification = new Notification(subscriber,nutritionist,currentDate,"Subscription Request",null);
+        Notification notification = new Notification(subscriber,nutritionist,currentDate,SUBSCRIPTION_REQUEST,null);
         notificationCatch.notifyUser(notification,nutritionist);
 
     }
 
     public List<NotificationBean> getSubscriptionRequestNotifications() throws NotExistentNotification {
         User user = new User(Session.getSessionInstance().getLoggedUser().getEmail());
-        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user,"SubscriptionRequest"));
+        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user,SUBSCRIPTION_REQUEST));
         return setNotificationBeanList(notificationList);
     }
 
@@ -82,7 +85,7 @@ public class SubscribeToNutritionistController {
         User receiver = new User(notificationBean.getReceiver());
         String dateTime = notificationBean.getDateTime();
         String message = notificationBean.getMessage();
-        Notification notification = new Notification(sender,receiver,dateTime,message,"SubscriptionAccepted");
+        Notification notification = new Notification(sender,receiver,dateTime,message,SUBSCRIPTION_ACCEPTED);
         notificationDAO.setAcceptedOrRefusedSubscriptionRequest(notification);
         NotificationCatch notificationCatch = new NotificationCatch();
         notificationCatch.notifyUser(notification,receiver);
@@ -93,7 +96,7 @@ public class SubscribeToNutritionistController {
         User receiver = new User(notificationBean.getReceiver());
         String dateTime = notificationBean.getDateTime();
         String message = notificationBean.getMessage();
-        Notification notification = new Notification(sender, receiver, dateTime, message,"SubscriptionRefused");
+        Notification notification = new Notification(sender, receiver, dateTime, message,SUBSCRIPTION_REFUSED);
         notificationDAO.setAcceptedOrRefusedSubscriptionRequest(notification);
         NotificationCatch notificationCatch = new NotificationCatch();
         notificationCatch.notifyUser(notification,receiver);
@@ -101,13 +104,13 @@ public class SubscribeToNutritionistController {
 
     public List<NotificationBean> getSubscriptionAcceptedNotifications() throws NotExistentNotification {
         User user = new User(Session.getSessionInstance().getLoggedUser().getEmail());
-        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user,"SubscriptionAccepted"));
+        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user,SUBSCRIPTION_ACCEPTED));
         return setNotificationBeanList(notificationList);
     }
 
     public List<NotificationBean> getSubscriptionRefusedNotifications() throws NotExistentNotification{
         User user = new User(Session.getSessionInstance().getLoggedUser().getEmail());
-        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user, "SubscriptionRefused"));
+        List<Notification> notificationList = new ArrayList<>(notificationDAO.getNotificationListByUser(user, SUBSCRIPTION_REFUSED));
         return setNotificationBeanList(notificationList);
     }
     public void removeNotificationFromList(NotificationBean notificationBean) {
@@ -115,7 +118,7 @@ public class SubscribeToNutritionistController {
         User destination = new User(notificationBean.getReceiver());
         String message = notificationBean.getMessage();
         String dateTime = notificationBean.getDateTime();
-        Notification notification = new Notification(sender,destination,message,dateTime,"SubscriptionRefused");
+        Notification notification = new Notification(sender,destination,message,dateTime,SUBSCRIPTION_REFUSED);
         notificationDAO.removeNotification(notification);
     }
     private List<NotificationBean> setNotificationBeanList(List<Notification> notificationList){
@@ -170,7 +173,7 @@ public class SubscribeToNutritionistController {
                 notificationPopUpController.initNotification(notificationBean,stage);
                 stage.show();
             } catch (IOException e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
 
         });

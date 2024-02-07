@@ -11,6 +11,9 @@ import com.dicii.ispw.project.database.dao_interfaces.PatientDaoInterface;
 import com.dicii.ispw.project.exceptions.NotExistentUserException;
 import com.dicii.ispw.project.models.UserCredentials;
 
+import static com.dicii.ispw.project.database.TypesOfPersistenceLayer.CSV;
+import static com.dicii.ispw.project.database.TypesOfPersistenceLayer.JDBC;
+
 public class LoginApplicationController {
 
     private PatientDaoInterface patientDAO;
@@ -22,15 +25,12 @@ public class LoginApplicationController {
     }
 
     public LoginApplicationController(TypesOfPersistenceLayer p){
-        switch (p){
-            case JDBC:
-                patientDAO = new PatientDao();
-                nutritionistDAO = new NutritionistDao();
-                break;
-            case CSV:
-                patientDAO = new PatientCSV();
-                nutritionistDAO = new NutritionistCSV();
-                break;
+        if(p == JDBC) {
+            patientDAO = new PatientDao();
+            nutritionistDAO = new NutritionistDao();
+        }else if(p == CSV){
+            patientDAO = new PatientCSV();
+            nutritionistDAO = new NutritionistCSV();
         }
     }
 
