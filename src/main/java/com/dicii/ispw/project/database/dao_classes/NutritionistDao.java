@@ -68,7 +68,6 @@ public class NutritionistDao implements NutritionistDaoInterface, Serializable {
         String surname;
         String dateOfBirth;
         String description;
-        String iva;
         String iban;
         String costo;
         try(Statement statement = connection.createStatement()){
@@ -79,10 +78,9 @@ public class NutritionistDao implements NutritionistDaoInterface, Serializable {
                 surname=resultSet.getString(SURNAME);
                 dateOfBirth=resultSet.getString(BIRTH);
                 description=resultSet.getString(DESCRIPTION);
-                iva=resultSet.getString(IVA);
                 iban=resultSet.getString(IBAN);
                 costo=resultSet.getString(COST);
-                nutritionistResultList.add(new Nutritionist(email,name,surname,dateOfBirth,description,iva,iban,costo));
+                nutritionistResultList.add(new Nutritionist(email,name,surname,dateOfBirth,description,iban,costo));
             }
         } catch (SQLException e) {
             e.printStackTrace();

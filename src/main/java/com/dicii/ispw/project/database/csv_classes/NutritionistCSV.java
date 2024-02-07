@@ -23,7 +23,7 @@ public class NutritionistCSV implements NutritionistDaoInterface {
     private static final int SURNAME = 3;
     private static final int BIRTH = 4;
     private static final int IBAN = 5;
-    private static final int IVA = 6;
+
     private static final int COST = 7;
     private static final int DESCRIPTION = 8;
     private final File fd;
@@ -86,7 +86,6 @@ public class NutritionistCSV implements NutritionistDaoInterface {
                     myRecord[SURNAME] = nutritionist.getSurname();
                     myRecord[BIRTH] = nutritionist.getDateOfBirth();
                     myRecord[IBAN] = nutritionist.getIban();
-                    myRecord[IVA] = nutritionist.getIva();
                     myRecord[COST] = nutritionist.getCosto();
                     myRecord[DESCRIPTION] = nutritionist.getDescription();
                 }
@@ -135,10 +134,9 @@ public class NutritionistCSV implements NutritionistDaoInterface {
                     String surname = myRecord[SURNAME];
                     String dateOfBirth = myRecord[BIRTH];
                     String description = myRecord[DESCRIPTION];
-                    String iva = myRecord[IVA];
                     String iban = myRecord[IBAN];
                     String cost = myRecord[COST];
-                    nutritionistList.add(new Nutritionist(email, name, surname, dateOfBirth, description, iva, iban, cost));
+                    nutritionistList.add(new Nutritionist(email, name, surname, dateOfBirth, description, iban, cost));
                 }
                 i++;
             }
