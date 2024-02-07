@@ -32,21 +32,21 @@ public class NutritionalPlanDay {
     private Parent root;
 
     @FXML
-    private Label nome;
+    private Label nameField;
     @FXML
-    private Label surname;
+    private Label surnameField;
 
     @FXML
-    private Label birthday;
+    private Label birthdayField;
 
     @FXML
-    private Label weight;
+    private Label weightField;
 
     @FXML
-    private Label height;
+    private Label heightField;
 
     @FXML
-    private Label ilneeses;
+    private Label ilneesesField;
 
     @FXML
     private TextField commandLine ;
@@ -61,8 +61,6 @@ public class NutritionalPlanDay {
     private Label patientSelected;
 
     private String email;
-
-
 
     private PatientBean patientBean;
 
@@ -91,12 +89,12 @@ public class NutritionalPlanDay {
 
             patientBean=createNutritionalController.displayUserInfo(emailPatient);
 
-            this.nome.setText(patientBean.getName());
-            this.surname.setText(patientBean.getSurname());
-            this.birthday.setText(patientBean.getDateOfBirth());
-            this.weight.setText(patientBean.getWeight());
-            this.height.setText(patientBean.getHeight());
-            this.ilneeses.setText(patientBean.getIlnessesBean().getName());
+            this.nameField.setText(patientBean.getName());
+            this.surnameField.setText(patientBean.getSurname());
+            this.birthdayField.setText(patientBean.getDateOfBirth());
+            this.weightField.setText(patientBean.getWeight());
+            this.heightField.setText(patientBean.getHeight());
+            this.ilneesesField.setText(patientBean.getIlnessesBean().getName());
 
     }
 
