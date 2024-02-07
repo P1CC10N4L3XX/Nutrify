@@ -109,16 +109,9 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public UserCredentials loadPatientByCredentials(UserCredentials userCredentials) throws NotExistentUserException {
-        CSVReader csvReader = null;
-        try{
-            csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
-        }catch(Exception e){
-            e.printStackTrace();
-            System.exit(0);
-        }
         String[] myRecord;
         boolean recordFound = false;
-        try{
+        try(CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));){
             while((myRecord = csvReader.readNext())!=null){
                 if(myRecord[EMAIL].equals(userCredentials.getEmail()) && myRecord[PASSWORD].equals(userCredentials.getPassword())){
                     recordFound = true;
@@ -138,19 +131,14 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public void setSubscriptionRequestPatient(Patient patient, Nutritionist nutritionist) {
-        CSVReader csvReader = null;
-        CSVWriter csvWriter = null;
-        File tmpFD = null;
-        try{
-            tmpFD = File.createTempFile("dao","tmp");
-            csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
-            csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(tmpFD)));
-        }catch(Exception e){
-            e.printStackTrace();
-            System.exit(0);
-        }
         String[] myRecord;
-        try{
+        File tmpFD = null;
+        try {
+            tmpFD = File.createTempFile("dao","tmp");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try(CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd))); CSVWriter csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(tmpFD)))){
             while ((myRecord = csvReader.readNext())!=null){
                 if(myRecord[EMAIL].equals(patient.getEmail())){
                     myRecord[NUTRITIONIST] = nutritionist.getEmail();
@@ -158,34 +146,23 @@ public class PatientCSV implements PatientDaoInterface {
                 csvWriter.writeNext(myRecord);
             }
             csvWriter.flush();
-            csvWriter.close();
-            csvReader.close();
             Files.move(tmpFD.toPath(),fd.toPath(),REPLACE_EXISTING);
         }catch(Exception e){
             e.printStackTrace();
             System.exit(0);
         }
-
-
     }
 
     @Override
     public User loadNutritionistSubscribed(String patientEmail) throws NotExistentUserException {
-        CSVReader csvReader = null;
-        try {
-            csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
-        }catch (Exception e){
-            e.printStackTrace();
-            System.exit(0);
-        }
         String[] myRecord;
-        try{
+        try (CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));){
             while((myRecord = csvReader.readNext())!=null){
                 if(myRecord[EMAIL].equals(patientEmail)){
                     return new User(myRecord[NUTRITIONIST]);
                 }
             }
-        }catch(Exception e){
+        }catch (Exception e){
             e.printStackTrace();
             System.exit(0);
         }
@@ -194,16 +171,9 @@ public class PatientCSV implements PatientDaoInterface {
 
     @Override
     public Patient selectInfoPatient(String emailPatient){
-        CSVReader csvReader = null;
-        try {
-            csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.exit(0);
-        }
         String[] myRecord;
         Patient patientResult = null;
-        try {
+        try (CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)))){
             while ((myRecord = csvReader.readNext()) != null){
 
                 if(myRecord[EMAIL].equals(emailPatient)){
@@ -216,7 +186,7 @@ public class PatientCSV implements PatientDaoInterface {
                     patientResult = new Patient(email,name,surname,null,dateOfBirth,weight,height);
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
