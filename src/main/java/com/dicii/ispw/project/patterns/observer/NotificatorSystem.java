@@ -8,7 +8,6 @@ import java.rmi.server.UnicastRemoteObject;
 public class NotificatorSystem extends UnicastRemoteObject implements Observer{
     private final SubscribeToNutritionistController subscribeToNutritionistController;
     public NotificatorSystem() throws RemoteException {
-        super();
         subscribeToNutritionistController = new SubscribeToNutritionistController();
     }
     @Override
