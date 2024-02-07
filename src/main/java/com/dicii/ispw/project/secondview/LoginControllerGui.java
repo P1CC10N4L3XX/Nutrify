@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class LoginControllerGui {
     @FXML
@@ -38,7 +39,7 @@ public class LoginControllerGui {
         }else if(commandText.matches("set password .*")){
             passwordField.setText(commandText.replace("set password ",""));
         }else if(commandText.matches("type .*")){
-            typeField.setText(commandText.replace("type", ""));
+            typeField.setText(commandText.replace("type ", ""));
         }else if(commandText.compareTo("registration") == 0){
             GUI.switchPage(event, "/secondGui/Registration.fxml");
         }else if(commandText.compareTo("submit") == 0){
@@ -69,9 +70,14 @@ public class LoginControllerGui {
         String email = emailField.getText();
         String password = passwordField.getText();
         String typeText = typeField.getText();
-        boolean type = typeText.equals("N");
         if(email.isEmpty() || password.isEmpty() || typeText.isEmpty()) throw new InvalidUserExceptionInfo("compile all fields");
         if(!email.contains("@")) throw new InvalidUserExceptionInfo("The email isn't a valid format");
-        return new UserBean(email,password,type);
+        if(typeText.equals("N")) {
+            return new UserBean(email, password, true);
+        }else if(typeText.equals("P")){
+            return new UserBean(email,password,false);
+        }else{
+            throw new InvalidUserExceptionInfo("compile the type as N or P");
+        }
     }
 }
