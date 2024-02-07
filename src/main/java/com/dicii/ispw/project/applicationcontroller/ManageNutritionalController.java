@@ -148,7 +148,7 @@ public class ManageNutritionalController{
         }
 
 
-        if (nutritionalPlanDay == null) {
+        if (nutritionalPlanDayResult == null) {
             throw new NutritionalPlanNotFoundException("La data selezionata non ha nessun piano nutrizionale corrispondente, bisogna prima crearlo");
         }
 
