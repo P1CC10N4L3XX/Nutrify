@@ -28,7 +28,7 @@ public class PatientQueries extends Queries{
     }
 
     public static void updatePatientAll(Statement statement, Patient patient) throws SQLException{
-        String sql = String.format("UPDATE paziente SET Nome = '%s' , Cognome = '%s', DataDiNascita = '%s' , Peso = '%s' , Altezza = '%s', Descrizione = '%s',Malattia = '%s' WHERE Email = '%s' ",patient.getName(),patient.getSurname(),patient.getDateOfBirth(),patient.getWeight(),patient.getHeight(),patient.getIlnesses().getName(),patient.getEmail());
+        String sql = String.format("UPDATE paziente SET Nome = '%s' , Cognome = '%s', DataDiNascita = '%s' , Peso = '%s' , Altezza = '%s',Malattia = '%s' WHERE Email = '%s' ",patient.getName(),patient.getSurname(),patient.getDateOfBirth(),patient.getWeight(),patient.getHeight(),patient.getIlnesses().getName(),patient.getEmail());
         statement.executeUpdate(sql);
     }
 
