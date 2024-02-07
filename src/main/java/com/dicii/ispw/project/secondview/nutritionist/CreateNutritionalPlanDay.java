@@ -113,16 +113,12 @@ public class CreateNutritionalPlanDay implements Initializable {
             String breakfastName = commandText.replace("set breakfast ", "");
             if(checkRecipe(breakfastName)){
                 breakfast.setText(breakfastName);
-            }else{
-                completeAlert.showAndWait() ;
             }
 
         } else if (commandText.matches(SET_LAUNCH)) {
             String launchName = commandText.replace("set launch ", "");
             if(checkRecipe(launchName)){
                 launch.setText(launchName);
-            }else{
-                completeAlert.showAndWait() ;
             }
 
         }
@@ -130,8 +126,6 @@ public class CreateNutritionalPlanDay implements Initializable {
             String dinnerName = commandText.replace("set dinner ", "");
             if(checkRecipe(dinnerName)){
                 dinner.setText(dinnerName);
-            }else{
-                completeAlert.showAndWait() ;
             }
 
 
@@ -161,17 +155,9 @@ public class CreateNutritionalPlanDay implements Initializable {
                 completeAlert = new Alert(Alert.AlertType.WARNING, "Compile all fields") ;
                 completeAlert.showAndWait() ;
             }else{
-                try {
 
                     nutritionalPlanDayBean= new NutritionalPlanDayBean(data.getText(),convertStringToReciBean(breakfast.getText()),convertStringToReciBean(launch.getText()),convertStringToReciBean(dinner.getText()),quantityb.getText(),quantityd.getText(),quantityl.getText());
                     createNutritionalController.sendNutritionalPlanDay(nutritionalPlanDayBean,email);
-
-                }
-
-                catch(Exception e){
-                    e.printStackTrace();
-                    System.exit(0);
-                }
 
 
             }
