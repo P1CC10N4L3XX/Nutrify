@@ -58,12 +58,12 @@ public class PatientCSV implements PatientDaoInterface {
             System.exit(0);
         }
 
-        String[] record = new String[9];
+        String[] myRecord = new String[9];
 
-        record[EMAIL] = patient.getEmail();
-        record[PASSWORD] = patient.getPassword();
+        myRecord[EMAIL] = patient.getEmail();
+        myRecord[PASSWORD] = patient.getPassword();
 
-        csvWriter.writeNext(record);
+        csvWriter.writeNext(myRecord);
         try {
             csvWriter.flush();
             csvWriter.close();
@@ -102,7 +102,8 @@ public class PatientCSV implements PatientDaoInterface {
             csvReader.close();
             Files.move(tmpFD.toPath(),fd.toPath(),REPLACE_EXISTING);
         }catch (Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -112,7 +113,8 @@ public class PatientCSV implements PatientDaoInterface {
         try{
             csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         String[] myRecord;
         boolean recordFound = false;
@@ -124,7 +126,8 @@ public class PatientCSV implements PatientDaoInterface {
                 }
             }
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         if(recordFound){
             return userCredentials;
@@ -159,7 +162,8 @@ public class PatientCSV implements PatientDaoInterface {
             csvReader.close();
             Files.move(tmpFD.toPath(),fd.toPath(),REPLACE_EXISTING);
         }catch(Exception e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
 
 
@@ -197,18 +201,18 @@ public class PatientCSV implements PatientDaoInterface {
             e.printStackTrace();
             System.exit(0);
         }
-        String[] record;
+        String[] myRecord;
         Patient patientResult = null;
         try {
-            while ((record = csvReader.readNext()) != null){
+            while ((myRecord = csvReader.readNext()) != null){
 
-                if(record[EMAIL].equals(emailPatient)){
-                    String email = record[EMAIL];
-                    String name = record[NAME];
-                    String surname = record[SURNAME];
-                    String dateOfBirth = record[BIRTH];
-                    String weight = record[WEIGHT];
-                    String height = record[HEIGHT];
+                if(myRecord[EMAIL].equals(emailPatient)){
+                    String email = myRecord[EMAIL];
+                    String name = myRecord[NAME];
+                    String surname = myRecord[SURNAME];
+                    String dateOfBirth = myRecord[BIRTH];
+                    String weight = myRecord[WEIGHT];
+                    String height = myRecord[HEIGHT];
                     patientResult = new Patient(email,name,surname,null,dateOfBirth,weight,height);
                 }
             }
