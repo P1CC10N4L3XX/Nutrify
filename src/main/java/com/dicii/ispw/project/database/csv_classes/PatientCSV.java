@@ -126,7 +126,8 @@ public class PatientCSV implements PatientDaoInterface {
         try {
             tmpFD = File.createTempFile("dao","tmp");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            System.exit(0);
         }
         try(CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd))); CSVWriter csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(tmpFD)))){
             while ((myRecord = csvReader.readNext())!=null){
