@@ -5,10 +5,8 @@ import com.dicii.ispw.project.database.query.NotificationQueries;
 import com.dicii.ispw.project.exceptions.DuplicatedNotificationException;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.models.Notification;
-import com.dicii.ispw.project.models.Patient;
 import com.dicii.ispw.project.models.SubscriptionRequest;
 import com.dicii.ispw.project.models.User;
-import javafx.scene.chart.XYChart;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -63,11 +61,13 @@ public class NotificationDao {
         }
     }
 
-    public void setAcceptedOrRefusedSubscriptionRequest(Notification notification) {
+    public void setAcceptedOrRefusedSubscriptionRequest(Notification notification) throws DuplicatedNotificationException{
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NotificationQueries.deleteSubscriptionRequestNotification(statement,notification);
             NotificationQueries.insertNotification(statement,notification);
+        }catch(SQLIntegrityConstraintViolationException e){
+            throw new DuplicatedNotificationException("that request was already managed");
         }catch(SQLException e){
             e.printStackTrace();
             System.exit(0);
@@ -84,7 +84,7 @@ public class NotificationDao {
         }
     }
 
-    public void removeSubscriptionRequestNotificationPatient(Patient patient) {
+    public void removeSubscriptionRequestNotificationPatient(User patient) {
         Connection connection = DatabaseConnectionSingleton.getInstance().getConn();
         try(Statement statement = connection.createStatement()){
             NotificationQueries.deleteAllSubscriptionRequestOfPatient(statement,patient);

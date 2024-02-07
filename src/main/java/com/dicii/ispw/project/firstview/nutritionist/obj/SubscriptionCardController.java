@@ -2,6 +2,8 @@ package com.dicii.ispw.project.firstview.nutritionist.obj;
 
 import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistController;
 import com.dicii.ispw.project.beans.NotificationBean;
+import com.dicii.ispw.project.exceptions.DuplicatedNotificationException;
+import com.dicii.ispw.project.exceptions.DuplicatedUserException;
 import com.dicii.ispw.project.exceptions.NotOnlineUserException;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.fxml.FXML;
@@ -43,7 +45,7 @@ public class SubscriptionCardController {
         NotificationBean notificationBean = new NotificationBean(sender,patientEmail,dateTime,"Subscription request accepted");
         try {
             subscribeToNutritionistController.acceptSubscriptionRequest(notificationBean);
-        }catch(NotOnlineUserException e){
+        }catch(NotOnlineUserException | DuplicatedNotificationException e){
             Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage());
             alert.showAndWait();
         }
@@ -56,7 +58,7 @@ public class SubscriptionCardController {
         NotificationBean notificationBean = new NotificationBean(sender, patientEmail, dateTime,"Subscription request refused");
         try{
             subscribeToNutritionistController.refuseSubscriptionRequest(notificationBean);
-        }catch(NotOnlineUserException e){
+        }catch(NotOnlineUserException | DuplicatedNotificationException e){
             Alert alert = new Alert(Alert.AlertType.WARNING,e.getMessage());
             alert.showAndWait();
         }
