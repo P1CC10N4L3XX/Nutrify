@@ -61,18 +61,6 @@ public class LoginController{
             notificationLabel.setText(e.getMessage());
         }
     }
-
-    public void googleButton() throws Exception {
-        Parent popUpRoot = FXMLLoader.load(getClass().getResource("/firstGui/googleLogin.fxml"));
-        Stage popUpStage = new Stage();
-        Scene popUpScene = new Scene(popUpRoot);
-        popUpStage.setTitle("Google login");
-        popUpStage.setResizable(false);
-        popUpStage.setScene(popUpScene);
-        popUpStage.initModality(Modality.WINDOW_MODAL);
-        popUpStage.show();
-
-    }
     private UserCredentialsBean loginInfo() throws InvalidUserExceptionInfo{
         String email=emailField.getText();
         String password=passwordField.getText();

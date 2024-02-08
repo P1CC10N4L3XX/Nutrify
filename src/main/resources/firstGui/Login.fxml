@@ -21,7 +21,7 @@
             </font>
         </Text>
         <TextField id="emailField" fx:id="emailField" layoutX="140.0" layoutY="216.0" prefHeight="26.0" prefWidth="220.0" promptText="Email" style="-fx-background-color: white; -fx-background-radius: 15; -fx-alignment: center;" />
-        <Button fx:id="googleButton" alignment="CENTER" layoutX="128.0" layoutY="366.0" onAction="#googleButton" prefHeight="55.0" prefWidth="247.0" style="-fx-background-color: white; -fx-background-radius: 15;" styleClass="normalButton" text="Login con google" />
+        <Button alignment="CENTER" layoutX="128.0" layoutY="366.0" prefHeight="55.0" prefWidth="247.0" style="-fx-background-color: white; -fx-background-radius: 15;" styleClass="normalButton" text="Login con google" />
         <ImageView fitHeight="39.0" fitWidth="44.0" layoutX="323.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@Image/Google.png" />
         </ImageView>
