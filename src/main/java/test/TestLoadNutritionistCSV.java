@@ -15,7 +15,7 @@ public class TestLoadNutritionistCSV {
     //Il seguente test verifica il metodo loadNutritionistByCredentials della classe NutritionistCSV
 
     @Test
-    public void TestLoadNutritionistByCredentials() throws NotExistentUserException {
+    public void testLoadNutritionistByCredentials() throws NotExistentUserException {
         int a=1;
         NutritionistCSV nutritionistCSV = new NutritionistCSV();
         UserCredentials expectedUserCredentials = new UserCredentials("p@gmail.com","ciao");

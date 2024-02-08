@@ -5,8 +5,6 @@ import com.dicii.ispw.project.models.Ilnesses;
 import com.dicii.ispw.project.models.Patient;
 import org.junit.Test;
 
-import java.util.Objects;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
