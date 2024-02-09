@@ -1,9 +1,15 @@
 package com.dicii.ispw.project.patterns.decorator;
 
-public interface  NutritionalPlan {
-        public String getQuantitaColazione();
+public abstract class NutritionalPlan {
+    public String getQuantitaColazione() {
+        return null;
+    }
 
-        public String getQuantitaPranzo();
+    public String getQuantitaPranzo() {
+        return null;
+    }
 
-        public String getQuantitaCena();
+    public String getQuantitaCena() {
+        return null;
+    }
 }

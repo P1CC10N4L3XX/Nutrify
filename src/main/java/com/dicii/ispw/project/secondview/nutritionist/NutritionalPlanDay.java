@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
-public class NutritionalPlanDay {
+public class NutritionalPlanDay  {
 
     private Stage stages;
     private Scene scenes;

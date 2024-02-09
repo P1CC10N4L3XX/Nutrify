@@ -2,7 +2,7 @@ package com.dicii.ispw.project.models;
 import com.dicii.ispw.project.patterns.decorator.NutritionalPlan;
 
 
-public class NutritionalPlanDay implements NutritionalPlan {
+public class NutritionalPlanDay extends NutritionalPlan {
 
 
     protected String day;
