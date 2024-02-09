@@ -130,17 +130,17 @@
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="quantitaColazione" layoutX="547.0" layoutY="245.0" prefHeight="26.0" prefWidth="250.0" textAlignment="CENTER">
+                <Label fx:id="quantitaColazione" layoutX="547.0" layoutY="245.0" prefHeight="26.0" prefWidth="326.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="quantitaPranzo" layoutX="547.0" layoutY="307.0" prefHeight="26.0" prefWidth="238.0" textAlignment="CENTER">
+                <Label fx:id="quantitaPranzo" layoutX="547.0" layoutY="307.0" prefHeight="26.0" prefWidth="323.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="quantitaCena" layoutX="547.0" layoutY="367.0" prefHeight="26.0" prefWidth="238.0" textAlignment="CENTER">
+                <Label fx:id="quantitaCena" layoutX="547.0" layoutY="367.0" prefHeight="26.0" prefWidth="327.0" textAlignment="CENTER">
                     <font>
                         <Font size="17.0" />
                     </font>

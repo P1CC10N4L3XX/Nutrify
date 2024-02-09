@@ -19,7 +19,17 @@ public class NutritionalPlanApplaier {
                     diabeticDecorator.getQuantitaPranzo(),
                     diabeticDecorator.getQuantitaCena()
             };
-        } else {
+        }
+        if(illness != null && illness.equals("Celiacita")){
+
+            NutritionalPlanCeliaci nutritionalPlanCeliaci = new NutritionalPlanCeliaci(nutritionalPlanDay);
+            return new String[] {
+                    nutritionalPlanCeliaci.getQuantitaColazione(),
+                    nutritionalPlanCeliaci.getQuantitaPranzo(),
+                    nutritionalPlanCeliaci.getQuantitaCena()
+            };
+
+        }else{
             return new String[] {
                     nutritionalPlanDay.getQuantitaColazione(),
                     nutritionalPlanDay.getQuantitaPranzo(),
