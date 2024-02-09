@@ -12,23 +12,26 @@ public class NutritionalPlanCeliaci extends NutritionalPlanDayDecorator{
         super(component);
     }
 
+    public String addInformation(String quantita){
+        return quantita+VERSION;
+    }
 
 
     @Override
     public String getQuantitaColazione() {
         String preliminaryResults = super.getQuantitaColazione();
-        return preliminaryResults + VERSION ;
+        return addInformation(preliminaryResults);
     }
 
     @Override
     public String getQuantitaPranzo() {
         String preliminaryResults = super.getQuantitaPranzo();
-        return preliminaryResults + VERSION ;
+        return addInformation(preliminaryResults);
     }
 
     @Override
     public String getQuantitaCena() {
         String preliminaryResults = super.getQuantitaCena();
-        return preliminaryResults  + VERSION;
+        return addInformation(preliminaryResults);
     }
 }
