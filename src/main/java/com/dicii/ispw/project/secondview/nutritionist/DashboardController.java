@@ -5,6 +5,7 @@ import com.dicii.ispw.project.beans.NutritionalPlanBean;
 import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.beans.PatientBean;
 import com.dicii.ispw.project.exceptions.DuplicatedUserException;
+import com.dicii.ispw.project.exceptions.NutritionalPlanBaseAlreadyCreated;
 import com.dicii.ispw.project.firstview.utils.GUI;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -90,7 +92,7 @@ public class DashboardController implements Initializable {
                 warning.setText("select patient before");
             }else{
 
-
+                try{
                     nutritionistBean = new NutritionistBean(Session.getSessionInstance().getLoggedUser().getEmail());
 
                     PatientBean patientBeanSelected = new PatientBean();
@@ -116,6 +118,12 @@ public class DashboardController implements Initializable {
                     nutritionalPlanBean = new NutritionalPlanBean(formattedDateString,patientBeanSelected,nutritionistBean);
 
                     createNutritionalController.createNutrutionalPlan(nutritionalPlanBean);
+
+                }catch (NutritionalPlanBaseAlreadyCreated e){
+                    Alert commandAlert = new Alert(Alert.AlertType.WARNING, "your are managing the nutritional plan of "+patientField.getText());
+                    commandAlert.showAndWait();
+                }
+
 
             }
 
