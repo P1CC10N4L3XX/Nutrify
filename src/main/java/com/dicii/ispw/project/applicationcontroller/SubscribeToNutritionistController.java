@@ -9,12 +9,15 @@ import com.dicii.ispw.project.exceptions.DuplicatedNotificationException;
 import com.dicii.ispw.project.exceptions.NotExistentNotification;
 import com.dicii.ispw.project.exceptions.NotOnlineUserException;
 import com.dicii.ispw.project.firstview.obj.NotificationPopUpController;
+import com.dicii.ispw.project.firstview.patient.PaymentController;
 import com.dicii.ispw.project.models.*;
 import com.dicii.ispw.project.beans.SubscriptionRequestBean;
 import com.dicii.ispw.project.patterns.observer.NotificationCatch;
 import com.dicii.ispw.project.patterns.singleton.Session;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
@@ -183,5 +186,21 @@ public class SubscribeToNutritionistController implements Serializable {
             }
 
         });
+    }
+
+    public void pay(NutritionistBean nutritionistBean) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/firstgui/patient/Payment.fxml"));
+            Parent root = loader.load();
+            PaymentController paymentController = loader.getController();
+            paymentController.initPaymentArea(nutritionistBean);
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+            System.exit(0);
+        }
     }
 }

@@ -23,7 +23,7 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="349.0" layoutY="390.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="349.0" layoutY="390.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -32,17 +32,17 @@
         <AnchorPane layoutX="361.0" layoutY="416.0" prefHeight="4.0" prefWidth="207.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
         <AnchorPane layoutX="300.0" layoutY="199.0" prefHeight="4.0" prefWidth="132.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
 
-        <TextField fx:id="dinner" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="300.0" layoutY="233.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="dinner" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="dinner" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="300.0" layoutY="233.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="dinner" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="launch" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="300.0" layoutY="173.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="launch" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="launch" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="300.0" layoutY="173.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="launch" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="breakfast" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="300.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="breakfast" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="breakfast" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="300.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="breakfast" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -57,18 +57,18 @@
             </content>
         </ScrollPane>
         <Button fx:id="enterButton" layoutX="589.0" layoutY="392.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
-        <TextField fx:id="quantityb" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="475.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="quantity" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="quantityb" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="475.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="quantity" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
         <AnchorPane layoutX="482.0" layoutY="259.0" prefHeight="4.0" prefWidth="118.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
-        <TextField fx:id="quantityl" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="475.0" layoutY="182.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="quantity" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="quantityl" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="475.0" layoutY="182.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="quantity" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="quantityd" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="475.0" layoutY="233.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="quantity" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="quantityd" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="475.0" layoutY="233.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="quantity" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>

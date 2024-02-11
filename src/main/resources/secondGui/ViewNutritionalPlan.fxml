@@ -21,7 +21,7 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="275.0" layoutY="417.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="275.0" layoutY="417.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>

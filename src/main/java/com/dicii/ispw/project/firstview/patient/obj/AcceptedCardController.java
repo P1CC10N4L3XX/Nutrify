@@ -1,5 +1,6 @@
 package com.dicii.ispw.project.firstview.patient.obj;
 
+import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistController;
 import com.dicii.ispw.project.beans.NotificationBean;
 import com.dicii.ispw.project.beans.NutritionistBean;
 import com.dicii.ispw.project.firstview.patient.PaymentController;
@@ -25,24 +26,11 @@ public class AcceptedCardController {
     private Button paymentButton;
 
     public void initNotificationCard(NotificationBean notificationBean){
+        SubscribeToNutritionistController subscribeToNutritionistController = new SubscribeToNutritionistController();
         notificationSender.setText(notificationBean.getSender());
         notificationMessage.setText(notificationBean.getReceiver());
         NutritionistBean nutritionistBean = new NutritionistBean(notificationBean.getSender());
-        paymentButton.setOnAction(event -> paymentButtonClick(nutritionistBean,event));
+        paymentButton.setOnAction(_ -> subscribeToNutritionistController.pay(nutritionistBean));
     }
-    private void paymentButtonClick(NutritionistBean nutritionistBean, ActionEvent event){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/firstgui/patient/Payment.fxml"));
-            Parent root = loader.load();
-            PaymentController paymentController = loader.getController();
-            paymentController.initPaymentArea(nutritionistBean);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.show();
-        }catch(IOException e){
-            e.printStackTrace();
-            System.exit(0);
-        }
-    }
+
 }

@@ -21,14 +21,14 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="225.0" layoutY="418.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="225.0" layoutY="418.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
         <AnchorPane layoutX="337.0" layoutY="143.0" prefHeight="4.0" prefWidth="114.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
         <AnchorPane layoutX="237.0" layoutY="444.0" prefHeight="4.0" prefWidth="207.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
-        <TextField fx:id="data" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="326.0" layoutY="117.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="data" style="-fx-blend-mode: black; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="data" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="326.0" layoutY="117.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="data" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>

@@ -21,7 +21,7 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="234.0" layoutY="376.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="234.0" layoutY="376.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -39,7 +39,7 @@
         <Button fx:id="enterButton" layoutX="475.0" layoutY="377.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
         <ListView fx:id="myListView" layoutX="387.0" layoutY="117.0" prefHeight="185.0" prefWidth="230.0" />
         <Text layoutX="484.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe" />
-      <TextField fx:id="recipes" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="232.0" layoutY="327.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="128.0" promptText="recipe" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+      <TextField fx:id="recipes" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="232.0" layoutY="327.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="128.0" promptText="recipe" style="-fx-background-color: black; -fx-background-radius: 90;">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>

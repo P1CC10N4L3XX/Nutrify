@@ -22,7 +22,7 @@
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="158.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
 
         </ImageView>
-        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="209.0" layoutY="372.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="commandLine" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="209.0" layoutY="372.0" mouseTransparent="true" onAction="#onCommand" prefHeight="28.0" prefWidth="230.0" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -31,17 +31,17 @@
         <AnchorPane layoutX="221.0" layoutY="398.0" prefHeight="4.0" prefWidth="207.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
         <AnchorPane layoutX="316.0" layoutY="199.0" prefHeight="4.0" prefWidth="132.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
 
-              <TextField fx:id="dateOfBirthDatePicker" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="221.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="birthday" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+              <TextField fx:id="dateOfBirthDatePicker" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="221.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="birthday" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="surnameTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="171.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="surname" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="surnameTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="171.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="surname" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
-        <TextField fx:id="nameTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="name" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="nameTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="name" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
@@ -56,18 +56,18 @@
             </content>
         </ScrollPane>
         <Button fx:id="enterButton" layoutX="442.0" layoutY="374.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
-        <TextField fx:id="ibanTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="266.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="iban" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+        <TextField fx:id="ibanTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="316.0" layoutY="266.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="iban" style="-fx-background-color: black; -fx-background-radius: 90;">
             <font>
                 <Font name="Tahoma" size="14.0" />
             </font>
         </TextField>
         <AnchorPane layoutX="322.0" layoutY="292.0" prefHeight="4.0" prefWidth="118.0" style="-fx-background-color: #76ff03; -fx-background-radius: 90;" />
-      <TextField fx:id="ivaTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="493.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="iva" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+      <TextField fx:id="ivaTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="493.0" layoutY="121.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="iva" style="-fx-background-color: black; -fx-background-radius: 90;">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="costTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="493.0" layoutY="171.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="cost" style="-fx-blend-mode: 56; -fx-background-color: black; -fx-background-radius: 90;">
+      <TextField fx:id="costTextField" blendMode="SRC_ATOP" cache="true" cacheHint="SPEED" layoutX="493.0" layoutY="171.0" mouseTransparent="true" prefHeight="28.0" prefWidth="132.0" promptText="cost" style="-fx-background-color: black; -fx-background-radius: 90;">
          <font>
             <Font name="Tahoma" size="14.0" />
          </font>
