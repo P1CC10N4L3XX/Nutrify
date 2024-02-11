@@ -141,9 +141,7 @@ public class DashboardController implements Initializable {
                     patientField.setText(patient);
                 }
             }
-            if(patientField.getText().isEmpty()){
-                warning.setText("paziente not existes");
-            }
+
 
 
 
