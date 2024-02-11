@@ -14,14 +14,14 @@ import java.sql.*;
 public class NutritionalPlanDayDao {
 
     private static final String RICETTA_COLAZIONE="RicettaColazione";
-    private static final String RICETTA_PRANZO="RicettaColazione";
-    private static final String RICETTA_CENA="RicettaColazione";
+    private static final String RICETTA_PRANZO="RicettaPranzo";
+    private static final String RICETTA_CENA="RicettaCena";
     private static final String QUANTITA_COLAZIONE="QuantitaColazione";
-    private static final String QUANTITA_PRANZO="QuantitaCena";
+    private static final String QUANTITA_PRANZO="QuantitaPranzo";
     private static final String QUANTITA_CENA="QuantitaCena";
     private static final String DATA_CONSUMAZIONE="DataConsumazione";
 
-    private static final String DESCRIZIONE="Descrizione";
+
 
     
 
