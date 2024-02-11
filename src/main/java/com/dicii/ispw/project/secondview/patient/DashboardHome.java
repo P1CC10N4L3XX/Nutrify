@@ -27,7 +27,7 @@ public class DashboardHome implements Initializable {
     @FXML
     private ListView<String> nutritionistListView;
 
-    private static final String MY_PLAN = "My plan";
+    private static final String MY_PLAN = "my plan";
     private static final String NOTIFICATION = "notificationArea";
 
     private static final String SEE_NUTRITIONIST = "see .*";

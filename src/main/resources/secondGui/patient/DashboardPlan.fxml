@@ -44,18 +44,18 @@
         </ScrollPane>
         <Button fx:id="enterButton" layoutX="458.0" layoutY="420.0" mnemonicParsing="false" onAction="#onCommand" style="-fx-background-color: black;" />
         <Text fill="WHITE" layoutX="336.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Your informations" />
-        <Text fill="WHITE" layoutX="336.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Name" />
-        <Text fill="WHITE" layoutX="336.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Surname" />
-        <Text fill="WHITE" layoutX="337.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Birthday" />
-        <Text fill="WHITE" layoutX="506.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Wheight" />
-        <Text fill="WHITE" layoutX="506.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Height" />
-        <Text fill="WHITE" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font: white;" text="Ilneeses" />
-        <Label fx:id="nameText" layoutX="390.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-        <Label fx:id="surnameText" layoutX="404.0" layoutY="272.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-        <Label fx:id="birthdayText" layoutX="397.0" layoutY="306.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-        <Label fx:id="weightText" layoutX="568.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-        <Label fx:id="heightText" layoutX="568.0" layoutY="272.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-        <Label fx:id="ilneesesText" layoutX="568.0" layoutY="306.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
+        <Text fill="WHITE" layoutX="336.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+        <Text fill="WHITE" layoutX="336.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
+        <Text fill="WHITE" layoutX="337.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday" />
+        <Text fill="WHITE" layoutX="506.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheight" />
+        <Text fill="WHITE" layoutX="506.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height" />
+        <Text fill="WHITE" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilneeses" />
+        <Label fx:id="nameText" layoutX="390.0" layoutY="236.0" text="Label" textFill="WHITE" />
+        <Label fx:id="surnameText" layoutX="404.0" layoutY="272.0" text="Label" textFill="WHITE" />
+        <Label fx:id="birthdayText" layoutX="397.0" layoutY="306.0" text="Label" textFill="WHITE" />
+        <Label fx:id="weightText" layoutX="568.0" layoutY="236.0" text="Label" textFill="WHITE" />
+        <Label fx:id="heightText" layoutX="568.0" layoutY="272.0" text="Label" textFill="WHITE" />
+        <Label fx:id="ilneesesText" layoutX="568.0" layoutY="306.0" text="Label" textFill="WHITE" />
         <Label fx:id="warning" layoutX="338.0" layoutY="168.0" textFill="#05f701" />
 
     </children>

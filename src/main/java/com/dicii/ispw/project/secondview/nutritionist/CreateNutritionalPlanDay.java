@@ -177,8 +177,7 @@ public class CreateNutritionalPlanDay implements Initializable {
 
             }
         }
-        completeAlert = new Alert(Alert.AlertType.WARNING, "recipe not found") ;
-        completeAlert.showAndWait() ;
+
 
     }
 

@@ -86,7 +86,7 @@ public class ViewNutritionalPlan {
         if(commandText.matches(BACK)){
             boolean type=Session.getSessionInstance().getLoggedUser().getType();
             if(type){
-                GUI.switchPage(event,"/secondGui/nutritionist/dashboard/DashboardHome.fxml");
+                GUI.switchPage(event,"/secondGui/nutritionist/NutritionalPlanDashboard.fxml");
             }else{
                 GUI.switchPage(event,"/secondGui/patient/DashboardPlan.fxml");
             }

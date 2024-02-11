@@ -120,8 +120,7 @@ public class NutritionalPlanDay  {
                 stages.show();
 
             }catch (NutritionalPlanNotFoundException | DuplicatedUserException e){
-                e.printStackTrace();
-                System.exit(0);
+                warning.setText(e.getMessage());
             }
 
 
