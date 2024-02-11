@@ -32,7 +32,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="250.0">
                     <children>
-                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- create plan&#10;- set patient &lt;patient&gt;&#10;- add recipe&#10;- submit&#10;- login" />
+                        <TextArea layoutX="14.0" layoutY="34.0" prefHeight="174.0" prefWidth="242.0" text="- create plan&#10;- set patient &lt;patient&gt;&#10;- add recipe&#10;&#10;" />
                     </children>
                 </AnchorPane>
             </content>
