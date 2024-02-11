@@ -50,12 +50,12 @@
       <Text fill="WHITE" layoutX="506.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheight" />
       <Text fill="WHITE" layoutX="506.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height" />
       <Text fill="WHITE" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilneeses" />
-      <Label fx:id="nameField" layoutX="390.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-      <Label fx:id="surnameField" layoutX="404.0" layoutY="272.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-      <Label fx:id="birthdayField" layoutX="397.0" layoutY="306.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-      <Label fx:id="weightField" layoutX="568.0" layoutY="236.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-      <Label fx:id="heightField" layoutX="568.0" layoutY="272.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
-      <Label fx:id="ilneesesField" layoutX="568.0" layoutY="306.0" style="-fx-font: white;" text="Label" textFill="WHITE" />
+      <Label fx:id="nameField" layoutX="390.0" layoutY="236.0" text="Label" textFill="WHITE" />
+      <Label fx:id="surnameField" layoutX="404.0" layoutY="272.0"  text="Label" textFill="WHITE" />
+      <Label fx:id="birthdayField" layoutX="397.0" layoutY="306.0"  text="Label" textFill="WHITE" />
+      <Label fx:id="weightField" layoutX="568.0" layoutY="236.0"  text="Label" textFill="WHITE" />
+      <Label fx:id="heightField" layoutX="568.0" layoutY="272.0"  text="Label" textFill="WHITE" />
+      <Label fx:id="ilneesesField" layoutX="568.0" layoutY="306.0"  text="Label" textFill="WHITE" />
       <Label fx:id="warning" layoutX="338.0" layoutY="168.0" textFill="#05f701" />
       <Label fx:id="patientSelected" layoutX="494.0" layoutY="195.0" prefHeight="17.0" prefWidth="167.0" textFill="WHITE" />
 
