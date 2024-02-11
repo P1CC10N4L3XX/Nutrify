@@ -4,7 +4,6 @@ import com.dicii.ispw.project.applicationcontroller.SubscribeToNutritionistContr
 import com.dicii.ispw.project.models.Notification;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Objects;
 
 public class NotificatorSystem extends UnicastRemoteObject implements Observer{
     public NotificatorSystem() throws RemoteException {
